@@ -49,9 +49,9 @@
                         {{-- {{$post}} --}}
                             <div class="col-lg-6 col-md-6 col-12">
                                 <!-- Start Single Blog  -->
-                                <div class="shop-single-blog">
+                                <div class="shop-single-blog col-12">
                                 <img src="{{$post->photo}}" alt="{{$post->photo}}">
-                                    <div class="content">
+                                    <div class="content col-12">
                                         @php 
                                             $author_info=DB::table('users')->select('name')->where('id',$post->added_by)->get();
                                         @endphp
