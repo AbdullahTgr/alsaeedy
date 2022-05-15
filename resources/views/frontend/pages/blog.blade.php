@@ -11,10 +11,11 @@
     
 	<meta property="og:url" content="https://www.facebook.com/alsaeedyblog"> 
 
+    
 	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag->title}}@endforeach">
 	<meta name="description" content="مدونة السعدي لكل القصص والحكايات ومحبى القراءة ومتعتها ولكل كاتب واعد لسه بيبدأ ... سوف نسبح فى بحر قصة أو رواية أو كتاب أو ذكريات جميلة نسترجعها بكل تفاصيلها مدونة لكل فرد يحب القراءة ويسبح بها ويعلو عنان السماء">
 	
-	<meta property="og:title" content="مدونة السعدي ">
+	<meta property="og:title" content="مدونة السعدي "> 
 
 	<meta property="og:description" content="مدونة السعدي لكل القصص والحكايات ومحبى القراءة ومتعتها ولكل كاتب واعد لسه بيبدأ ... سوف نسبح فى بحر قصة أو رواية أو كتاب أو ذكريات جميلة نسترجعها بكل تفاصيلها مدونة لكل فرد يحب القراءة ويسبح بها ويعلو عنان السماء">
 @endsection

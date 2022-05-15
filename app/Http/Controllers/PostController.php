@@ -20,7 +20,7 @@ class PostController extends Controller
     {
         $posts=Post::getAllPost(); 
         $tags=PostTag::get();
-
+ 
         
         // return $posts;
         return view('backend.post.index')->with('tags',$tags)->with('posts',$posts);

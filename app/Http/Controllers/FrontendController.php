@@ -407,7 +407,7 @@ class FrontendController extends Controller
         return view('frontend.pages-fr.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post);  
         }else{
 // arabic
-        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post);  
+        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post);   
         }
 
         
@@ -433,12 +433,15 @@ class FrontendController extends Controller
     public function blogSearch(Request $request){
         // return $request->all();
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
+        $tags=PostTag::get();
+
         $posts=Post::orwhere('title','like','%'.$request->search.'%')
             ->orwhere('quote','like','%'.$request->search.'%')
             ->orwhere('summary','like','%'.$request->search.'%')
             ->orwhere('description','like','%'.$request->search.'%')
             ->orwhere('slug','like','%'.$request->search.'%')
             ->orderBy('id','DESC')
+           
             ->paginate(8);
         
         if(session()->get('locale')=="en"){
@@ -449,13 +452,14 @@ class FrontendController extends Controller
         return view('frontend.pagesfr.blog')->with('posts',$posts)->with('recent_posts',$rcnt_post);
                     }else{
             // arabic
-        return view('frontend.pages.blog')->with('posts',$posts)->with('recent_posts',$rcnt_post);
+        return view('frontend.pages.blog') ->with('tags',$tags)->with('posts',$posts)->with('recent_posts',$rcnt_post);
                    }
 
     }
 
     public function blogFilter(Request $request){
         $data=$request->all();
+        
         // return $data;
         $catURL="";
         if(!empty($data['category'])){
@@ -487,17 +491,19 @@ class FrontendController extends Controller
 
     public function blogByCategory(Request $request){
         $post=PostCategory::getBlogByCategory($request->slug);
+        $tags=PostTag::get();
+
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
         
         if(session()->get('locale')=="en"){
             // english
-        return view('frontend.pages-en.blog')->with('posts',$post->post)->with('recent_posts',$rcnt_post);
+        return view('frontend.pages-en.blog')->with('tags',$tags)->with('posts',$post->post)->with('recent_posts',$rcnt_post);
                     }elseif(session()->get('locale')=="fr"){
             // french
-        return view('frontend.pages-fr.blog')->with('posts',$post->post)->with('recent_posts',$rcnt_post);
+        return view('frontend.pages-fr.blog')->with('tags',$tags)->with('posts',$post->post)->with('recent_posts',$rcnt_post);
                     }else{
             // arabic
-        return view('frontend.pages.blog')->with('posts',$post->post)->with('recent_posts',$rcnt_post);
+        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post->post)->with('recent_posts',$rcnt_post);
                    }
     }
 
@@ -506,16 +512,17 @@ class FrontendController extends Controller
         $post=Post::getBlogByTag($request->slug);
         // return $post;
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
+        $tags=PostTag::get();
         
         if(session()->get('locale')=="en"){
             // english
-        return view('frontend.pages-en.blog')->with('posts',$post)->with('recent_posts',$rcnt_post);
+        return view('frontend.pages-en.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post);
                     }elseif(session()->get('locale')=="fr"){
             // french
-        return view('frontend.pages-fr.blog')->with('posts',$post)->with('recent_posts',$rcnt_post);
+        return view('frontend.pages-fr.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post);
                     }else{
             // arabic
-        return view('frontend.pages.blog')->with('posts',$post)->with('recent_posts',$rcnt_post);
+        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post);
                    }
     }
 
