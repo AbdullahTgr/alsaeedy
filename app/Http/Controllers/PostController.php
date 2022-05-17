@@ -67,7 +67,7 @@ class PostController extends Controller
         if(!isset($request->added_by)){
             $data['added_by']=Auth::user()->id;
         } 
-        $slug=Str::slug($request->title);
+        $slug=Str::slug($request->title.'-'.$request->{'title-ar'}.'-'); 
         $count=Post::where('slug',$slug)->count();
         if($count>0){
             $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
