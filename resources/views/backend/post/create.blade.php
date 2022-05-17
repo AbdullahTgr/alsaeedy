@@ -5,7 +5,13 @@
 <div class="card">
     <h5 class="card-header">Add Post</h5>
     <div class="card-body">
-      <form method="post" action="{{route('post.store')}}">
+        @if (Auth::user()->role=='admin')
+      <form method="post" action="{{route('post.store')}}"> 
+
+        @else   
+        <form method="post" action="{{route('post_m.store')}}"> 
+ 
+    @endif
         {{csrf_field()}}
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
@@ -146,6 +152,8 @@
               @endforeach
           </select>
         </div>
+@if (Auth::user()->role=='admin')
+   
         <div class="form-group">
           <label for="added_by">Author</label>
           <select name="added_by" class="form-control">
@@ -155,6 +163,8 @@
             @endforeach
           </select>
         </div>
+@endif
+
         <div class="form-group">
           <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
           <div class="input-group">

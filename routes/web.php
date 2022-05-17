@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -84,7 +84,7 @@ Route::get('/product-grids','FrontendController@productGrids')->name('product-gr
 Route::get('/product-lists','FrontendController@productLists')->name('product-lists');
 Route::match(['get','post'],'/filter','FrontendController@productFilter')->name('shop.filter');
 // Order Track
-Route::get('/product/track','OrderController@orderTrack')->name('order.track');
+Route::get('/product/track','OrderController@orderTrack')->name('order.track'); 
 Route::post('product/track/order','OrderController@productTrackOrder')->name('product.track.order');
 // Blog 
 Route::get('/blog','FrontendController@blog')->name('blog');
@@ -116,13 +116,8 @@ Route::get('payment/success', 'PayPalController@success')->name('payment.success
 // Backend section start
 
 Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
-    Route::get('/','AdminController@index')->name('admin');
-
-    // Route::get('/file-manager',function(){
-    //     return view('backend.layouts.file-manager');
-    // })->name('file-manager');
-
-    
+    Auth::user();
+    Route::get('/','AdminController@index')->name('admin');    
     Route::get('/file-manager','AdminController@filemanager')->name('file-manager'); 
 
     // user route
@@ -140,15 +135,7 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::resource('/product','ProductController');
     // Ajax for sub category
     Route::post('/category/{id}/child','CategoryController@getChildByParent');
-    // POST category
-    Route::resource('/post-category','PostCategoryController');
-    // Post tag
-    Route::resource('/post-tag','PostTagController');
-    // Post
-    Route::resource('/post','PostController');
-    // Message
-    Route::resource('/message','MessageController');
-    Route::get('/message/five','MessageController@messageFive')->name('messages.five');
+
 
     // Order
     Route::resource('/order','OrderController');
@@ -167,7 +154,46 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     // Password Change
     Route::get('change-password', 'AdminController@changePassword')->name('change.password.form');
     Route::post('change-password', 'AdminController@changPasswordStore')->name('change.Password');
+    
+   // POST category
+   Route::resource('/post-category','PostCategoryController');
+   // Post tag
+   Route::resource('/post-tag','PostTagController');
+   // Post
+   Route::resource('/post','PostController');
+   // Message
+   Route::resource('/message','MessageController');
+   Route::get('/message/five','MessageController@messageFive')->name('messages.five');
 });
+
+
+
+
+
+
+
+
+ 
+
+// Backend section start
+
+Route::group(['prefix'=>'/moderator','middleware'=>['auth','moderator']],function(){
+    
+  Route::get('/','AdminController@index')->name('moderator');
+   // Post
+   Route::resource('/post_m','PostController'); 
+   // Message
+   Route::resource('/message_m','MessageController');
+   Route::get('/message/five_m','MessageController@messageFive')->name('messages.five_m');
+
+});
+
+
+
+
+
+
+
 
 
 

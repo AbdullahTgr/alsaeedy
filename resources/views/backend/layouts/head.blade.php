@@ -1,4 +1,6 @@
 <?php $settings=DB::table('settings')->get(); ?>
+
+
 <head>
 
     <meta charset="utf-8">

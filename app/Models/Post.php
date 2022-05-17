@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
     protected $fillable=['title','tags','summary','slug','description','photo','quote','title-ar','summary-ar','description-ar','quote-ar','title-fr','summary-fr','description-fr','quote-fr','post_cat_id','post_tag_id','added_by','status'];
-
+    
 
     public function cat_info(){
         return $this->hasOne('App\Models\PostCategory','id','post_cat_id');
@@ -20,7 +21,15 @@ class Post extends Model
         return $this->hasOne('App\User','id','added_by');
     }
     public static function getAllPost(){
-        return Post::with(['cat_info','author_info'])->orderBy('id','DESC')->paginate(10);
+        
+        $role=Auth::user()->role;
+        if($role=='admin'){
+            return Post::with(['cat_info','author_info'])->orderBy('id','DESC')->paginate(10);
+        }else{
+            $user=Auth::user()->id;
+            return Post::with(['cat_info','author_info'])->where('added_by',$user)->orderBy('id','DESC')->paginate(10);
+        }
+        
     }
     // public function get_comments(){
     //     return $this->hasMany('App\Models\PostComment','post_id','id');

@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\PostTag;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -18,6 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
+        
         $posts=Post::getAllPost(); 
         $tags=PostTag::get();
  
@@ -35,7 +37,7 @@ class PostController extends Controller
     {
         $categories=PostCategory::get();
         $tags=PostTag::get();
-        $users=User::get();
+        $users=User::get(); 
         return view('backend.post.create')->with('users',$users)->with('categories',$categories)->with('tags',$tags);
     }
 
@@ -62,6 +64,9 @@ class PostController extends Controller
 
         $data=$request->all();
 
+        if(!isset($request->added_by)){
+            $data['added_by']=Auth::user()->id;
+        } 
         $slug=Str::slug($request->title);
         $count=Post::where('slug',$slug)->count();
         if($count>0){
@@ -85,7 +90,12 @@ class PostController extends Controller
         else{
             request()->session()->flash('error','Please try again!!');
         }
-        return redirect()->route('post.index');
+        if(Auth::user()->role=='admin'){
+            return redirect()->route('post.index');
+        }else{
+            return redirect()->route('post_m.index');
+        }
+        
     }
 
     /**

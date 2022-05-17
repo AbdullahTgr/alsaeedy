@@ -7,9 +7,18 @@
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-
+    @php
+    $user=Auth()->user() 
+  @endphp
+  
     <!-- Sidebar -->
+    @if ($user->role=='admin')
+        
     @include('backend.layouts.sidebar')
+    @else
+    
+    @include('backend.layouts.sidebar_m')
+    @endif
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->

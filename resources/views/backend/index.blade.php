@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 @section('title',"Lang::get('msg.Alsaidi')")
 @section('main-content')
-<div class="container-fluid">
+<div class="container-fluid"> 
     @include('backend.layouts.notification')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
