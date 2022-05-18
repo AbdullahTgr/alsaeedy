@@ -79,7 +79,7 @@ class PostController extends Controller
             $data['tags']=implode(',',$tags);
         }
         else{
-            $data['tags']='';
+            $data['tags']=''; 
         }
         // return $data;
 

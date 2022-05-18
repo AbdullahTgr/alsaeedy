@@ -22,14 +22,14 @@
             
     <!-- Shop Login -->
     <section class="shop login section">
-        <div class="container">
+        <div class="container"> 
             <div class="row"> 
                 <div class="col-lg-6 offset-lg-3 col-12"> 
                     <div class="login-form">
                         <h2>{{ Lang::get('msg.login') }}</h2>
                         <p>{{ Lang::get('msg.pleaseregisterinordertocheckoutmorequickly') }}</p>
                         <!-- Form -->
-                        <form class="form" method="post" action="{{route('login.submit')}}">   
+                        <form class="form" method="post" action="{{route('login.submit')}}">    
                             @csrf
                             <div class="row">
                                 <div class="col-12">

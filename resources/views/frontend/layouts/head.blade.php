@@ -9,7 +9,7 @@ $path="";
 @foreach($settings as $data)
 
  @php
-    $path=$data->logo
+    $path=$data->logo 
 @endphp
 
 @endforeach

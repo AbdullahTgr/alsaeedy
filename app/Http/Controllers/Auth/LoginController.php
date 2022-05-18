@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Socialite;
+// use Socialite;
+use Laravel\Socialite\Facades\Socialite;
 use App\User;
 use Auth;
 class LoginController extends Controller
@@ -38,7 +39,7 @@ class LoginController extends Controller
      */
 
     public function credentials(Request $request){
-        return ['email'=>$request->email,'password'=>$request->password,'status'=>'active','role'=>'admin'];
+        return ['email'=>$request->email,'password'=>$request->password,'status'=>'active'];
     }
     public function __construct()
     {
@@ -52,9 +53,10 @@ class LoginController extends Controller
     }
  
     public function Callback($provider)
-    {
-        $userSocial =   Socialite::driver($provider)->stateless()->user();
-        $users      =   User::where(['email' => $userSocial->getEmail()])->first();
+    { 
+        
+        $userSocial =   Socialite::driver($provider)->stateless()->user(); 
+        $users      =   User::where(['email' => $userSocial->getEmail()])->first();  
         // dd($users);
         if($users){
             Auth::login($users);
@@ -67,7 +69,7 @@ class LoginController extends Controller
                 'provider_id'   => $userSocial->getId(),
                 'provider'      => $provider,
             ]);
-         return redirect()->route('home');
+         return redirect()->route('home'); 
         }
     }
 }

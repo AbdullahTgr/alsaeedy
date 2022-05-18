@@ -16,7 +16,7 @@
                                 <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
                             </div>
                             <div class="product-action-2">
-                                <a title="Add to cart" href="#">Add to cart</a>
+                                <a title="Add to cart" href="#">Add to cart</a> 
                             </div>
                         </div>
                     </div>

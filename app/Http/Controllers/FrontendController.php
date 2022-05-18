@@ -10,7 +10,7 @@ use App\Models\Post;
 use App\Models\Cart;
 use App\Models\Brand;
 use App\User;
-use Auth;
+
 use Session;
 use Newsletter;
 use DB;
@@ -18,6 +18,8 @@ use Hash;
 use App;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 class FrontendController extends Controller
 { 
     public function __construct()
@@ -539,12 +541,14 @@ class FrontendController extends Controller
 
     // Login
     public function login(){
-        return view('frontend.pages.login');
+        return view('frontend.pages.login'); 
     }
+
+    
     public function loginSubmit(Request $request){
         $data= $request->all();
         if(Auth::attempt(['email' => $data['email'], 'password' => $data['password'],'status'=>'active'])){
-            Session::put('user',$data['email']);
+            Session::put('user',$data['email']); 
             request()->session()->flash('success','Successfully login');
             return redirect()->route('home');
         } 
@@ -558,6 +562,7 @@ class FrontendController extends Controller
     public function register(){
         return view('frontend.pages.register');
     }
+
     public function registerSubmit(Request $request){
         // return $request->all();
         $this->validate($request,[
