@@ -53,27 +53,7 @@ $path="";
                     <img class="first-slide" src="{{$banner->photo}}" alt="First slide">
                     <div class="carousel-caption d-md-block text-left">
 
-                            @if(session()->get('locale')=="en")
-                                {{-- english --}}
-                                
-                        <h1 class="wow fadeInDown">
-                            {{$banner->title}}
-                        <p>{!! html_entity_decode($banner->description) !!}</p>
-                        </h1>
-                            @elseif(session()->get('locale')=="fr")
-                                {{-- french --}}
-                        <h1 class="wow fadeInDown">
-                            {{$banner->{'title-fr'} }}
-                        <p>{!! html_entity_decode($banner->{'description-fr'}) !!}</p>
-                        </h1>
-                            @else
-                                {{-- Arabic --}}
-                        <h1 class="wow fadeInDown">
-                            {{$banner->{'title-ar'} }}
-                        <p>{!! html_entity_decode($banner->{'description-ar'}) !!}</p>
-                        </h1>
-                            @endif
-                            <a target="_blank" href="https://www.youtube.com/channel/UCoJSM0GLnhJh17gZVvALHaA" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>{{ Lang::get('msg.watchvid') }}</span></a>
+                    
                         <a class="btn btn-lg ws-btn wow fadeInUpBig" href="{{route('product-grids')}}"  role="button">{{ Lang::get('msg.shopnow') }}<i class="far fa-arrow-alt-circle-right"></i></i></a>
                     </div>
                 </div>  
@@ -739,9 +719,8 @@ $path="";
         }
 
         #Gslider .carousel-inner .carousel-caption {
-            bottom: 25%;
-    background: #ffffff2e;
-    padding: 5%;
+            bottom: 30%;
+            
         }
 
         #Gslider .carousel-inner .carousel-caption h1 {

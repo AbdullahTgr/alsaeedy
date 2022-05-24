@@ -20,8 +20,8 @@ Route::post('user/login','FrontendController@loginSubmit')->name('login.submit')
 Route::get('user/logout','FrontendController@logout')->name('user.logout');
 
 // Socialite 
-// Route::get('login/{provider}/', 'Auth\LoginController@redirect')->name('login.redirect');
-// Route::get('login/{provider}/callback/', 'Auth\LoginController@Callback')->name('login.callback');
+Route::get('login/{provider}/', 'Auth\LoginController@redirect')->name('login.redirect');
+Route::get('login/{provider}/callback/', 'Auth\LoginController@Callback')->name('login.callback');
 
 Route::get('login','Auth\LoginController@showLoginForm')->name('login');
 Route::post('login','Auth\LoginController@login');

@@ -11,6 +11,10 @@
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary float-left">Comment Lists</h6>
     </div>
+    @if ($comments=='0')
+            Nice Try.
+    @else
+      
     <div class="card-body">
       <div class="table-responsive">
         @if(count($comments)>0)
@@ -38,6 +42,7 @@
             </tr>
           </tfoot>
           <tbody>
+          
             @foreach($comments as $comment)
             {{-- {{$comment}}   --}}
               @php 
@@ -73,7 +78,8 @@
           <h6 class="text-center">No post comments found!!!</h6>
         @endif
       </div>
-    </div>
+    </div>  
+@endif
 </div>
 @endsection
 

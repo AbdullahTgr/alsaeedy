@@ -34,7 +34,7 @@
             <td>
                 @if($order->status=='new')
                   <span class="badge badge-primary">{{$order->status}}</span>
-                @elseif($order->status=='process')
+                @elseif($order->status=='process') 
                   <span class="badge badge-warning">{{$order->status}}</span>
                 @elseif($order->status=='delivered')
                   <span class="badge badge-success">{{$order->status}}</span>

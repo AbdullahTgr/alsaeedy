@@ -7,7 +7,10 @@
 	<div class="map-section">
 		<div id="myMap">
 			{{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1189.4921157314338!2d30.905724929250294!3d29.948752460899954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458558555082e97%3A0x593b829e1803c6db!2z2YbZhdin2KEg2YTZhdin2YPZitmG2KfYqiDYp9mE2KrYudio2KbYqSDZiNin2YTYqti62YTZitmB!5e1!3m2!1sen!2seg!4v1648066432401!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> --}}
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1125.9037628727765!2d30.918672229250415!3d29.899543998870953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458556b731f3cfb%3A0x748d0967771ae0ef!2sSpan%20Software%20Development%20Office!5e1!3m2!1sen!2seg!4v1651098188411!5m2!1sen!2seg" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+			{{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1125.9037628727765!2d30.918672229250415!3d29.899543998870953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458556b731f3cfb%3A0x748d0967771ae0ef!2sSpan%20Software%20Development%20Office!5e1!3m2!1sen!2seg!4v1651098188411!5m2!1sen!2seg" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+		 --}}
+		 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2380.16055468608!2d30.919219000000002!3d29.899544000000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145855997624f8df%3A0x476422e7a2e2bc24!2z2YXZgtixINmF2K_ZiNmG2Kkg2KfZhNiz2LnYr9mK!5e1!3m2!1sen!2seg!4v1653372647503!5m2!1sen!2seg" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+		
 		</div>
 	</div>
 	<!--/ End Map Section -->							

@@ -8,6 +8,7 @@ use Notification;
 use App\User;
 use App\Notifications\StatusNotification;
 use App\Models\PostComment;
+use Illuminate\Support\Facades\Auth;
 class PostCommentController extends Controller
 {
     /**
@@ -17,12 +18,18 @@ class PostCommentController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->role=='admin'){
         $comments=PostComment::getAllComments();
+
+        }else{
+            $comments='0';
+            
+        }
         return view('backend.comment.index')->with('comments',$comments);
-    }
+    } 
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new resource. 
      *
      * @return \Illuminate\Http\Response
      */

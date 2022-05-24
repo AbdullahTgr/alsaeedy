@@ -14,7 +14,7 @@ class MessageController extends Controller
      */
     public function index(){
         $messages=Message::paginate(20);
-        return view('backend.message.index')->with('messages',$messages);
+        return view('backend.message.index')->with('messages',$messages); 
     }
     public function messageFive()
     {
@@ -83,7 +83,7 @@ class MessageController extends Controller
             return back();
         }
     }
-
+ 
     /**
      * Show the form for editing the specified resource.
      *

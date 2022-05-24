@@ -21,7 +21,7 @@
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>
           </select>
-          @error('status')
+          @error('status') 
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
