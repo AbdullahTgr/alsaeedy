@@ -34,6 +34,7 @@ $path="";
 <link rel="manifest" href="/manifest.json">
 <!-- Bootstrap -->
 <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.css')}}">
+
 <!-- Magnific Popup -->
 <link rel="stylesheet" href="{{asset('frontend/css/magnific-popup.min.css')}}">
 <!-- Font Awesome -->
@@ -54,6 +55,12 @@ $path="";
 <link rel="stylesheet" href="{{asset('frontend/css/slicknav.min.css')}}">
 <!-- Jquery Ui -->
 <link rel="stylesheet" href="{{asset('frontend/css/jquery-ui.css')}}">
+
+
+    <!-- main style -->
+    
+    <link rel="stylesheet" href="{{asset('frontend/css/all.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/newprd.css')}}">
 
 <link href="{{ asset('glightbox/css/glightbox.min.css') }}" rel="stylesheet">
 <link href="{{ asset('glightbox/css/remixicon.css') }}" rel="stylesheet">

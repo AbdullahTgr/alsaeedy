@@ -1,5 +1,41 @@
 @extends('backend.layouts.master')
+<style>
+#tags{
+  float:left;
+  border:1px solid #ccc;
+  padding:5px;
+  font-family:Arial;
+}
+#tags > span{
+  cursor:pointer;
+  display:block;
+  float:left;
+  color:#fff;
+  background:#789;
+  padding:5px;
+  padding-right:25px;
+  margin:4px;
+}
+#tags > span:hover{
+  opacity:0.7;
+}
+#tags > span:after{
+ position:absolute;
+ content:"×";
+ border:1px solid;
+ padding:2px 5px;
+ margin-left:3px;
+ font-size:11px;
+}
+#tags > input{
+  background:#eee;
+  border:0;
+  margin:4px;
+  padding:7px;
+  width:auto;
+}
 
+</style>
 @section('main-content')
 
 <div class="card">
@@ -133,7 +169,7 @@
 
 
 
-        <div class="form-group">
+         <div class="form-group">
           <label for="post_cat_id">Category <span class="text-danger">*</span></label>
           <select name="post_cat_id" class="form-control">
               <option value="">--Select any category--</option>
@@ -142,16 +178,24 @@
               @endforeach
           </select>
         </div>
-
+{{--
         <div class="form-group">
           <label for="tags">Tag</label>
-          <select name="tags[]" multiple  data-live-search="true" class="form-control selectpicker">
+          <select name="tags[]" multiple  data-live-search="true" class="form-control selectpicker tagz">
               <option value="">--Select any tag--</option>
               @foreach($tags as $key=>$data)
                   <option value='{{$data->title}}'>{{$data->title}}</option>
               @endforeach
           </select>
+        </div>  --}}
+
+        <div class="tagz">separete with comma ( , )</div>
+        <div id="tags">
+          <span>--Write any tag--</span>
+          <input type="text" value=""  placeholder="Add a tag" />
         </div>
+
+
 @if (Auth::user()->role=='admin')
    
         <div class="form-group">
@@ -286,6 +330,29 @@
       });
     });
     // $('select').selectpicker();
+    $(function(){
+       // DOM ready
 
+// ::: TAGS BOX
+
+$("#tags input").on({
+  focusout : function() {
+    var txt = this.value.replace(/[^a-z0-9\+\-\.\#]/ig,''); // allowed characters
+   // if(txt) $("<span/>", {text:txt.toLowerCase(), insertBefore:this});
+    if(txt) $(this).parent("div").append('<span><input type="hidden" value="'+txt.toLowerCase()+'" name="tags[]">'+txt.toLowerCase()+'</span>');
+    this.value = "";
+  },
+  keyup : function(ev) {
+    // if: comma|enter (delimit more keyCodes with | pipe)
+    if(/(188|13)/.test(ev.which)) $(this).focusout(); 
+  }
+});
+
+$('#tags').on('click', 'span', function() {
+  if(confirm("Remove "+ $(this).text() +"?")) $(this).remove(); 
+});
+
+
+});
 </script>
 @endpush

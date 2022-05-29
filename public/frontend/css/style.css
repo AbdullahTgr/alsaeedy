@@ -2253,6 +2253,7 @@ Version:1.0
     position: absolute;
     right: 0;
     bottom: 0;
+    height: 100%;
     z-index: 99;
     border-radius: 3px;
 }
@@ -2348,18 +2349,17 @@ Version:1.0
     -webkit-transition: all 250ms ease-out;
     -o-transition: all 250ms ease-out;
     transition: all 250ms ease-out;
+    height: 100%;
 }
 
 .single-product .product-img .product-action-2 a {
-    display: block;
-    background-color: transparent;
     color: #900C3F;
     text-align: right;
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
-    line-height: 1;
     display: inline-block;
+    height: 100%;
 }
 
 .single-product .product-img .product-action-2 a:hover {
@@ -2369,7 +2369,6 @@ Version:1.0
 .single-product .button-head {
     background: #fff;
     display: inline-block;
-    height: 40px;
     width: 100%;
     position: absolute;
     left: 0;
@@ -2425,6 +2424,8 @@ Version:1.0
 
 .single-product .product-content {
     margin-top: 20px;
+    background: #dddddd38;
+    padding: 0 20px;
 }
 
 .single-product .product-img:hover.default-overlay::before {

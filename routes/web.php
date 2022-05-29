@@ -65,14 +65,14 @@ Route::post('/add-to-cart','CartController@singleAddToCart')->name('single-add-t
 Route::get('cart-delete/{id}','CartController@cartDelete')->name('cart-delete');
 Route::post('cart-update','CartController@cartUpdate')->name('cart.update');
 
-// Route::get('/cart',function(){
-//     return view('frontend.pages.cart');
-// })->name('cart');
+Route::get('/cart',function(){
+    return view('frontend.pages.cart');
+})->name('cart');
 
-// // Wishlist
-// Route::get('/wishlist',function(){
-//     return view('frontend.pages.wishlist');
-// })->name('wishlist');
+// Wishlist
+Route::get('/wishlist',function(){
+    return view('frontend.pages.wishlist');
+})->name('wishlist');
 
 Route::get('/wishlist','CartController@wishlist')->name('wishlist');
 Route::get('/cart','CartController@cart')->name('cart');
