@@ -2,7 +2,7 @@
 <html lang="zxx">
 <head>
 	@include('frontend.layouts.head')	 
-	
+
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-46ERGGZ0G3"></script>
 <script>
@@ -12,6 +12,8 @@
 
   gtag('config', 'G-46ERGGZ0G3');
 </script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9802244405698113"
+     crossorigin="anonymous"></script>
 </head>
 <body class="js">
 	
