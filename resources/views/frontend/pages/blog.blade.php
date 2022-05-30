@@ -20,8 +20,13 @@ $path="";
  
     
 	<meta property="og:url" content="https://www.facebook.com/alsaeedyblog"> 
-    <meta property="og:image" content="{{ url($path) }}" />
+    <meta property="og:image"  itemprop="image"  content="{{ url($path) }}" />
     <meta name="twitter:image" content="{{ url($path) }}">
+
+    
+    <meta property="og:type" content="website" />
+
+
     <meta name="twitter:description" content="مدونة السعدي لكل القصص والحكايات ومحبى القراءة ومتعتها ولكل كاتب واعد لسه بيبدأ ... سوف نسبح فى بحر قصة أو رواية أو كتاب أو ذكريات جميلة نسترجعها بكل تفاصيلها مدونة لكل فرد يحب القراءة ويسبح بها ويعلو عنان السماء ">
 
 	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag->title}}@endforeach">

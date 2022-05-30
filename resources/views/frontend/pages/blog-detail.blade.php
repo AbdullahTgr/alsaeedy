@@ -20,7 +20,8 @@
     
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="{!! strip_tags($post->{'title-ar'}) !!}">
-	<meta property="og:image" content="{{ $post->photo }} ">
+	<meta property="og:image"  itemprop="image"  content="{{ $post->photo }} ">
+    
 	<meta property="og:description" content="{!!  strip_tags($post->{'description-ar'} ) !!}">
 @endsection
 
