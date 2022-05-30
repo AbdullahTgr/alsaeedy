@@ -1207,7 +1207,7 @@ Version:1.0
         padding: 20px 0;
     }
     .header.shop .topbar {
-        background: #581845;
+        background: var(--dark);
     }
     .header.shop .topbar .top-left {
         text-align: center;
@@ -1220,9 +1220,9 @@ Version:1.0
     .header.shop .list-main li {
         border: none;
         padding: 0;
-        display: block;
-        padding: 5px 0;
-        border-bottom: 1px solid #eee;
+        display: inline-block;
+        padding: 6px;
+        border-left: 1px solid #eee;
         text-align: left;
         color: #636363;
     }
@@ -1245,7 +1245,6 @@ Version:1.0
     }
     .header.shop .topbar .right-content {
         margin-top: 0px;
-        border-top: 1px solid #ffffff87;
     }
     .header.shop .search-bar {
         width: 445px;

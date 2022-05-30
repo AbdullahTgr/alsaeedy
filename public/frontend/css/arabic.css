@@ -22,7 +22,7 @@ body {
 }
 
 .topp {
-    direction: ltr;
+    direction: rtl;
 }
 
 .shop.checkout .checkout-form {

@@ -9,8 +9,8 @@ Version:1.0
 
 ========================================
 
-#581845
-#900C3F               Colors Used
+var(--dark)
+var(--dark)               Colors Used
 #FFC300
 
 ========================================
@@ -85,7 +85,7 @@ Version:1.0
     border-radius: 5px 0 0 5px;
     background: #fff;
     text-align: center;
-    color: #900C3F;
+    color: var(--dark);
     top: 0;
     cursor: pointer;
     box-shadow: -4px 0px 5px #00000036;
@@ -246,7 +246,7 @@ Version:1.0
     font-weight: 500;
     font-size: 13px;
     color: #fff;
-    background: #900C3F;
+    background: var(--dark);
     display: inline-block;
     -webkit-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
@@ -276,7 +276,7 @@ Version:1.0
     width: 40px;
     line-height: 40px;
     background: transparent;
-    background: #900C3F;
+    background: var(--dark);
     border-radius: 0;
     font-size: 18px;
     -webkit-transition: all 500ms ease;
@@ -330,7 +330,7 @@ Version:1.0
 
 .header.v3 .navbar-expand-lg .navbar-collapse {
     display: block !important;
-    background: #900C3F;
+    background: var(--dark);
 }
 
 .header .nav li a i {
@@ -347,9 +347,9 @@ Version:1.0
     position: absolute;
     top: 100%;
     z-index: 999;
-    -webkit-box-shadow: 0px 3px 5px #900C3F3334d;
-    -moz-box-shadow: 0px 3px 5px #900C3F3334d;
-    box-shadow: 0px 3px 5px #900C3F3334d;
+    -webkit-box-shadow: 0px 3px 5px var(--dark)3334d;
+    -moz-box-shadow: 0px 3px 5px var(--dark)3334d;
+    box-shadow: 0px 3px 5px var(--dark)3334d;
     transform-origin: 0 0 0;
     transform: scaleY(0.2);
     -webkit-transition: all 0.3s ease 0s;
@@ -416,7 +416,7 @@ Version:1.0
     -webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 3px 5px #900C3F3334d;
+    box-shadow: 0px 3px 5px var(--dark)3334d;
     transform-origin: 0 0 0;
     transform: scaleY(0.2);
     -webkit-transition: all 0.3s ease 0s;
@@ -460,8 +460,8 @@ Version:1.0
 }
 
 .header.shop .topbar {
-    border: none;
-    padding: 12px 0px;
+    padding: 3px;
+    text-align: center;
 }
 
 .header.shop .nav-inner {
@@ -530,7 +530,8 @@ Version:1.0
 }
 
 .header.shop .list-main li a {
-    color: #900C3F;
+    color: #ffffff;
+    font-size: 10px;
 }
 
 .header.shop .list-main li a:hover {
@@ -586,25 +587,26 @@ Version:1.0
 .header .shopping .icon {
     position: relative;
     cursor: pointer;
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .header .shopping .shopping-item {
     position: absolute;
+    border-radius: 20px;
     top: 68px;
     right: 0;
-    width: 300px;
-    background: #fff;
-    padding: 20px 25px;
+    width: 70vh;
+    background: #fcfcfc;
+    padding: 25px 16px;
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     -webkit-transform: translateY(10px);
     -moz-transform: translateY(10px);
-    transform: translateY(10px);
-    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(32px);
+    -webkit-box-shadow: 0px 0px 5px rgb(0 0 0 / 20%);
     -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
     opacity: 0;
     visibility: hidden;
     z-index: 99;
@@ -624,7 +626,7 @@ Version:1.0
 
 .header .shopping .dropdown-cart-header span {
     text-transform: uppercase;
-    color: #900C3F;
+    color: var(--dark);
     font-size: 13px;
     font-weight: 600;
 }
@@ -632,7 +634,7 @@ Version:1.0
 .header .shopping .dropdown-cart-header a {
     float: right;
     text-transform: uppercase;
-    color: #900C3F;
+    color: var(--dark);
     font-size: 13px;
     font-weight: 600;
 }
@@ -659,14 +661,14 @@ Version:1.0
     line-height: 18px;
     text-align: center;
     background: #fff;
-    color: #900C3F;
+    color: var(--dark);
     border-radius: 0;
     font-size: 11px;
     border: 1px solid #ededed;
 }
 
 .header .shopping-list li .remove:hover {
-    background: #900C3F;
+    background: var(--dark);
     color: #fff !important;
     border-color: transparent;
 }
@@ -700,7 +702,7 @@ Version:1.0
 .header .shopping-list h4 a {
     font-weight: 600;
     font-size: 13px;
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .header .shopping-list h4 a:hover {
@@ -719,7 +721,7 @@ Version:1.0
 
 .header .shopping-item .total span {
     text-transform: uppercase;
-    color: #900C3F;
+    color: var(--dark);
     font-size: 13px;
     font-weight: 600;
     float: left;
@@ -731,7 +733,7 @@ Version:1.0
 }
 
 .header .shopping-item .bottom .btn {
-    background: #900C3F;
+    background: var(--dark);
     padding: 10px 20px;
     display: block;
     color: #fff;
@@ -757,7 +759,7 @@ Version:1.0
 }
 
 .header.shop .topbar {
-    background-color: #581845;
+    background-color: var(--dark);
     border: none;
 }
 
@@ -771,7 +773,7 @@ Version:1.0
 }
 
 .header.shop .right-nav li a {
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .header.shop .logo {
@@ -814,7 +816,7 @@ Version:1.0
     margin: 0;
     line-height: 45px;
     border-radius: 5px;
-    border: 1px solid #900C3F61;
+    border: 1px solid var(--dark)61;
 }
 
 .header.shop .nice-select {
@@ -926,7 +928,7 @@ Version:1.0
 }
 
 .header.shop .header-inner {
-    background: #900C3F;
+    background: var(--dark);
 }
 
 .header.shop.v3 .header-inner {
@@ -939,7 +941,7 @@ Version:1.0
 }
 
 .header.shop .topbar p {
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .header.shop .all-category {
@@ -990,7 +992,7 @@ Version:1.0
 .header.shop .main-category li a {
     font-size: 14px;
     font-weight: 600;
-    color: #900C3F;
+    color: var(--dark);
     padding: 13px 25px 13px 25px;
     display: block;
     text-transform: uppercase;
@@ -1099,7 +1101,7 @@ Version:1.0
 }
 
 .header.shop .main-category li .mega-menu .single-menu .title-link:hover {
-    background: #900C3F;
+    background: var(--dark);
     color: #fff;
 }
 
@@ -1158,16 +1160,18 @@ Version:1.0
 }
 
 .header.shop.v2 .nav li a {
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .header.shop .nav li a {
     color: #fff;
     text-transform: capitalize;
-    font-size: 15px;
-    padding: 20px 15px;
-    font-weight: 500;
+    font-size: 13px;
+    padding: 12px 15px;
+    font-weight: 300;
+    border-right: 1px solid #dddddd17;
     display: block;
+    text-align: center;
     position: relative;
     -webkit-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
@@ -1190,7 +1194,7 @@ Version:1.0
 }
 
 .header.shop.v2 .nav li.active a {
-    color: #900C3F !important;
+    color: var(--dark) !important;
     background: transparent !important;
 }
 
@@ -1207,7 +1211,7 @@ Version:1.0
 }
 
 .header.shop.v2 .nav li.active .dropdown li a {
-    color: #900C3F !important;
+    color: var(--dark) !important;
 }
 
 .header.shop.v2 .nav li.active .dropdown li a:hover {
@@ -1224,14 +1228,14 @@ Version:1.0
 }
 
 .header.shop .nav li .dropdown li a {
-    color: #900C3F;
+    color: var(--dark);
     padding: 8px 15px;
     font-weight: 400;
     background: #fff;
 }
 
 .header.shop.v2 .nav li .dropdown li a {
-    color: #900C3F;
+    color: var(--dark);
     background: #fff;
 }
 
@@ -1271,7 +1275,7 @@ Version:1.0
 }
 
 .header.shop .right-bar .sinlge-bar .single-icon {
-    color: #900C3F;
+    color: var(--dark);
     font-size: 20px;
     position: relative;
 }
@@ -1365,7 +1369,7 @@ Version:1.0
     border-radius: 3px;
     border: none;
     background: #fff;
-    color: #900C3F;
+    color: var(--dark);
     border-radius: 0;
 }
 
@@ -1382,7 +1386,7 @@ Version:1.0
     border-radius: 0;
     border-left: 1px solid #eee;
     font-size: 15px;
-    color: #900C3F;
+    color: var(--dark);
     -webkit-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
     transition: all 0.4s ease;
@@ -1422,7 +1426,7 @@ Version:1.0
 }
 
 .header.sticky .header-inner .nav li a {
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .header.sticky.v3 .header-inner .nav li a {
@@ -1438,11 +1442,11 @@ Version:1.0
 }
 
 .header.sticky .header-inner .nav li .dropdown li a {
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .header.sticky.v2 .header-inner .nav li .dropdown li a {
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .header.sticky .header-inner .nav li .dropdown li a:hover {
@@ -1519,13 +1523,13 @@ Version:1.0
     font-size: 20px;
     display: block;
     margin-bottom: 12px;
-    color: #900C3F;
+    color: var(--dark);
     font-weight: 700;
     line-height: initial;
 }
 
 .hero-slider .hero-text p {
-    color: #900C3F;
+    color: var(--dark);
     margin-bottom: 35px;
 }
 
@@ -1535,7 +1539,7 @@ Version:1.0
 
 .hero-slider .hero-text .btn {
     color: #fff;
-    background: #900C3F;
+    background: var(--dark);
     padding: 13px 30px;
     line-height: initial;
     border: none;
@@ -1632,7 +1636,7 @@ Version:1.0
 
 .hero-area2 .single-slider .content .button .btn:hover {
     background: #fff;
-    color: #900C3F;
+    color: var(--dark);
     border-color: transparent;
 }
 
@@ -1652,7 +1656,7 @@ Version:1.0
     width: 40px;
     line-height: 60px;
     text-align: center;
-    background: #900C3F;
+    background: var(--dark);
     color: #fff;
     font-size: 14px;
     position: absolute;
@@ -1769,8 +1773,8 @@ Version:1.0
 .hero-area3 .small-content .button .btn {
     background: transparent;
     padding: 0;
-    color: #900C3F;
-    border-bottom: 2px solid #900C3F;
+    color: var(--dark);
+    border-bottom: 2px solid var(--dark);
     font-size: 13px;
 }
 
@@ -1835,7 +1839,7 @@ Version:1.0
     width: 40px;
     line-height: 40px;
     text-align: center;
-    background: #900C3F;
+    background: var(--dark);
     color: #fff;
     font-size: 14px;
     position: absolute;
@@ -1902,7 +1906,7 @@ Version:1.0
     font-size: 22px;
     font-weight: 700;
     text-transform: capitalize;
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .small-banner .single-banner h3 span {
@@ -1918,14 +1922,14 @@ Version:1.0
 }
 
 .small-banner .single-banner a {
-    color: #900C3F;
+    color: var(--dark);
     margin-top: 22px;
     display: block;
     font-size: 12px;
     font-weight: 500;
     display: inline-block;
     text-transform: uppercase;
-    border-bottom: 2px solid #900C3F;
+    border-bottom: 2px solid var(--dark);
 }
 
 .small-banner .single-banner a:hover {
@@ -1978,7 +1982,7 @@ Version:1.0
     font-size: 27px;
     font-weight: 700;
     text-transform: uppercase;
-    color: #900C3F;
+    color: var(--dark);
     line-height: 30px;
 }
 
@@ -2005,7 +2009,7 @@ Version:1.0
     padding: .375rem .75rem;
     font-size: 13px;
     border-radius: .25rem;
-    background: #900C3F;
+    background: var(--dark);
     color: #fff !important;
     padding: 10px 27px;
     border-radius: 30px;
@@ -2063,7 +2067,7 @@ Version:1.0
     width: 30px;
     line-height: 58px;
     background: #fff;
-    color: #900C3F;
+    color: var(--dark);
     position: absolute;
     margin: 0;
     border-radius: 0;
@@ -2072,7 +2076,7 @@ Version:1.0
     -webkit-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
     transition: all 0.4s ease;
-    box-shadow: 0px 0px 10px #900C3F3331c;
+    box-shadow: 0px 0px 10px var(--dark)3331c;
 }
 
 .most-popular .owl-carousel .owl-nav div:hover {
@@ -2111,14 +2115,14 @@ Version:1.0
 }
 
 .product-area .nav-tabs li a {
-    color: #900C3F;
+    color: var(--dark);
     text-transform: uppercase;
     display: inline-block;
     position: relative;
     margin-right: 5px;
     font-weight: 500;
     background: #fff;
-    color: #900C3F;
+    color: var(--dark);
     padding: 3px 14px;
     border-radius: 3px;
     font-size: 13px;
@@ -2260,7 +2264,7 @@ Version:1.0
 
 .single-product .product-img .product-action a {
     background-color: transparent;
-    color: #900C3F;
+    color: var(--dark);
     display: block;
     font-size: 16px;
     display: inline-block;
@@ -2321,7 +2325,7 @@ Version:1.0
 .single-product .product-img .product-action a:hover span {
     visibility: visible;
     opacity: 1;
-    color: #900C3F;
+    color: var(--dark);
     background: #fff;
     margin-top: -12px;
 }
@@ -2353,7 +2357,7 @@ Version:1.0
 }
 
 .single-product .product-img .product-action-2 a {
-    color: #900C3F;
+    color: var(--dark);
     text-align: right;
     font-size: 12px;
     font-weight: 600;
@@ -2414,7 +2418,7 @@ Version:1.0
 }
 
 .single-product .product-img .shop-list-quickview a:hover {
-    background-color: #900C3F;
+    background-color: var(--dark);
     color: #fff;
 }
 
@@ -2531,7 +2535,7 @@ Version:1.0
 
 .shop .range #slider-range .ui-slider-range {
     box-shadow: none;
-    background: #900C3F;
+    background: var(--dark);
     border-radius: 0px;
     border: none;
 }
@@ -2540,7 +2544,7 @@ Version:1.0
     width: 14px;
     height: 14px;
     line-height: 10px;
-    background: #900C3F;
+    background: var(--dark);
     border: none;
     border-radius: 100%;
     top: -5px;
@@ -2566,7 +2570,7 @@ Version:1.0
     margin: 0;
     font-weight: 600;
     font-size: 14px;
-    color: #900C3F;
+    color: var(--dark);
     background: transparent;
 }
 
@@ -2593,7 +2597,7 @@ Version:1.0
     margin: 0;
     font-size: 14px;
     font-weight: 400;
-    color: #900C3F;
+    color: var(--dark);
     cursor: pointer;
 }
 
@@ -2668,7 +2672,7 @@ Version:1.0
 }
 
 .shop-sidebar .single-post .content h5 a {
-    color: #900C3F;
+    color: var(--dark);
     font-weight: 500;
     font-size: 14px;
     font-weight: 500;
@@ -2681,7 +2685,7 @@ Version:1.0
 
 .shop-sidebar .single-post .content .price {
     display: block;
-    color: #900C3F;
+    color: var(--dark);
     font-weight: 500;
     margin: 5px 0 0px 0;
     text-transform: uppercase;
@@ -2907,13 +2911,13 @@ Version:1.0
 
 .shop.single .product-des .price {
     font-size: 20px;
-    color: #900C3F;
+    color: var(--dark);
     font-weight: 600;
     margin-top: 15px;
 }
 
 .shop.single .product-des .price s {
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .shop.single .product-des .price span {
@@ -2964,7 +2968,7 @@ Version:1.0
     line-height: 30px;
     text-align: center;
     display: block;
-    background: #900C3F;
+    background: var(--dark);
 }
 
 .shop.single .product-des .color ul li a i {
@@ -3115,7 +3119,7 @@ Version:1.0
     text-transform: capitalize;
     margin-right: 5px;
     border-radius: 0px;
-    background: #900C3F;
+    background: var(--dark);
     color: #fff;
     display: inline-block;
     font-weight: 500;
@@ -3137,7 +3141,7 @@ Version:1.0
 .shop.single .cat {
     font-size: 14px;
     font-weight: 500;
-    color: #900C3F;
+    color: var(--dark);
     margin-top: 30px;
 }
 
@@ -3151,7 +3155,7 @@ Version:1.0
 }
 
 .shop.single .availability {
-    color: #900C3F;
+    color: var(--dark);
     font-size: 14px;
     margin-top: 6px;
 }
@@ -3179,7 +3183,7 @@ Version:1.0
     border: 0px solid;
     border-radius: 0px;
     background: #fff;
-    color: #900C3F;
+    color: var(--dark);
     padding: 10px 30px;
     font-weight: 500;
     font-size: 14px;
@@ -3353,7 +3357,7 @@ Version:1.0
 }
 
 .shop.single .comment-review .add-review p {
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .shop.single .comment-review h4 {
@@ -3383,7 +3387,7 @@ Version:1.0
 
 .shop.single .avg-ratting h4 {
     font-size: 20px;
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .shop.single .avg-ratting {}
@@ -3396,7 +3400,7 @@ Version:1.0
     border: 1px solid #ddd;
     resize: none;
     border-radius: 0;
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .shop.single .form .form-group button {
@@ -3412,11 +3416,11 @@ Version:1.0
     border: 1px solid #ddd;
     resize: none;
     border-radius: 0;
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .shop.single .form .form-group label {
-    color: #900C3F;
+    color: var(--dark);
     position: relative;
 }
 
@@ -3529,7 +3533,7 @@ Version:1.0
 
 .shop-home-list .single-list .list-image .buy:hover {
     background: #fff;
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .shop-home-list .single-list .list-image:hover .buy {
@@ -3563,7 +3567,7 @@ Version:1.0
 }
 
 .shop-home-list .single-list .content .titlea {
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .shop-home-list .single-list .content a:hover {
@@ -3758,7 +3762,7 @@ Version:1.0
     width: 220px;
     display: inline-block;
     height: 48px;
-    color: #900C3F;
+    color: var(--dark);
     padding: 0px 20px;
     border: none;
     box-shadow: 0px 0px 5px #0000000a;
@@ -3770,7 +3774,7 @@ Version:1.0
     border: navajowhite;
     margin-left: 4px;
     background: transparent;
-    color: #900C3F;
+    color: var(--dark);
     background: #fff;
     box-shadow: 0px 0px 5px #00000012;
 }
@@ -3783,7 +3787,7 @@ Version:1.0
 .shopping-cart .total-amount .left label {
     font-size: 22px;
     font-weight: 500;
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .shopping-cart .total-amount .left .checkbox {
@@ -3795,7 +3799,7 @@ Version:1.0
 .shopping-cart .total-amount .left .checkbox label {
     font-size: 15px;
     font-weight: 400;
-    color: #900C3F;
+    color: var(--dark);
     position: relative;
     padding-left: 30px;
 }
@@ -3855,14 +3859,14 @@ Version:1.0
 .shopping-cart .total-amount .right ul li {
     font-size: 15px;
     font-weight: 400;
-    color: #900C3F;
+    color: var(--dark);
     margin-bottom: 12px;
 }
 
 .shopping-cart .total-amount .right ul li.last {
     padding-top: 12px;
     border-top: 1px solid #c8c8c8;
-    color: #900C3F;
+    color: var(--dark);
     font-size: 15px;
     font-weight: 400;
 }
@@ -3906,14 +3910,14 @@ Version:1.0
 
 .shop.checkout .checkout-form h2 {
     font-size: 25px;
-    color: #900C3F;
+    color: var(--dark);
     font-weight: 700;
     line-height: 27px;
 }
 
 .shop.checkout .checkout-form p {
     font-size: 16px;
-    color: #900C3F;
+    color: var(--dark);
     font-weight: 400;
     margin-top: 12px;
     margin-bottom: 30px;
@@ -3932,7 +3936,7 @@ h1 {
 }
 
 .shop.checkout .form .form-group label {
-    color: #900C3F;
+    color: var(--dark);
     position: relative;
 }
 
@@ -3952,7 +3956,7 @@ h1 {
     padding: 0 20px;
     border-radius: 3px;
     border-radius: 0px;
-    color: #900C3F !important;
+    color: var(--dark) !important;
     border: none;
     background: #F6F7FB;
 }
@@ -3978,12 +3982,12 @@ h1 {
 .shop.checkout .nice-select .list li {}
 
 .shop.checkout .nice-select .list li.option {
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .shop.checkout .nice-select .list li.option:hover {
     background: #F6F7FB;
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .shop.checkout .form .address input {
@@ -4033,7 +4037,7 @@ h1 {
     padding: 10px 30px;
     line-height: 24px;
     text-transform: uppercase;
-    color: #900C3F;
+    color: var(--dark);
     padding-bottom: 5px;
 }
 
@@ -4056,7 +4060,7 @@ h1 {
     padding: 0px 30px;
     font-size: 15px;
     font-weight: 400;
-    color: #900C3F;
+    color: var(--dark);
     margin-bottom: 12px;
 }
 
@@ -4071,7 +4075,7 @@ h1 {
     display: block;
     font-size: 15px;
     font-weight: 400;
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .shop.checkout .single-widget .checkbox {
@@ -4119,7 +4123,7 @@ h1 {
 .shop.login .login-form h2 {
     position: relative;
     font-size: 35px;
-    color: #900C3F;
+    color: var(--dark);
     font-weight: 400;
     line-height: 27px;
     text-transform: uppercase;
@@ -4141,7 +4145,7 @@ h1 {
 
 .shop.login .login-form p {
     font-size: 14px;
-    color: #900C3F;
+    color: var(--dark);
     font-weight: 400;
     text-align: center;
     margin-bottom: 50px;
@@ -4162,13 +4166,13 @@ h1 {
     padding: 0 20px;
     border-radius: 3px;
     border-radius: 0px;
-    color: #900C3F !important;
+    color: var(--dark) !important;
     border: none;
     background: #F6F7FB;
 }
 
 .shop.login .form .form-group label {
-    color: #900C3F;
+    color: var(--dark);
     position: relative;
 }
 
@@ -4217,7 +4221,7 @@ h1 {
 .shop.login .login-form .checkbox label {
     font-size: 14px;
     font-weight: 400;
-    color: #900C3F;
+    color: var(--dark);
     position: relative;
     padding-left: 20px;
 }
@@ -4269,7 +4273,7 @@ h1 {
 .shop.login .login-form .lost-pass {
     display: inline-block;
     margin-left: 25px;
-    color: #900C3F;
+    color: var(--dark);
     font-size: 14px;
     font-weight: 400;
 }
@@ -4327,7 +4331,7 @@ h1 {
 }
 
 .shop-list .list-content .rating li.total {
-    color: #900C3F;
+    color: var(--dark);
     font-size: 12px;
     margin-left: 3px;
 }
@@ -4338,7 +4342,7 @@ h1 {
     margin-top: 22px;
     height: 42px;
     line-height: 15px;
-    color: #900C3F;
+    color: var(--dark);
     background: transparent;
     border: 1px solid #cecece;
     font-size: 13px;
@@ -4495,7 +4499,7 @@ h1 {
 }
 
 .cown-down .content .cdown span {
-    color: #900C3F;
+    color: var(--dark);
     font-size: 22px;
     font-weight: 400;
     text-transform: uppercase;
@@ -4537,7 +4541,7 @@ h1 {
     width: 50px;
     line-height: 50px;
     text-align: center;
-    color: #900C3F;
+    color: var(--dark);
     background: transparent;
     border-radius: 100%;
     display: block;
@@ -4552,7 +4556,7 @@ h1 {
     font-weight: 600;
     text-transform: uppercase;
     line-height: 22px;
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .shop-services .single-service p {
@@ -4580,7 +4584,7 @@ h1 {
 }
 
 .shop-newsletter .inner h4 {
-    color: #900C3F;
+    color: var(--dark);
     font-size: 17px;
     font-weight: 600;
     margin-bottom: 5px;
@@ -4641,7 +4645,7 @@ h1 {
 }
 
 .shop-newsletter .newsletter-inner .btn:hover {
-    background: #900C3F;
+    background: var(--dark);
     color: #fff;
 }
 
@@ -4714,7 +4718,7 @@ h1 {
 }
 
 .about-us .about-content .button .btn {
-    background: #900C3F;
+    background: var(--dark);
     color: #fff;
     margin-right: 15px;
 }
@@ -4730,7 +4734,7 @@ h1 {
 }
 
 .about-us .about-content .button .btn.primary:hover {
-    background: #900C3F;
+    background: var(--dark);
     color: #fff;
 }
 
@@ -4841,7 +4845,7 @@ h1 {
 .team .single-team .info-box .name {
     display: block;
     font-size: 17px;
-    color: #900C3F;
+    color: var(--dark);
     font-weight: 500;
     margin-bottom: 3px;
     text-transform: capitalize;
@@ -4919,7 +4923,7 @@ h1 {
 .shop-blog .shop-single-blog .content .title {
     font-size: 17px;
     font-weight: 600;
-    color: #900C3F;
+    color: var(--dark);
 }
 
 .shop-blog .shop-single-blog .content .title:hover {
@@ -5019,7 +5023,7 @@ h1 {
     text-shadow: none;
     font-size: 14px;
     border: none;
-    color: #900C3F;
+    color: var(--dark);
     background: transparent;
     padding: 0 70px 0 20px;
     -webkit-transition: all 0.4s ease;
@@ -5042,7 +5046,7 @@ h1 {
     border: none;
     font-size: 14px;
     color: #fff;
-    background: #900C3F;
+    background: var(--dark);
     -webkit-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
     transition: all 0.4s ease;
@@ -5072,7 +5076,7 @@ h1 {
 
 .main-sidebar .categor-list li a {
     display: inline-block;
-    color: #900C3F;
+    color: var(--dark);
     font-size: 14px;
 }
 
@@ -5184,7 +5188,7 @@ h1 {
 
 .main-sidebar .side-tags .tag li a {
     background: #fff;
-    color: #900C3F;
+    color: var(--dark);
     padding: 8px 14px;
     text-transform: capitalize;
     border-radius: 0;
@@ -5254,7 +5258,7 @@ h1 {
 }
 
 .main-sidebar .newsletter .letter-inner .form-inner a:hover {
-    background: #900C3F;
+    background: var(--dark);
     color: #fff;
 }
 
@@ -5464,7 +5468,7 @@ h1 {
 .blog-single .single-comment .content {}
 
 .blog-single .single-comment .content h4 {
-    color: #900C3F;
+    color: var(--dark);
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 10px;
@@ -5555,7 +5559,7 @@ h1 {
     line-height: 50px;
     padding: 0 20px;
     border-radius: 0px;
-    color: #900C3F !important;
+    color: var(--dark) !important;
     border: none;
     border: 1px solid #eee;
 }
@@ -5566,13 +5570,13 @@ h1 {
     line-height: 50px;
     padding: 0 20px;
     border-radius: 0px;
-    color: #900C3F !important;
+    color: var(--dark) !important;
     border: none;
     border: 1px solid #eee;
 }
 
 .blog-single .reply .form-group label {
-    color: #900C3F;
+    color: var(--dark);
     position: relative;
 }
 
@@ -5671,7 +5675,7 @@ h1 {
 .contact-us .single-info .title {
     margin-bottom: 10px;
     font-weight: 500;
-    color: #900C3F;
+    color: var(--dark);
     font-size: 18px;
 }
 
@@ -5686,7 +5690,7 @@ h1 {
     width: 100%;
     border: 1px solid #e6e2f5;
     padding: 0px 20px;
-    color: #900C3F;
+    color: var(--dark);
     border-radius: 0px;
     font-weight: 400;
 }
@@ -5696,14 +5700,14 @@ h1 {
     width: 100%;
     border: 1px solid #e6e2f5;
     padding: 15px 20px;
-    color: #900C3F;
+    color: var(--dark);
     border-radius: 0px;
     resize: none;
     font-weight: 400;
 }
 
 .contact-us .form .form-group label {
-    color: #900C3F;
+    color: var(--dark);
     position: relative;
 }
 
@@ -5755,7 +5759,7 @@ h1 {
 
 .mail-success .mail-inner p {
     font-size: 14;
-    color: #900C3F;
+    color: var(--dark);
     margin-bottom: 30px;
     line-height: 22px;
 }
@@ -5822,14 +5826,14 @@ h1 {
 .error-page .button .btn {
     margin-right: 15px;
     border-radius: 30px;
-    background: #900C3F;
+    background: var(--dark);
     color: #fff;
     font-weight: 600;
     font-size: 14px;
     font-weight: 500;
     border: 1px solid #d7d7d7;
     background: transparent;
-    color: #900C3F;
+    color: var(--dark);
     padding: 10px 28px;
 }
 

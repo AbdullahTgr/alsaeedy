@@ -606,12 +606,52 @@ $path="";
         }
         #Gslider .carousel-inner img{
             opacity: .8;
-    height: 66vh;
+   
     width: 100%;
     object-fit: cover;
     object-position: center;
     margin: auto;
         }
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 2900px) {
+    #Gslider .carousel-inner img{
+        height: 500px;
+ }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 992px) {
+    #Gslider .carousel-inner img{
+        height: 400px;
+ }
+
+}
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+    #Gslider .carousel-inner img{
+        height: 380px;
+ }
+
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 400px) {
+    #Gslider .carousel-inner img{
+        height: 220px;
+ }
+
+}
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 200px) {
+    #Gslider .carousel-inner img{
+        height: 180px;
+ }
+
+}
+
+
+
+
 
         #Gslider .carousel-inner .carousel-caption {
             bottom: 30%;
