@@ -1,5 +1,15 @@
 @extends('frontend.layouts.master')
 
+@php
+$path="";    
+@endphp
+@foreach($settings as $data)
+
+ @php
+    $path=$data->logo
+@endphp
+
+@endforeach
                                                  
 @section('meta')
 	<meta charset="utf-8">
@@ -7,13 +17,15 @@
 	<meta name='copyright' content=''>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+ 
     
 	<meta property="og:url" content="https://www.facebook.com/alsaeedyblog"> 
+    <meta property="og:image" content="{{ url($path) }}" />
+    <meta name="twitter:image" content="{{ url($path) }}">
+    <meta name="twitter:description" content="مدونة السعدي لكل القصص والحكايات ومحبى القراءة ومتعتها ولكل كاتب واعد لسه بيبدأ ... سوف نسبح فى بحر قصة أو رواية أو كتاب أو ذكريات جميلة نسترجعها بكل تفاصيلها مدونة لكل فرد يحب القراءة ويسبح بها ويعلو عنان السماء ">
 
-    
 	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag->title}}@endforeach">
-	<meta name="description" content="@foreach($tags as $tag),{{ $tag->title}}@endforeach">
+	<meta name="description" content="مدونة السعدي لكل القصص والحكايات ومحبى القراءة ومتعتها ولكل كاتب واعد لسه بيبدأ ... سوف نسبح فى بحر قصة أو رواية أو كتاب أو ذكريات جميلة نسترجعها بكل تفاصيلها مدونة لكل فرد يحب القراءة ويسبح بها ويعلو عنان السماء">
 	
 	<meta property="og:title" content="مدونة السعدي "> 
 
