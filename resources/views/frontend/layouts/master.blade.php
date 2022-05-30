@@ -37,7 +37,7 @@
 				<span></span>
 			</div>
 		</div>
-	</div>
+	</div>    dfgsdg,dfsgdfg,dfgdfgdfg,dfg
 	<!-- End Preloader --> --}}
 	
 	@include('frontend.layouts.notification')

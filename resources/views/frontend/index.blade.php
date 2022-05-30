@@ -24,8 +24,8 @@ $path="";
     
 
 	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag->title}}@endforeach">
-	<meta name="description" content="{!! strip_tags( $settings[0]->{'description'} ) !!}">
-	
+	<meta name="description" content="@foreach($tags as $tag),{{ $tag->title}}@endforeach">
+    <meta name="robots" content="noindex,nofollow">
     
     
 	<meta property="og:title" content="{!! strip_tags($settings[0]->{'short_des'}) !!}">

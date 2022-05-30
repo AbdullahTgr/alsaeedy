@@ -15,7 +15,7 @@
 	<meta property="og:url" content="{!! route('blog.detail',strip_tags($post->slug)) !!}"> 
 
 	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag}}@endforeach">
-	<meta name="description" content="{!! strip_tags( $post->{'quote-ar'} ) !!}">
+	<meta name="description" content="@foreach($tags as $tag),{{ $tag->title}}@endforeach">
 	
     
 	<meta property="og:type" content="article">
