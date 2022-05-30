@@ -11,7 +11,7 @@
 	<meta property="og:url" content="{!! route('product-detail',strip_tags($product_detail->slug)) !!}"> 
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="{!! strip_tags($product_detail->{'title-ar'}) !!}">
-	<meta property="og:image" content="{{ $product_detail->{'photo'} }} ">
+	<meta property="og:image" content="{{ url($product_detail->{'photo'}) }} ">
 	<meta property="og:description" content="{!!  strip_tags($product_detail->{'description-ar'}) !!}">
 @endsection
 
