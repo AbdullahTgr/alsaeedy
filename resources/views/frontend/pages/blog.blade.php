@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-
+<?php $settings=DB::table('settings')->get(); ?>
 @php
 $path="";    
 @endphp
