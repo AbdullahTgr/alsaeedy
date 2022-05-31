@@ -597,7 +597,7 @@ $path="";
     <style>
         /* Banner Sliding */
         #Gslider .carousel-inner {
-        background: #000000;
+      
         color:#581845;
         }
 
