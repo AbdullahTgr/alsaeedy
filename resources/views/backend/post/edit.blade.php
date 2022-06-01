@@ -1,7 +1,43 @@
 @extends('backend.layouts.master')
 
 @section('main-content')
-
+<style>
+  #tags{
+    float:left;
+    border:1px solid #ccc;
+    padding:5px;
+    font-family:Arial;
+  }
+  #tags > span{
+    cursor:pointer;
+    display:block;
+    float:left;
+    color:#fff;
+    background:#789;
+    padding:5px;
+    padding-right:25px;
+    margin:4px;
+  }
+  #tags > span:hover{
+    opacity:0.7;
+  }
+  #tags > span:after{
+   position:absolute;
+   content:"×";
+   border:1px solid;
+   padding:2px 5px;
+   margin-left:3px;
+   font-size:11px;
+  }
+  #tags > input{
+    background:#eee;
+    border:0;
+    margin:4px;
+    padding:7px;
+    width:auto;
+  }
+  
+  </style>
 <div class="card">
     <h5 class="card-header">Edit Post</h5>
     <div class="card-body">
@@ -136,7 +172,7 @@
                 $post_tags=explode(',',$post->tags);
                 // dd($tags);
               @endphp
-        <div class="form-group">
+        {{-- <div class="form-group">
           <label for="tags">Tag</label>
           <select name="tags[]" multiple  data-live-search="true" class="form-control selectpicker">
               <option value="">--Select any tag--</option>
@@ -145,7 +181,26 @@
               <option value="{{$data->title}}"  {{(( in_array( "$data->title",$post_tags ) ) ? 'selected' : '')}}>{{$data->title}}</option>
               @endforeach
           </select>
+        </div> --}}
+
+
+        {{-- <span><input type="hidden" value="سيسظزو" name="tags[]">سيسظزو</span> --}}
+
+
+        <div class="tagz">separete with comma ( , )</div>
+        <div id="tags">
+          <span>--Write any tag--</span>
+          @foreach($post_tags as $key=>$data)
+          <span><input type="hidden" value="{{$data}}" name="tags[]">{{$data}}</span>
+@endforeach
+          <input type="text" value=""  placeholder="Add a tag" />
         </div>
+
+
+
+
+
+
         <div class="form-group">
           <label for="added_by">Author</label>
           <select name="added_by" class="form-control">
@@ -279,5 +334,25 @@
           height: 100
       });
     });
+
+
+    // ::: TAGS BOX
+
+$("#tags input").on({
+  focusout : function() {
+    var txt = this.value; // allowed characters .replace(/[^a-z0-9\+\-\.\#]/ig,'')
+   // if(txt) $("<span/>", {text:txt.toLowerCase(), insertBefore:this});
+    if(txt) $(this).parent("div").append('<span><input type="hidden" value="'+txt+'" name="tags[]">'+txt.toLowerCase()+'</span>');
+    this.value = "";
+  },
+  keyup : function(ev) {
+    // if: comma|enter (delimit more keyCodes with | pipe)
+    if(/(188|13)/.test(ev.which)) $(this).focusout(); 
+  }
+});
+
+$('#tags').on('click', 'span', function() {
+  if(confirm("Remove "+ $(this).text() +"?")) $(this).remove(); 
+});
 </script>
 @endpush

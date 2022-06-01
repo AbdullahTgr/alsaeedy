@@ -195,7 +195,7 @@
           <input type="text" value=""  placeholder="Add a tag" />
         </div>
 
-
+ 
 @if (Auth::user()->role=='admin')
    
         <div class="form-group">
@@ -208,7 +208,7 @@
           </select>
         </div>
 @endif
-
+ 
         <div class="form-group">
           <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
           <div class="input-group">
@@ -337,9 +337,9 @@
 
 $("#tags input").on({
   focusout : function() {
-    var txt = this.value.replace(/[^a-z0-9\+\-\.\#]/ig,''); // allowed characters
+    var txt = this.value; // allowed characters .replace(/[^a-z0-9\+\-\.\#]/ig,'')
    // if(txt) $("<span/>", {text:txt.toLowerCase(), insertBefore:this});
-    if(txt) $(this).parent("div").append('<span><input type="hidden" value="'+txt.toLowerCase()+'" name="tags[]">'+txt.toLowerCase()+'</span>');
+    if(txt) $(this).parent("div").append('<span><input type="hidden" value="'+txt+'" name="tags[]">'+txt.toLowerCase()+'</span>');
     this.value = "";
   },
   keyup : function(ev) {
