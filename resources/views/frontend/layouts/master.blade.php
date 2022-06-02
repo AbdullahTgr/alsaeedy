@@ -34,6 +34,18 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 	 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9802244405698113"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="+1e+qc+6f-hc+i"
+     data-ad-client="ca-pub-9802244405698113"
+     data-ad-slot="3819019372"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 </head>
 <body class="js">
 	<!-- Google Tag Manager (noscript) -->
