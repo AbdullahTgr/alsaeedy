@@ -69,6 +69,7 @@
                                         @if($post->{'quote-ar'})
                                         <blockquote> <i class="fa fa-quote-left"></i> {!! ($post->{'quote-ar'}) !!} </blockquote>
                                         @endif 
+                                        <p>{!! ($post->{'summary-ar'}) !!}</p>
                                         <p>{!! ($post->{'description-ar'}) !!}</p>
                                     </div>
                                 </div>
