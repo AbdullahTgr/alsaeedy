@@ -18,7 +18,7 @@ class PostCommentController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->role=='admin'){
+        if(Auth::user()->role=='admin'){ 
         $comments=PostComment::getAllComments();
 
         }else{

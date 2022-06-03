@@ -20,7 +20,7 @@ $path="";
  
     
 	<meta property="og:url" content="https://www.facebook.com/alsaeedyblog"> 
-    <meta property="og:image"  itemprop="image"  content="{{ url($path) }}" />
+    <meta property="og:image"  itemprop="image"  content="{{ url('images/blog.jpg') }}" />
     <meta name="twitter:image" content="{{ url($path) }}">
 
     

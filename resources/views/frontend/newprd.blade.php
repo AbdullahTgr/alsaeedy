@@ -5,7 +5,7 @@
                                 $photo=explode(',',$product->photo);
                             // dd($photo);
                             @endphp
-    <div class="col-lg-4 col-md-6 text-center {{$product->cat_id}}">
+    <div class="col-lg-3 col-md-4 col-sm-6 text-center {{$product->cat_id}}">
         <div class="single-product-item">
             <div class="product-image">
                 <a href="{{route('product-detail',$product->slug)}}"><img src="{{$photo[0]}}" alt="{{$photo[0]}}"></a>
