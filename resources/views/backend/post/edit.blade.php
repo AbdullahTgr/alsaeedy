@@ -40,8 +40,15 @@
   </style>
 <div class="card">
     <h5 class="card-header">Edit Post</h5>
-    <div class="card-body">
-      <form method="post" action="{{route('post.update',$post->id)}}">
+    <div class="card-body"> 
+     
+
+        @if (Auth::user()->role=='admin')
+        <form method="post" action="{{route('post.update',$post->id)}}">
+        @else  
+        <form method="post" action="{{route('post_m.update',$post->id)}}">
+     @endif
+
         @csrf 
         @method('PATCH')
         <div class="form-group">
@@ -183,7 +190,7 @@
           </select>
         </div> --}}
 
-
+ 
         {{-- <span><input type="hidden" value="سيسظزو" name="tags[]">سيسظزو</span> --}}
 
 
@@ -201,6 +208,11 @@
 
 
 
+       
+
+
+        @if (Auth::user()->role=='admin')
+   
         <div class="form-group">
           <label for="added_by">Author</label>
           <select name="added_by" class="form-control">
@@ -210,6 +222,15 @@
               @endforeach
           </select>
         </div>
+@endif
+
+
+
+
+
+
+
+
         <div class="form-group">
           <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
           <div class="input-group">

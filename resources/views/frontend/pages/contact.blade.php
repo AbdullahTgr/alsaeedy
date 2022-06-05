@@ -25,6 +25,113 @@
 					<div class="row">
 						<div class="col-lg-8 col-12">
 							<div class="form-main">
+
+
+
+
+
+  <!-- Send Message -->
+  <section class="page-section bg-light" id="sendmsg" style="direction: ltr">
+    <div class="container">
+        <div class="row col-12">
+            <div class="col-lg-8 offset-lg-2 col-xs-12">
+                <div class="card">
+                    <div class="card-header bg-info" style="
+                    --bs-bg-opacity: 1;
+    background-color: #0a7bb7!important;
+    text-align: center;
+                    ">
+                        <h3 class="text-white">{{ trans('sentence.sendusmsg')}}</h3>
+                    </div> 
+                    <div class="card-body"> 
+                        
+                        @if(Session::has('success'))
+                        <div class="alert alert-success">
+                            {{ Session::get('success') }}
+                            @php
+                                Session::forget('success');
+                            @endphp
+                        </div>
+                        @endif 
+                   
+                        <form method="POST" action="{{ route('contact-form.store') }}"  style="@if(session()->get('locale')=="ar") text-align:right @else  text-align:left @endif">                  
+                            {{ csrf_field() }}
+                            <div class="row" >
+                                <div class="col-md-6"> 
+                                    <div class="form-group">
+                                        <strong>{{ trans('sentence.name')}}:</strong>
+                                        <input type="text" required name="name" class="form-control" placeholder="{{ trans('sentence.name')}}" value="{{ old('name') }}">
+                                        @if ($errors->has('name'))
+                                            <span class="text-danger">{{ $errors->first('name') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <strong>{{ trans('sentence.email')}}:</strong>
+                                        <input type="text" name="email" class="form-control" placeholder="{{ trans('sentence.email')}}" value="{{ old('email') }}">
+                                        @if ($errors->has('email'))
+                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <strong>{{ trans('sentence.phone')}}:</strong>
+                                        <input type="text" required name="phone" class="form-control" placeholder="{{ trans('sentence.phone')}}" value="{{ old('phone') }}">
+                                        @if ($errors->has('phone'))
+                                            <span class="text-danger">{{ $errors->first('Phone') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <strong>{{ trans('sentence.subject')}}:</strong>
+                                        <input type="text" name="subject" class="form-control" placeholder="{{ trans('sentence.subject')}}" value="{{ old('subject') }}">
+                                        @if ($errors->has('subject'))
+                                            <span class="text-danger">{{ $errors->first('subject') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <strong>{{ trans('sentence.message')}}:</strong>
+                                        <textarea name="message" rows="3" class="form-control">{{ old('message') }}</textarea>
+                                        @if ($errors->has('message'))
+                                            <span class="text-danger">{{ $errors->first('message') }}</span>
+                                        @endif
+                                    </div>  
+                                </div>
+                            </div>
+                   
+                            <div class="form-group text-center" style="padding:5px;">
+                               
+                               <button class="btn btn-success btn-submit" style="
+ background: #ffc107;
+    color: #0a7bb7;  "> {{ trans('sentence.send')}}
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
 								<div class="title">
 									@php
 										$settings=DB::table('settings')->get();

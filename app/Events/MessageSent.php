@@ -38,3 +38,4 @@ class MessageSent implements ShouldBroadcast
         return new Channel('message');
     }
 }
+ 

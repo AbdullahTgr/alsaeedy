@@ -122,8 +122,9 @@ class PostController extends Controller
         $tags=PostTag::get();
         $users=User::get();
         return view('backend.post.edit')->with('categories',$categories)->with('users',$users)->with('tags',$tags)->with('post',$post);
+     
     }
-
+ 
     /**
      * Update the specified resource in storage.
      *
@@ -146,7 +147,9 @@ class PostController extends Controller
             'post_cat_id'=>'required',
             'status'=>'required|in:active,inactive'
         ]);
-
+        if(!isset($request->added_by)){
+            $data['added_by']=Auth::user()->id;
+        } 
         $data=$request->all();
         $tags=$request->input('tags');
         // return $tags;
@@ -165,7 +168,12 @@ class PostController extends Controller
         else{
             request()->session()->flash('error','Please try again!!');
         }
-        return redirect()->route('post.index');
+        if(Auth::user()->role=='admin'){
+            return redirect()->route('post.index');
+        }else{
+            return redirect()->route('post_m.index');
+       }
+        
     }
 
     /**

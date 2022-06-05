@@ -517,7 +517,7 @@ $path="";
                                                 <span><i class="fa fa-times-circle-o text-danger"></i> {{$product->stock}} {{ Lang::get('msg.outofstock') }}</span>
                                                 @endif
                                             </div>
-                                        </div>
+                                        </div> 
                                         @php
                                             $after_discount=($product->price-($product->price*$product->discount)/100);
                                         @endphp

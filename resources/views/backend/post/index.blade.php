@@ -81,12 +81,25 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('post.edit',$post->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
-                    <form method="POST" action="{{route('post.destroy',[$post->id])}}">
-                      @csrf 
-                      @method('delete')
-                          <button class="btn btn-danger btn-sm dltBtn" data-id={{$post->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
-                        </form>
+                      @if (Auth::user()->role=='admin') 
+                      
+                      <a href="{{route('post.edit',$post->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                      <form method="POST" action="{{route('post.destroy',[$post->id])}}">
+                        @csrf 
+                        @method('delete')
+                            <button class="btn btn-danger btn-sm dltBtn" data-id={{$post->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                          </form>
+                      @else     
+
+
+                      <a href="{{route('post_m.edit',$post->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                      <form method="POST" action="{{route('post_m.destroy',[$post->id])}}">
+                        @csrf 
+                        @method('delete')
+                            <button class="btn btn-danger btn-sm dltBtn" data-id={{$post->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                          </form>
+
+                    @endif
                     </td>
                 </tr>  
             @endforeach

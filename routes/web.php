@@ -163,11 +163,11 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::post('change-password', 'AdminController@changPasswordStore')->name('change.Password');
     
    // POST category
-   Route::resource('/post-category','PostCategoryController');
+   Route::resource('/post-category','PostCategoryController'); 
    // Post tag
    Route::resource('/post-tag','PostTagController');
    // Post
-   Route::resource('/post','PostController');
+   Route::resource('/post','PostController'); 
    // Message
    Route::resource('/message','MessageController');
    Route::get('/message/five','MessageController@messageFive')->name('messages.five');
@@ -179,7 +179,7 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
 
 
 
-
+ 
  
 
 // Backend section start
@@ -187,9 +187,9 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
 Route::group(['prefix'=>'/moderator','middleware'=>['auth','moderator']],function(){
     
   Route::get('/','AdminController@index')->name('moderator');
-   // Post
+   // Post 
    Route::resource('/post_m','PostController'); 
-   // Message
+   // Message 
    Route::resource('/message_m','MessageController');
    Route::get('/message/five_m','MessageController@messageFive')->name('messages.five_m');
 
@@ -243,6 +243,20 @@ Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
 Route::group(['prefix' => 'filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+
+
+
+
+
+
+
+
+Route::get('/contact-form', [App\Http\Controllers\ContactController::class, 'contactForm'])->name('contact-form');
+Route::post('/contact-form', [App\Http\Controllers\ContactController::class, 'storeContactForm'])->name('contact-form.store');
+
+
+
+
 // Route::get('/foo', function () {
 //     Artisan::call('storage:link');
 // });
