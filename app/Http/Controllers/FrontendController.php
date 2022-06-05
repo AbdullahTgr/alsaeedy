@@ -419,8 +419,10 @@ class FrontendController extends Controller
         $post=Post::getPostBySlug($slug);
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
         // return $post;
-        
-        if(session()->get('locale')=="en"){
+        if(gettype($post)=='NULL'){
+return view('errors.404');
+        }else{
+  if(session()->get('locale')=="en"){
             // english
         return view('frontend.pages-en.blog-detail')->with('post',$post)->with('recent_posts',$rcnt_post);
                     }elseif(session()->get('locale')=="fr"){
@@ -430,6 +432,8 @@ class FrontendController extends Controller
             // arabic
         return view('frontend.pages.blog-detail')->with('post',$post)->with('recent_posts',$rcnt_post);
                    }
+        }
+      
     }
 
     public function blogSearch(Request $request){
