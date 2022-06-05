@@ -22,7 +22,7 @@
 	<meta property="og:title" content="{!! strip_tags($post->{'title-ar'}) !!}">
 	<meta property="og:image"  itemprop="image"  content="{{ url($post->photo) }} ">
     <meta name="twitter:image" content="{{ url($post->photo) }}">
-	<meta property="og:description" content="{!!  strip_tags($post->{'description-ar'} ) !!}">
+	<meta property="og:description" content="{!!  strip_tags($post->{'summary-ar'} ) !!}">
 @endsection
 
 
