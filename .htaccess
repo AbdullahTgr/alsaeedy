@@ -1,11 +1,16 @@
-<IfModule mod_rewrite.c>
-   RewriteEngine On 
-   RewriteRule ^(.*)$ public/$1 [L]
-</IfModule>
 
-# php -- BEGIN cPanel-generated handler, do not edit
-# Set the “ea-php73” package as the default “PHP” programming language.
-<IfModule mime_module>
-  AddHandler application/x-httpd-ea-php73 .php .php7 .phtml
+
+# Always use https for secure connections
+# Replace 'www.example.com' with your domain name
+# (as it appears on your SSL certificate)
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://alsaeedy.com/$1 [R=301,L]
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
+# php -- BEGIN cPanel-generated handler, do not edit
+# This domain inherits the “PHP” package.
 # php -- END cPanel-generated handler, do not edit

@@ -32,7 +32,7 @@ class ContactController extends Controller
             'subject' => "رسالة جديدة من مستخدم",
             'message' => $input['message'],
         ), function($message) use ($request){
-            $message->from("abdooo.mostafa5@gmail.com");
+            $message->from("support@alsaeedy.com");
             $message->to('4multijob@gmail.com', 'Admin')->subject($request->get('subject'));
         });
 
