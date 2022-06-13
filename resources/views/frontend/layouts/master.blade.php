@@ -36,22 +36,29 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
+
+
 </head>
 <body class="js">
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9802244405698113"
+	crossorigin="anonymous"></script>
+<!-- 8iu -->
+<ins class="adsbygoogle"
+	style="display:block"
+	data-ad-client="ca-pub-9802244405698113"
+	data-ad-slot="9423613545"
+	data-ad-format="auto"
+	data-full-width-responsive="true"></ins>
+<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 	<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MV43QJV"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
-	{{-- <!-- Preloader -->
-	<div class="preloader">
-		<div class="preloader-inner" style="left: 45%;">
-			<div class="preloader-icon">
-				<span></span>
-				<span></span>
-			</div>
-		</div>
-	</div>    dfgsdg,dfsgdfg,dfgdfgdfg,dfg
-	<!-- End Preloader --> --}}
+
+	
 	
 	@include('frontend.layouts.notification')
 	<!-- Header -->
