@@ -15,7 +15,7 @@
 	<meta property="og:url" content="{!! route('blog.detail',strip_tags($post->slug)) !!}"> 
 
 	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag}}@endforeach">
-	<meta name="description" content="@foreach($tags as $tag),{{ $tag}}@endforeach">
+	<meta name="description" content="{!!  strip_tags($post->{'summary-ar'} ) !!}">
 	
     
 	<meta property="og:type" content="article">
