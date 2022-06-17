@@ -101,6 +101,16 @@ Route::post('/blog/filter','FrontendController@blogFilter')->name('blog.filter')
 Route::get('blog-cat/{slug}','FrontendController@blogByCategory')->name('blog.category');
 Route::get('blog-tag/{slug}','FrontendController@blogByTag')->name('blog.tag');
 
+
+//video
+// Route::get('/videos','FrontendController@videos')->name('videos');
+// Route::get('/video-detail/{slug}','FrontendController@videoDetail')->name('video.detail');
+// Route::get('/video/search','FrontendController@videoSearch')->name('video.search');
+// Route::post('/video/filter','FrontendController@videoFilter')->name('video.filter');
+// Route::get('video-cat/{slug}','FrontendController@videoByCategory')->name('video.category');
+// Route::get('video-tag/{slug}','FrontendController@videoByTag')->name('video.tag');
+
+
 // NewsLetter
 Route::post('/subscribe','FrontendController@subscribe')->name('subscribe');
 
@@ -240,9 +250,81 @@ Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
 
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('channels/{channel}', 'HomePageController@channel')->name('channel');
+Route::get('videos/{video}', 'HomePageController@video')->name('video');
+    Route::get('videos', 'HomePageController@index')->name('videos');
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+
+    
+    // Channels
+    Route::delete('channels/destroy', 'ChannelsController@massDestroy')->name('channels.massDestroy');
+    Route::resource('channels', 'ChannelsController');
+
+    // Videos
+    Route::delete('videos/destroy', 'VideosController@massDestroy')->name('videos.massDestroy');
+    Route::resource('videos', 'VideosController');
+
+
+    
+});
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
 Route::group(['prefix' => 'filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+
 
 
 

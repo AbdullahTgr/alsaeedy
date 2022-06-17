@@ -215,6 +215,30 @@
             <span>Settings</span></a>
     </li>
 
+    <!-- Categories -->
+
+    
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#video" aria-expanded="true" aria-controls="video">
+        <i class="fas fa-sitemap"></i>
+        <span>Video Youtube</span>
+      </a>
+      <div id="video" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Channel Options:</h6>
+          <a class="collapse-item" href="{{ route("admin.channels.index") }}">Channels</a>
+          <a class="collapse-item" href="{{ route("admin.channels.create") }}">Add Channel</a>
+        </div>
+      </div>
+      <div id="video" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Video Options:</h6>
+          <a class="collapse-item" href="{{ route("admin.videos.index") }}">Video</a>
+          <a class="collapse-item" href="{{ route("admin.videos.create") }}">Add Video</a>
+        </div>
+      </div>
+  </li>
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
       <button class="rounded-circle border-0" id="sidebarToggle"></button>

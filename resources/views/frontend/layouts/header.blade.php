@@ -12,8 +12,8 @@
                         <li><i class="ti-location-pin"></i><a href="{{route('order.track')}}">{{ Lang::get('msg.trackorder') }}</a></li>
                             {{-- <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li> --}}
                             @auth 
-                                @if(Auth::user()->role=='admin')
-                                    <li><i class="ti-user"></i><a href="{{route('admin')}}"  target="_blank">{{ Lang::get('msg.dashboard') }}</a></li>
+                                @if(Auth::user()->role=='admin') 
+                                    {{-- <li><i class="ti-user"></i><a href="{{route('admin')}}"  target="_blank">{{ Lang::get('msg.dashboard') }}</a></li> --}}
                                 @else 
                                     <li><i class="ti-user"></i><a href="{{route('user')}}"  target="_blank">{{ Lang::get('msg.dashboard') }}</a></li>
                                 @endif
@@ -245,7 +245,9 @@
                                             <li class="{{Request::path()=='about-us' ? 'active' : ''}}"><a href="{{route('about-us')}}">{{ Lang::get('msg.aboutus') }}</a></li>
                                             <li class="@if(Request::path()=='product-grids'||Request::path()=='product-lists')  active  @endif"><a href="{{route('product-grids')}}">{{ Lang::get('msg.products') }}</a><span class="new">{{ Lang::get('msg.new') }}</span></li>												
                                                 {{Helper::getHeaderCategory(Lang::get('msg.categories') )}}  
-                                            <li class="{{Request::path()=='blog' ? 'active' : ''}}"><a href="{{route('blog')}}">{{ Lang::get('msg.blog') }}</a></li>									
+                                                <li class="{{Request::path()=='blog' ? 'active' : ''}}"><a href="{{route('blog')}}">{{ Lang::get('msg.blog') }}</a></li>	
+
+                                                <li class="{{Request::path()=='videos' ? 'active' : ''}}"><a href="{{route('videos')}}">{{ Lang::get('msg.videos') }}</a></li>									
                                                
                                             <li class="{{Request::path()=='contact' ? 'active' : ''}}"><a href="{{route('contact')}}">{{ Lang::get('msg.contactus') }}</a></li>
                                             <select class="form-control changeLang" >

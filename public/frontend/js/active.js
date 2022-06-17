@@ -337,4 +337,16 @@ window.onload = () => {
             $('body').removeClass('no-scroll');
         }, 2000); //Here you can change preloader time
 
+
+
+
+
+
+
+
+
+
+
+
+
     })(jQuery);
