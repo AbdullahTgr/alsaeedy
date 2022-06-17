@@ -24,6 +24,7 @@ class Video extends Model
         'updated_at',
         'deleted_at',
         'description',
+        'tags',
         'youtube_embed',
     ];
 

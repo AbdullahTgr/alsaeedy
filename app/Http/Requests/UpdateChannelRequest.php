@@ -11,7 +11,7 @@ class UpdateChannelRequest extends FormRequest
 {
     public function authorize()
     {
-        abort_if(Gate::denies('channel_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+       // abort_if(Gate::denies('channel_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
 

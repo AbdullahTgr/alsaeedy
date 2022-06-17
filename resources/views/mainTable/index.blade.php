@@ -6,7 +6,8 @@
 =            All Channels Section            =
 ===========================================-->
 
-<section class=" section">
+<section class=" section" style="    direction: rtl;
+text-align: right;">
 	<!-- Container Start -->
 	<div class="container">
 		<div class="row">
@@ -44,4 +45,4 @@
 </section>
 
 
-@stop
+@stop 

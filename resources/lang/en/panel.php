@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'Video Portal',
+    'site_title' => 'Videos Section',
 ];

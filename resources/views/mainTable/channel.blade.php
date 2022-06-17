@@ -2,7 +2,8 @@
 
 @section('content')
 
-<section class="section-sm">
+<section class="section-sm" style="    direction: rtl;
+text-align: right;">>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
