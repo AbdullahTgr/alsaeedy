@@ -11,6 +11,9 @@ use App\Models\Cart;
 use App\Models\Brand;
 use App\User;
 
+use App\Video;
+use App\Channel;
+
 use Session;
 use Newsletter;
 use DB;
@@ -35,11 +38,19 @@ class FrontendController extends Controller
         return redirect()->route($request->user()->role); 
     }
 
-    public function home(){
+    
+
+    public function home(Video $video){ 
         $featured=Product::where('status','active')->where('is_featured',1)->orderBy('price','DESC')->limit(2)->get();
         $posts=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
         $banners=Banner::where('status','active')->limit(3)->orderBy('id','DESC')->get();
         $tags=PostTag::get();
+
+      
+        
+
+ $videos = Video::get()->take(3);
+        
         // return $banner;
         $products=Product::where('status','active')->orderBy('id','DESC')->limit(8)->get();
         $category=Category::where('status','active')->where('is_parent',1)->orderBy('title','ASC')->get();
@@ -50,6 +61,7 @@ class FrontendController extends Controller
                 ->with('banners',$banners)
                 ->with('product_lists',$products)
                 ->with('tags',$tags)
+                ->with('videos',$videos)
                 ->with('category_lists',$category);
     }   
 

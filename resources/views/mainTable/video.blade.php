@@ -54,7 +54,7 @@ text-align: right;">>
                     <div class="col-md-12" style="padding: 0;"> 
 
                         @if($video->youtube_embed)
-						<iframe width="100%" height="315"
+						<iframe allow="fullscreen;" width="100%" height="315"
 						src="{!! str_replace('watch?v=', 'embed/', $video->youtube_embed) !!}">
 						</iframe>	
 						

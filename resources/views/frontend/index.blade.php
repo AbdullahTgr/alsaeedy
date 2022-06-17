@@ -70,6 +70,13 @@ $path="";
 
 <!--/ End Slider Area -->
 
+
+
+
+
+
+
+
 <!-- Start Small Banner  -->
 <section class="small-banner section">
     <div class="container-fluid">
@@ -354,6 +361,37 @@ $path="";
         </div>
     </div>
 </section>
+
+
+
+
+
+<div class="row"> 
+
+    <div class="col-lg-11 mx-auto">
+      <!-- FIRST EXAMPLE ===================================-->
+      <h3 style="padding:30px">فيديوهات من مدونتنا</h3>
+      <div class="row py-5">
+
+        @foreach($videos as $video)
+        <div class="col-lg-4">
+          <figure class="rounded p-3 bg-white shadow-sm" style="    box-shadow: 1px 1px 31px #ddd;">
+            <iframe allow="fullscreen;" width="100%" height="315"
+						src="{!! str_replace('watch?v=', 'embed/', $video->youtube_embed) !!}">
+			</iframe>	
+            <a href="videos/{{ $video->id }}"><figcaption class="p-4 card-img-bottom">
+              <h2 class="h5 font-weight-bold mb-2 font-italic">{{ $video->name }}</h2>
+              <p class="mb-0 text-small text-muted font-italic">{{ $video->description }}</p>
+            </figcaption></a>
+          </figure>
+        </div>
+        @endforeach
+  
+        
+      </div>
+    </div>
+ </div>
+
 <!-- End Shop Home List  -->
 {{-- @foreach($featured as $data)
     <!-- Start Cowndown Area -->
