@@ -15,8 +15,14 @@
     
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="{{ $video->title }}">
-	<meta property="og:image"  itemprop="image"  content="{{ url($video->youtube_embed) }} ">
-    <meta name="twitter:image" content="{{ url($video->youtube_embed) }}">
+
+	<?php
+$url = url($video->youtube_embed);
+parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
+	?>
+
+	<meta property="og:image"  itemprop="image"  content="https://img.youtube.com/vi/{{ $my_array_of_vars['v']   }}/maxresdefault.jpg ">
+    <meta name="twitter:image" content="https://img.youtube.com/vi/{{ $my_array_of_vars['v']   }}/maxresdefault.jpg ">
 	<meta property="og:description" content="{!!  strip_tags($video->description) !!}">
 	
 @endsection
