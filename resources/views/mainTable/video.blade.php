@@ -19,10 +19,20 @@
 	<?php
 $url = url($video->youtube_embed);
 parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
+if (isset($my_array_of_vars['v'])) {
+
+	$ur=$my_array_of_vars['v'];
+	$video_url=$video->youtube_embed;
+}else{
+	$ur=explode("https://youtu.be/",$url)[1];
+	$video_url="https://www.youtube.com/watch?v=".$ur;
+}
+
+
 	?>
 
-	<meta property="og:image"  itemprop="image"  content="https://img.youtube.com/vi/{{ $my_array_of_vars['v']   }}/maxresdefault.jpg ">
-    <meta name="twitter:image" content="https://img.youtube.com/vi/{{ $my_array_of_vars['v']   }}/maxresdefault.jpg ">
+	<meta property="og:image"  itemprop="image"  content="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg ">
+    <meta name="twitter:image" content="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg ">
 	<meta property="og:description" content="{!!  strip_tags($video->description) !!}">
 	
 @endsection
@@ -55,7 +65,7 @@ text-align: right;">>
 
                         @if($video->youtube_embed)
 						<iframe allow="fullscreen;" width="100%" height="315"
-						src="{!! str_replace('watch?v=', 'embed/', $video->youtube_embed) !!}">
+						src="{!! str_replace('watch?v=', 'embed/', $video_url) !!}">
 						</iframe>	
 						
 												@endif
