@@ -1,4 +1,5 @@
 @extends('layouts.mainTable')
+
 @section('header_v')
 <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +10,7 @@
     
 	<meta property="og:url" content="{{ url($video->youtube_embed) }}"> 
 
-	<meta name="keywords" content="{{ $video->tags }}">
+	<meta name="keywords" content="{{ $video->tags }}"> 
 	<meta name="description" content="{{  $video->description  }}">
 	
     
@@ -18,7 +19,7 @@
 
 	<?php
 $url = url($video->youtube_embed);
-parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
+parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars ); 
 if (isset($my_array_of_vars['v'])) {
 
 	$ur=$my_array_of_vars['v'];
