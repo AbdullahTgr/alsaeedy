@@ -46,7 +46,7 @@ if (isset($my_array_of_vars['v'])) {
 =            Store Section            =
 ====================================-->
 <section class="section bg-gray" style="    direction: rtl;
-text-align: right;">>
+text-align: right;">
 	<!-- Container Start -->
 	<div class="container"> 
 		<div class="row">
