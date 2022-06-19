@@ -1,4 +1,3 @@
-@extends('layouts.mainTable')
 
 @section('header_v')
 <meta charset="utf-8">
@@ -37,6 +36,7 @@ if (isset($my_array_of_vars['v'])) {
 	<meta property="og:description" content="{!!  strip_tags($video->description) !!}">
 	
 @endsection
+@extends('layouts.mainTable')
 
 @section('title')
 <title>{{ $video->title }}</title>
