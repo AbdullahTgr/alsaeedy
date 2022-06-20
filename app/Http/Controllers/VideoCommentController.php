@@ -90,7 +90,7 @@ class VideoCommentController extends Controller
      */
     public function edit($id)
     {
-        $comments=videoComment::find($id);
+        $comments=VideoComment::find($id);
         if($comments){
             return view('backend.comment.edit')->with('comment',$comments);
         }
@@ -109,7 +109,7 @@ class VideoCommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $comment=videoComment::find($id);
+        $comment=VideoComment::find($id);
         if($comment){
             $data=$request->all();
             // return $data;
@@ -137,7 +137,7 @@ class VideoCommentController extends Controller
      */
     public function destroy($id)
     {
-        $comment=videoComment::find($id);
+        $comment=VideoComment::find($id);
         if($comment){
             $status=$comment->delete();
             if($status){
