@@ -9,13 +9,13 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Post Category Lists</h6>
-      <a href="{{route('post-category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Post Category</a>
+      <h6 class="m-0 font-weight-bold text-primary float-left">video Category Lists</h6>
+      <a href="{{route('video-category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add video Category</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
-        @if(count($postCategories)>0) 
-        <table class="table table-bordered" id="post-category-dataTable" width="100%" cellspacing="0">
+        @if(count($videoCategories)>0)
+        <table class="table table-bordered" id="video-category-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
               <th>S.N.</th>
@@ -35,10 +35,10 @@
               </tr>
           </tfoot>
           <tbody>
-            @foreach($postCategories as $data)   
+            @foreach($videoCategories as $data)   
                 <tr>
                     <td>{{$data->id}}</td>
-                    <td>{{$data->title}}</td>
+                    <td>{{$data->{'title-ar'} }}</td>
                     <td>{{$data->slug}}</td>
                     <td>
                         @if($data->status=='active')
@@ -48,8 +48,8 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('post-category.edit',$data->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
-                    <form method="POST" action="{{route('post-category.destroy',[$data->id])}}">
+                        <a href="{{route('video-category.edit',$data->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                    <form method="POST" action="{{route('video-category.destroy',[$data->id])}}">
                       @csrf 
                       @method('delete')
                           <button class="btn btn-danger btn-sm dltBtn" data-id={{$data->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
@@ -66,7 +66,7 @@
                               </button>
                             </div>
                             <div class="modal-body">
-                              <form method="post" action="{{ route('banners.destroy',$user->id) }}">
+                              <form method="video" action="{{ route('banners.destroy',$user->id) }}">
                                 @csrf 
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent delete user</button>
@@ -79,9 +79,9 @@
             @endforeach
           </tbody>
         </table>
-        <span style="float:right">{{$postCategories->links()}}</span>
+        <span style="float:right">{{$videoCategories->links()}}</span>
         @else
-          <h6 class="text-center">No Post Category found!!! Please create post category</h6>
+          <h6 class="text-center">No video Category found!!! Please create video category</h6>
         @endif
       </div>
     </div>
@@ -109,7 +109,7 @@
   <script src="{{asset('backend/js/demo/datatables-demo.js')}}"></script>
   <script>
       
-      $('#post-category-dataTable').DataTable( {
+      $('#video-category-dataTable').DataTable( {
             "columnDefs":[
                 {
                     "orderable":false,

@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\Models\Post;
-use App\Models\PostCategory;
-use App\Models\PostTag;
+use App\Models\Video;
+use App\Models\VideoCategory;
+use App\Models\VideoTag;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
-class PostController extends Controller
+class VideoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,12 +20,12 @@ class PostController extends Controller
     public function index()
     {
         
-        $posts=Post::getAllPost(); 
-        $tags=PostTag::get();
+        $videos=Video::getAllvideo(); 
+        $tags=VideoTag::get();
  
         
-        // return $posts;
-        return view('backend.post.index')->with('tags',$tags)->with('posts',$posts);
+        // return $videos;
+        return view('backend.video.index')->with('tags',$tags)->with('videos',$videos);
     }
 
     /**
@@ -35,10 +35,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories=PostCategory::get();
-        $tags=PostTag::get();
+        $categories=VideoCategory::get();
+        $tags=VideoTag::get();
         $users=User::get(); 
-        return view('backend.post.create')->with('users',$users)->with('categories',$categories)->with('tags',$tags);
+        return view('backend.video.create')->with('users',$users)->with('categories',$categories)->with('tags',$tags);
     }
 
     /**
@@ -51,14 +51,11 @@ class PostController extends Controller
     {
         // return $request->all();
         $this->validate($request,[
-            'title'=>'string|required',
-            'quote'=>'string|nullable',
-            'summary'=>'string|required',
+            'title-ar'=>'string|required',
             'description'=>'string|nullable',
-            'photo'=>'string|nullable',
             'tags'=>'nullable',
             'added_by'=>'nullable',
-            'post_cat_id'=>'required',
+            'video_cat_id'=>'required',
             'status'=>'required|in:active,inactive'
         ]);
 
@@ -67,9 +64,8 @@ class PostController extends Controller
         if(!isset($request->added_by)){
             $data['added_by']=Auth::user()->id;
         } 
-        //$slug=Str::slug($request->title.'-'.$request->{'title-ar'}.'-');
-        $slug=Str::slug($request->{'title-ar'});  
-        $count=Post::where('slug',$slug)->count();
+        $slug=Str::slug($request->{'title-ar'}); 
+        $count=Video::where('slug',$slug)->count();
         if($count>0){
             $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
         }
@@ -84,17 +80,17 @@ class PostController extends Controller
         }
         // return $data;
 
-        $status=Post::create($data);
+        $status=Video::create($data);
         if($status){
-            request()->session()->flash('success','Post Successfully added');
+            request()->session()->flash('success','video Successfully added');
         }
         else{
             request()->session()->flash('error','Please try again!!');
         }
         if(Auth::user()->role=='admin'){
-            return redirect()->route('post.index');
+            return redirect()->route('video.index');
         }else{
-            return redirect()->route('post_m.index');
+            return redirect()->route('video_m.index');
         }
         
     }
@@ -118,11 +114,11 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post=Post::findOrFail($id);
-        $categories=PostCategory::get();
-        $tags=PostTag::get();
+        $video=Video::findOrFail($id);
+        $categories=VideoCategory::get();
+        $tags=VideoTag::get();
         $users=User::get();
-        return view('backend.post.edit')->with('categories',$categories)->with('users',$users)->with('tags',$tags)->with('post',$post);
+        return view('backend.video.edit')->with('categories',$categories)->with('users',$users)->with('tags',$tags)->with('video',$video);
      
     }
  
@@ -135,7 +131,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $post=Post::findOrFail($id);
+        $video=Video::findOrFail($id);
          // return $request->all();
          $this->validate($request,[
             'title'=>'string|required',
@@ -145,7 +141,7 @@ class PostController extends Controller
             'photo'=>'string|nullable',
             'tags'=>'nullable',
             'added_by'=>'nullable',
-            'post_cat_id'=>'required',
+            'video_cat_id'=>'required',
             'status'=>'required|in:active,inactive'
         ]);
         if(!isset($request->added_by)){
@@ -162,17 +158,17 @@ class PostController extends Controller
         }
         // return $data;
 
-        $status=$post->fill($data)->save();
+        $status=$video->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Post Successfully updated');
+            request()->session()->flash('success','video Successfully updated');
         }
         else{
             request()->session()->flash('error','Please try again!!');
         }
         if(Auth::user()->role=='admin'){
-            return redirect()->route('post.index');
+            return redirect()->route('video.index');
         }else{
-            return redirect()->route('post_m.index');
+            return redirect()->route('video_m.index');
        }
         
     }
@@ -185,16 +181,17 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post=Post::findOrFail($id);
+        
+        $video=Video::findOrFail($id); 
        
-        $status=$post->delete();
+        $status=$video->delete(); 
         
         if($status){
-            request()->session()->flash('success','Post successfully deleted');
+            request()->session()->flash('success','video successfully deleted');
         }
         else{
-            request()->session()->flash('error','Error while deleting post ');
+            request()->session()->flash('error','Error while deleting video ');
         }
-        return redirect()->route('post.index');
+        return redirect()->route('video.index');
     }
 }

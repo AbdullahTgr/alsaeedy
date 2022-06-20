@@ -204,7 +204,11 @@ return [
     'watchvid' => 'مشاهدة الفيديو',
     'upto' => ' يصل الي ',
     'videos' => ' فيديوهات ',
-
+    'recentvideo' => ' فيديوهات سابقة ',
+    'video' => ' فيديوهات ',
+    'videocategories' => ' فئات ',
+    
+    
 
 
 

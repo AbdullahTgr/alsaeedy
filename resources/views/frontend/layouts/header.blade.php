@@ -247,8 +247,10 @@
                                                 {{Helper::getHeaderCategory(Lang::get('msg.categories') )}}  
                                                 <li class="{{Request::path()=='blog' ? 'active' : ''}}"><a href="{{route('blog')}}">{{ Lang::get('msg.blog') }}</a></li>	
 
-                                                <li class="{{Request::path()=='videos' ? 'active' : ''}}"><a href="{{route('videos')}}">{{ Lang::get('msg.videos') }}</a></li>									
-                                               
+                                                <li class="{{Request::path()=='video' ? 'active' : ''}}"><a href="{{route('video')}}">{{ Lang::get('msg.video') }}</a></li>	
+
+                                                {{-- <li class="{{Request::path()=='videos' ? 'active' : ''}}"><a href="{{route('videos')}}">{{ Lang::get('msg.videos') }}</a></li>									
+                                                --}}
                                             <li class="{{Request::path()=='contact' ? 'active' : ''}}"><a href="{{route('contact')}}">{{ Lang::get('msg.contactus') }}</a></li>
                                             <select class="form-control changeLang" >
                                                 <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>{{ Lang::get('msg.english') }}</option>

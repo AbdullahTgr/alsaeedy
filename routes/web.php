@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*/ 
 
 Auth::routes(['register'=>false]);
 
@@ -102,6 +102,13 @@ Route::get('blog-cat/{slug}','FrontendController@blogByCategory')->name('blog.ca
 Route::get('blog-tag/{slug}','FrontendController@blogByTag')->name('blog.tag');
 
 
+// video 
+Route::get('/video','Front_vid_Controller@video')->name('video');
+Route::get('/video-detail/{slug}','Front_vid_Controller@videoDetail')->name('video.detail');
+Route::get('/video/search','Front_vid_Controller@videoSearch')->name('video.search');
+Route::post('/video/filter','Front_vid_Controller@videoFilter')->name('video.filter');
+Route::get('video-cat/{slug}','Front_vid_Controller@videoByCategory')->name('video.category');
+Route::get('video-tag/{slug}','Front_vid_Controller@videoByTag')->name('video.tag');
 //video
 // Route::get('/videos','FrontendController@videos')->name('videos');
 // Route::get('/video-detail/{slug}','FrontendController@videoDetail')->name('video.detail');
@@ -121,6 +128,9 @@ Route::post('product/{slug}/review','ProductReviewController@store')->name('revi
 // Post Comment 
 Route::post('post/{slug}/comment','PostCommentController@store')->name('post-comment.store');
 Route::resource('/comment','PostCommentController');
+// Post Comment 
+Route::post('video/{slug}/comment','VideoCommentController@store')->name('video-comment.store');
+Route::resource('/comment','VideoCommentController');
 // Coupon
 Route::post('/coupon-store','CouponController@couponStore')->name('coupon-store');
 // Payment
@@ -178,6 +188,19 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
    Route::resource('/post-tag','PostTagController');
    // Post
    Route::resource('/post','PostController'); 
+
+
+
+
+   // POST category
+   Route::resource('/video-category','VideoCategoryController'); 
+   // video tag
+   Route::resource('/video-tag','VideoTagController');
+   // video
+   Route::resource('/video','VideoController');   
+
+
+
    // Message
    Route::resource('/message','MessageController');
    Route::get('/message/five','MessageController@messageFive')->name('messages.five');
@@ -266,24 +289,24 @@ Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
 
 
 
-Route::get('channels/{channel}', 'HomePageController@channel')->name('channel');
-Route::get('videos/{video}', 'HomePageController@video')->name('video');
-    Route::get('videos', 'HomePageController@index')->name('videos');
+// Route::get('channels/{channel}', 'HomePageController@channel')->name('channel');
+// Route::get('videos/{video}', 'HomePageController@video')->name('video');
+//     Route::get('videos', 'HomePageController@index')->name('videos');
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
-
-    
-    // Channels
-    Route::delete('channels/destroy', 'ChannelsController@massDestroy')->name('channels.massDestroy');
-    Route::resource('channels', 'ChannelsController');
-
-    // Videos
-    Route::delete('videos/destroy', 'VideosController@massDestroy')->name('videos.massDestroy');
-    Route::resource('videos', 'VideosController');
-
+// Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
 
     
-});
+//     // Channels
+//     Route::delete('channels/destroy', 'ChannelsController@massDestroy')->name('channels.massDestroy');
+//     Route::resource('channels', 'ChannelsController');
+
+//     // Videos
+//     Route::delete('videos/destroy', 'VideosController@massDestroy')->name('videos.massDestroy');
+//     Route::resource('videos', 'VideosController');
+
+
+    
+// });
 
 
     

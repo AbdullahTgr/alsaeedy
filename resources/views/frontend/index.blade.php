@@ -363,9 +363,9 @@ $path="";
 </section>
 
 
+ 
 
-
-
+{{-- 
 <div class="row"> 
 
     <div class="col-lg-11 mx-auto">
@@ -390,7 +390,7 @@ $path="";
         
       </div>
     </div>
- </div>
+ </div> --}}
 
 <!-- End Shop Home List  -->
 {{-- @foreach($featured as $data)

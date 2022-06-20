@@ -218,7 +218,7 @@
     <!-- Categories -->
 
     
-
+{{-- 
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#video" aria-expanded="true" aria-controls="video">
         <i class="fas fa-sitemap"></i>
@@ -238,10 +238,109 @@
           <a class="collapse-item" href="{{ route("admin.videos.create") }}">Add Video</a>
         </div>
       </div>
-  </li>
+  </li> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+      Videos
+    </div>
+
+    <!-- videos -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#videoCollapse" aria-expanded="true" aria-controls="videoCollapse">
+        <i class="fas fa-fw fa-folder"></i>
+        <span>videos</span>
+      </a>
+      <div id="videoCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">video Options:</h6>
+          <a class="collapse-item" href="{{route('video.index')}}">videos</a>
+          <a class="collapse-item" href="{{route('video.create')}}">Add video</a>
+        </div>
+      </div>
+    </li>
+
+     <!-- Category -->
+     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#videoCategoryCollapse" aria-expanded="true" aria-controls="videoCategoryCollapse">
+          <i class="fas fa-sitemap fa-folder"></i>
+          <span>Category</span>
+        </a>
+        <div id="videoCategoryCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Category Options:</h6>
+            <a class="collapse-item" href="{{route('video-category.index')}}">Category</a>
+            <a class="collapse-item" href="{{route('video-category.create')}}">Add Category</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Tags -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tagCollapse" aria-expanded="true" aria-controls="tagCollapse">
+            <i class="fas fa-tags fa-folder"></i>
+            <span>Tags</span>
+        </a>
+        <div id="tagCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Tag Options:</h6>
+            <a class="collapse-item" href="{{route('video-tag.index')}}">Tag</a>
+            <a class="collapse-item" href="{{route('video-tag.create')}}">Add Tag</a>
+            </div>
+        </div>
+    </li>
+
+      <!-- Comments -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('comment.index')}}">
+            <i class="fas fa-comments fa-chart-area"></i>
+            <span>Comments</span>
+        </a>
+      </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
       <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 
 </ul>
+

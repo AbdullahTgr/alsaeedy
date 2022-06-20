@@ -4,6 +4,8 @@ use App\Models\Message;
 use App\Models\Category;
 use App\Models\PostTag;
 use App\Models\PostCategory;
+use App\Models\VideoTag;
+use App\Models\VideoCategory;
 use App\Models\Order;
 use App\Models\Wishlist;
 use App\Models\Shipping;
@@ -133,6 +135,12 @@ class Helper{
         }
         return PostTag::has('posts')->orderBy('id','desc')->get();
     }
+    public static function videoTagList($option='all'){
+        if($option='all'){
+            return VideoTag::orderBy('id','desc')->get();
+        }
+        return VideoTag::has('videos')->orderBy('id','desc')->get();
+    }
 
     public static function postCategoryList($option="all",$lang='en'){
         if($option='all'){
@@ -140,6 +148,13 @@ class Helper{
         }
         return PostCategory::has('posts')->orderBy('id','DESC')->get();
     }
+    public static function videoCategoryList($option="all",$lang='en'){
+        if($option='all'){ 
+            return VideoCategory::orderBy('id','DESC')->get();
+        }
+        return VideoCategory::has('videos')->orderBy('id','DESC')->get();
+    }
+    
     // Cart Count
     public static function cartCount($user_id=''){
        

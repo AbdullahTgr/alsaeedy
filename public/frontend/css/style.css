@@ -4911,7 +4911,7 @@ h1 {
 }
 
 .shop-blog .shop-single-blog img {
-    height: 30vh;
+    height: 18vh;
     width: 100%;
     object-fit: cover;
 }
@@ -5281,6 +5281,9 @@ h1 {
 
 .blog-single .image {
     position: relative;
+    padding: 9px;
+    margin: 14px 0px;
+    border: 1px solid #ddd;
 }
 
 .blog-single .image img {

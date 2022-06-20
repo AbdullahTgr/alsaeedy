@@ -9,9 +9,10 @@ use App\Models\PostCategory;
 use App\Models\Post;
 use App\Models\Cart;
 use App\Models\Brand;
+use App\Models\Video;
 use App\User;
 
-use App\Video;
+
 use App\Channel;
 
 use Session;
