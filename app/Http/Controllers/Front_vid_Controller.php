@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\videoTag;
-use App\Models\videoCategory;
-use App\Models\video;
+use App\Models\VideoTag;
+use App\Models\VideoCategory;
+use App\Models\Video;
 
 
 use App\Channel;
