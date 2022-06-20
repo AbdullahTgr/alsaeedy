@@ -11,16 +11,16 @@ class Video extends Model
     
 
     public function cat_info(){
-        return $this->hasOne('App\Models\videoCategory','id','video_cat_id');
+        return $this->hasOne('App\Models\VideoCategory','id','video_cat_id');
     }
     public function tag_info(){
-        return $this->hasOne('App\Models\videoTag','id','video_tag_id');
+        return $this->hasOne('App\Models\VideoTag','id','video_tag_id');
     }
 
     public function author_info(){
         return $this->hasOne('App\User','id','added_by');
     }
-    public static function getAllvideo(){
+    public static function getAllVideo(){
         
         $role=Auth::user()->role;
         if($role=='admin'){
