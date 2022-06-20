@@ -12,7 +12,7 @@ class VideoCategory extends Model
         return $this->hasMany('App\Models\Video','video_cat_id','id')->where('status','active');
     }
 
-    public static function getVideoByCategory($slug){
+    public static function getVideoByCategory($slug){ 
         return VideoCategory::with('video')->where('slug',$slug)->first();
     }
 }

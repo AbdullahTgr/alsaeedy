@@ -100,7 +100,7 @@
           <select name="video_cat_id" class="form-control">
               <option value="">--Select any category--</option>
               @foreach($categories as $key=>$data)
-                  <option value='{{$data->id}}'>{{$data->{'title-ar'}}}</option>
+                  <option value='{{$data->id}}'>{{ $data->{'title-ar'} }}</option>
               @endforeach
           </select>
         </div>
