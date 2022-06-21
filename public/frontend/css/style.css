@@ -5283,7 +5283,6 @@ h1 {
     position: relative;
     padding: 9px;
     margin: 14px 0px;
-    border: 1px solid #ddd;
 }
 
 .blog-single .image img {
@@ -5453,6 +5452,7 @@ h1 {
     position: relative;
     margin-bottom: 40px;
     border-radius: 5px;
+    padding: 15px;
     padding-left: 95px;
 }
 

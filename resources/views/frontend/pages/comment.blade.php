@@ -26,3 +26,28 @@
 
 </div>    
 @endforeach
+
+
+@foreach($commentsno as $comment_n)
+
+
+
+<div class="display-comment"   style="margin-left:40px;" >
+    <div class="comment-list">
+        <div class="single-comment" style="background:#ddd">
+          
+                <img src="{{asset('backend/img/avatar.png')}}" alt="">
+            <div class="content">
+                
+            <h4>{{$comment_n->name}}  <span>{{ Lang::get('msg.at') }} {{$comment_n->created_at->format('g: i a')}} {{ Lang::get('msg.on') }} {{$comment_n->created_at->format('M d Y')}}</span></h4>
+                <p>{{$comment_n->comment}}</p>
+            
+                    {{$comment_n->Email}}
+                
+            </div>
+        </div>
+    </div>
+
+    
+</div>    
+@endforeach

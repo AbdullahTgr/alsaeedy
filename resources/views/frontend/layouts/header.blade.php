@@ -252,11 +252,11 @@
                                                 {{-- <li class="{{Request::path()=='videos' ? 'active' : ''}}"><a href="{{route('videos')}}">{{ Lang::get('msg.videos') }}</a></li>									
                                                 --}}
                                             <li class="{{Request::path()=='contact' ? 'active' : ''}}"><a href="{{route('contact')}}">{{ Lang::get('msg.contactus') }}</a></li>
-                                            <select class="form-control changeLang" >
+                                            {{-- <select class="form-control changeLang" >
                                                 <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>{{ Lang::get('msg.english') }}</option>
                                                 <option value="fr" {{ session()->get('locale') == 'fr' ? 'selected' : '' }}>{{ Lang::get('msg.france') }}</option>
                                                 <option value="ar" {{ session()->get('locale') == 'ar' ? 'selected' : '' }}>{{ Lang::get('msg.arabic') }}</option>
-                                            </select>
+                                            </select> --}}
                                         </ul>
                                     </div>
                                 </div>

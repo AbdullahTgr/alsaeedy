@@ -21,7 +21,7 @@ class PostComment extends Model
         
         if($role=='admin'){
             return PostComment::with('user_info')->paginate(10);
-        }else{
+        }else{  
                   $user=Auth::user()->id;
                   return PostComment::with('user_info')->with('posts')->paginate(10);
        }

@@ -38,9 +38,13 @@ class Post extends Model
         return Post::with(['tag_info','author_info'])->where('slug',$slug)->where('status','active')->first();
     }
 
-    public function comments(){
+    public function comments(){ 
         return $this->hasMany(PostComment::class)->whereNull('parent_id')->where('status','active')->with('user_info')->orderBy('id','DESC');
     }
+    public function commentsno(){ 
+        return $this->hasMany(Postnocomments::class)->where('status','active')->orderBy('id','DESC');
+    }
+
     public function allComments(){
         return $this->hasMany(PostComment::class)->where('status','active');
     }

@@ -100,7 +100,7 @@
                                         <form class="form comment_form" id="commentForm" action="{{route('post-comment.store',$post->slug)}}" method="POST">
                                             @csrf
                                             <div class="row">
-                                                {{-- <div class="col-lg-6 col-md-6 col-12">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="form-group">
                                                         <label>Your Name<span>*</span></label>
                                                         <input type="text" name="name" placeholder="" required="required">
@@ -111,7 +111,7 @@
                                                         <label>Your Email<span>*</span></label>
                                                         <input type="email" name="email" placeholder="" required="required">
                                                     </div>
-                                                </div> --}}
+                                                </div>
                                                 <div class="col-12">
                                                     <div class="form-group  comment_form_body">
                                                         <label>{{ Lang::get('msg.yourmessage') }}<span>*</span></label>
@@ -134,8 +134,45 @@
                             	
                             @else 
                             <p class="text-center p-5">
-                                {{ Lang::get('msg.youneedto') }}<a href="{{route('login.form')}}" style="color:rgb(54, 54, 204)">{{ Lang::get('msg.login') }}</a> {{ Lang::get('msg.or') }} <a style="color:blue" href="{{route('register.form')}}">{{ Lang::get('msg.register') }}</a> {{ Lang::get('msg.forcomment') }} 
-
+                                <div class="col-12 mt-4">			
+                                    <div class="reply">
+                                        <div class="reply-head comment-form" id="commentFormContainer">
+                                            <h2 class="reply-title">{{ Lang::get('msg.leaveacomment') }}</h2>
+                                            <!-- Comment Form -->
+                                            <form class="form comment_form" id="commentForm" action="{{route('post-comment_no.store',$post->slug)}}" method="POST">
+                                                @csrf
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label>Your Name<span>*</span></label>
+                                                            <input type="text" name="name" placeholder="" required="required">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label>Your Email<span>*</span></label>
+                                                            <input type="email" name="email" placeholder="" required="required">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group  comment_form_body">
+                                                            <label>{{ Lang::get('msg.yourmessage') }}<span>*</span></label>
+                                                            <textarea name="comment" id="comment" rows="10" placeholder=""></textarea>
+                                                            <input type="hidden" name="post_id" value="{{ $post->id }}" />
+                                                            <input type="hidden" name="parent_id" id="parent_id" value="" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group button">
+                                                            <button type="submit" class="btn"><span class="comment_btn comment">{{ Lang::get('msg.postcomment') }}</span><span class="comment_btn reply" style="display: none;">{{ Lang::get('msg.replaycomment') }}</span></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <!-- End Comment Form -->
+                                        </div>
+                                    </div>			
+                                </div>
                             </p>
 
                            
@@ -145,8 +182,11 @@
                                 <div class="comments">
                                     <h3 class="comment-title"> {{ Lang::get('msg.comments') }} ({{$post->allComments->count()}})</h3>
                                     <!-- Single Comment -->
-                                    @include('frontend.pages.comment', ['comments' => $post->comments, 'post_id' => $post->id, 'depth' => 3])
+                                    @include('frontend.pages.comment', ['comments' => $post->comments,'commentsno' => $post->commentsno, 'post_id' => $post->id, 'depth' => 3])
                                     <!-- End Single Comment -->
+                                    
+  
+                                    
                                 </div>									
                             </div>	
                         </div>

@@ -128,6 +128,11 @@ Route::post('product/{slug}/review','ProductReviewController@store')->name('revi
 // Post Comment 
 Route::post('post/{slug}/comment','PostCommentController@store')->name('post-comment.store');
 Route::resource('/comment','PostCommentController');
+
+// Post Comment  no auth
+Route::post('post_no/{slug}/comment','PostComment_no_Controller@store')->name('post-comment_no.store');
+Route::resource('/comment_no','PostComment_no_Controller');
+
 // Post Comment 
 Route::post('video/{slug}/comment','VideoCommentController@store')->name('video-comment.store');
 Route::resource('/comment','VideoCommentController');

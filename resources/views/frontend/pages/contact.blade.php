@@ -28,7 +28,7 @@
 
 
 
-
+{{-- 
 
   <!-- Send Message -->
   <section class="page-section bg-light" id="sendmsg" style="direction: ltr">
@@ -122,7 +122,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 
 

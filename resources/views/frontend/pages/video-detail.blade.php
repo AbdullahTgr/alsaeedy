@@ -12,7 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     
-	<meta property="og:url" content="{!! route('video.detail',strip_tags($video->slug)) !!}"> 
+	<meta property="og:url" content="{!! route('blog.detail',strip_tags($video->slug)) !!}"> 
 
 	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag}}@endforeach">
 	<meta name="description" content="{!!  strip_tags($video->{'summary-ar'} ) !!}">
@@ -64,7 +64,7 @@ if (isset($my_array_of_vars['v'])) {
                     <div class="bread-inner">
                         <ul class="bread-list">
                             <li><a href="{{route('home')}}">{{ Lang::get('msg.home') }}<i class="ti-arrow-right"></i></a></li>
-                            <li class="active"><a href="javascript:void(0);">{{ Lang::get('msg.video') }}</a></li>
+                            <li class="active"><a href="javascript:void(0);">{{ Lang::get('msg.blog') }}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -92,7 +92,7 @@ if (isset($my_array_of_vars['v'])) {
                                 <div class="blog-detail">  
                                     <h2 class="blog-title">{{$video->{'title-ar'} }}</h2>
                                     <div class="blog-meta">
-                                        <span class="author"><a href="javascript:void(0);"><i class="fa fa-user"></i>{{ Lang::get('msg.by') }} {{$video->author_info['name']}}</a><a href="javascript:void(0);"><i class="fa fa-calendar"></i>{{$video->created_at->format('M d, Y')}}</a><a href="javascript:void(0);"><i class="fa fa-comments"></i>{{ Lang::get('msg.comment') }} ({{$video->allComments->count()}})</a></span>
+                                   
                                     </div>
                                     <div class="sharethis-inline-reaction-buttons"></div>
                                     <div class="sharethis-inline-share-buttons"></div>
@@ -120,64 +120,9 @@ if (isset($my_array_of_vars['v'])) {
                                     </div>
                                 </div>
                             </div>
-                            @auth
-                            <div class="col-12 mt-4">			
-                                <div class="reply">
-                                    <div class="reply-head comment-form" id="commentFormContainer">
-                                        <h2 class="reply-title">{{ Lang::get('msg.leaveacomment') }}</h2>
-                                        <!-- Comment Form -->
-                                        <form class="form comment_form" id="commentForm" action="{{route('video-comment.store',$video->slug)}}" method="POST">
-                                            @csrf
-                                            <div class="row">
-                                                {{-- <div class="col-lg-6 col-md-6 col-12">
-                                                    <div class="form-group">
-                                                        <label>Your Name<span>*</span></label>
-                                                        <input type="text" name="name" placeholder="" required="required">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-12">
-                                                    <div class="form-group">
-                                                        <label>Your Email<span>*</span></label>
-                                                        <input type="email" name="email" placeholder="" required="required">
-                                                    </div>
-                                                </div> --}}
-                                                <div class="col-12">
-                                                    <div class="form-group  comment_form_body">
-                                                        <label>{{ Lang::get('msg.yourmessage') }}<span>*</span></label>
-                                                        <textarea name="comment" id="comment" rows="10" placeholder=""></textarea>
-                                                        <input type="hidden" name="video_id" value="{{ $video->id }}" />
-                                                        <input type="hidden" name="parent_id" id="parent_id" value="" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form-group button">
-                                                        <button type="submit" class="btn"><span class="comment_btn comment">{{ Lang::get('msg.videocomment') }}</span><span class="comment_btn reply" style="display: none;">{{ Lang::get('msg.replaycomment') }}</span></button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <!-- End Comment Form -->
-                                    </div>
-                                </div>			
-                            </div>
-                            	
-                            @else 
-                            <p class="text-center p-5">
-                                {{ Lang::get('msg.youneedto') }}<a href="{{route('login.form')}}" style="color:rgb(54, 54, 204)">{{ Lang::get('msg.login') }}</a> {{ Lang::get('msg.or') }} <a style="color:blue" href="{{route('register.form')}}">{{ Lang::get('msg.register') }}</a> {{ Lang::get('msg.forcomment') }} 
-
-                            </p>
-
+                    									
                            
-                            <!--/ End Form -->
-                            @endauth										
-                            <div class="col-12">
-                                <div class="comments">
-                                    <h3 class="comment-title"> {{ Lang::get('msg.comments') }} ({{$video->allComments->count()}})</h3>
-                                    <!-- Single Comment -->
-                                    @include('frontend.pages.comment', ['comments' => $video->comments, 'video_id' => $video->id, 'depth' => 3])
-                                    <!-- End Single Comment -->
-                                </div>									
-                            </div>	
+                            
                         </div>
                     </div>
                 </div>
@@ -185,7 +130,7 @@ if (isset($my_array_of_vars['v'])) {
                     <div class="main-sidebar">
                         <!-- Single Widget -->
                         <div class="single-widget search">
-                            <form class="form" method="GET" action="{{route('video.search')}}">
+                            <form class="form" method="GET" action="{{route('blog.search')}}">
                                 <input type="text" placeholder="{{ Lang::get('msg.search') }}" name="search">
                                 <button class="button" type="sumbit"><i class="fa fa-search"></i></button>
                             </form>
@@ -225,10 +170,10 @@ if (isset($my_array_of_vars['v'])) {
     if (isset($my_array_of_vars['v'])) {
     
         $ur=$my_array_of_vars['v'];
-        $video_r_url=$video->{'quote-ar'};
+        $video_url=$video->{'quote-ar'};
     }else{
         $ur=explode("https://youtu.be/",$url)[1];
-        $video_r_url="https://www.youtube.com/watch?v=".$ur;
+        $video_url="https://www.youtube.com/watch?v=".$ur;
     }
     
     
@@ -239,7 +184,7 @@ if (isset($my_array_of_vars['v'])) {
                                         <img src="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg " alt="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg ">
                                     </div>
                                     <div class="content ">
-                                        <h5><a href="{!! route('video.detail',strip_tags($video->slug)) !!}">{{$video->{'title-ar'} }}</a></h5>
+                                        <h5><a href="{!! route('blog.detail',strip_tags($video->slug)) !!}">{{$video->{'title-ar'} }}</a></h5>
                                         <ul class="comment">
                                         @php 
                                             $author_info=DB::table('users')->select('name')->where('id',$video->added_by)->get();
