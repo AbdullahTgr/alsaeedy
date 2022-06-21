@@ -52,7 +52,7 @@ class VideoController extends Controller
         // return $request->all();
         $this->validate($request,[
             'title-ar'=>'string|required',
-            'description'=>'string|nullable',
+            'description-ar'=>'string|nullable',
             'tags'=>'nullable',
             'added_by'=>'nullable',
             'video_cat_id'=>'required',
@@ -134,11 +134,8 @@ class VideoController extends Controller
         $video=Video::findOrFail($id);
          // return $request->all();
          $this->validate($request,[
-            'title'=>'string|required',
-            'quote'=>'string|nullable',
-            'summary'=>'string|required',
-            'description'=>'string|nullable',
-            'photo'=>'string|nullable',
+            'title-ar'=>'string|required',
+            
             'tags'=>'nullable',
             'added_by'=>'nullable',
             'video_cat_id'=>'required',

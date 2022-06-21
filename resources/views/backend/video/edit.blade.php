@@ -51,44 +51,12 @@
 
         @csrf 
         @method('PATCH')
-        <div class="form-group">
-          <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
-          <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{$video->title}}" class="form-control">
-          @error('title')
-          <span class="text-danger">{{$message}}</span>
-          @enderror
-        </div>
 
-        <div class="form-group">
-          <label for="quote" class="col-form-label">Quote</label>
-          <textarea class="form-control" id="quote" name="quote">{{$video->quote}}</textarea>
-          @error('quote')
-          <span class="text-danger">{{$message}}</span>
-          @enderror
-        </div>
-
-        <div class="form-group">
-          <label for="summary" class="col-form-label">Summary <span class="text-danger">*</span></label>
-          <textarea class="form-control" id="summary" name="summary">{{$video->summary}}</textarea>
-          @error('summary')
-          <span class="text-danger">{{$message}}</span>
-          @enderror
-        </div>
-
-        <div class="form-group">
-          <label for="description" class="col-form-label">Description</label>
-          <textarea class="form-control" id="description" name="description">{{$video->description}}</textarea>
-          @error('description')
-          <span class="text-danger">{{$message}}</span>
-          @enderror
-        </div>
-
-
-
+        
 
 
         <div class="form-group">
-          <label for="inputTitle-ar" class="col-form-label">عنوان المنشور <span class="text-danger">*</span></label>
+          <label for="inputTitle-ar" class="col-form-label">عنوان الفيديو <span class="text-danger">*</span></label>
           <input id="inputTitle-ar" type="text" name="title-ar" placeholder="Enter title"  value="{{$video->{'title-ar'} }}" class="form-control">
           @error('title-ar')
           <span class="text-danger">{{$message}}</span>
@@ -96,7 +64,7 @@
         </div>
 
         <div class="form-group">
-          <label for="quote-ar" class="col-form-label">مقتبس</label>
+          <label for="quote-ar" class="col-form-label">رابط الفيديو</label>
           <textarea class="form-control" id="quote-ar" name="quote-ar">{{$video->{'quote-ar'} }}</textarea>
           @error('quote-ar')
           <span class="text-danger">{{$message}}</span>
@@ -124,41 +92,7 @@
 
 
 
-<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-<div class="col-xs-12 " style="background:#ddd">
-  
-  <div class="form-group">
-    <label for="inputTitle-fr" class="col-form-label">عنوان المنشور  بالفرنسي<span class="text-danger">*</span></label>
-    <input id="inputTitle-fr" type="text" name="title-fr" placeholder="Enter title"  value="{{$video->{'title-fr'} }}" class="form-control">
-    @error('title-fr')
-    <span class="text-danger">{{$message}}</span>
-    @enderror
-  </div>
-
-  <div class="form-group">
-    <label for="quote-fr" class="col-form-label">مقتبس بالفرنسي</label>
-    <textarea class="form-control" id="quote-fr" name="quote-fr">{{$video->{'quote-fr'} }}</textarea>
-    @error('quote-fr')
-    <span class="text-danger">{{$message}}</span>
-    @enderror
-  </div>
-
-  <div class="form-group">
-    <label for="summary-fr" class="col-form-label">ملخص  بالفرنسي<span class="text-danger">*</span></label>
-    <textarea class="form-control" id="summary-fr" name="summary-fr">{{$video->{'summary-fr'} }}</textarea>
-    @error('summary-fr')
-    <span class="text-danger">{{$message}}</span>
-    @enderror
-  </div>
-
-  <div class="form-group">
-    <label for="description-fr" class="col-form-label">تفاصيل بالفرنسي</label>
-    <textarea class="form-control" id="description-fr" name="description-fr">{{$video->{'description-fr'} }}</textarea>
-    @error('description-fr')
-    <span class="text-danger">{{$message}}</span>
-    @enderror
-  </div>
-</div>  
+        
 
 
 
@@ -170,7 +104,7 @@
           <select name="video_cat_id" class="form-control">
               <option value="">--Select any category--</option>
               @foreach($categories as $key=>$data)
-                  <option value='{{$data->id}}' {{(($data->id==$video->video_cat_id)? 'selected' : '')}}>{{$data->title}}</option>
+                  <option value='{{$data->id}}' {{(($data->id==$video->video_cat_id)? 'selected' : '')}}>{{$data->{'title-ar'} }}</option>
               @endforeach
           </select>
         </div>
@@ -205,12 +139,6 @@
 
 
 
-
-
-
-       
-
-
         @if (Auth::user()->role=='admin')
    
         <div class="form-group">
@@ -228,25 +156,6 @@
 
 
 
-
-
-
-        <div class="form-group">
-          <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
-          <div class="input-group">
-              <span class="input-group-btn">
-                  <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                  <i class="fa fa-picture-o"></i> Choose
-                  </a>
-              </span>
-          <input id="thumbnail" class="form-control" type="text" name="photo" value="{{$video->photo}}">
-        </div>
-        <div id="holder" style="margin-top:15px;max-height:100px;"></div>
-
-          @error('photo')
-          <span class="text-danger">{{$message}}</span>
-          @enderror
-        </div>
         
         <div class="form-group">
           <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
