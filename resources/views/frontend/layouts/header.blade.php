@@ -243,8 +243,8 @@
                                         <ul class="nav main-menu menu navbar-nav">
                                             <li class="{{Request::path()=='home' ? 'active' : ''}}"><a href="{{route('home')}}">{{ Lang::get('msg.home') }}</a></li>
                                             <li class="{{Request::path()=='about-us' ? 'active' : ''}}"><a href="{{route('about-us')}}">{{ Lang::get('msg.aboutus') }}</a></li>
-                                            <li class="@if(Request::path()=='product-grids'||Request::path()=='product-lists')  active  @endif"><a href="{{route('product-grids')}}">{{ Lang::get('msg.products') }}</a><span class="new">{{ Lang::get('msg.new') }}</span></li>												
-                                                {{Helper::getHeaderCategory(Lang::get('msg.categories') )}}  
+                                            {{-- <li class="@if(Request::path()=='product-grids'||Request::path()=='product-lists')  active  @endif"><a href="{{route('product-grids')}}">{{ Lang::get('msg.products') }}</a><span class="new">{{ Lang::get('msg.new') }}</span></li>												
+                                                {{Helper::getHeaderCategory(Lang::get('msg.categories') )}}   --}}
                                                 <li class="{{Request::path()=='blog' ? 'active' : ''}}"><a href="{{route('blog')}}">{{ Lang::get('msg.blog') }}</a></li>	
 
                                                 <li class="{{Request::path()=='video' ? 'active' : ''}}"><a href="{{route('video')}}">{{ Lang::get('msg.video') }}</a></li>	
