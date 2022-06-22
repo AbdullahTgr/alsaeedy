@@ -3,9 +3,9 @@
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header">Add video Category</h5>
+    <h5 class="card-header">Add video Main Category</h5>
     <div class="card-body">
-      <form method="post" action="{{route('video-category.store')}}"> 
+      <form method="post" action="{{route('video-maincategory.store')}}"> 
         {{csrf_field()}}
 
         <div class="form-group">
@@ -15,18 +15,20 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
+
+        
         <div class="form-group">
-          <label for="video_cat_id">Main Category <span class="text-danger">*</span></label>
-          <select name="video_maincat_id" class="form-control">
-              <option value="">--Select any Main category--</option>
-              @foreach($videocategory as $key=>$data)  
+          <label for="video_cat_id">Main Category Root <span class="text-danger">*</span></label>
+          <select name="video_maincatroot_id" class="form-control">
+              <option value="">--Select any category--</option>
+              @foreach($maincategoryroot as $key=>$data)
                   <option value='{{$data->id}}'>{{ $data->{'title-ar'} }}</option>
               @endforeach
           </select>
         </div>
-        
 
- 
+
+
         <div class="form-group">
           <label for="status" class="col-form-label">Status</label>
           <select name="status" class="form-control">
@@ -43,6 +45,7 @@
         </div>
       </form>
     </div>
+
 </div>
 
 @endsection

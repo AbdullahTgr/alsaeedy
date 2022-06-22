@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVideoCategoriesTable extends Migration
+class CreateVideoMainCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateVideoCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('video_categories', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('video_maincategories', function (Blueprint $table) {
+            $table->bigIncrements('id');;
             $table->string('title')->nullable();
             $table->string('slug')->unique();
             $table->enum('status',['active','inactive'])->default('active');
@@ -29,6 +29,6 @@ class CreateVideoCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('video_categories');
+        Schema::dropIfExists('video_maincategories');
     }
 }

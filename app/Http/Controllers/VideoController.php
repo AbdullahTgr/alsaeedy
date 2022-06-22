@@ -8,6 +8,8 @@ use App\Models\Video;
 use App\Models\VideoCategory;
 use App\Models\VideoTag;
 use App\User;
+use App\Models\VideoMaincategory;
+use App\Models\VideoMaincategoryroot;
 use Illuminate\Support\Facades\Auth;
 
 class VideoController extends Controller
@@ -19,14 +21,53 @@ class VideoController extends Controller
      */
     public function index()
     {
-        
-        $videos=Video::getAllvideo(); 
-        $tags=VideoTag::get();
- 
-        
+        $videocategory=Video::orderBy('id','DESC')->paginate(10);
+        $tags=VideoTag::get(); 
+
         // return $videos;
-        return view('backend.video.index')->with('tags',$tags)->with('videos',$videos);
+        return view('backend.video.index')->with('tags',$tags)->with('videos',$videocategory);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////
+
+
+    public function getmaincatsAjax($id)
+    {
+        $videomaincategory=VideoMaincategory::where('video_maincatroot_id',$id)->orderBy('id','DESC')->paginate(10);
+        return response()->json($videomaincategory);
+    }
+
+    public function getcatsAjax($id)
+    {
+        $videocategory=VideoCategory::where('video_maincat_id',$id)->orderBy('id','DESC')->paginate(10);
+        return response()->json($videocategory);
+    }
+
+
+
+/////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -35,10 +76,12 @@ class VideoController extends Controller
      */
     public function create()
     {
-        $categories=VideoCategory::get();
-        $tags=VideoTag::get();
+        
+        $videomaincategoryroot=VideoMaincategoryroot::orderBy('id','DESC')->paginate(10);
+
+        $tags=VideoTag::get(); 
         $users=User::get(); 
-        return view('backend.video.create')->with('users',$users)->with('categories',$categories)->with('tags',$tags);
+        return view('backend.video.create')->with('users',$users)->with('videomaincategoryroot',$videomaincategoryroot)->with('tags',$tags);
     }
 
     /**
@@ -64,7 +107,7 @@ class VideoController extends Controller
         if(!isset($request->added_by)){
             $data['added_by']=Auth::user()->id;
         } 
-        $slug=Str::slug($request->{'title-ar'}); 
+        $slug=Str::slug($request->{'title-ar'});  
         $count=Video::where('slug',$slug)->count();
         if($count>0){
             $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);

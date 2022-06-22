@@ -95,17 +95,36 @@
 
 
 
-         <div class="form-group">
-          <label for="video_cat_id">Category <span class="text-danger">*</span></label>
-          <select name="video_cat_id" class="form-control">
-              <option value="">--Select any category--</option>
-              @foreach($categories as $key=>$data)
-                  <option value='{{$data->id}}'>{{ $data->{'title-ar'} }}</option>
+        <div class="form-group">
+          <label for="video_cat_id">الفئات<span class="text-danger">*</span></label>
+          <select name="video_cat_id" class="form-control" id="showmaincat" >
+              <option value="">--اختر فئة --</option>
+              @foreach($videomaincategoryroot as $key=>$data) 
+                  <option value="{{ route('maincat.get',$data->id) }}" >{{ $data->{'title-ar'} }}</option>
               @endforeach
           </select>
         </div>
 
+        <div class="form-group">
+          <label for="video_cat_id">الاشخاص <span class="text-danger">*</span></label>
+          <select name="video_cat_id" class="form-control " id="show-maincat">
+              <option value="">-- اختر شخصا--</option>
+              
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="video_cat_id">المحتوي <span class="text-danger">*</span></label>
+          <select name="video_cat_id" class="form-control" id="show-cat">
+              <option value="">--اختر نوع المحتوي --</option>
+             
+          </select>
+        </div>
+
         
+
+
+
         <div class="tagz">separete with comma ( , )</div>
         <div id="tags">
           <span>--Write any tag--</span>
@@ -159,6 +178,75 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
 <script>
+$(document).ready(function () {
+       
+       /* When click show user */
+        $('body').on('click', '#showmaincat', function () {
+          
+          
+          var userURL = $(this).val();
+          
+          
+
+          $.get(userURL, function (data) {
+            
+      var arrr=data['data'];
+
+      $('#show-maincat').html("");
+      $('#show-cat').html("");
+      arrr.forEach(myFunction);
+        function myFunction(item) {
+          $('#show-maincat').append('<option value="/admin/getcat/'+item['id']+'">'+item['title-ar']+'</option>')
+        }
+ 
+
+    
+          })
+
+       });
+       
+
+
+
+
+
+
+       /* When click show user */
+       $('body').on('click', '#show-maincat', function () {
+          
+          
+          var userURL = $(this).val();
+          
+          
+
+          $.get(userURL, function (data) {
+            
+      var arrr=data['data'];
+
+      $('#show-cat').html("");
+      arrr.forEach(myFunction);
+        function myFunction(item) {
+          $('#show-cat').append('<option value="'+item['id']+'">'+item['title-ar']+'</option>')
+        }
+ 
+
+    
+          })
+
+       });
+
+
+
+
+
+
+
+
+
+
+
+    });
+
     $('#lfm').filemanager('image');
 
     $(document).ready(function() {
@@ -255,6 +343,7 @@ $("#tags input").on({
 $('#tags').on('click', 'span', function() {
   if(confirm("Remove "+ $(this).text() +"?")) $(this).remove(); 
 });
+ 
 
 
 });

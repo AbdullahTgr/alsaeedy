@@ -281,20 +281,49 @@
       </div>
     </li>
 
-     <!-- Category -->
-     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#videoCategoryCollapse" aria-expanded="true" aria-controls="videoCategoryCollapse">
-          <i class="fas fa-sitemap fa-folder"></i>
-          <span>Category</span>
-        </a>
-        <div id="videoCategoryCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Category Options:</h6>
-            <a class="collapse-item" href="{{route('video-category.index')}}">Category</a>
-            <a class="collapse-item" href="{{route('video-category.create')}}">Add Category</a>
-          </div>
-        </div>
-      </li>
+    <!-- Main Category -->
+    <li class="nav-item">
+     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#videoMainCategoryrootCollapse" aria-expanded="true" aria-controls="videoMainCategoryrootCollapse">
+       <i class="fas fa-sitemap fa-folder"></i>
+       <span>Main Category Root</span>
+     </a>
+     <div id="videoMainCategoryrootCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+       <div class="bg-white py-2 collapse-inner rounded">
+         <h6 class="collapse-header">Category Options:</h6>
+         <a class="collapse-item" href="{{route('video-maincategoryroot.index')}}">Main Category Roots</a>
+         <a class="collapse-item" href="{{route('video-maincategoryroot.create')}}">Add Main Category Root</a>
+       </div>
+     </div>
+   </li>
+
+   <!-- Main Category -->
+   <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#videoMainCategoryCollapse" aria-expanded="true" aria-controls="videoMainCategoryCollapse">
+      <i class="fas fa-sitemap fa-folder"></i>
+      <span>Main Category</span>
+    </a>
+    <div id="videoMainCategoryCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <h6 class="collapse-header">Category Options:</h6>
+        <a class="collapse-item" href="{{route('video-maincategory.index')}}">Main Categories</a>
+        <a class="collapse-item" href="{{route('video-maincategory.create')}}">Add Main Category</a>
+      </div>
+    </div>
+  </li>
+    <!-- Category -->
+    <li class="nav-item">
+       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#videoCategoryCollapse" aria-expanded="true" aria-controls="videoCategoryCollapse">
+         <i class="fas fa-sitemap fa-folder"></i>
+         <span>Category</span>
+       </a>
+       <div id="videoCategoryCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+         <div class="bg-white py-2 collapse-inner rounded">
+           <h6 class="collapse-header">Category Options:</h6>
+           <a class="collapse-item" href="{{route('video-category.index')}}">Category</a>
+           <a class="collapse-item" href="{{route('video-category.create')}}">Add Category</a>
+         </div>
+       </div>
+     </li>
 
       <!-- Tags -->
     <li class="nav-item">

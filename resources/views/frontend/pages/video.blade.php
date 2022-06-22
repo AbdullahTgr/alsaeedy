@@ -139,18 +139,18 @@ $path="";
                             <form action="{{route('video.filter')}}" method="POST"> 
                                     @csrf
                                     {{-- {{count(Helper::videoCategoryList())}} --}}
-                                    @foreach(Helper::videoCategoryList('videos') as $cat) 
+                                    @foreach(Helper::videoCategoryList('videos') as $cat)  
                                     <li>
                                         <a href="{{route('video.category',$cat->slug)}}">{{$cat->{'title-ar'} }} </a>
                                     </li>
-                                    @endforeach
+                                    @endforeach 
                                 </form>
                                 
                             </ul>
                         </div>
                         <!--/ End Single Widget -->
                         <!-- Single Widget -->
-                        <div class="single-widget recent-video">
+                        <div class="single-widget recent-video"> 
                             <h3 class="title">{{ Lang::get('msg.recentvideo') }}</h3>
                             @foreach($recent_videos as $video)
                                 <!-- Single video -->

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -197,6 +198,9 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
 
 
 
+   // POST main category
+   Route::resource('/video-maincategory','VideoMainCategoryController'); 
+   Route::resource('/video-maincategoryroot','VideoMainCategoryrootController'); 
    // POST category
    Route::resource('/video-category','VideoCategoryController'); 
    // video tag
@@ -209,10 +213,12 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
    // Message
    Route::resource('/message','MessageController');
    Route::get('/message/five','MessageController@messageFive')->name('messages.five');
+   
+Route::get('getmaincat/{id}', [VideoController::class, 'getmaincatsAjax'])->name('maincat.get');
+Route::get('getcat/{id}', [VideoController::class, 'getcatsAjax'])->name('cat.get');
+
+
 });
-
-
-
 
 
 

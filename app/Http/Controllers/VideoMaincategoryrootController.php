@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\VideoCategory;
-use App\Models\VideoMaincategory;
+use App\Models\VideoMaincategoryroot;
 use Illuminate\Support\Str;
-class VideoCategoryController extends Controller
+class VideoMaincategoryrootController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,9 @@ class VideoCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
-        $videoCategories=VideoCategory::orderBy('id','DESC')->paginate(10);
-        return view('backend.videocategory.index')->with('videoCategories',$videoCategories);
+    {
+        $videomaincategoryroot=VideoMaincategoryroot::orderBy('id','DESC')->paginate(10);
+        return view('backend.videomaincategoryroot.index')->with('videomaincategories',$videomaincategoryroot);
     }
 
     /**
@@ -26,8 +25,7 @@ class VideoCategoryController extends Controller
      */
     public function create()
     {
-        $videocategory=VideoMaincategory::orderBy('id','DESC')->paginate(10);
-        return view('backend.videocategory.create')->with('videocategory',$videocategory);
+        return view('backend.videomaincategoryroot.create');
     }
 
     /**
@@ -45,7 +43,7 @@ class VideoCategoryController extends Controller
         ]);
         $data=$request->all();
         $slug=Str::slug($request->{'title-ar'});  
-        $count=VideoCategory::where('slug',$slug)->count(); 
+        $count=VideoMaincategoryroot::where('slug',$slug)->count(); 
         if($count>0){
             //$slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
             
@@ -53,14 +51,14 @@ class VideoCategoryController extends Controller
 
         }
         $data['slug']=$slug;
-        $status=VideoCategory::create($data);
+        $status=VideoMaincategoryroot::create($data);
         if($status){
-            request()->session()->flash('success','video Category Successfully added');
+            request()->session()->flash('success','video Main Category Successfully added');
         }
         else{
             request()->session()->flash('error','Please try again!!');
         }
-        return redirect()->route('video-category.index');
+        return redirect()->route('video-maincategoryroot.index');
     }
 
     /**
@@ -82,8 +80,8 @@ class VideoCategoryController extends Controller
      */
     public function edit($id)
     {
-        $videoCategory=VideoCategory::findOrFail($id);
-        return view('backend.videocategory.edit')->with('videoCategory',$videoCategory);
+        $videomaincategory=VideoMaincategoryroot::findOrFail($id);
+        return view('backend.videomaincategoryroot.edit')->with('videomaincategoryroot',$videomaincategoryroot);
     }
 
     /**
@@ -95,20 +93,20 @@ class VideoCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $videoCategory=VideoCategory::findOrFail($id);
+        $videomaincategoryroot=VideoMaincategoryroot::findOrFail($id);
          // return $request->all();
          $this->validate($request,[
             'status'=>'required|in:active,inactive'
         ]);
         $data=$request->all();
-        $status=$videoCategory->fill($data)->save();
+        $status=$videomaincategoryroot->fill($data)->save();
         if($status){
-            request()->session()->flash('success','video Category Successfully updated');
+            request()->session()->flash('success','video Main Category Successfully updated');
         }
         else{
             request()->session()->flash('error','Please try again!!');
         }
-        return redirect()->route('video-category.index');
+        return redirect()->route('video-maincategoryroot.index');
     }
 
     /**
@@ -119,16 +117,16 @@ class VideoCategoryController extends Controller
      */
     public function destroy($id)
     {
-        $videoCategory=VideoCategory::findOrFail($id);
+        $videomaincategoryroot=VideoMaincategoryroot::findOrFail($id);
        
-        $status=$videoCategory->delete();
+        $status=$videomaincategoryroot->delete();
         
         if($status){
-            request()->session()->flash('success','video Category successfully deleted');
+            request()->session()->flash('success','video Main Category successfully deleted');
         }
         else{
             request()->session()->flash('error','Error while deleting video category');
         }
-        return redirect()->route('video-category.index');
+        return redirect()->route('video-maincategoryroot.index');
     }
 }

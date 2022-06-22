@@ -57,8 +57,8 @@
               @endphp
                 <tr>
                     <td>{{$video->id}}</td>
-                    <td>{{$video->title}}</td>
-                    <td>{{$video->cat_info->title}}</td>
+                    <td>{{$video->{'title-ar'} }}</td>
+                    <td>{{$video->cat_info->{'title-ar'} }}</td>
                     <td>{{$video->tags}}</td>
 
                     <td>

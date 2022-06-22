@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnsToVideoCategories extends Migration
+class AddColumnsToVideoMaincategoryroot extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class AddColumnsToVideoCategories extends Migration
      */
     public function up()
     {
-        Schema::table('video_categories', function (Blueprint $table) {
+        Schema::table('video_maincategoryroot', function (Blueprint $table) {
             
             $table->string('title-ar')->nullable();
             $table->string('title-fr')->nullable(); 
-            $table->unsignedBigInteger('video_maincat_id')->nullable(); 
-            
-            $table->foreign('video_maincat_id')->references('id')->on('video_maincategories')->onDelete('cascade');
         });
     }
-
+ 
     /**
      * Reverse the migrations.
      *
@@ -30,7 +27,7 @@ class AddColumnsToVideoCategories extends Migration
      */
     public function down()
     {
-        Schema::table('video_categories', function (Blueprint $table) {
+        Schema::table('video_maincategoryroot', function (Blueprint $table) {
             //
         });
     }

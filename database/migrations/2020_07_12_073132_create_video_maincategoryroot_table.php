@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVideoCategoriesTable extends Migration
+class CreateVideoMainCategoryrootTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateVideoCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('video_categories', function (Blueprint $table) {
+        Schema::create('video_maincategoryroot', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title')->nullable();
             $table->string('slug')->unique();
@@ -29,6 +29,6 @@ class CreateVideoCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('video_categories');
+        Schema::dropIfExists('video_maincategoryroot');
     }
 }
