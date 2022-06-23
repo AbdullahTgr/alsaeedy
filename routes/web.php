@@ -42,11 +42,11 @@ Route::get('/home', 'FrontendController@index');
 Route::get('/about-us','FrontendController@aboutUs')->name('about-us');
 Route::get('/contact','FrontendController@contact')->name('contact');
 Route::post('/contact/message','MessageController@store')->name('contact.store');
-Route::get('product-detail/{slug}','FrontendController@productDetail')->name('product-detail');
-Route::post('/product/search','FrontendController@productSearch')->name('product.search');
-Route::get('/product-cat/{slug}','FrontendController@productCat')->name('product-cat');
-Route::get('/product-sub-cat/{slug}/{sub_slug}','FrontendController@productSubCat')->name('product-sub-cat');
-Route::get('/product-brand/{slug}','FrontendController@productBrand')->name('product-brand');
+// Route::get('product-detail/{slug}','FrontendController@productDetail')->name('product-detail');
+// Route::post('/product/search','FrontendController@productSearch')->name('product.search');
+// Route::get('/product-cat/{slug}','FrontendController@productCat')->name('product-cat');
+// Route::get('/product-sub-cat/{slug}/{sub_slug}','FrontendController@productSubCat')->name('product-sub-cat');
+// Route::get('/product-brand/{slug}','FrontendController@productBrand')->name('product-brand');
 
 
 
@@ -86,14 +86,14 @@ Route::get('/wishlist/{slug}','WishlistController@wishlist')->name('add-to-wishl
 Route::get('wishlist-delete/{id}','WishlistController@wishlistDelete')->name('wishlist-delete');
 Route::post('cart/order','OrderController@store')->name('cart.order');
 Route::get('order/pdf/{id}','OrderController@pdf')->name('order.pdf');
-Route::get('/income','OrderController@incomeChart')->name('product.order.income');
-// Route::get('/user/chart','AdminController@userPieChart')->name('user.piechart');
-Route::get('/product-grids','FrontendController@productGrids')->name('product-grids');
-Route::get('/product-lists','FrontendController@productLists')->name('product-lists');
-Route::match(['get','post'],'/filter','FrontendController@productFilter')->name('shop.filter');
-// Order Track
-Route::get('/product/track','OrderController@orderTrack')->name('order.track'); 
-Route::post('product/track/order','OrderController@productTrackOrder')->name('product.track.order');
+// Route::get('/income','OrderController@incomeChart')->name('product.order.income');
+// // Route::get('/user/chart','AdminController@userPieChart')->name('user.piechart');
+// Route::get('/product-grids','FrontendController@productGrids')->name('product-grids');
+// Route::get('/product-lists','FrontendController@productLists')->name('product-lists');
+// Route::match(['get','post'],'/filter','FrontendController@productFilter')->name('shop.filter');
+// // Order Track
+// Route::get('/product/track','OrderController@orderTrack')->name('order.track'); 
+// Route::post('product/track/order','OrderController@productTrackOrder')->name('product.track.order');
 // Blog 
 Route::get('/blog','FrontendController@blog')->name('blog');
 Route::get('/blog-detail/{slug}','FrontendController@blogDetail')->name('blog.detail');
@@ -122,9 +122,9 @@ Route::get('video-tag/{slug}','Front_vid_Controller@videoByTag')->name('video.ta
 // NewsLetter
 Route::post('/subscribe','FrontendController@subscribe')->name('subscribe');
 
-// Product Review
-Route::resource('/review','ProductReviewController');
-Route::post('product/{slug}/review','ProductReviewController@store')->name('review.Store');
+// // Product Review
+// Route::resource('/review','ProductReviewController');
+// Route::post('product/{slug}/review','ProductReviewController@store')->name('review.Store');
 
 // Post Comment 
 Route::post('post/{slug}/comment','PostCommentController@store')->name('post-comment.store');
@@ -164,8 +164,8 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::post('/profile/{id}','AdminController@profileUpdate')->name('profile-update');
     // Category
     Route::resource('/category','CategoryController');
-    // Product
-    Route::resource('/product','ProductController');
+    // // Product
+    // Route::resource('/product','ProductController');
     // Ajax for sub category
     Route::post('/category/{id}/child','CategoryController@getChildByParent');
 

@@ -15,7 +15,7 @@ use App\User;
 
 use App\Channel;
 
-use Session;
+use Session;  
 use Newsletter;
 use DB;
 use Hash;
@@ -42,12 +42,13 @@ class FrontendController extends Controller
     
 
     public function home(Video $video){ 
+        $categories=PostCategory::get();
         $featured=Product::where('status','active')->where('is_featured',1)->orderBy('price','DESC')->limit(2)->get();
         $posts=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
         $banners=Banner::where('status','active')->limit(3)->orderBy('id','DESC')->get();
         $tags=PostTag::get();
 
-      
+       
         
 
  $videos = Video::get()->take(3);
@@ -60,7 +61,7 @@ class FrontendController extends Controller
                 ->with('featured',$featured)
                 ->with('posts',$posts)
                 ->with('banners',$banners)
-                ->with('product_lists',$products)
+                ->with('categories',$categories)
                 ->with('tags',$tags)
                 ->with('videos',$videos)
                 ->with('category_lists',$category);

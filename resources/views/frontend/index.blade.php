@@ -38,7 +38,7 @@ $path="";
     {{ auth()->user()->id }}
 @endif --}}
 @if(count($banners)>0)
-    <section id="Gslider" class="carousel slide" data-ride="carousel">
+    <section id="Gslider" class="carousel slide" data-ride="carousel"> 
         <ol class="carousel-indicators">
             @foreach($banners as $key=>$banner)
         <li data-target="#Gslider" data-slide-to="{{$key}}" class="{{(($key==0)? 'active' : '')}}"></li>

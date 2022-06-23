@@ -3,11 +3,12 @@
 
 <style>
     
-
-body{margin-top:20px; direction: rtl;}
-
-
+	
+h1, h2, h3, h4, h5, h6 {
+	font-family: unset;
+}
 .content-item {
+	font-family: unset;
     padding:30px 0;
 	background-color:#FFFFFF;
 }
@@ -75,9 +76,11 @@ body{margin-top:20px; direction: rtl;}
 }
 
 .blog-post {
-	background-color:#FFFFFF;
-	padding:10px 25px;
-	margin-bottom:60px;
+    background-color: #FFFFFF;
+    padding: 25px;
+    margin-bottom: 102px;
+    display: grid;
+    text-align: right;
 }
 
 .blog-post .date-xs {
@@ -85,13 +88,14 @@ body{margin-top:20px; direction: rtl;}
 }
 
 .blog-post p {
-	font-size:14px;
-	line-height:23px;
-	text-align:justify;
+	font-size: 14px;
+    line-height: 23px;
+    text-align: right;
+    padding: 10px 0px;
 }
 
 .blog-post p img {
-	max-width:200px;	
+    max-width: 60%;
 }
 
 .blog-post p img.pull-right {
@@ -103,12 +107,12 @@ body{margin-top:20px; direction: rtl;}
 }
 
 .blog-post .blog-info {
-	position:absolute;
-	left:0;
-	margin-top:-10px;
-	width:100px;
-	background-color:#FFFFFF;
-	box-shadow:0 0 2px 1px rgba(0,0,0,0.2);
+	position: absolute;
+    left: 15px;
+    margin-top: -50px;
+    width: 100px;
+    background-color: #ffffff;
+    box-shadow: 0 0 2px 1px rgb(0 0 0 / 20%);
 }
 
 .blog-post .blog-info:after {
@@ -124,8 +128,11 @@ body{margin-top:20px; direction: rtl;}
 }
 
 .blog-post .blog-info .date {
-	background-color:#FFFFFF;
-	font-size:16px;
+	background-color: #FFFFFF;
+    font-size: 13px;
+    text-align: center;
+    padding: 0 3px;
+    color: #62a4f7;
 }
 
 .blog-post .blog-info .date div {
@@ -135,9 +142,7 @@ body{margin-top:20px; direction: rtl;}
 }
 
 .blog-post .blog-info .date div.number {
-	padding:4px 10px;
-	color:#FFFFFF;
-	font-size:20px;
+
 }
 
 .box {
@@ -207,7 +212,10 @@ body{margin-top:20px; direction: rtl;}
 }
 
 ul.blog-tags li {
-	padding:7px 0;
+    padding: 7px 0;
+    float: right;
+    display: contents;
+    color: #2196f3;
 }
 
 div ul.blog-tags li i,
@@ -221,7 +229,7 @@ div .box.tags ul li i {
     .blog-post p,
 	.blog p,
 	#comments .media p {
-		text-align:left;
+		text-align: right;
 	}
 }
 
@@ -285,6 +293,8 @@ div .box.tags ul li i {
 		margin-bottom:30px;
 	}
 }
+
+
 </style>
 
 
@@ -306,23 +316,60 @@ div .box.tags ul li i {
                         @foreach($posts as $post)
                                  
                         
-                                 
+						
+							@php 
+								$author_info=DB::table('users')->where('id',$post->added_by)->get();
+							@endphp
+								<i class="fa fa-calendar" aria-hidden="true"></i>
+								<a href="{{route('blog.detail',$post->slug)}}" style="padding: 14px;
+									font-size: 13px;
+									font-weight: bold;">
+								{{ $post->created_at->format('d M, y') }}
+								
+</a>
+								
+									
+							
+									
      <!-- BLOG POST 1 - START -->
      <div class="blog-post">
+					@foreach($author_info as $data)
+
         <div class="blog-info">
-            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-responsive" alt="{{$post->photo}}">
-              <div class="date"><div class="number">18</div><div>Dec</div></div>
+
+            <img src="{{ $data->photo }}" class="img-responsive" alt="{{$post->photo}}">
+		
+	
+			<div class="date">
+				
+					@if($data->name)
+						{{$data->name}}
+					@else
+					{{ Lang::get('msg.anonymous') }} 
+					@endif
+				
+			</div>
           </div>
-          <h3><a href="{{route('blog.detail',$post->slug)}}">{!! $post->{'title-ar'} !!} </a></h3>
+
+				@endforeach
+		  
+          <h2><a href="{{route('blog.detail',$post->slug)}}">{!! $post->{'title-ar'} !!} </a></h2>
           <div class="date-xs"> {{$post->created_at->format('d M , Y. D')}}</div>
-          <p><img class="img-responsive pull-right" src="{{$post->photo}}" alt="">{!! $post->{'summary-ar'} !!} </p>
+
+          <p>
+			<a href="{{route('blog.detail',$post->slug)}}" style="padding: 14px;
+				font-size: 13px;
+				font-weight: bold;">
+			<img class="img-responsive pull-right" src="{{$post->photo}}" alt="">{!! $post->{'summary-ar'} !!}
+</a>
+		 </p>
+
         <ul class="blog-tags list-unstyled list-inline">
-              <li><a href="#"><i class="fa fa-tag"></i>book</a></li>
-              <li><a href="#"><i class="fa fa-tag"></i>music</a></li>
-              <li><a href="#"><i class="fa fa-tag"></i>nature</a></li>
-              <li><a href="#"><i class="fa fa-tag"></i>read</a></li> 
-              <li><a href="#"><i class="fa fa-tag"></i>songs</a></li>
-              <li><a href="#"><i class="fa fa-tag"></i>sunshine</a></li>  
+			@foreach (explode(",",$post->{'tags'}) as $item)
+				
+              <li><a href="#"><i class="fa fa-tag"></i>{{$item}}</a></li>
+			@endforeach
+			
           </ul>
       </div>
       <!-- BLOG POST 1 - END -->
@@ -341,19 +388,18 @@ div .box.tags ul li i {
                     </div>
                     
                 </div>
-                <!-- BLOG POSTS - END -->
+                <!-- BLOG POSTS - END --> 
                 
                 <!-- SIDEBAR - START -->
-                <div class="col-sm-4">
+                <div class="col-sm-4" style="direction: rtl;">
                   <div class="sidebar">
-                        <h3>Categories</h3>
+                        <h3>فئات</h3>
                         <div class="box categories">
                             <ul class="list-unstyled">
-                                <li><a href="#"><i class="fa fa-female"></i>Fashion</a></li>
-                                <li><a href="#"><i class="fa fa-paint-brush"></i>Design</a></li>
-                                <li><a href="#"><i class="fa fa-music"></i>Music</a></li>
-                                <li><a href="#"><i class="fa fa-plane"></i>Travel</a></li>
-                                <li><a href="#"><i class="fa fa-hashtag"></i>Uncategorized</a></li>
+								@foreach ($categories as $category)
+                                	<li><a href="#"><i class="fa fa-female"></i>{{$category->{'title-ar'} }}</a></li>
+								@endforeach
+								
                             </ul>
                         </div>
                         <h3>Recent Posts</h3>
