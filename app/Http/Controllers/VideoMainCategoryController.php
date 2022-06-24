@@ -15,7 +15,7 @@ class VideoMaincategoryController extends Controller
      */
     public function index()
     {
-        $videomaincategory=VideoMainCategory::orderBy('id','DESC')->paginate(10);
+        $videomaincategory=VideoMaincategory::orderBy('id','DESC')->paginate(10);
         return view('backend.videomaincategory.index')->with('videomaincategories',$videomaincategory);
     }
 
@@ -45,14 +45,14 @@ class VideoMaincategoryController extends Controller
         ]);
         $data=$request->all();  
         $slug=Str::slug($request->{'title-ar'});  
-        $count=Videomaincategory::where('slug',$slug)->count(); 
+        $count=VideoMaincategory::where('slug',$slug)->count(); 
         if($count>0){
             $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
             
      
         }
         $data['slug']=$slug;
-        $status=Videomaincategory::create($data);
+        $status=VideoMaincategory::create($data);
         if($status){
             request()->session()->flash('success','video Main Category Successfully added');
         }
@@ -83,7 +83,7 @@ class VideoMaincategoryController extends Controller
     {
         
 
-        $videomaincategories=Videomaincategory::findOrFail($id);
+        $videomaincategories=VideoMaincategory::findOrFail($id);
         return view('backend.videomaincategory.edit')->with('videomaincategories',$videomaincategories);
     } 
 
@@ -96,7 +96,7 @@ class VideoMaincategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $videomaincategory=Videomaincategory::findOrFail($id);
+        $videomaincategory=VideoMaincategory::findOrFail($id);
          // return $request->all();
          $this->validate($request,[
             'status'=>'required|in:active,inactive'
@@ -120,7 +120,7 @@ class VideoMaincategoryController extends Controller
      */
     public function destroy($id)
     {
-        $videomaincategory=Videomaincategory::findOrFail($id);
+        $videomaincategory=VideoMaincategory::findOrFail($id);
        
         $status=$videomaincategory->delete();
         
