@@ -10,7 +10,7 @@ class VideoMaincategoryroot extends Model
 
     protected $table = 'video_maincategoryroot';
     public function maincategory(){
-        return $this->hasMany('App\Models\VideoMainCategory','video_maincatroot_id','id')->where('status','active');
+        return $this->hasMany('App\Models\VideoMaincategory','video_maincatroot_id','id')->where('status','active');
     }
 
      
