@@ -106,7 +106,7 @@
 								  
 							  </ul>
 						  </div>
-						  <h3>Recent Posts</h3>
+						  {{-- <h3>Recent Posts</h3>
 						  <div class="box posts">
 							  <ul class="list-unstyled">
 								  <li><i class="fa fa-chevron-right"></i><a href="#">Introducing WordPress 4.0 “Benny”</a><div>27/02/2014</div></li>
@@ -124,7 +124,7 @@
 								  <li><a href="#"><i class="fa fa-tag"></i>songs</a></li>
 								  <li><a href="#"><i class="fa fa-tag"></i>sunshine</a></li>                            
 							  </ul>
-						  </div>
+						  </div> --}}
 					  </div>
 				  </div>
 				  <!-- SIDEBAR - END -->

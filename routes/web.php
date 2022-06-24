@@ -198,14 +198,14 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
 
    // POST main category
    Route::resource('/video-maincategory','VideoMainCategoryController'); 
-   Route::resource('/video-maincategoryroot','VideoMainCategoryrootController'); 
+   Route::resource('/video-maincategoryroot','VideoMaincategoryrootController'); 
    // POST category
    Route::resource('/video-category','VideoCategoryController'); 
    // video tag
    Route::resource('/video-tag','VideoTagController');
    // video
    Route::resource('/video','VideoController');   
-
+ 
 
 
    // Message
