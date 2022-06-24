@@ -43,14 +43,13 @@ class VideoMainCategoryController extends Controller
             'title-ar'=>'string|required',
             'status'=>'required|in:active,inactive'
         ]);
-        $data=$request->all();
+        $data=$request->all();  
         $slug=Str::slug($request->{'title-ar'});  
         $count=Videomaincategory::where('slug',$slug)->count(); 
         if($count>0){
-            //$slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
+            $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
             
-        $slug=Str::slug($request->{'title-ar'}); 
-
+     
         }
         $data['slug']=$slug;
         $status=Videomaincategory::create($data);
@@ -82,9 +81,11 @@ class VideoMainCategoryController extends Controller
      */
     public function edit($id)
     {
-        $videomaincategory=Videomaincategory::findOrFail($id);
-        return view('backend.videomaincategory.edit')->with('videomaincategory',$videomaincategory);
-    }
+        
+
+        $videomaincategories=Videomaincategory::findOrFail($id);
+        return view('backend.videomaincategory.edit')->with('videomaincategories',$videomaincategories);
+    } 
 
     /**
      * Update the specified resource in storage.
@@ -100,14 +101,14 @@ class VideoMainCategoryController extends Controller
          $this->validate($request,[
             'status'=>'required|in:active,inactive'
         ]);
-        $data=$request->all();
-        $status=$videomaincategory->fill($data)->save();
+        $data=$request->all(); 
+        $status=$videomaincategory->fill($data)->save();  
         if($status){
             request()->session()->flash('success','video Main Category Successfully updated');
         }
         else{
             request()->session()->flash('error','Please try again!!');
-        }
+        } 
         return redirect()->route('video-maincategory.index');
     }
 

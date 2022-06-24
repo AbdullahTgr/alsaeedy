@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\VideoTag;
 use App\Models\VideoCategory;
+use App\Models\VideoMaincategory;
+use App\Models\VideoMaincategoryroot;
 use App\Models\Video;
 
 
@@ -134,22 +136,22 @@ return view('errors.404');
         }
 
         $tagURL="";
-        if(!empty($data['tag'])){
+        if(!empty($data['tag'])){ 
             foreach($data['tag'] as $tag){
                 if(empty($tagURL)){
                     $tagURL .='&tag='.$tag;
                 }
                 else{
-                    $tagURL .=','.$tag;
+                    $tagURL .=','.$tag; 
                 }
             }
-        }
+        } 
         // return $tagURL;
             // return $catURL;
         return redirect()->route('video',$catURL.$tagURL);
     }
 
-    public function VideoByCategory(Request $request){
+    public function videoByCategory(Request $request){
         $video=VideoCategory::getvideoByCategory($request->slug);
         $tags=VideoTag::get();
 
@@ -166,6 +168,42 @@ return view('errors.404');
         return view('frontend.pages.video')->with('tags',$tags)->with('videos',$video->video)->with('recent_videos',$rcnt_video);
                    }
     }
+
+
+    
+
+
+    public function videoByMaincategory(Request $request){
+
+        $maincategories=VideoMaincategory::getVideoByMaincategory($request->slug); 
+        $maincatrootid=VideoMaincategory::where('slug',$request->slug)->first();
+
+        $mc_id=$maincatrootid->video_maincatroot_id;
+
+        $maincategoryroot=VideoMaincategoryroot::where('id',$mc_id)->first();
+
+
+        
+        
+            // arabic
+        return view('frontend.pages.maincats')->with('maincategories',$maincategories)->with('maincategoryroot',$maincategoryroot);
+     
+        
+        
+      
+    }
+    
+    
+
+
+
+
+
+
+
+
+
+
 
     public function VideoByTag(Request $request){
         // dd($request->slug);

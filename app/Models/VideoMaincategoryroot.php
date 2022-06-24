@@ -6,15 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\VideoCategory;
 class VideoMaincategoryroot extends Model
 {
-    protected $fillable=['title-ar','slug','status'];
+    protected $fillable=['title','title-fr','title-ar','slug','status'];
 
     protected $table = 'video_maincategoryroot';
     public function maincategory(){
-        return $this->hasMany('App\Models\VideoMainCategory','video_maincat_id','id')->where('status','active');
+        return $this->hasMany('App\Models\VideoMainCategory','video_maincatroot_id','id')->where('status','active');
     }
- 
-    // public static function getVideoByMaincategoryroot($slug){ 
-    //     return VideoMaincategoryroot::with('video')->where('slug',$slug)->first();
-    // }
+
+     
+  
+    
+    public static function getVideoByMaincategoryroot($slug){ 
+        return VideoMaincategoryroot::with('maincategory')->where('slug',$slug)->get();
+    }
+
+
+    
 } 
- 
+  

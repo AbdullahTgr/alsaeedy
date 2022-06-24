@@ -99,6 +99,7 @@ Route::get('/blog','FrontendController@blog')->name('blog');
 Route::get('/blog-detail/{slug}','FrontendController@blogDetail')->name('blog.detail');
 Route::get('/blog/search','FrontendController@blogSearch')->name('blog.search');
 Route::post('/blog/filter','FrontendController@blogFilter')->name('blog.filter');
+
 Route::get('blog-cat/{slug}','FrontendController@blogByCategory')->name('blog.category');
 Route::get('blog-tag/{slug}','FrontendController@blogByTag')->name('blog.tag');
 
@@ -109,14 +110,11 @@ Route::get('/video-detail/{slug}','Front_vid_Controller@videoDetail')->name('vid
 Route::get('/video/search','Front_vid_Controller@videoSearch')->name('video.search');
 Route::post('/video/filter','Front_vid_Controller@videoFilter')->name('video.filter');
 Route::get('video-cat/{slug}','Front_vid_Controller@videoByCategory')->name('video.category');
+Route::get('video-maincat/{slug}','Front_vid_Controller@videoByMaincategory')->name('video.maincategory');  
+Route::get('video-maincatroot/{slug}','Front_vid_Controller@videoByMaincategoryroot')->name('video.maincategoryroot');
 Route::get('video-tag/{slug}','Front_vid_Controller@videoByTag')->name('video.tag');
 //video
-// Route::get('/videos','FrontendController@videos')->name('videos');
-// Route::get('/video-detail/{slug}','FrontendController@videoDetail')->name('video.detail');
-// Route::get('/video/search','FrontendController@videoSearch')->name('video.search');
-// Route::post('/video/filter','FrontendController@videoFilter')->name('video.filter');
-// Route::get('video-cat/{slug}','FrontendController@videoByCategory')->name('video.category');
-// Route::get('video-tag/{slug}','FrontendController@videoByTag')->name('video.tag');
+
 
 
 // NewsLetter

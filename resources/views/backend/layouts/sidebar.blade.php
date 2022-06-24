@@ -27,13 +27,8 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('file-manager')}}">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Media Manager</span></a>
-    </li>
 
+    
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-image"></i>
@@ -48,85 +43,8 @@
       </div>
     </li>
     <!-- Divider -->
-    <hr class="sidebar-divider">
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Shop
-        </div>
 
-    <!-- Categories -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#categoryCollapse" aria-expanded="true" aria-controls="categoryCollapse">
-          <i class="fas fa-sitemap"></i>
-          <span>Category</span>
-        </a>
-        <div id="categoryCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Category Options:</h6>
-            <a class="collapse-item" href="{{route('category.index')}}">Category</a>
-            <a class="collapse-item" href="{{route('category.create')}}">Add Category</a>
-          </div>
-        </div>
-    </li>
-    {{-- Products --}}
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#productCollapse" aria-expanded="true" aria-controls="productCollapse">
-          <i class="fas fa-cubes"></i>
-          <span>Products</span>
-        </a>
-        <div id="productCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Product Options:</h6>
-            <a class="collapse-item" href="{{route('product.index')}}">Products</a>
-            <a class="collapse-item" href="{{route('product.create')}}">Add Product</a>
-          </div>
-        </div>
-    </li>
-
-    {{-- Brands --}}
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#brandCollapse" aria-expanded="true" aria-controls="brandCollapse">
-          <i class="fas fa-table"></i>
-          <span>Brands</span>
-        </a>
-        <div id="brandCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Brand Options:</h6>
-            <a class="collapse-item" href="{{route('brand.index')}}">Brands</a>
-            <a class="collapse-item" href="{{route('brand.create')}}">Add Brand</a>
-          </div>
-        </div>
-    </li>
-
-    {{-- Shipping --}}
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#shippingCollapse" aria-expanded="true" aria-controls="shippingCollapse">
-          <i class="fas fa-truck"></i>
-          <span>Shipping</span>
-        </a>
-        <div id="shippingCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Shipping Options:</h6>
-            <a class="collapse-item" href="{{route('shipping.index')}}">Shipping</a>
-            <a class="collapse-item" href="{{route('shipping.create')}}">Add Shipping</a>
-          </div>
-        </div>
-    </li>
-
-    <!--Orders -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('order.index')}}">
-            <i class="fas fa-hammer fa-chart-area"></i>
-            <span>Orders</span>
-        </a>
-    </li>
-
-    <!-- Reviews -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('review.index')}}">
-            <i class="fas fa-comments"></i>
-            <span>Reviews</span></a>
-    </li>
+    
     
 
     <!-- Divider -->
@@ -197,11 +115,8 @@
     <div class="sidebar-heading">
         General Settings
     </div>
-    <li class="nav-item">
-      <a class="nav-link" href="{{route('coupon.index')}}">
-          <i class="fas fa-table"></i>
-          <span>Coupon</span></a>
-    </li>
+ 
+    
      <!-- Users -->
      <li class="nav-item">
         <a class="nav-link" href="{{route('users.index')}}">
@@ -263,20 +178,20 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-      Videos
+      فيديوهات
     </div>
 
     <!-- videos -->
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#videoCollapse" aria-expanded="true" aria-controls="videoCollapse">
         <i class="fas fa-fw fa-folder"></i>
-        <span>videos</span>
+        <span>فيديو</span>
       </a>
       <div id="videoCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">video Options:</h6>
-          <a class="collapse-item" href="{{route('video.index')}}">videos</a>
-          <a class="collapse-item" href="{{route('video.create')}}">Add video</a>
+          <h6 class="collapse-header">خيارات:</h6>
+          <a class="collapse-item" href="{{route('video.index')}}">جميع الفيديوهات</a>
+          <a class="collapse-item" href="{{route('video.create')}}">اضف فيديو</a>
         </div>
       </div>
     </li>
@@ -285,13 +200,13 @@
     <li class="nav-item">
      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#videoMainCategoryrootCollapse" aria-expanded="true" aria-controls="videoMainCategoryrootCollapse">
        <i class="fas fa-sitemap fa-folder"></i>
-       <span>Main Category Root</span>
+       <span>الفئات الرئيسة</span>
      </a>
      <div id="videoMainCategoryrootCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
        <div class="bg-white py-2 collapse-inner rounded">
-         <h6 class="collapse-header">Category Options:</h6>
-         <a class="collapse-item" href="{{route('video-maincategoryroot.index')}}">Main Category Roots</a>
-         <a class="collapse-item" href="{{route('video-maincategoryroot.create')}}">Add Main Category Root</a>
+         <h6 class="collapse-header">الفئات الرئيسة</h6>
+         <a class="collapse-item" href="{{route('video-maincategoryroot.index')}}">الفئات الرئيسة</a>
+         <a class="collapse-item" href="{{route('video-maincategoryroot.create')}}">اضف فئة</a>
        </div>
      </div>
    </li>
@@ -300,13 +215,13 @@
    <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#videoMainCategoryCollapse" aria-expanded="true" aria-controls="videoMainCategoryCollapse">
       <i class="fas fa-sitemap fa-folder"></i>
-      <span>Main Category</span>
+      <span>الاشخاص</span>
     </a>
     <div id="videoMainCategoryCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Category Options:</h6>
-        <a class="collapse-item" href="{{route('video-maincategory.index')}}">Main Categories</a>
-        <a class="collapse-item" href="{{route('video-maincategory.create')}}">Add Main Category</a>
+        <h6 class="collapse-header">الاشخاص</h6>
+        <a class="collapse-item" href="{{route('video-maincategory.index')}}">جميع الاشخاص</a>
+        <a class="collapse-item" href="{{route('video-maincategory.create')}}">اضف شخص </a>
       </div>
     </div>
   </li>
@@ -314,13 +229,13 @@
     <li class="nav-item">
        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#videoCategoryCollapse" aria-expanded="true" aria-controls="videoCategoryCollapse">
          <i class="fas fa-sitemap fa-folder"></i>
-         <span>Category</span>
+         <span>القنوات</span>
        </a>
        <div id="videoCategoryCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
          <div class="bg-white py-2 collapse-inner rounded">
-           <h6 class="collapse-header">Category Options:</h6>
-           <a class="collapse-item" href="{{route('video-category.index')}}">Category</a>
-           <a class="collapse-item" href="{{route('video-category.create')}}">Add Category</a>
+           <h6 class="collapse-header">القنوات</h6>
+           <a class="collapse-item" href="{{route('video-category.index')}}">القنوات</a>
+           <a class="collapse-item" href="{{route('video-category.create')}}">اضف قناة</a>
          </div>
        </div>
      </li>

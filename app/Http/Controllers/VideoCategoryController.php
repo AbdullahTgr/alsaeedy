@@ -47,10 +47,9 @@ class VideoCategoryController extends Controller
         $slug=Str::slug($request->{'title-ar'});  
         $count=VideoCategory::where('slug',$slug)->count(); 
         if($count>0){
-            //$slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
+            $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
             
-        $slug=Str::slug($request->{'title-ar'}); 
-
+ 
         }
         $data['slug']=$slug;
         $status=VideoCategory::create($data);

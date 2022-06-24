@@ -27,7 +27,7 @@ class VideoMaincategoryrootController extends Controller
     {
         return view('backend.videomaincategoryroot.create');
     }
-
+ 
     /**
      * Store a newly created resource in storage.
      *
@@ -44,20 +44,21 @@ class VideoMaincategoryrootController extends Controller
         $data=$request->all();
         $slug=Str::slug($request->{'title-ar'});  
         $count=VideoMaincategoryroot::where('slug',$slug)->count(); 
-        if($count>0){
-            //$slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
-            
-        $slug=Str::slug($request->{'title-ar'}); 
 
+        if($count>0){
+          request()->session()->flash('success','الاسم موجود بالفعل');
+
+        }else{
+                $data['slug']=$slug;
+            $status=VideoMaincategoryroot::create($data);
+            if($status){
+                request()->session()->flash('success','video Main Category Successfully added');
+            }
+            else{
+                request()->session()->flash('error','Please try again!!');
+            }
         }
-        $data['slug']=$slug;
-        $status=VideoMaincategoryroot::create($data);
-        if($status){
-            request()->session()->flash('success','video Main Category Successfully added');
-        }
-        else{
-            request()->session()->flash('error','Please try again!!');
-        }
+      
         return redirect()->route('video-maincategoryroot.index');
     }
 
@@ -78,9 +79,9 @@ class VideoMaincategoryrootController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) 
     {
-        $videomaincategory=VideoMaincategoryroot::findOrFail($id);
+        $videomaincategoryroot=VideoMaincategoryroot::findOrFail($id);
         return view('backend.videomaincategoryroot.edit')->with('videomaincategoryroot',$videomaincategoryroot);
     }
 

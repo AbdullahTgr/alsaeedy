@@ -20,13 +20,16 @@ use Newsletter;
 use DB;
 use Hash;
 use App;
+use App\Models\VideoCategory;
+use App\Models\VideoMaincategory;
+use App\Models\VideoMaincategoryroot;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
 { 
-    public function __construct()
+    public function __construct() 
     {
         if(session()->get('locale')==""){
             App::setLocale("ar"); 
@@ -43,7 +46,7 @@ class FrontendController extends Controller
 
     public function home(Video $video){ 
         $categories=PostCategory::get();
-        $featured=Product::where('status','active')->where('is_featured',1)->orderBy('price','DESC')->limit(2)->get();
+        
         $posts=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
         $banners=Banner::where('status','active')->limit(3)->orderBy('id','DESC')->get();
         $tags=PostTag::get();
@@ -51,18 +54,25 @@ class FrontendController extends Controller
        
         
 
- $videos = Video::get()->take(3);
+        $maincatroot = VideoMaincategoryroot::with('maincategory')->get(); 
+        
+        $maincat = VideoMaincategory::get();
+        $cat = VideoCategory::get();
+
+        $videos = Video::get()->take(3);
         
         // return $banner;
-        $products=Product::where('status','active')->orderBy('id','DESC')->limit(8)->get();
         $category=Category::where('status','active')->where('is_parent',1)->orderBy('title','ASC')->get();
+
         // return $category;
         return view('frontend.index')
-                ->with('featured',$featured)
                 ->with('posts',$posts)
                 ->with('banners',$banners)
                 ->with('categories',$categories)
                 ->with('tags',$tags)
+                ->with('maincatroot',$maincatroot)
+                ->with('maincat',$maincat)
+                ->with('cat',$cat)
                 ->with('videos',$videos)
                 ->with('category_lists',$category);
     }   

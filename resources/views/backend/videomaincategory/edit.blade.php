@@ -5,21 +5,21 @@
 <div class="card">
     <h5 class="card-header">Edit video Category</h5>
     <div class="card-body">
-      <form method="post" action="{{route('video-maincategory.update',$videoCategory->id)}}">
+      <form method="post" action="{{route('video-maincategory.update',$videomaincategories->id)}}">
         @csrf 
         @method('PATCH')
         <div class="form-group">
-          <label for="inputTitle" class="col-form-label">Title</label>
-          <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{$videoCategory->title}}" class="form-control">
-          @error('title')
+          <label for="inputTitle-ar" class="col-form-label">اسم الشخص</label>
+          <input id="inputTitle-ar" type="text" name="title-ar" placeholder="اسم الشخص"  value="{{$videomaincategories->{'title-ar'} }}" class="form-control">
+          @error('title-ar')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
 
         <div class="form-group">
-          <label for="inputTitle-ar" class="col-form-label">اسم الفئة</label>
-          <input id="inputTitle-ar" type="text" name="title-ar" placeholder="اسم الفئة لنشر البوست"  value="{{$videoCategory->{'title-ar'} }}" class="form-control">
-          @error('title-ar')
+          <label for="inputTitle" class="col-form-label">تفاصيل</label>
+          <input id="inputTitle" type="text" name="title" placeholder="تفاصيل"  value="{{$videomaincategories->{'title'} }}" class="form-control">
+          @error('title')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
@@ -30,8 +30,8 @@
 <div class="col-xs-12 " style="background:#ddd">
   
   <div class="form-group">
-    <label for="inputTitle-fr" class="col-form-label">اسم الفئة بالفرنسي</label>
-    <input id="inputTitle-fr" type="text" name="title-fr" placeholder="اسم الفئة لنشر البوست"  value="{{$videoCategory->{'title-fr'} }}" class="form-control">
+    <label for="inputTitle-fr" class="col-form-label"></label>
+    <input id="inputTitle-fr" type="text" name="title-fr" placeholder="رابط صورة"  value="{{$videomaincategories->{'title-fr'} }}" class="form-control">
     @error('title-fr')
     <span class="text-danger">{{$message}}</span>
     @enderror
@@ -42,8 +42,8 @@
         <div class="form-group">
           <label for="status" class="col-form-label">Status</label>
           <select name="status" class="form-control">
-            <option value="active" {{(($videoCategory->status=='active') ? 'selected' : '')}}>Active</option>
-            <option value="inactive" {{(($videoCategory->status=='inactive') ? 'selected' : '')}}>Inactive</option>
+            <option value="active" {{(($videomaincategories->status=='active') ? 'selected' : '')}}>Active</option>
+            <option value="inactive" {{(($videomaincategories->status=='inactive') ? 'selected' : '')}}>Inactive</option>
           </select>
           @error('status')
           <span class="text-danger">{{$message}}</span>

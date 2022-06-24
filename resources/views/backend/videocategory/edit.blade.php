@@ -9,16 +9,16 @@
         @csrf 
         @method('PATCH')
         <div class="form-group">
-          <label for="inputTitle" class="col-form-label">Title</label>
-          <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{$videoCategory->title}}" class="form-control">
+         <label for="inputTitle-ar" class="col-form-label">اسم الفئة</label>
+          <input id="inputTitle-ar" type="text" name="title-ar" placeholder="اسم القناة"   value="{{$videoCategory->{'title-ar'} }}" class="form-control">
           @error('title')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
 
         <div class="form-group">
-          <label for="inputTitle-ar" class="col-form-label">اسم الفئة</label>
-          <input id="inputTitle-ar" type="text" name="title-ar" placeholder="اسم الفئة لنشر البوست"  value="{{$videoCategory->{'title-ar'} }}" class="form-control">
+            <label for="inputTitle" class="col-form-label">تفاصيل</label>
+          <input id="inputTitle" type="text" name="title" placeholder="تفاصيل"  value="{{$videoCategory->title }}" class="form-control">
           @error('title-ar')
           <span class="text-danger">{{$message}}</span>
           @enderror
@@ -30,8 +30,8 @@
 <div class="col-xs-12 " style="background:#ddd">
   
   <div class="form-group">
-    <label for="inputTitle-fr" class="col-form-label">اسم الفئة بالفرنسي</label>
-    <input id="inputTitle-fr" type="text" name="title-fr" placeholder="اسم الفئة لنشر البوست"  value="{{$videoCategory->{'title-fr'} }}" class="form-control">
+ <label for="inputTitle-fr" class="col-form-label"></label>
+          <input id="inputTitle-fr" type="text" name="title-fr" placeholder="رابط صورة" value="{{$videoCategory->{'title-fr'} }}" class="form-control">
     @error('title-fr')
     <span class="text-danger">{{$message}}</span>
     @enderror

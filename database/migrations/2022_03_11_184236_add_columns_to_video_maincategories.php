@@ -19,14 +19,14 @@ class AddColumnsToVideoMaincategories extends Migration
             $table->string('title-fr')->nullable(); 
             $table->unsignedBigInteger('video_maincatroot_id')->nullable();
 
-            $table->foreign('video_maincatroot_id')->references('id')->on('video_maincategories')->onDelete('cascade');
+            $table->foreign('video_maincatroot_id')->references('id')->on('video_maincategoryroot')->onDelete('cascade');
         });
     }
 
     /**
      * Reverse the migrations.
      *
-     * @return void
+     * @return void 
      */
     public function down()
     {
