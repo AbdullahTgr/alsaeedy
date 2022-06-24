@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\VideoMaincategory;
 use App\Models\VideoMaincategoryroot;
 use Illuminate\Support\Str;
-class VideoMainCategoryController extends Controller
+class VideoMaincategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
