@@ -15,8 +15,8 @@ class VideoMaincategoryController extends Controller
      */
     public function index()
     {
-        $videomaincategory=VideoMaincategory::orderBy('id','DESC')->paginate(10);
-        return view('backend.videomaincategory.index')->with('videomaincategories',$videomaincategory);
+        $videomaincategories=VideoMaincategory::orderBy('id','DESC')->paginate(10);
+        return view('backend.videomaincategory.index')->with('videomaincategories',$videomaincategories); 
     }
 
     /**

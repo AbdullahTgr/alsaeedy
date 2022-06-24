@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -152,7 +153,7 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::get('/file-manager','AdminController@filemanager')->name('file-manager'); 
 
     // user route
-    Route::resource('users','UsersController');
+    Route::resource('users','UsersController'); 
     // Banner
     Route::resource('banner','BannerController');
     // Brand

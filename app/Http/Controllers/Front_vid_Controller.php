@@ -14,7 +14,7 @@ use Session;
 use DB;
 use Hash;
 use App;
-use Illuminate\Support\Str;
+use Illuminate\Support\Str; 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
