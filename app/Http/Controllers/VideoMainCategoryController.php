@@ -7,7 +7,7 @@ use App\Models\VideoMaincategory;
 use App\Models\VideoMaincategoryroot;
 use Illuminate\Support\Str;
 class VideoMaincategoryController extends Controller
-{
+{     
     /**
      * Display a listing of the resource.
      *
