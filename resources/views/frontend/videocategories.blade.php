@@ -25,11 +25,11 @@
                 <li><a href=""><h3>{{$category->{'title-ar'} }}</h3></a></li>
                     @foreach ($category->maincategory as $cat)
                         <li><a href="{{route('video.maincategory',$cat->{'slug'})}}"><i class="fa fa-female"></i>{{$cat->{'title-ar'} }}</a></li>
-                    @endforeach
+                    @endforeach 
                     
                 </ul>
             </div>
-    </div>
+    </div> 
 </div> 
 <!-- SIDEBAR - END -->       
         @endforeach

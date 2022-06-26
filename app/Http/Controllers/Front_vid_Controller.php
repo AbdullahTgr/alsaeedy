@@ -157,16 +157,10 @@ return view('errors.404');
 
         $rcnt_video=Video::where('status','active')->orderBy('id','DESC')->limit(3)->get();
         
-        if(session()->get('locale')=="en"){ 
-            // english
-        return view('frontend.pages-en.video')->with('tags',$tags)->with('videos',$video->video)->with('recent_videos',$rcnt_video);
-                    }elseif(session()->get('locale')=="fr"){
-            // french
-        return view('frontend.pages-fr.video')->with('tags',$tags)->with('videos',$video->video)->with('recent_videos',$rcnt_video);
-                    }else{
+
             // arabic
-        return view('frontend.pages.video')->with('tags',$tags)->with('videos',$video->video)->with('recent_videos',$rcnt_video);
-                   }
+        return view('frontend.pages.video')->with('tags',$tags)->with('videos',$video)->with('channel',"1")->with('recent_videos',$rcnt_video);
+
     }
 
 
@@ -182,9 +176,6 @@ return view('errors.404');
 
         $maincategoryroot=VideoMaincategoryroot::where('id',$mc_id)->first();
 
-
-        
-        
             // arabic
         return view('frontend.pages.maincats')->with('maincategories',$maincategories)->with('maincategoryroot',$maincategoryroot);
      

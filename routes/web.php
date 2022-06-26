@@ -110,6 +110,7 @@ Route::get('/video-detail/{slug}','Front_vid_Controller@videoDetail')->name('vid
 Route::get('/video/search','Front_vid_Controller@videoSearch')->name('video.search');
 Route::post('/video/filter','Front_vid_Controller@videoFilter')->name('video.filter');
 Route::get('video-cat/{slug}','Front_vid_Controller@videoByCategory')->name('video.category');
+
 Route::get('video-maincat/{slug}','Front_vid_Controller@videoByMaincategory')->name('video.maincategory');  
 Route::get('video-maincatroot/{slug}','Front_vid_Controller@videoByMaincategoryroot')->name('video.maincategoryroot');
 Route::get('video-tag/{slug}','Front_vid_Controller@videoByTag')->name('video.tag');

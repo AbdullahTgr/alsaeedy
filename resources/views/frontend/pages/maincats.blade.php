@@ -12,21 +12,21 @@
     
 	<meta property="og:url" content="{!! route('video.maincategory',strip_tags($maincategoryroot->slug)) !!}"> 
 
-	<meta name="keywords" content="{!!  strip_tags($maincategoryroot->{'summary-ar'} ) !!}">
-	<meta name="description" content="{!!  strip_tags($maincategoryroot->{'summary-ar'} ) !!}">
+	<meta name="keywords" content="{!!  strip_tags($maincategoryroot->{'title-ar'} ) !!}">
+	<meta name="description" content="{!!  strip_tags($maincategoryroot->{'title'} ) !!}">
 	
     
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="{!! strip_tags($maincategoryroot->{'title-ar'}) !!}">
     
-	<meta property="og:description" content="{!!  strip_tags($maincategoryroot->{'summary-ar'} ) !!}">
+	<meta property="og:description" content="{!!  strip_tags($maincategoryroot->{'title'} ) !!}">
 
 
 
 
-{{-- <meta property="og:image"  itemprop="image"  content="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg ">
-<meta name="twitter:image" content="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg ">
- --}}
+<meta property="og:image"  itemprop="image"  content="{{$maincategories->{'title-fr'} }}">
+<meta name="twitter:image" content="{{$maincategories->{'title-fr'} }}">
+
 
 
     @section('style')

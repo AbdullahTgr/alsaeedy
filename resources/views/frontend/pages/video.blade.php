@@ -19,7 +19,27 @@ $path="";
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
  
     
-	<meta property="og:url" content="https://www.facebook.com/alsaeedyblog"> 
+	<meta property="og:url" content="https://www.facebook.com/alsaeedyblog">  
+   
+
+
+    @if (isset($channel))
+    <meta name="twitter:image" content=" {{ $videos->{'title-fr'} }} ">
+    <meta name="twitter:image" content=" {{ $videos->{'title-fr'} }} ">
+
+    <meta property="og:type" content="website" />
+
+
+    <meta name="twitter:description" content=" {{ $videos->title }} ">
+
+	<meta name="description" content=" {{ $videos->title }} ">
+	
+	<meta property="og:title" content=" {{ $videos->{'title-ar'} }}  "> 
+	<meta property="og:description" content=" {{ $videos->title }} ">
+
+    @section('title',$videos->title . " | السعدي ") 
+    
+    @else
     <meta property="og:image"  itemprop="image"  content="{{ url('images/video.jpg') }}" />
     <meta name="twitter:image" content="{{ url('images/video.jpg') }}">
 
@@ -29,15 +49,21 @@ $path="";
 
     <meta name="twitter:description" content="مدونة السعدي لكل القصص والحكايات ومحبى القراءة ومتعتها ولكل كاتب واعد لسه بيبدأ ... سوف نسبح فى بحر قصة أو رواية أو كتاب أو ذكريات جميلة نسترجعها بكل تفاصيلها مدونة لكل فرد يحب القراءة ويسبح بها ويعلو عنان السماء ">
 
-	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag->title}}@endforeach">
 	<meta name="description" content="مدونة السعدي لكل القصص والحكايات ومحبى القراءة ومتعتها ولكل كاتب واعد لسه بيبدأ ... سوف نسبح فى بحر قصة أو رواية أو كتاب أو ذكريات جميلة نسترجعها بكل تفاصيلها مدونة لكل فرد يحب القراءة ويسبح بها ويعلو عنان السماء">
 	
-	<meta property="og:title" content="مدونة السعدي "> 
-
+	<meta property="og:title" content="مقاطع فيديو | السعدي "> 
 	<meta property="og:description" content="مدونة السعدي لكل القصص والحكايات ومحبى القراءة ومتعتها ولكل كاتب واعد لسه بيبدأ ... سوف نسبح فى بحر قصة أو رواية أو كتاب أو ذكريات جميلة نسترجعها بكل تفاصيلها مدونة لكل فرد يحب القراءة ويسبح بها ويعلو عنان السماء">
-@endsection
 
-@section('title',"مدونة السعدي")
+@section('title',"مدونة السعدي") 
+    @endif
+
+
+
+	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag->title}}@endforeach">
+
+
+    @endsection
+
 
 @section('main-content')
     <!-- Breadcrumbs -->
@@ -63,6 +89,19 @@ $path="";
             <div class="row">
                 <div class="col-lg-8 col-12">
                     <div class="row">
+                        @if (isset($channel))
+                            {{ $videos->title}}
+                            @php
+                                
+                        $videos=$videos->video;
+                            @endphp
+                        @else
+                            @php
+                                
+                        $videos=$videos;
+                            @endphp
+                        @endif
+                        
                         @foreach($videos as $video)
 
 
