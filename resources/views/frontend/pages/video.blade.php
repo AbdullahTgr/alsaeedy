@@ -91,7 +91,7 @@ $path="";
                     <div class="row">
                         @if (isset($channel))
                         <div class="col-12" style="font-size: 20px;">
-                            {{ $videos->title}}
+                            {{ $videos->{'title-ar'} }}
                         </div>
                             @php
                                 
