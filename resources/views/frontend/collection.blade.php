@@ -107,6 +107,18 @@
                 
                 <!-- SIDEBAR - START -->
                 <div class="col-sm-3" style="direction: rtl;">
+					<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5062667702348863"
+     crossorigin="anonymous"></script>
+<!-- square -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5062667702348863"
+     data-ad-slot="6101495379"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 					<div class="sidebar">
 						  <h3>فئات</h3>
 						  <div class="box categories">
