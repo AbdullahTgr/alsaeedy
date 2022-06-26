@@ -10,16 +10,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     
-	<meta property="og:url" content="{!! route('video.maincategory',strip_tags($maincategoryroot->slug)) !!}"> 
+	<meta property="og:url" content="{!! route('video.maincategory',strip_tags($maincategories->slug)) !!}"> 
 
-	<meta name="keywords" content="{!!  strip_tags($maincategoryroot->{'title-ar'} ) !!}">
-	<meta name="description" content="{!!  strip_tags($maincategoryroot->{'title'} ) !!}">
+	<meta name="keywords" content="{!!  strip_tags($maincategories->{'title-ar'} ) !!}">
+	<meta name="description" content="{!!  strip_tags($maincategories->{'title'} ) !!}">
 	
     
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="{!! strip_tags($maincategoryroot->{'title-ar'}) !!}">
+	<meta property="og:title" content="{!! strip_tags($maincategories->{'title-ar'}) !!}">
     
-	<meta property="og:description" content="{!!  strip_tags($maincategoryroot->{'title'} ) !!}">
+	<meta property="og:description" content="{!!  strip_tags($maincategories->{'title'} ) !!}">
 
 
 
@@ -40,16 +40,15 @@
 
 
     
-@section('title',strip_tags($maincategoryroot->{'title-ar'}." | ".$maincategories->{'title-ar'} ))
+@section('title', strip_tags($maincategoryroot->{'title-ar'}." | ".$maincategories->{'title-ar'} ))
         
 @section('main-content')
-
   <div class="main-content" style="direction: rtl">
     <!-- Top navbar -->
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
       <div class="container-fluid">
         <!-- Brand -->
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="/" target="_blank">{{ $maincategoryroot->{'title-ar'} }}</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="/" target="_blank">{{ $maincategories->{'title-ar'} }}</a>
         <!-- Form -->
         <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
           <div class="form-group mb-0">
@@ -182,6 +181,7 @@
             </div>
             <div class="card-body row">
        
+
             
                 
         @foreach ($maincategories->category as $cat)

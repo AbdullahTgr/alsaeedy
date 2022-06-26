@@ -170,12 +170,11 @@ return view('errors.404');
     public function videoByMaincategory(Request $request){
 
         $maincategories=VideoMaincategory::getVideoByMaincategory($request->slug); 
-        $maincatrootid=VideoMaincategory::where('slug',$request->slug)->first();
-
-        $mc_id=$maincatrootid->video_maincatroot_id;
-
-        $maincategoryroot=VideoMaincategoryroot::where('id',$mc_id)->first();
-
+      //return $maincategories->video_maincatroot_id;
+      
+      
+      $maincategoryroot=VideoMaincategoryroot::where('id',$maincategories->video_maincatroot_id)->first();
+// return $maincategoryroot->{'title-ar'};
             // arabic
         return view('frontend.pages.maincats')->with('maincategories',$maincategories)->with('maincategoryroot',$maincategoryroot);
      
