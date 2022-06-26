@@ -9,6 +9,17 @@
 
 
 <section class="content-item grey" id="blog-timeline">
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5062667702348863"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-5062667702348863"
+     data-ad-slot="4854742754"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
         <div class="container">
             <div class="row">
                 
@@ -106,6 +117,17 @@
 								  
 							  </ul>
 						  </div>
+						  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5062667702348863"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-5062667702348863"
+     data-ad-slot="4854742754"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 						  {{-- <h3>Recent Posts</h3>
 						  <div class="box posts">
 							  <ul class="list-unstyled">

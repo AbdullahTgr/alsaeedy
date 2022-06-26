@@ -88,6 +88,17 @@ $path="";
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-12">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5062667702348863"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-5062667702348863"
+     data-ad-slot="4854742754"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
                     <div class="row">
                         @if (isset($channel))
                         <div class="col-12" style="font-size: 20px;">
