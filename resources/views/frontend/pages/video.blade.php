@@ -90,7 +90,9 @@ $path="";
                 <div class="col-lg-8 col-12">
                     <div class="row">
                         @if (isset($channel))
+                        <div class="col-12" style="font-size: 20px;">
                             {{ $videos->title}}
+                        </div>
                             @php
                                 
                         $videos=$videos->video;
