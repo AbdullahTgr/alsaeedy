@@ -84,7 +84,7 @@ if (isset($my_array_of_vars['v'])) {
                                 <div class="image">
                                     @if($video_url)
                                     <iframe allow="fullscreen;" width="100%" height="315"
-                                    src="{!! str_replace('watch?v=', 'embed/', $video_url) !!}">
+                                    src="https://www.youtube.com/embed/{{$ur}}">
                                     </iframe>	
                                     
                                                             @endif
