@@ -116,6 +116,9 @@ Route::get('video-maincatroot/{slug}','Front_vid_Controller@videoByMaincategoryr
 Route::get('video-tag/{slug}','Front_vid_Controller@videoByTag')->name('video.tag');
 //video
 
+ 
+
+
 
 
 // NewsLetter
@@ -147,7 +150,7 @@ Route::get('payment/success', 'PayPalController@success')->name('payment.success
 
 // Backend section start
 
-Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
+Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){ 
     Auth::user();
     Route::get('/','AdminController@index')->name('admin');    
     Route::get('/file-manager','AdminController@filemanager')->name('file-manager'); 

@@ -220,7 +220,7 @@
           <input id="thumbnail" class="form-control" type="text" name="photo" value="{{old('photo')}}">
         </div>
         <div id="holder" style="margin-top:15px;max-height:100px;"></div>
-          @error('photo')
+          @error('photo') 
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>

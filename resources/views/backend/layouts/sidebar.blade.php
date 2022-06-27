@@ -44,6 +44,21 @@
     </li>
     <!-- Divider -->
 
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#flre" aria-expanded="true" aria-controls="flre">
+        <i class="fas fa-image"></i>
+        <span>مدير الملفات</span>
+      </a>
+      <div id="flre" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">مدير الملفات:</h6>
+          <a class="collapse-item" href="{{route('file-manager')}}">مدير الملفات</a>
+          
+        </div>
+      </div>
+    </li>
+    <!-- Divider -->
+
     
     
 
