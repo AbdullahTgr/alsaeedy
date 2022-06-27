@@ -24,8 +24,8 @@
 
 
 
-<meta property="og:image"  itemprop="image"  content="{{$maincategories->{'title-fr'} }}">
-<meta name="twitter:image" content="{{$maincategories->{'title-fr'} }}">
+<meta property="og:image"  itemprop="image"  content="{{url($maincategories->{'title-fr'}) }}">
+<meta name="twitter:image" content="{{url($maincategories->{'title-fr'}) }}">
 
 
 
