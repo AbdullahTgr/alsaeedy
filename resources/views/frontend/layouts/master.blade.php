@@ -8,6 +8,7 @@
 	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 	})(window,document,'script','dataLayer','GTM-MV43QJV');</script>
 	<!-- End Google Tag Manager -->
+	
 	@include('frontend.layouts.head')	 
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->

@@ -5,22 +5,18 @@
                                                     @endphp
                                                     
 @section('meta')
+
+
+
+
+
+
+
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name='copyright' content=''>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    
-	<meta property="og:url" content="{!! route('blog.detail',strip_tags($video->slug)) !!}"> 
-
-	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag}}@endforeach">
-	<meta name="description" content="{!!  strip_tags($video->{'summary-ar'} ) !!}">
-	
-    
-	<meta property="og:type" content="article">
-	<meta property="og:title" content="{!! strip_tags($video->{'title-ar'}) !!}">
-    
 
 
 	<?php
@@ -37,12 +33,29 @@ if (isset($my_array_of_vars['v'])) {
 
 
 	?>
-	<meta property="og:image"  itemprop="image"  content="{{url($video->photo) }} ">
-    <meta name="twitter:image" content="{{url($video->photo) }} ">
+    
+<meta property="og:title" content="{!! strip_tags($video->{'title-ar'}) !!}">
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{!! route('blog.detail',strip_tags($video->slug)) !!}" />
+<meta property="og:image" content="{{url($video->photo) }}" />
+<meta name="twitter:image" content="{{url($video->photo) }} ">
+<meta property="og:image:alt" content="{!! strip_tags($video->{'title-ar'}) !!}">
+<meta property="og:site_name" content="مقاطع مدونة السعدي" />
+<meta property="og:locale" content="en_US" />
+
+<meta property="og:contenttype" content="article_listing" />
+<meta property="og:publishdt" content="{!! strip_tags($video->created_at) !!}" />
+<meta property="og:uploadedby" content="عبدالله مصطفي" />
+{{-- <meta property="fb:app_id" content="your app id" />
+ --}}
+
+
+
+
 
 	<meta property="og:description" content="{!!  strip_tags($video->{'summary-ar'} ) !!}">
-
-
+	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag}}@endforeach">
+	<meta name="description" content="{!!  strip_tags($video->{'summary-ar'} ) !!}">
 
 
 
