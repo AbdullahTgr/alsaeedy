@@ -24,10 +24,10 @@ $path="";
 
 
     @if (isset($channel))
-    <meta name="twitter:image" content=" {{ $videos->{'title-fr'} }} ">
-    <meta name="twitter:image" content=" {{ $videos->{'title-fr'} }} ">
+    <meta name="og:image" content=" {{ url($videos->{'title-fr'}) }} ">
+    <meta name="twitter:image" content=" {{ url($videos->{'title-fr'}) }} ">
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="website" /> 
 
 
     <meta name="twitter:description" content=" {{ $videos->title }} ">
