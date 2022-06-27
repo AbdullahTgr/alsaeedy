@@ -21,9 +21,6 @@
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="{!! strip_tags($video->{'title-ar'}) !!}">
     
-	<meta property="og:description" content="{!!  strip_tags($video->{'summary-ar'} ) !!}">
-
-
 
 
 	<?php
@@ -42,6 +39,9 @@ if (isset($my_array_of_vars['v'])) {
 	?>
 	<meta property="og:image"  itemprop="image"  content="{{url($video->photo) }} ">
     <meta name="twitter:image" content="{{url($video->photo) }} ">
+
+	<meta property="og:description" content="{!!  strip_tags($video->{'summary-ar'} ) !!}">
+
 
 
 
