@@ -90,24 +90,57 @@
 
 
 
+        <div class="form-group">
+          <label for="video_cat_id">الفئات<span class="text-danger">*</span></label>
+          <select name="video_cat_id" class="form-control" id="showmaincat" >
+              <option value="{{$video->{'description-ar'} }}">--اختر فئة --</option>
+              @foreach($videomaincategoryroot as $key=>$data) 
+                  <option value="{{ route('maincat.get',$data->id) }}" >{{ $data->{'title-ar'} }}</option>
+              @endforeach
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="video_cat_id">الاشخاص <span class="text-danger">*</span></label>
+          <select name="video_cat_id" class="form-control " id="show-maincat">
+              <option value="">-- اختر شخصا--</option>
+              
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="video_cat_id">المحتوي <span class="text-danger">*</span></label>
+          <select name="video_cat_id" class="form-control" id="show-cat">
+              <option value="{{$video->{'video_cat_id'} }}">--اختر نوع المحتوي --</option>
+             
+          </select>
+        </div>
 
 
         
 
+        <div class="form-group">
+          <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
+          <div class="input-group">
+              <span class="input-group-btn">
+                  <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                  <i class="fa fa-picture-o"></i> Choose
+                  </a>
+              </span>
+          <input id="thumbnail" class="form-control" type="text" name="photo" value="{{$video->photo}}">
+        </div>
+        <div id="holder" style="margin-top:15px;max-height:100px;"></div>
 
+          @error('photo')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+ 
 
  
 
 
-        <div class="form-group">
-          <label for="video_cat_id">Category <span class="text-danger">*</span></label>
-          <select name="video_cat_id" class="form-control">
-              <option value="">--Select any category--</option>
-              @foreach($categories as $key=>$data)
-                  <option value='{{$data->id}}' {{(($data->id==$video->video_cat_id)? 'selected' : '')}}>{{$data->{'title-ar'} }}</option>
-              @endforeach
-          </select>
-        </div>
+        
         {{-- {{$video->tags}} --}}
         @php 
                 $video_tags=explode(',',$video->tags);
@@ -188,6 +221,71 @@
 
 <script>
     $('#lfm').filemanager('image');
+
+
+
+    $('body').on('click', '#showmaincat', function () {
+          
+          
+          var userURL = $(this).val();
+          
+          
+
+          $.get(userURL, function (data) {
+            
+      var arrr=data['data'];
+
+      $('#show-maincat').html("");
+      $('#show-cat').html("");
+      arrr.forEach(myFunction);
+        function myFunction(item) {
+          $('#show-maincat').append('<option value="/admin/getcat/'+item['id']+'">'+item['title-ar']+'</option>')
+        }
+ 
+
+    
+          })
+
+       });
+       
+
+
+
+
+
+
+       /* When click show user */
+       $('body').on('click', '#show-maincat', function () {
+          
+          
+          var userURL = $(this).val();
+          
+          
+
+          $.get(userURL, function (data) {
+            
+      var arrr=data['data'];
+
+      $('#show-cat').html("");
+      arrr.forEach(myFunction);
+        function myFunction(item) {
+          $('#show-cat').append('<option value="'+item['id']+'">'+item['title-ar']+'</option>')
+        }
+ 
+
+    
+          })
+
+       });
+
+
+
+
+
+
+
+
+
 
     $(document).ready(function() {
     $('#summary').summernote({

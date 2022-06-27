@@ -22,7 +22,7 @@ class VideoController extends Controller
     public function index()
     {
         $videocategory=Video::orderBy('id','DESC')->paginate(10);
-        $tags=VideoTag::get(); 
+        $tags=VideoTag::get();  
 
         // return $videos;
         return view('backend.video.index')->with('tags',$tags)->with('videos',$videocategory);
@@ -157,11 +157,13 @@ class VideoController extends Controller
      */
     public function edit($id)
     {
+        $videomaincategoryroot=VideoMaincategoryroot::orderBy('id','DESC')->paginate(10);
+
         $video=Video::findOrFail($id);
         $categories=VideoCategory::get();
         $tags=VideoTag::get();
         $users=User::get();
-        return view('backend.video.edit')->with('categories',$categories)->with('users',$users)->with('tags',$tags)->with('video',$video);
+        return view('backend.video.edit')->with('categories',$categories)->with('videomaincategoryroot',$videomaincategoryroot)->with('users',$users)->with('tags',$tags)->with('video',$video);
      
     }
  
