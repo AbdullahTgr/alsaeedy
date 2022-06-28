@@ -36,10 +36,10 @@ if (isset($my_array_of_vars['v'])) {
     
 <meta property="og:title" content="{!! strip_tags($video->{'title-ar'}) !!}">
 <meta property="og:type" content="article" />
-<meta property="og:url" content="{!! route('blog.detail',strip_tags($video->slug)) !!}" />
+<meta property="og:url" content="{!! route('video.detail',strip_tags($video->slug)) !!}" />
 <meta property="og:image" content="{{url($video->photo) }}" />
 <meta name="twitter:image" content="{{url($video->photo) }} ">
-<meta property="og:image:alt" content="{{url($video->photo) }}">
+<meta property="og:image:alt" content="{{url($video->photo) }}"> 
 <meta property="og:site_name" content="مقاطع مدونة السعدي" />
 <meta property="og:locale" content="en_US" />
 
@@ -220,7 +220,7 @@ if (isset($my_array_of_vars['v'])) {
                                         <img src="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg " alt="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg ">
                                     </div>
                                     <div class="content ">
-                                        <h5><a href="{!! route('blog.detail',strip_tags($video->slug)) !!}">{{$video->{'title-ar'} }}</a></h5>
+                                        <h5><a href="{!! route('video.detail',strip_tags($video->slug)) !!}">{{$video->{'title-ar'} }}</a></h5>
                                         <ul class="comment">
                                         @php 
                                             $author_info=DB::table('users')->select('name')->where('id',$video->added_by)->get();
