@@ -37,8 +37,8 @@ if (isset($my_array_of_vars['v'])) {
 <meta property="og:title" content="{!! strip_tags($video->{'title-ar'}) !!}">
 <meta property="og:type" content="article" />
 <meta property="og:url" content="{!! route('video.detail',strip_tags($video->slug)) !!}" />
-<meta property="og:image" content="{{url($video->photo) }}" />
-<meta name="twitter:image" content="{{url($video->photo) }} ">
+<meta property="og:image" content="{{url( "https://img.youtube.com/vi/".$ur."/maxresdefault.jpg ") }}" />
+<meta name="twitter:image" content="{{url("https://img.youtube.com/vi/".$ur ."/maxresdefault.jpg ") }} ">
 <meta property="og:image:alt" content="{{url($video->photo) }}"> 
 <meta property="og:site_name" content="مقاطع مدونة السعدي" />
 <meta property="og:locale" content="en_US" />
