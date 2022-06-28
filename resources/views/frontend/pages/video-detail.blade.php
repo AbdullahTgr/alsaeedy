@@ -39,7 +39,7 @@ if (isset($my_array_of_vars['v'])) {
 <meta property="og:url" content="{!! route('blog.detail',strip_tags($video->slug)) !!}" />
 <meta property="og:image" content="{{url($video->photo) }}" />
 <meta name="twitter:image" content="{{url($video->photo) }} ">
-<meta property="og:image:alt" content="{!! strip_tags($video->{'title-ar'}) !!}">
+<meta property="og:image:alt" content="{{url($video->photo) }}">
 <meta property="og:site_name" content="مقاطع مدونة السعدي" />
 <meta property="og:locale" content="en_US" />
 

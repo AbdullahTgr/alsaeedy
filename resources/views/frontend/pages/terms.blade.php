@@ -1,0 +1,29 @@
+@extends('frontend.layouts.master')
+
+@section('title',"سياسة الخصوصية")
+@php
+								$settings=DB::table('settings')->get();
+							@endphp
+@section('main-content')
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bread-inner">
+                        <ul class="bread-list">
+                            <li><a href="{{route('home')}}">{{ Lang::get('msg.home') }}<i class="ti-arrow-right"></i></a></li>
+                            <li class="active"><a href="javascript:void(0);">سياسة الخصوصية</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+<section class="tracking_box_area section_gap py-5">
+    <div class="container">
+     {!! $settings[0]->termsandconditions !!}    
+    </div>
+</section>
+@endsection

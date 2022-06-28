@@ -16,6 +16,7 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
+        
         <div class="form-group">
           <label for="description" class="col-form-label">Description <span class="text-danger">*</span></label>
           <textarea class="form-control" id="description" name="description">{{$data->description}}</textarea>
@@ -24,7 +25,23 @@
           @enderror
         </div>
 
+
         <div class="form-group">
+          <label for="termsandconditions" class="col-form-label">Terms And Conditions <span class="text-danger">*</span></label>
+          <textarea class="form-control" id="termsandconditions" name="termsandconditions">{{$data->termsandconditions}}</textarea>
+          @error('termsandconditions')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label for="privacyandpolicy" class="col-form-label">Privacy And Policy <span class="text-danger">*</span></label>
+          <textarea class="form-control" id="privacyandpolicy" name="privacyandpolicy">{{$data->privacyandpolicy}}</textarea>
+          @error('privacyandpolicy')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+
+        <div class="form-group"> 
           <label for="inputPhoto" class="col-form-label">Logo <span class="text-danger">*</span></label>
           <div class="input-group">
               <span class="input-group-btn">
@@ -120,6 +137,20 @@
     $(document).ready(function() {
       $('#description').summernote({
         placeholder: "Write detail description.....",
+          tabsize: 2,
+          height: 150
+      });
+    });
+    $(document).ready(function() {
+      $('#termsandconditions').summernote({
+        placeholder: "Write short termsandconditions.....",
+          tabsize: 2,
+          height: 100
+      });
+    });
+    $(document).ready(function() {
+      $('#privacyandpolicy').summernote({
+        placeholder: "Write detail privacyandpolicy.....",
           tabsize: 2,
           height: 150
       });

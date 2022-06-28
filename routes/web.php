@@ -20,6 +20,9 @@ Route::get('user/login','FrontendController@login')->name('login.form');
 Route::post('user/login','FrontendController@loginSubmit')->name('login.submit');
 Route::get('user/logout','FrontendController@logout')->name('user.logout');
 
+Route::get('تفاقية_الاستخدام','FrontendController@terms')->name('terms');
+Route::get('سياسة_الخصوصية','FrontendController@policy')->name('policy');
+
 // Socialite 
 Route::get('login/{provider}/', 'Auth\LoginController@redirect')->name('login.redirect');
 Route::get('login/{provider}/callback/', 'Auth\LoginController@Callback')->name('login.callback');

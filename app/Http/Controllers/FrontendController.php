@@ -89,6 +89,14 @@ class FrontendController extends Controller
         return view('frontend.pages.about-us');
                    }
     }
+    public function terms(){
+        return view('frontend.pages.terms');
+    
+    }
+    public function policy(){
+        return view('frontend.pages.policy');
+    
+    }
 
     public function contact(){
         if(session()->get('locale')=="en"){
