@@ -5273,6 +5273,7 @@ h1 {
 .blog-single .blog-single-main {
     margin-top: 30px;
     background: #fff;
+    direction:rtl;
 }
 
 .blog-single .blog-detail {
