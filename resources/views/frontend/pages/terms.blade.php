@@ -23,7 +23,8 @@
     <!-- End Breadcrumbs -->
 <section class="tracking_box_area section_gap py-5">
     <div class="container">
-     {!! $settings[0]->termsandconditions !!}    
+        {!! $settings[0]->privacyandpolicy !!}   
+     
     </div>
 </section>
 @endsection

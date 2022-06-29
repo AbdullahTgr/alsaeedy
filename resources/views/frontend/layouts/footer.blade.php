@@ -41,7 +41,7 @@
 							<ul>
 								<li><a href="{{route('about-us')}}">{{ Lang::get('msg.aboutus') }}</a></li>
 								<li><a href="#">{{ Lang::get('msg.faq') }}</a></li>
-								<li><a href="{{route('terms')}}">{{ Lang::get('msg.terms') }}</a></li>
+								<li><a href="{{route('policy')}}">{{ Lang::get('msg.privacypolicy') }}</a></li>
 								<li><a href="{{route('contact')}}">{{ Lang::get('msg.contactus') }}</a></li>
 								<li><a href="#">{{ Lang::get('msg.help') }}</a></li>
 							</ul>
@@ -53,11 +53,7 @@
 						<div class="single-footer links">
 							<h4>{{ Lang::get('msg.custservice') }}</h4>
 							<ul>
-								<li><a href="#">{{ Lang::get('msg.paymentmethod') }} </a></li>
-								<li><a href="#">{{ Lang::get('msg.moneyback') }} </a></li>
-								<li><a href="#">{{ Lang::get('msg.returns') }} </a></li>
-								<li><a href="#">{{ Lang::get('msg.shipping') }} </a></li>
-								<li><a href="{{route('policy')}}">{{ Lang::get('msg.privacypolicy') }} </a></li>
+								<li><a href="{{route('terms')}}">{{ Lang::get('msg.terms') }} </a></li>
 							</ul>
 						</div>
 						<!-- End Single Widget -->
