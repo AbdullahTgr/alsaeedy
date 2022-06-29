@@ -130,6 +130,7 @@ if (isset($my_array_of_vars['v'])) {
                                 <div class="share-social">
                                     <div class="row">
                                         <div class="col-12">
+                                            <!-- ShareThis BEGIN --><div class="sharethis-inline-follow-buttons"></div><!-- ShareThis END -->
                                             <div class="content-tags">
                                                 <h4>{{ Lang::get('msg.tag') }}:</h4>
                                                 <ul class="tag-inner">

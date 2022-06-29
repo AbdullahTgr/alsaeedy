@@ -82,6 +82,7 @@
                                         <blockquote> <i class="fa fa-quote-left"></i> {!! ($post->{'quote-ar'}) !!} </blockquote>
                                         @endif 
                                         <p>{!! ($post->{'summary-ar'}) !!}</p>
+                                        <!-- ShareThis BEGIN --><div class="sharethis-inline-follow-buttons"></div><!-- ShareThis END -->
                                         <p>{!! ($post->{'description-ar'}) !!}</p>
                                     </div>
                                 </div>
@@ -104,7 +105,7 @@
                                 </div>
                             </div>
                             @auth
-                            <div class="col-12 mt-4">			
+                            <div class="col-12 mt-4">			 
                                 <div class="reply">
                                     <div class="reply-head comment-form" id="commentFormContainer">
                                         <h2 class="reply-title">{{ Lang::get('msg.leaveacomment') }}</h2>
