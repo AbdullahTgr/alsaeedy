@@ -120,7 +120,7 @@ if (isset($my_array_of_vars['v'])) {
                                    
                                     </div>
                                     <div class="sharethis-inline-reaction-buttons"></div>
-                                    <div class="sharethis-inline-share-buttons"></div>
+                                    
                                     <div class="content">
                                         <blockquote> <i class="fa fa-quote-left"></i> {!!  ($video->{'summary-ar'}) !!} </blockquote>
                                        
