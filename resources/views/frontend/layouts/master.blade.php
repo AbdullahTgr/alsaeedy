@@ -24,7 +24,7 @@
 
 
 
-	 
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=62246bde2e0ffb001379988e&product=sticky-share-buttons' async='async'></script>
 
 
 

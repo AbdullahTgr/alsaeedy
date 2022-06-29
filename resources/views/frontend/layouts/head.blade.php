@@ -75,6 +75,7 @@ $path="";
 <link rel="stylesheet" href="{{asset('frontend/css/video.css')}}">
 
 <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=62246f7e58f4c4001368640a&product=inline-share-buttons" async="async"></script>
+
 @yield('style')
 <style>
     /* Multilevel dropdown */

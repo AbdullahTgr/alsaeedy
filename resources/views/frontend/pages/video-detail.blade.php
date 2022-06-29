@@ -112,6 +112,7 @@ if (isset($my_array_of_vars['v'])) {
                                     </iframe>	
                                     
                                                             @endif
+                                                            
                                 </div>
                                 <div class="blog-detail">  
                                     <h2 class="blog-title">{{$video->{'title-ar'} }}</h2>
