@@ -47,7 +47,7 @@ class FrontendController extends Controller
     public function home(Video $video){ 
         $categories=PostCategory::get();
         
-        $posts=Post::where('status','active')->orderBy('id','DESC')->limit(9)->get();
+        $posts=Post::where('status','active')->orderBy('id','DESC')->limit(30)->get();
         $banners=Banner::where('status','active')->limit(3)->orderBy('id','DESC')->get();
         $tags=PostTag::get();
 
@@ -428,7 +428,7 @@ class FrontendController extends Controller
             $post=$post->where('status','active')->orderBy('id','DESC')->paginate($_GET['show']);
         }
         else{
-            $post=$post->where('status','active')->orderBy('id','DESC')->paginate(9);
+            $post=$post->where('status','active')->orderBy('id','DESC')->paginate(30);
         }
         // $post=Post::where('status','active')->paginate(8);
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
