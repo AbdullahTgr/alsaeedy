@@ -20,7 +20,9 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-        <div class="container">
+        <div class="container" style="
+    padding-top: 15px;
+		">
             <div class="row">
                 
                 <!-- BLOG POSTS - START -->
