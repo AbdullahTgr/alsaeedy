@@ -108,15 +108,15 @@ Route::get('blog-tag/{slug}','FrontendController@blogByTag')->name('blog.tag');
 
 
 // video 
-Route::get('/watch','Front_vid_Controller@video')->name('video');
-Route::get('/watch-detail/{slug}','Front_vid_Controller@videoDetail')->name('video.detail');
-Route::get('/watch/search','Front_vid_Controller@videoSearch')->name('video.search');
-Route::post('/watch/filter','Front_vid_Controller@videoFilter')->name('video.filter');
-Route::get('watch-cat/{slug}','Front_vid_Controller@videoByCategory')->name('video.category');
+Route::get('/فيديو','Front_vid_Controller@video')->name('video');
+Route::get('/عرض_فيديو/{slug}','Front_vid_Controller@videoDetail')->name('video.detail');
+Route::get('/فيديو/بحث','Front_vid_Controller@videoSearch')->name('video.search');
+Route::post('/فيديو/فلتر','Front_vid_Controller@videoFilter')->name('video.filter');
+Route::get('قناة/{slug}','Front_vid_Controller@videoByCategory')->name('video.category');
 
-Route::get('watch-maincat/{slug}','Front_vid_Controller@videoByMaincategory')->name('video.maincategory');  
-Route::get('watch-maincatroot/{slug}','Front_vid_Controller@videoByMaincategoryroot')->name('video.maincategoryroot');
-Route::get('watch-tag/{slug}','Front_vid_Controller@videoByTag')->name('video.tag');
+Route::get('اشخاص/{slug}','Front_vid_Controller@videoByMaincategory')->name('video.maincategory');  
+Route::get('فئات_فيديو/{slug}','Front_vid_Controller@videoByMaincategoryroot')->name('video.maincategoryroot');
+Route::get('فيديو_تاج/{slug}','Front_vid_Controller@videoByTag')->name('video.tag');
 //video
 
  
