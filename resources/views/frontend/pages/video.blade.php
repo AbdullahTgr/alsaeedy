@@ -33,6 +33,7 @@ $path="";
             <meta name="twitter:image" content=" {{ url($videos->{'title-fr'}) }}  - السعدي">
 
             <meta name="twitter:description" content=" {{ $videos->title }}  - السعدي">
+            <meta name="keywords" content="{{ str_replace('-',',',strip_tags($videos->slug)) }} ,السعدي, مقاطع فيديو,موسوعة,عربية,شاملة">
 
             
             <meta property="og:description" content=" {{ $videos->title }}  - السعدي">
@@ -50,7 +51,7 @@ $path="";
     
         <meta name="twitter:description" content="السعدي - مقاطع فيديو - أكبر موقع عربي بالعالم ">
     
-        <meta name="keywords" content=" مقاطع فيديو,موسوعة,عربية,شاملة,السعدي">
+        <meta name="keywords" content="{{ str_replace('-',',',strip_tags($videos->slug)) }} ,السعدي, مقاطع فيديو,موسوعة,عربية,شاملة">
         <meta name="description" content="السعدي - مقاطع فيديو - أكبر موقع عربي بالعالم">
         
         <meta property="og:type" content="article" />

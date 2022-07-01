@@ -54,7 +54,7 @@ if (isset($my_array_of_vars['v'])) {
 
 
 	<meta property="og:description" content="{!!  strip_tags($video->{'summary-ar'} ) !!} - السعدي ">
-	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag}}@endforeach">
+	<meta name="keywords" content="{{ str_replace('-',',',strip_tags($video->slug)) }}@foreach($tags as $tag),{{ $tag}}@endforeach ,السعدي">
 	<meta name="description" content="{!!  strip_tags($video->{'summary-ar'} ) !!} - السعدي ">
 
  

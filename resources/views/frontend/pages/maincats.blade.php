@@ -12,8 +12,8 @@
     
 	<meta property="og:url" content="{!! route('video.maincategory',strip_tags($maincategories->slug)) !!}"> 
 
-	<meta name="keywords" content="{!!  strip_tags($maincategories->{'title-ar'} ) !!}">
-	<meta name="description" content="{!!  strip_tags($maincategories->{'title'} ) !!}">
+	<meta name="keywords" content="{{ str_replace('-',',',strip_tags($maincategories->slug)) }} , السعدي ,{!!  strip_tags($maincategories->{'title-ar'} ) !!}">
+	<meta name="description" content="{!!  strip_tags($maincategories->{'title'} ) !!}"> 
 	
     
 	<meta property="og:type" content="article">
@@ -40,7 +40,7 @@
 
 
     
-@section('title', strip_tags($maincategoryroot->{'title-ar'}." | ".$maincategories->{'title-ar'} ))
+@section('title', strip_tags($maincategoryroot->{'title-ar'}." | ".$maincategories->{'title-ar'}." | السعدي  " ))
         
 @section('main-content')
   <div class="main-content" style="direction: rtl">

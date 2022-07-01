@@ -14,7 +14,7 @@
     
 	<meta property="og:url" content="{!! route('blog.detail',strip_tags($post->slug)) !!}"> 
 
-	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag}}@endforeach  , السعدي">
+	<meta name="keywords" content="{{ str_replace('-',',',strip_tags($post->slug)) }}@foreach($tags as $tag),{{ $tag}}@endforeach ,السعدي">
 	<meta name="description" content="{!!  strip_tags($post->{'summary-ar'} ) !!} - السعدي">
 	
     
