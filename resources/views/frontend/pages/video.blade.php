@@ -136,7 +136,7 @@ $path="";
     
         ?>
                         {{-- {{$video}} --}}
-                            <div class="col-lg-4 col-md-6 col-12">
+                            <div class="col-lg-6 col-md-6 col-12">
                                 <!-- Start Single Blog  -->
                                 <div class="shop-single-blog col-12">
                                 <img src="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg " alt="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg ">
@@ -144,7 +144,10 @@ $path="";
                                         @php 
                                             $author_info=DB::table('users')->select('name')->where('id',$video->added_by)->get();
                                         @endphp
-                                        <p class="date"><i class="fa fa-calendar" aria-hidden="true"></i> {{$video->created_at->format('d M, Y. D')}}
+                                        <p class="date">
+                                            <i class="fa fa-calendar" aria-hidden="true"> </i> 
+                                            
+                                            {{$video->created_at->format('d M, Y. D')}}
                                             <span class="float-right">
                                                 <i class="fa fa-user" aria-hidden="true"></i> 
                                                 @foreach($author_info as $data)
@@ -235,30 +238,36 @@ $path="";
     }
     
     
-        ?>
-                                <div class="single-video " style="width: 100%" >
-                                    <div class="image pull-left">
+        ?><a href="{!! route('video.detail',strip_tags($video->slug)) !!}">
+                                <div class="single-video " style="
+                                
+                                    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #f1f1f1;
+                                
+                                " >
                                         <img src="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg " alt="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg ">
-                                    </div>
-                                    <div class="content">
-                                        <h5><a href="{!! route('video.detail',strip_tags($video->slug)) !!}">{{$video->{'title-ar'} }}</a></h5>
-                                        <ul class="comment">
+                                    
+                                    <div class="content col-12" style="    padding: 10px 0;">
+                                        
+                                        <h5>{{$video->{'title-ar'} }}</h5>
+                                        {!! $video->{'summary-ar'} !!}
+
+                                        <p style="    margin-bottom: 0;">
                                         @php 
                                             $author_info=DB::table('users')->select('name')->where('id',$video->added_by)->get();
                                         @endphp
-                                            <li><i class="fa fa-calendar" aria-hidden="true"></i>{{$video->created_at->format('d M, y')}}</li>
-                                            <li><i class="fa fa-user" aria-hidden="true"></i> 
-                                                @foreach($author_info as $data)
-                                                    @if($data->name)
-                                                        {{$data->name}}
-                                                    @else
-                                                    {{ Lang::get('msg.anonymous') }}
-                                                    @endif
-                                                @endforeach
-                                            </li>
-                                        </ul>
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            {{$video->created_at->format('d M, y')}} -
+                                            <i class="fa fa-user" aria-hidden="true"></i> 
+                                             {{$author_info[0]->name}}
+                                    
+                                        </p>
+
                                     </div>
                                 </div>
+                            </a>
                                 <!-- End Single video -->
                             @endforeach
                         </div>

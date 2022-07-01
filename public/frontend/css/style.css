@@ -4894,6 +4894,7 @@ h1 {
 
 .shop-blog.grid .shop-single-blog {
     margin-top: 30px;
+    padding: 0;
 }
 
 .shop-blog .shop-single-blog {
@@ -4911,7 +4912,7 @@ h1 {
 }
 
 .shop-blog .shop-single-blog img {
-    height: 18vh;
+    height: 21vh;
     width: 100%;
     object-fit: cover;
 }
@@ -5273,7 +5274,7 @@ h1 {
 .blog-single .blog-single-main {
     margin-top: 30px;
     background: #fff;
-    direction:rtl;
+    direction: rtl;
 }
 
 .blog-single .blog-detail {
