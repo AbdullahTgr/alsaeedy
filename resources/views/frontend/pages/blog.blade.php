@@ -24,20 +24,19 @@ $path="";
     <meta name="twitter:image" content="{{ url('images/blog.jpg') }}">
 
     
-    <meta property="og:type" content="website" />
 
 
-    <meta name="twitter:description" content="مدونة السعدي لكل القصص والحكايات ومحبى القراءة ومتعتها ولكل كاتب واعد لسه بيبدأ ... سوف نسبح فى بحر قصة أو رواية أو كتاب أو ذكريات جميلة نسترجعها بكل تفاصيلها مدونة لكل فرد يحب القراءة ويسبح بها ويعلو عنان السماء ">
+    <meta name="twitter:description" content="السعدي - أكبر موقع عربي بالعالم ">
 
-	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag->title}}@endforeach">
-	<meta name="description" content="مدونة السعدي لكل القصص والحكايات ومحبى القراءة ومتعتها ولكل كاتب واعد لسه بيبدأ ... سوف نسبح فى بحر قصة أو رواية أو كتاب أو ذكريات جميلة نسترجعها بكل تفاصيلها مدونة لكل فرد يحب القراءة ويسبح بها ويعلو عنان السماء">
+	<meta name="keywords" content="موسوعة,عربية,شاملة,السعدي">
+	<meta name="description" content="السعدي - أكبر موقع عربي بالعالم">
 	
-	<meta property="og:title" content="مدونة السعدي "> 
-
-	<meta property="og:description" content="مدونة السعدي لكل القصص والحكايات ومحبى القراءة ومتعتها ولكل كاتب واعد لسه بيبدأ ... سوف نسبح فى بحر قصة أو رواية أو كتاب أو ذكريات جميلة نسترجعها بكل تفاصيلها مدونة لكل فرد يحب القراءة ويسبح بها ويعلو عنان السماء">
+    <meta property="og:type" content="article" />
+	<meta property="og:title" content="السعدي - أكبر موقع عربي بالعالم"> 
+	<meta property="og:description" content="السعدي - أكبر موقع عربي بالعالم">
 @endsection
 
-@section('title',"مدونة السعدي")
+@section('title',"السعدي - أكبر موقع عربي بالعالم")
 
 @section('main-content')
     <!-- Breadcrumbs -->

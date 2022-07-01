@@ -25,38 +25,39 @@ $path="";
 
     @if (isset($channel))
 
-            <meta name="description" content=" {{ $videos->title }} ">
+            <meta name="description" content=" {{ $videos->title }}  - السعدي">
             <meta property="og:type" content="article">
-            <meta property="og:title" content=" {{ $videos->{'title-ar'} }}  "> 
+            <meta property="og:title" content=" {{ $videos->{'title-ar'} }}   - السعدي"> 
 
-            <meta name="og:image" content=" {{ url($videos->{'title-fr'}) }} ">
-            <meta name="twitter:image" content=" {{ url($videos->{'title-fr'}) }} ">
+            <meta name="og:image" content=" {{ url($videos->{'title-fr'}) }}  - السعدي">
+            <meta name="twitter:image" content=" {{ url($videos->{'title-fr'}) }}  - السعدي">
 
-            <meta name="twitter:description" content=" {{ $videos->title }} ">
+            <meta name="twitter:description" content=" {{ $videos->title }}  - السعدي">
 
             
-            <meta property="og:description" content=" {{ $videos->title }} ">
+            <meta property="og:description" content=" {{ $videos->title }}  - السعدي">
 
             @section('title',$videos->title . " | السعدي ") 
             
     @else
-    	<meta name="description" content="مدونة السعدي لكل القصص والحكايات ومحبى القراءة ومتعتها ولكل كاتب واعد لسه بيبدأ ... سوف نسبح فى بحر قصة أو رواية أو كتاب أو ذكريات جميلة نسترجعها بكل تفاصيلها مدونة لكل فرد يحب القراءة ويسبح بها ويعلو عنان السماء">
-	
-	<meta property="og:type" content="article">
-	<meta property="og:title" content="مقاطع فيديو | السعدي "> 
-
-    <meta property="og:image"  itemprop="image"  content="{{ url('images/video.jpg') }}" />
-    <meta name="twitter:image" content="{{ url('images/video.jpg') }}">
-
+   
     
+        <meta property="og:image"  itemprop="image"  content="{{ url('images/blog.jpg') }}" />
+        <meta name="twitter:image" content="{{ url('images/blog.jpg') }}">
+    
+        
+    
+    
+        <meta name="twitter:description" content="السعدي - مقاطع فيديو - أكبر موقع عربي بالعالم ">
+    
+        <meta name="keywords" content=" مقاطع فيديو,موسوعة,عربية,شاملة,السعدي">
+        <meta name="description" content="السعدي - مقاطع فيديو - أكبر موقع عربي بالعالم">
+        
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="السعدي - مقاطع فيديو - أكبر موقع عربي بالعالم"> 
+        <meta property="og:description" content="السعدي - مقاطع فيديو - أكبر موقع عربي بالعالم">
 
-    <meta name="twitter:description" content="مدونة السعدي لكل القصص والحكايات ومحبى القراءة ومتعتها ولكل كاتب واعد لسه بيبدأ ... سوف نسبح فى بحر قصة أو رواية أو كتاب أو ذكريات جميلة نسترجعها بكل تفاصيلها مدونة لكل فرد يحب القراءة ويسبح بها ويعلو عنان السماء ">
-
-
-	<meta property="og:description" content="مدونة السعدي لكل القصص والحكايات ومحبى القراءة ومتعتها ولكل كاتب واعد لسه بيبدأ ... سوف نسبح فى بحر قصة أو رواية أو كتاب أو ذكريات جميلة نسترجعها بكل تفاصيلها مدونة لكل فرد يحب القراءة ويسبح بها ويعلو عنان السماء">
-
-
-@section('title',"مدونة السعدي") 
+@section('title',"السعدي - مقاطع فيديو - أكبر موقع عربي بالعالم") 
     @endif
 
 

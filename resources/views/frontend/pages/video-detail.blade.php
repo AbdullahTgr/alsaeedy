@@ -34,7 +34,7 @@ if (isset($my_array_of_vars['v'])) {
 
 	?>
     
-<meta property="og:title" content="{!! strip_tags($video->{'title-ar'}) !!}">
+<meta property="og:title" content="{!! strip_tags($video->{'title-ar'}) !!} - السعدي ">
 <meta property="og:type" content="article" />
 <meta property="og:url" content="{!! route('video.detail',strip_tags($video->slug)) !!}" />
 <meta property="og:image" content="{{url( "https://img.youtube.com/vi/".$ur."/maxresdefault.jpg ") }}" />
@@ -53,11 +53,11 @@ if (isset($my_array_of_vars['v'])) {
 
 
 
-	<meta property="og:description" content="{!!  strip_tags($video->{'summary-ar'} ) !!}">
+	<meta property="og:description" content="{!!  strip_tags($video->{'summary-ar'} ) !!} - السعدي ">
 	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag}}@endforeach">
-	<meta name="description" content="{!!  strip_tags($video->{'summary-ar'} ) !!}">
+	<meta name="description" content="{!!  strip_tags($video->{'summary-ar'} ) !!} - السعدي ">
 
-
+ 
 
 
 
@@ -66,7 +66,7 @@ if (isset($my_array_of_vars['v'])) {
 @endsection
 
 
-@section('title',strip_tags($video->{'title-ar'}))
+@section('title',strip_tags($video->{'title-ar'})." - السعدي ")
 
 @section('main-content')
     <!-- Breadcrumbs -->

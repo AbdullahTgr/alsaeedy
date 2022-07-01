@@ -21,17 +21,24 @@ $path="";
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     
+    <meta property="og:image"  itemprop="image"  content="{{ url('images/blog.jpg') }}" />
+    <meta name="twitter:image" content="{{ url('images/blog.jpg') }}">
+
     
 
-	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag->title}}@endforeach">
-	<meta name="description" content="@foreach($tags as $tag),{{ $tag->title}}@endforeach">
 
-	<meta property="og:title" content="{!! strip_tags($settings[0]->{'short_des'}) !!}">
-    <meta property="og:image" content="{{ url($path) }}" />
-	<meta property="og:description" content="{!!  strip_tags($settings[0]->{'description'} ) !!}">
+    <meta name="twitter:description" content="السعدي - أكبر موقع عربي بالعالم ">
+
+	<meta name="keywords" content="موسوعة,عربية,شاملة,السعدي">
+	<meta name="description" content="السعدي - أكبر موقع عربي بالعالم">
+	
+    <meta property="og:type" content="article" />
+	<meta property="og:title" content="السعدي - أكبر موقع عربي بالعالم"> 
+	<meta property="og:description" content="السعدي - أكبر موقع عربي بالعالم">
+
 @endsection
 
-@section('title',Lang::get('msg.Alsaidi'))
+@section('title',"السعدي - أكبر موقع عربي بالعالم")
 @section('main-content')
 {{--  --}}
 {{-- @if (isset(auth()->user()->id))

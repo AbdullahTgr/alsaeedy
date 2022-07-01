@@ -14,19 +14,18 @@
     
 	<meta property="og:url" content="{!! route('blog.detail',strip_tags($post->slug)) !!}"> 
 
-	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag}}@endforeach">
-	<meta name="description" content="{!!  strip_tags($post->{'summary-ar'} ) !!}">
+	<meta name="keywords" content="@foreach($tags as $tag),{{ $tag}}@endforeach  , السعدي">
+	<meta name="description" content="{!!  strip_tags($post->{'summary-ar'} ) !!} - السعدي">
 	
     
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="{!! strip_tags($post->{'title-ar'}) !!}">
+	<meta property="og:title" content="{!! strip_tags($post->{'title-ar'}) !!} - السعدي">
 	<meta property="og:image"  itemprop="image"  content="{{ url($post->photo) }} ">
     <meta name="twitter:image" content="{{ url($post->photo) }}">
-	<meta property="og:description" content="{!!  strip_tags($post->{'summary-ar'} ) !!}">
+	<meta property="og:description" content="{!!  strip_tags($post->{'summary-ar'} ) !!} - السعدي">
 @endsection
 
-
-@section('title',strip_tags($post->{'title-ar'}))
+@section('title',strip_tags($post->{'title-ar'}).' - السعدي')
 
 @section('main-content')
     <!-- Breadcrumbs -->
