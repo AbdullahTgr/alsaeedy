@@ -188,6 +188,18 @@ $path="";
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5062667702348863"
+     crossorigin="anonymous"></script>
+<!-- respo -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5062667702348863"
+     data-ad-slot="2257736673"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
                 <div class="col-lg-4 col-12">
 
                     <div class="main-sidebar">
