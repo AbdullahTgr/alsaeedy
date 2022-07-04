@@ -26,17 +26,17 @@ $path="";
     
 
 
-    <meta name="twitter:description" content="السعدي - أكبر موقع عربي بالعالم ">
+    <meta name="twitter:description" content="مدونة السعدي - أكبر موقع عربي بالعالم ">
 
 	<meta name="keywords" content="موسوعة,عربية,شاملة,السعدي">
-	<meta name="description" content="السعدي - أكبر موقع عربي بالعالم">
+	<meta name="description" content="مدونة السعدي  - أكبر موقع عربي بالعالم">
 	
     <meta property="og:type" content="article" />
-	<meta property="og:title" content="السعدي - أكبر موقع عربي بالعالم"> 
-	<meta property="og:description" content="السعدي - أكبر موقع عربي بالعالم">
+	<meta property="og:title" content="مدونة السعدي  - أكبر موقع عربي بالعالم"> 
+	<meta property="og:description" content="مدونة السعدي  - أكبر موقع عربي بالعالم">
 @endsection
 
-@section('title',"السعدي - أكبر موقع عربي بالعالم")
+@section('title',"مدونة السعدي  - أكبر موقع عربي بالعالم")
 
 @section('main-content')
     <!-- Breadcrumbs -->
@@ -56,6 +56,20 @@ $path="";
     </div>
     <!-- End Breadcrumbs -->
         
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9802244405698113"
+     crossorigin="anonymous"></script>
+<!-- responsive -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9802244405698113"
+     data-ad-slot="6927856843"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
     <!-- Start Blog Single -->
     <section class="blog-single shop-blog grid section">
         <div class="container">

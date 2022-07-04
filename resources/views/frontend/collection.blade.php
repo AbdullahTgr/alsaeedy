@@ -26,7 +26,7 @@
             <div class="row">
                 
                 <!-- BLOG POSTS - START -->
-                <div class="col-sm-9">
+                <div class="col-sm-10">
                   <h2>مقالات</h2>
                     <div class="timeline">
                         @if($posts)
@@ -108,7 +108,7 @@
                 <!-- BLOG POSTS - END --> 
                 
                 <!-- SIDEBAR - START -->
-                <div class="col-sm-3" style="direction: rtl;">
+                <div class="col-sm-2" style="direction: rtl;">
 					<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5062667702348863"
      crossorigin="anonymous"></script>
 <!-- square -->
