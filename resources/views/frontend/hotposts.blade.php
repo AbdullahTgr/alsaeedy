@@ -19,12 +19,12 @@
                 <div class="box categories box_rr">
                     <ul class="list-unstyled">
                     <li>
-                        <a href=""><h3>{{$post->{'title-ar'} }}</h3></a></li>
-                        <div><i class="fa fa-eye"></i> {{ $post->{'description-fr'} }} </div>
+                        <a href=""><h3> {!! $post->{'title-ar'} !!}</h3></a></li>
+                        <div><i class="fa fa-eye"></i> {{ intval($post->{'description-fr'}) }} </div>
                         <a href="{{route('blog.detail',$post->slug)}}" style="padding: 14px;
                             font-size: 13px;
                             font-weight: bold;">
-                        <img class="img-responsive pull-right" src="{{$post->photo}}" alt="">{!! $post->{'summary-ar'} !!}
+                        <img class="img-responsive pull-right" src="{{$post->photo}}" alt="">
             </a>
                         <li><a href="{{route('blog.detail',$post->slug)}}"><i class="fa fa-fire"></i>{!! $post->{'summary-ar'} !!}</a></li>
                      
