@@ -5,7 +5,6 @@
 <style>
 .video-list-thumbs{
     padding-bottom: 15px;
-    direction: rtl;
 }
 .video-list-thumbs > li{
     margin-bottom:12px;

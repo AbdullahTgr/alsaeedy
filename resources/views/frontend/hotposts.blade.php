@@ -6,7 +6,7 @@
         padding: 18px;
     text-align: center;
         ">اكثر قراءة</h2>
-        <div class="row" style="direction: rtl;">
+        <div class="row" >
     
      
             @foreach ($hotposts as $post)
