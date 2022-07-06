@@ -50,8 +50,8 @@ class FrontendController extends Controller
     public function home(Video $video){ 
         $categories=PostCategory::get();
         
-        $posts=Post::where('status','active')->orderBy('id','asc')->limit(20)->get();
-        $hotposts=Post::where('status','active')->orderBy('description-fr','asc')->limit(4)->get();
+        $posts=Post::where('status','active')->orderBy('id','DESC')->limit(20)->get();
+        $hotposts=Post::where('status','active')->orderBy('description-fr','DESC')->limit(4)->get();
         $banners=Banner::where('status','active')->limit(3)->orderBy('id','DESC')->get();
         $tags=PostTag::get();
 
