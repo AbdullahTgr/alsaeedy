@@ -8,7 +8,7 @@
         ">اكثر قراءة</h2>
         <div class="row" style="direction: rtl;">
     
-    
+     
             @foreach ($hotposts as $post)
 
 
