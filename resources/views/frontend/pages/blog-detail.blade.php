@@ -91,7 +91,8 @@
                                         <span class="author"><a href="javascript:void(0);"><i class="fa fa-user"></i>{{ Lang::get('msg.by') }} {{$post->author_info['name']}}</a><a href="javascript:void(0);"><i class="fa fa-calendar"></i>{{$post->created_at->format('M d, Y')}}</a><a href="javascript:void(0);"><i class="fa fa-comments"></i>{{ Lang::get('msg.comment') }} ({{$post->allComments->count()}})</a></span>
                                     </div>
                                     <div class="sharethis-inline-reaction-buttons"></div>
-                                    
+                                    <div> مشاهدات <i class="fa fa-eye"></i> {{ $post->{'description-fr'} }} </div>
+
                                     <div class="content">
                                         @if($post->{'quote-ar'})
                                         <blockquote> <i class="fa fa-quote-left"></i> {!! ($post->{'quote-ar'}) !!} </blockquote>

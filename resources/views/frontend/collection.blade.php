@@ -40,6 +40,9 @@
 							@php 
 								$author_info=DB::table('users')->where('id',$post->added_by)->get();
 							@endphp
+<div><i class="fa fa-eye"></i> {{ $post->{'description-fr'} }} </div>
+
+
 								<i class="fa fa-calendar" aria-hidden="true"></i>
 								<a href="{{route('blog.detail',$post->slug)}}" style="padding: 14px;
 									font-size: 13px;
@@ -90,7 +93,7 @@
               <li><a href="{{route('blog.tag',$item)}}"><i class="fa fa-tag"></i>{{$item}}</a></li>
 			@endforeach
 			
-          </ul>
+          </ul> 
       </div>
       <!-- BLOG POST 1 - END -->
 

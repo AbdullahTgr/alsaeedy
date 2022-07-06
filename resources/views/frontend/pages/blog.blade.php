@@ -79,7 +79,9 @@ $path="";
                         {{-- {{$post}} --}}
                             <div class="col-lg-6 col-md-6 col-12">
                                 <!-- Start Single Blog  -->
+
                                 <div class="shop-single-blog col-12">
+                                <div> مشاهدات <i class="fa fa-eye"></i> {{ $post->{'description-fr'} }} </div>
                                 <img src="{{$post->photo}}" alt="{{$post->photo}}">
                                     <div class="content col-12">
                                         @php 
@@ -163,6 +165,7 @@ $path="";
                                 <!-- Single Post -->
                                 <div class="single-post " style="width: 100%" >
                                     <div class="image pull-left">
+                                        <div> مشاهدات <i class="fa fa-eye"></i> {{ $post->{'description-fr'} }} </div>
                                         <img src="{{$post->photo}}" alt="{{$post->photo}}">
                                     </div>
                                     <div class="content">

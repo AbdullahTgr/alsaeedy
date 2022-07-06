@@ -110,7 +110,8 @@ if (isset($my_array_of_vars['v'])) {
    	<li class="col-lg-3 col-sm-4 col-xs-6">
 		<a href="{{route('video.detail',$video->slug)}}" title="Claudio Bravo, antes su debut con el Barça en la Liga">
 			<img src="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg" alt="Barca" class="img-responsive" height="130px" />
-			<h2> {{$video->{'title-ar'} }}</h2>
+			<h2> {{$video->{'title-ar'} }}</h2><div><i class="fa fa-eye"></i> {{ $video->{'description-fr'} }} </div>
+
 			<span class="glyphicon glyphicon-play-circle"></span>
 			<span class="duration">03:15</span>
 		</a>
