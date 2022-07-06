@@ -37,8 +37,8 @@ if (isset($my_array_of_vars['v'])) {
 <meta property="og:title" content="{!! strip_tags($video->{'title-ar'}) !!} - السعدي ">
 <meta property="og:type" content="article" />
 <meta property="og:url" content="{!! route('video.detail',strip_tags($video->slug)) !!}" />
-<meta property="og:image" content="{{url( "https://img.youtube.com/vi/".$ur."/maxresdefault.jpg ") }}" />
-<meta name="twitter:image" content="{{url("https://img.youtube.com/vi/".$ur ."/maxresdefault.jpg ") }} ">
+<meta property="og:image" content="{{url( "https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp") }}" />
+<meta name="twitter:image" content="{{url("https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp") }} ">
 <meta property="og:image:alt" content="{{url($video->photo) }}"> 
 <meta property="og:site_name" content="مقاطع مدونة السعدي" />
 <meta property="og:locale" content="en_US" />
@@ -243,7 +243,7 @@ if (isset($my_array_of_vars['v'])) {
         background: #f1f1f1;
                                     
                                     " >
-                                            <img src="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg " alt="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg ">
+                                            <img src="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp" alt="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp">
                                         
                                         <div class="content col-12" style="    padding: 10px 0;">
                                             

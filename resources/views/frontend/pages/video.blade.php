@@ -141,7 +141,7 @@ $path="";
                             <div class="col-lg-6 col-md-6 col-12">
                                 <!-- Start Single Blog  -->
                                 <div class="shop-single-blog col-12">
-                                <img src="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg " alt="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg ">
+                                <img src="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp" alt="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp">
                                     <div class="content col-12">
                                         @php 
                                             $author_info=DB::table('users')->select('name')->where('id',$video->added_by)->get();
@@ -264,7 +264,7 @@ $path="";
     background: #f1f1f1;
                                 
                                 " >
-                                        <img src="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg " alt="https://img.youtube.com/vi/{{ $ur   }}/maxresdefault.jpg ">
+                                        <img src="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp" alt="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp">
                                     
                                     <div class="content col-12" style="    padding: 10px 0;">
                                         
