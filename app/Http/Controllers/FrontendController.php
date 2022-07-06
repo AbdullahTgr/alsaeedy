@@ -521,6 +521,15 @@ if(isset($currentUserInfo->countryName)){
 
         if(count($check)==0){
             $status=Clicks::create($data); 
+
+            $fire=intval($post->{'description-fr'})+1;
+            if($fire==Null){
+                $fire=1;
+            }
+            $fre=Post::findOrFail($post->id);
+            $datafire=['description-fr'=>$fire];
+            $fre->fill($datafire)->save();
+            
         }
        
 
