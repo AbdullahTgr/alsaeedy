@@ -78,7 +78,8 @@ $path="";
 @include('frontend.videopar') 
 @include('frontend.videocategories')
  <!-- ShareThis BEGIN --><div class="sharethis-inline-follow-buttons"></div><!-- ShareThis END -->
-@include('frontend.collection')
+ @include('frontend.hotposts')
+ @include('frontend.collection')
 
 
 

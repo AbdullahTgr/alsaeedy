@@ -50,7 +50,8 @@ class FrontendController extends Controller
     public function home(Video $video){ 
         $categories=PostCategory::get();
         
-        $posts=Post::where('status','active')->orderBy('id','DESC')->limit(30)->get();
+        $posts=Post::where('status','active')->orderBy('id','DESC')->limit(20)->get();
+        $hotposts=Post::where('status','active')->orderBy('description-fr','DESC')->limit(4)->get();
         $banners=Banner::where('status','active')->limit(3)->orderBy('id','DESC')->get();
         $tags=PostTag::get();
 
@@ -62,7 +63,7 @@ class FrontendController extends Controller
         $maincat = VideoMaincategory::get();
         $cat = VideoCategory::get();
 
-        $videos = Video::orderBy('id','DESC')->limit(4)->get();
+        $videos = Video::orderBy('description-fr','DESC')->limit(4)->get();
         
         // return $banner;
         $category=Category::where('status','active')->where('is_parent',1)->orderBy('title','ASC')->get();
@@ -77,6 +78,7 @@ class FrontendController extends Controller
                 ->with('maincat',$maincat)
                 ->with('cat',$cat)
                 ->with('videos',$videos)
+                ->with('hotposts',$hotposts)
                 ->with('category_lists',$category);
     }   
 
@@ -436,18 +438,10 @@ class FrontendController extends Controller
         // $post=Post::where('status','active')->paginate(8);
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
 
-        if(session()->get('locale')=="en"){
-// english
-        return view('frontend.pages-en.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post);  
-        }elseif(session()->get('locale')=="fr"){
-// french
-        return view('frontend.pages-fr.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post);  
-        }else{
-// arabic
-        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post);   
-        }
 
-        
+        // arabic
+        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post);   
+
     }
 
     public function blogDetail($slug){
