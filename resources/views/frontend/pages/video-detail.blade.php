@@ -120,7 +120,7 @@ if (isset($my_array_of_vars['v'])) {
                     <div class="blog-single-main">
                         <div class="row">
                             <div class="col-12">
-                                <div> مشاهدات <i class="fa fa-eye"></i> {{ $video->{'description-fr'} }} </div>
+                                <div> مشاهدات <i class="fa fa-eye"></i> {{ intval($video->{'description-fr'}) }} </div>
 
                                 <div class="image">
                                     @if($video_url)

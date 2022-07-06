@@ -40,7 +40,7 @@
 							@php 
 								$author_info=DB::table('users')->where('id',$post->added_by)->get();
 							@endphp
-<div><i class="fa fa-eye"></i> {{ $post->{'description-fr'} }} </div>
+<div><i class="fa fa-eye"></i> {{ intval($post->{'description-fr'}) }} </div>
  
 
 								<i class="fa fa-calendar" aria-hidden="true"></i>

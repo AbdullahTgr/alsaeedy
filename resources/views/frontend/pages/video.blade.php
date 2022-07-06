@@ -163,7 +163,7 @@ $path="";
                                         </p>
                                         <a href="{{route('video.detail',$video->slug)}}" class="title">{{$video->{'title-ar'} }}</a>
                                         
-                                        <div> مشاهدات <i class="fa fa-eye"></i> {{ $video->{'description-fr'} }} </div>
+                                        <div> مشاهدات <i class="fa fa-eye"></i> {{ intval($video->{'description-fr'}) }} </div>
                                         <p>{!! html_entity_decode($video->{"summary-ar"} ) !!}</p>
 
                                         <a href="{{route('video.detail',$video->slug)}}" class="more-btn">{{ Lang::get('msg.continuereading') }}</a>
@@ -270,7 +270,7 @@ $path="";
                                         
                                         <h5>{{$video->{'title-ar'} }}</h5>
                                         {!! $video->{'summary-ar'} !!}
-                                        <div> مشاهدات <i class="fa fa-eye"></i> {{ $video->{'description-fr'} }} </div>
+                                        <div> مشاهدات <i class="fa fa-eye"></i> {{ intval($video->{'description-fr'}) }} </div>
 
                                         <p style="    margin-bottom: 0;">
                                         @php 
