@@ -13,7 +13,7 @@
 
 
      <!-- SIDEBAR - START -->
-    <div class="col-sm-3" >
+    <div class="col-sm-4" >
         <div class="sidebar">
                 
                 <div class="box categories box_rr">
