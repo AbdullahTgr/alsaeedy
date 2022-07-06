@@ -10,6 +10,7 @@ use App\Models\Post;
 use App\Models\Cart;
 use App\Models\Brand;
 use App\Models\Video;
+use App\Models\Clicks;
 use App\User;
 
 
@@ -26,6 +27,8 @@ use App\Models\VideoMaincategoryroot;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
+use Stevebauman\Location\Facades\Location;
 
 class FrontendController extends Controller
 { 
@@ -449,21 +452,82 @@ class FrontendController extends Controller
 
     public function blogDetail($slug){
         $post=Post::getPostBySlug($slug);
-        $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
-        // return $post;
+
         if(gettype($post)=='NULL'){
-return view('errors.404');
+return view('errors.404'); 
         }else{
-  if(session()->get('locale')=="en"){
-            // english
-        return view('frontend.pages-en.blog-detail')->with('post',$post)->with('recent_posts',$rcnt_post);
-                    }elseif(session()->get('locale')=="fr"){
-            // french
-        return view('frontend.pages-fr.blog-detail')->with('post',$post)->with('recent_posts',$rcnt_post);
-                    }else{
+
+        $ipAddr=\Request::ip();
+        $currentUserInfo = Location::get($ipAddr);
+        $macAddr = exec('getmac');
+     
+        
+if(isset($currentUserInfo->countryName)){
+    $data=[
+        'post_or_vid'=>'post',
+        'ref_id'=>$post->id,
+        'prop1'=>$ipAddr,
+        'prop2'=>$macAddr,
+        'prop3'=>gethostname(),
+        'prop4'=>\Request::server('HTTP_USER_AGENT'),
+        
+        'prop5'=>$currentUserInfo->countryName ,
+        'prop6'=>$currentUserInfo->regionName ,
+        'prop7'=>$currentUserInfo->cityName ,
+        'prop8'=>$currentUserInfo->zipCode ,
+        'prop9'=>$currentUserInfo->latitude ,
+        'prop10'=>$currentUserInfo->longitude ,
+
+        ]; 
+
+      $check=Clicks::where('post_or_vid','post')->
+        where('ref_id',$post->id)->
+        where('prop1',$ipAddr)->
+        where('prop2',$macAddr)->
+        where('prop3',gethostname())->
+
+        where('prop4',\Request::server('HTTP_USER_AGENT'))->
+        where('prop5',$currentUserInfo->countryName)->
+        where('prop6',$currentUserInfo->regionName)->
+        where('prop7',$currentUserInfo->cityName)->
+        where('prop8',$currentUserInfo->zipCode)->
+        where('prop9',$currentUserInfo->latitude)->
+        where('prop10',$currentUserInfo->longitude)
+        ->get();
+}else{
+    $data=[
+        'post_or_vid'=>'post',
+        'ref_id'=>$post->id,
+        'prop1'=>$ipAddr,
+        'prop2'=>$macAddr,
+        'prop3'=>gethostname(),
+        'prop4'=>\Request::server('HTTP_USER_AGENT'),
+        
+        ]; 
+
+      $check=Clicks::where('post_or_vid','post')->
+        where('ref_id',$post->id)->
+        where('prop1',$ipAddr)->
+        where('prop2',$macAddr)->
+        where('prop3',gethostname())->
+
+        where('prop4',\Request::server('HTTP_USER_AGENT'))
+        ->get();
+}
+        
+        
+        
+     
+
+        if(count($check)==0){
+            $status=Clicks::create($data); 
+        }
+       
+
+        $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
             // arabic
         return view('frontend.pages.blog-detail')->with('post',$post)->with('recent_posts',$rcnt_post);
-                   }
+                
         }
       
     }

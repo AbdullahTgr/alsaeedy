@@ -30,6 +30,8 @@ class AddColumnsToPosts extends Migration
             $table->longText('description-fr')->nullable();
 
             $table->text('quote-fr')->nullable();
+            
+            $table->text('quote-fr')->nullable();
         });
     }
 
