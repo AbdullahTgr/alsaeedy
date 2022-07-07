@@ -19,11 +19,11 @@
 	<meta name="description" content=" السعدي  - هنئ اصدقائك بعيد الاضحي- {{ $name }} -">
 	
     <meta property="og:type" content="article" />
-	<meta property="og:title" content=" السعدي  - هنئ اصدقائك بعيد الاضحي- {{ $name }} -"> 
+	<meta property="og:title" content=" - {{ $name }} -"> 
 	<meta property="og:description" content=" السعدي  - هنئ اصدقائك بعيد الاضحي - {{ $name }} -">
 
     
-<title>السعدي  - {{ $name }} - تهنئتة بعيد الاضحي -</title>
+<title>  - {{ $name }} - </title>
 
 
 <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=62246f7e58f4c4001368640a&product=inline-share-buttons" async="async"></script>
