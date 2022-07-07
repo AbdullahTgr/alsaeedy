@@ -638,9 +638,18 @@ if(isset($currentUserInfo->countryName)){
 
 
 
+public function writers(){
 
+    $writers=User::GetWritersposts(); 
+        // arabic
+    return view('frontend.pages.writers')->with('writers',$writers);
+}
 
-
+public function writer(Request $request){
+     $writer=User::GetWriterposts($request->slug); 
+        // arabic
+    return view('frontend.pages.writer')->with('writer',$writer);
+}
 
 
 

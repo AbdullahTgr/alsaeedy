@@ -107,6 +107,10 @@ Route::get('blog-cat/{slug}','FrontendController@blogByCategory')->name('blog.ca
 Route::get('blog-tag/{slug}','FrontendController@blogByTag')->name('blog.tag');
 
 
+// writers 
+Route::get('/كاتبي_محتوي','FrontendController@writers')->name('writers');
+Route::get('/كاتبي_محتوي/{slug}','FrontendController@writer')->name('writer');
+
 // video 
 Route::get('/فيديو','Front_vid_Controller@video')->name('video');
 Route::get('/عرض_فيديو/{slug}','Front_vid_Controller@videoDetail')->name('video.detail');

@@ -207,6 +207,7 @@ return [
     'recentvideo' => ' فيديوهات سابقة ',
     'video' => ' فيديوهات ',
     'videocategories' => ' فئات ',
+    'writers' => ' كاتبين محتوي ',
     
     
 

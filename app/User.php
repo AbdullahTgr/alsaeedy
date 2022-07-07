@@ -40,4 +40,25 @@ class User extends Authenticatable
     public function orders(){
         return $this->hasMany('App\Models\Order');
     }
+
+    public function get_w_posts(){
+        return $this->hasMany('App\Models\Post','added_by','id')->where('status','active');
+    }
+    public function getposts(){
+        return $this->hasMany('App\Models\Post','added_by','id')->where('status','active');
+    }
+
+
+ 
+    public static function GetWriterposts($name){ 
+        $name=str_replace("-"," ",$name);
+        $name=str_replace("@","/",$name);
+        return User::with('getposts')->where('name',$name)->first();
+    }
+
+    public static function GetWritersposts(){ 
+        return User::with('get_w_posts')->get();
+    }
+
+
 }

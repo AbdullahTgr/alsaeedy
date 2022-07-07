@@ -70,5 +70,5 @@ class Post extends Model
             return $data;
         }
         return 0;
-    }
+    } 
 }

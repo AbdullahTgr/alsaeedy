@@ -2,30 +2,33 @@
 
 
                                                     
-@section('meta')
+@section('meta') 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name='copyright' content=''>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    
-	<meta property="og:url" content="{!! route('video.maincategory',strip_tags($maincategories->slug)) !!}"> 
+  @php
+  $r= str_replace(" ","-",$writer->name);
+  $r= str_replace("/","@",$r);
+  @endphp
+	<meta property="og:url" content="{{ route('writer',$r) }}"> 
 
-	<meta name="keywords" content="{{ str_replace('-',',',strip_tags($maincategories->slug)) }} , السعدي ,{!!  strip_tags($maincategories->{'title-ar'} ) !!}">
-	<meta name="description" content="{!!  strip_tags($maincategories->{'title'} ) !!}"> 
+	<meta name="keywords" content=" السعدي ,{!!  strip_tags($writer->{'name'} ) !!}">
+	<meta name="description" content=" كاتب محتو في مدونة السعدي -{!!  strip_tags($writer->{'name'} ) !!}"> 
 	
     
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="{!! strip_tags($maincategories->{'title-ar'}) !!}">
+	<meta property="og:title" content=" كاتب محتو في مدونة السعدي -{!!  strip_tags($writer->{'name'} ) !!}">
     
-	<meta property="og:description" content="{!!  strip_tags($maincategories->{'title'} ) !!}">
+	<meta property="og:description" content=" كاتب محتو في مدونة السعدي -{!!  strip_tags($writer->{'name'} ) !!}">
 
 
 
 
-<meta property="og:image"  itemprop="image"  content="{{url($maincategories->{'title-fr'}) }}">
-<meta name="twitter:image" content="{{url($maincategories->{'title-fr'}) }}">
+<meta property="og:image"  itemprop="image"  content="{{url($writer->{'photo'}) }}">
+<meta name="twitter:image" content="{{url($writer->{'photo'}) }}">
 
 
 
@@ -39,8 +42,7 @@
     @endsection
 
 
-    
-@section('title', strip_tags($maincategoryroot->{'title-ar'}." | ".$maincategories->{'title-ar'}." | السعدي  " ))
+@section('title', strip_tags($writer->{'name'}." | السعدي  " ))
         
 @section('main-content')
   <div class="main-content" style="direction: rtl">
@@ -48,7 +50,7 @@
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
       <div class="container-fluid">
         <!-- Brand -->
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="/" target="_blank">{{ $maincategories->{'title-ar'} }}</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="/" target="_blank">{{ $writer->{'title-ar'} }}</a>
         <!-- Form -->
         <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
           <div class="form-group mb-0">
@@ -71,9 +73,9 @@
       <div class="container-fluid d-flex align-items-center">
         <div class="row" style="    width: 100%;">
           <div class="col-lg-7 col-md-10">
-            <h1 class="display-2 text-white">{{ $maincategories->{'title-ar'} }}</h1>
-            <p class="text-white mt-0 mb-5">{{ $maincategoryroot->{'title-ar'} }}</p>
-            <a href="#!" class="btn btn-info">اشترك بالقناة</a>
+            <h1 class="display-2 text-white">{{ $writer->{'name'} }}</h1>
+            <p class="text-white mt-0 mb-5">{{ $writer->{'provider'} }}</p>
+            <a href="#!" class="btn btn-info">ادعم الكاتب</a>
           </div>
         </div>
       </div>
@@ -87,7 +89,7 @@
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
                   <a href="#">
-                    <img src="{{$maincategories->{'title-fr'} }}" class="rounded-circle">
+                    <img src="{{$writer->{'photo'} }}" class="rounded-circle">
                   </a>
                 </div>
               </div>
@@ -119,11 +121,11 @@
               </div>
               <div class="text-center">
                 <h3>
-                    {{$maincategories->{'title-ar'} }}<span class="font-weight-light">, 27</span>
+                    {{$writer->{'name'} }}<span class="font-weight-light">, 27</span>
                 </h3>
                 
 @php
-    $dta_info=explode("-",$maincategories->{'title'});
+    $dta_info=explode("-",$writer->{'provider'});
     $c=0;
 @endphp
                 @foreach($dta_info as $dta_inf)
@@ -172,7 +174,7 @@
             <div class="card-header bg-white border-0">
               <div class="row align-items-center">
                 <div class="col-8">
-                  <h3 class="mb-0">القنوات</h3>
+                  <h3 class="mb-0"> المقالات المنشورة {{ count($writer->getposts) }}</h3>
                 </div>
                 <div class="col-4 text-right">
                   <a href="#!" class="btn btn-sm btn-primary">اشتراك</a>
@@ -181,36 +183,31 @@
             </div>
             <div class="card-body row">
        
-
+ 
             
                 
-        @foreach ($maincategories->category as $cat)
-
-        
- <!-- SIDEBAR - START -->
-<div class="col-sm-3" >
-    <div class="sidebar"> 
+        @foreach ($writer->getposts as $post)
+  <!-- SIDEBAR - START -->
+  <div class="col-sm-4 col-lg-3" >
+    <div class="sidebar">
+            
             <div class="box categories box_rr">
                 <ul class="list-unstyled">
-                    
-      <div class="card-profile-image">
-        <a href="#">
-          <img src="{{$cat->{'title-fr'} }}" class="rounded-circle " style="
-          position: absolute;
-    width: 55px;
-    left: 12px;
-    top: 10px;
-          
-          ">
+                <li>
+                    <a href=""><h3> {!! $post->{'title-ar'} !!}</h3></a></li>
+                    <div><i class="fa fa-eye"></i> {{ intval($post->{'description-fr'}) }} </div>
+                    <a href="{{route('blog.detail',$post->slug)}}" style="padding: 14px;
+                        font-size: 13px;
+                        font-weight: bold;">
+                    <img class="img-responsive pull-right" src="{{$post->photo}}" alt="">
         </a>
-      </div>
-                        <li><a href="{{route('video.category',$cat->{'slug'})}}"><i class="fa fa-female"></i>{{$cat->{'title-ar'} }}</a></li>
-         
+                    <li><a href="{{route('blog.detail',$post->slug)}}"><i class="fa fa-fire"></i>{!! $post->{'summary-ar'} !!}</a></li>
+                 
                 </ul>
             </div>
-    </div>
-</div>
-<!-- SIDEBAR - END -->      
+    </div> 
+</div> 
+<!-- SIDEBAR - END -->       
         @endforeach
 
 
