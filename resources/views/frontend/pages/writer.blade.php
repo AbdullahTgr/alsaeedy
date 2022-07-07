@@ -20,9 +20,9 @@
 	
     
 	<meta property="og:type" content="article">
-	<meta property="og:title" content=" كاتب محتو في مدونة السعدي -{!!  strip_tags($writer->{'name'} ) !!}">
+	<meta property="og:title" content=" السعدي -{!!  strip_tags($writer->{'name'} ) !!}">
     
-	<meta property="og:description" content=" كاتب محتو في مدونة السعدي -{!!  strip_tags($writer->{'name'} ) !!}">
+	<meta property="og:description" content=" السعدي -{!!  strip_tags($writer->{'provider'} ) !!}">
 
 
 
