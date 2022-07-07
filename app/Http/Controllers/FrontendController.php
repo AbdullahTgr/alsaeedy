@@ -651,6 +651,18 @@ public function writer(Request $request){
     return view('frontend.pages.writer')->with('writer',$writer);
 }
 
+public function eid(){
+
+    $writers=User::GetWritersposts(); 
+        // arabic
+    return view('frontend.pages.eid');
+}
+
+public function eid_name(Request $request){
+        // arabic
+    return view('frontend.pages.eid_name')->with('name',$request->name);
+}
+
 
 
 

@@ -51,8 +51,9 @@
                                                 <li class="{{Request::path()=='blog' ? 'active' : ''}}"><a href="{{route('blog')}}">{{ Lang::get('msg.blog') }}</a></li>	
 
                                                 <li class="{{Request::path()=='video' ? 'active' : ''}}"><a href="{{route('video')}}">{{ Lang::get('msg.video') }}</a></li>	
-                                                <li class="{{Request::path()=='writers' ? 'active' : ''}}"><a href="{{route('writers')}}">{{ Lang::get('msg.writers') }}</a></li>	
-
+                                                <li class="{{Request::path()=='writers' ? 'active' : ''}}"><a href="{{route('writers')}}">{{ Lang::get('msg.writers') }}</a></li>
+                                              
+                                                
                                                 {{-- <li class="{{Request::path()=='videos' ? 'active' : ''}}"><a href="{{route('videos')}}">{{ Lang::get('msg.videos') }}</a></li>									
                                                 --}}
                                             <li class="{{Request::path()=='contact' ? 'active' : ''}}"><a href="{{route('contact')}}">{{ Lang::get('msg.contactus') }}</a></li>
