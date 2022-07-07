@@ -7,7 +7,7 @@
  
     
 	<meta property="og:url" content="https://www.facebook.com/alsaeedyblog"> 
-    <meta property="og:image"  itemprop="image"  content="{{ url('images/blog.jpg') }}" />
+    <meta property="og:image"  itemprop="image"  content="{{ url('images/cong.jpg') }}" />
     <meta name="twitter:image" content="{{ url('images/blog.jpg') }}">
 
     
@@ -389,6 +389,7 @@ form{
 </style>
 
 
+<div class="sharethis-inline-share-buttons"></div>
 <span class="text">كل عام وانتم بخير</span>
 
 
@@ -439,9 +440,7 @@ form{
 
 
 
-<div class="sharethis-inline-share-buttons"></div>
 
-<div class="sharethis-inline-reaction-buttons"></div>
 
 
 
