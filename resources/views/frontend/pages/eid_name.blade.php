@@ -420,7 +420,7 @@ form{
     <div class="layer"></div>
   </div>
   
-<form class="form-contact form contact_form" method="post" action="{{route('eid_name')}}" id="contactForm" novalidate="novalidate">
+<form class="form-contact form contact_form" method="get" action="{{route('eid_name')}}" id="contactForm">
     @csrf
  <div class="wrap center"> <!-- Just to center ver and hor -->
         <div class="wrap-label">

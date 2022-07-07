@@ -112,7 +112,7 @@ Route::get('/كاتبي_محتوي','FrontendController@writers')->name('writers
 Route::get('/كاتبي_محتوي/{slug}','FrontendController@writer')->name('writer');
 
 Route::get('/تهنئة_عيد_الاضحي','FrontendController@eid')->name('eid');
-Route::post('/تهنئة_عيد_الاضحي','FrontendController@eid_name')->name('eid_name');
+Route::get('/تهنئة_عيد_الاضحي','FrontendController@eid_name')->name('eid_name');
 
 // video 
 Route::get('/فيديو','Front_vid_Controller@video')->name('video');
