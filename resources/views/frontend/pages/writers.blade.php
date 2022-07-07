@@ -26,6 +26,9 @@
 
 <meta property="og:image"  itemprop="image"  content="">
 <meta name="twitter:image" content="">
+    
+@section('title', "نخبة من عمالقة كتابي المحتوي  | السعدي  " )
+        
 
 
 
@@ -83,15 +86,12 @@
 }
 
 .header {
-    padding-top: 40px
+    
 }
     </style>
     @endsection
 
 
-{{--     
-@section('title', strip_tags($maincategoryroot->{'title-ar'}." | ".$maincategories->{'title-ar'}." | السعدي  " ))
-         --}}
 
 
 
