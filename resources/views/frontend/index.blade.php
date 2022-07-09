@@ -61,12 +61,6 @@ $path="";
 
 @if(count($banners)>0)
     <section id="Gslider" class="carousel slide" data-ride="carousel"> 
-        <ol class="carousel-indicators">
-            @foreach($banners as $key=>$banner)
-        <li data-target="#Gslider" data-slide-to="{{$key}}" class="{{(($key==0)? 'active' : '')}}"></li>
-            @endforeach
-
-        </ol>
         <div class="carousel-inner" role="listbox">
                 @foreach($banners as $key=>$banner)
                 <div class="carousel-item {{(($key==0)? 'active' : '')}}">
