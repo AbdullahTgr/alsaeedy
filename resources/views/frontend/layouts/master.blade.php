@@ -60,7 +60,11 @@
 	top: 50px;
 		">
 			<div class="d-flex justify-content-between align-items-center breaking-news bg-white">
-				<div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-2 text-white px-1 news"><span class="d-flex align-items-center" style="width: 120px; text-align:center">&nbsp;اخبار السعدي</span></div>
+				<div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-2 text-white px-1 news" style="
+				
+				box-shadow: 0px 3px 3px #ddd;
+				
+				"><span class="d-flex align-items-center" style="width: 120px; text-align:center">&nbsp;اخبار السعدي</span></div>
 				<marquee class="news-scroll" behavior="scroll" direction="right" onmouseover="this.stop();" onmouseout="this.start();"> 
 			  
 				@foreach($posts as $post)
