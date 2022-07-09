@@ -120,7 +120,7 @@
           <div class="row justify-content-center pb-5">
             
 @foreach ($writers as $writer)
-{{  count($writer->get_w_posts) }}
+
 @php
 $r= str_replace(" ","-",$writer->name);
 $r= str_replace("/","@",$r);
@@ -129,12 +129,30 @@ $r= str_replace("/","@",$r);
 
   <div class="card col-md-3 mt-100">
 <a href="{{ route('writer',$r) }}">
-    <div class="card-content">
+    <div class="card-content"> 
         <div class="card-body p-0">
             <div class="profile"> <img src="{{ url($writer->photo) }}"> </div>
             <div class="card-title mt-4">{{$writer->name}}<br /> <small>{{ $writer->role }}</small> </div>
             <div class="card-subtitle">
-                <p> <small class="text-muted">{{ $writer->provider }}</small> </p>
+                <span>عدد المقالات <span style="
+                    color: green;
+    font-weight: blod;
+    font-size: 18px;
+
+                    
+                    ">{{  count($writer->get_w_posts) }}</span></span>
+     
+                <p
+                style="
+
+
+    max-height: 100px;
+    overflow: hidden;
+
+                
+                "
+                
+                > <small class="text-muted">{{ $writer->provider }}</small> </p>
             </div>
         </div>
     </div>

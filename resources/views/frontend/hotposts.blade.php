@@ -18,7 +18,9 @@
                 
                 <div class="box categories box_rr">
                     <ul class="list-unstyled">
+
                     <li>
+                        {{ $post->postcat[0]->{'title-ar'} }}
                         <a href=""><h3> {!! $post->{'title-ar'} !!}</h3></a></li>
                         <div><i class="fa fa-eye"></i> {{ intval($post->{'description-fr'}) }} </div>
                         <a href="{{route('blog.detail',$post->slug)}}" style="padding: 14px;

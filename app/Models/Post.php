@@ -56,9 +56,15 @@ class Post extends Model
     //     // return Product::where('cat_id',$id)->where('child_cat_id',null)->paginate(10);
     // }
 
-    // public static function getBlogByCategory($id){
-    //     return Post::where('post_cat_id',$id)->paginate(8);
-    // }
+
+    public function postcat(){
+        return $this->hasMany('App\Models\PostCategory','id','post_cat_id');
+    }
+
+    public static function getBlogByCategory(){
+        return Post::with('postcat')->where('status','active');
+    }
+
     public static function getBlogByTag($slug){
         // dd($slug);
         return Post::where('tags',$slug)->paginate(8);

@@ -50,12 +50,14 @@ class FrontendController extends Controller
     public function home(Video $video){ 
         $categories=PostCategory::get();
         
-        $posts=Post::where('status','active')->orderBy('id','DESC')->limit(20)->get();
-        $hotposts=Post::where('status','active')->orderBy('description-fr','DESC')->limit(4)->get();
+        // $posts=Post::where('status','active')->orderBy('id','DESC')->limit(20)->get();
+        
         $banners=Banner::where('status','active')->limit(3)->orderBy('id','DESC')->get();
         $tags=PostTag::get();
 
-       
+        
+        $posts=Post::getBlogByCategory('status','active')->orderBy('id','DESC')->limit(20)->get();
+        $hotposts=Post::getBlogByCategory('status','active')->orderBy('description-fr','DESC')->limit(4)->get();
         
 
         $maincatroot = VideoMaincategoryroot::with('maincategory')->get(); 
@@ -65,12 +67,13 @@ class FrontendController extends Controller
 
         $videos = Video::orderBy('description-fr','DESC')->limit(4)->get();
         
-        // return $banner;
+        // get post by category
         $category=Category::where('status','active')->where('is_parent',1)->orderBy('title','ASC')->get();
 
         // return $category;
         return view('frontend.index')
-                ->with('posts',$posts)
+        ->with('posts',$posts)
+        // ->with('posts_o',$posts_o)
                 ->with('banners',$banners)
                 ->with('categories',$categories)
                 ->with('tags',$tags)

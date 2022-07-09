@@ -52,16 +52,8 @@
         <!-- Brand -->
         <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="/" target="_blank">{{ $writer->{'title-ar'} }}</a>
         <!-- Form -->
-        <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
-          <div class="form-group mb-0">
-            <div class="input-group input-group-alternative">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-search"></i></span>
-              </div>
-              <input class="form-control" placeholder="Search" type="text">
-            </div>
-          </div>
-        </form>
+     
+        
         <!-- User -->
       </div>
     </nav>
@@ -105,23 +97,23 @@
                 <div class="col">
                   <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                     <div>
-                      <span class="heading">22</span>
-                      <span class="description">قناة</span>
+                      <span class="heading">لم يحدد بعد</span>
+                      <span class="description">المرتبة</span>
                     </div>
                     <div>
-                      <span class="heading">10</span>
-                      <span class="description">فيدسوهات</span>
+                      <span class="heading">{{ count($writer->getposts) }}</span>
+                      <span class="description"> المقالات المنشورة </span>
                     </div>
                     <div>
-                      <span class="heading">89</span>
-                      <span class="description">مشترك</span>
+                      <span class="heading">لم يحدد بعد</span>
+                      <span class="description">عدد التعليقات </span>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="text-center">
                 <h3>
-                    {{$writer->{'name'} }}<span class="font-weight-light">, 27</span>
+                    {{$writer->{'name'} }}<span class="font-weight-light"></span>
                 </h3>
                 
 @php

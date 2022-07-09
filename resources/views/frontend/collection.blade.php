@@ -26,16 +26,22 @@
 
 
 
+
+
             <div class="row">
-                
+				{{-- @foreach ($posts_o as $posts_o_p)
+					   {{ $posts_o_p->postcat }}
+				@endforeach --}}
+             
                 <!-- BLOG POSTS - START -->
                 <div class="col-sm-10">
                   <h2>مقالات</h2>
                     <div class="timeline">
                         @if($posts)
                         @foreach($posts as $post)
-                                 
-                        
+                                 @if ($post->postcat[0]->{'title-ar'}!="اخبار")
+									 
+                        {{ $post->postcat[0]->{'title-ar'} }}
 						
 							@php 
 								$author_info=DB::table('users')->where('id',$post->added_by)->get();
@@ -96,6 +102,9 @@
           </ul> 
       </div>
       <!-- BLOG POST 1 - END -->
+								 
+									 
+								 @endif
 
 
 
