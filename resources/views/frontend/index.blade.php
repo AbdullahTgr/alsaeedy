@@ -60,7 +60,7 @@ $path="";
 
 
 @if(count($banners)>0)
-    <section id="Gslider" class="carousel slide" data-ride="carousel"> 
+    <section id="Gslider" class="carousel slide" data-ride="carousel" style="margin-top: 40px;"> 
         <div class="carousel-inner" role="listbox">
                 @foreach($banners as $key=>$banner)
                 <div class="carousel-item {{(($key==0)? 'active' : '')}}">
