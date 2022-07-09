@@ -1,30 +1,4 @@
-<div class="row" style="padding: 0">
-    <div class="col-md-12"
-    style="
-    padding: 0;
-position: fixed;
-width: 100%;
-z-index: 1;
-right: 0;
-top: 50px;
-    ">
-        <div class="d-flex justify-content-between align-items-center breaking-news bg-white">
-            <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-2 text-white px-1 news"><span class="d-flex align-items-center">&nbsp;اخبار السعدي</span></div>
-            <marquee class="news-scroll" behavior="scroll" direction="right" onmouseover="this.stop();" onmouseout="this.start();"> 
-          
-            @foreach($posts as $post)
-                @if ($post->postcat[0]->{'title-ar'}=="اخبار")
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <a href="{{route('blog.detail',$post->slug)}}">{{ $post->{'title-ar'} }}</a> 
-                    :    {{ $post->postcat[0]->{'title-ar'} }} 
-                @endif
-            @endforeach
-            </marquee>
-        </div>
-    </div>
-</div>
+
 
 @extends('frontend.layouts.master')
 <?php $settings=DB::table('settings')->get(); ?>

@@ -45,7 +45,10 @@ class FrontendController extends Controller
         return redirect()->route($request->user()->role); 
     }
 
-    
+    public function getposts()
+    {
+        return Post::getBlogByCategory('status','active')->orderBy('id','DESC')->limit(20)->get();
+    }
 
     public function home(Video $video){ 
         $categories=PostCategory::get();
@@ -56,7 +59,8 @@ class FrontendController extends Controller
         $tags=PostTag::get();
 
         
-        $posts=Post::getBlogByCategory('status','active')->orderBy('id','DESC')->limit(20)->get();
+        $posts=$this->getposts();
+        
         $hotposts=Post::getBlogByCategory('status','active')->orderBy('description-fr','DESC')->limit(4)->get();
         
 
@@ -86,329 +90,34 @@ class FrontendController extends Controller
     }   
 
     public function aboutUs(){
-        if(session()->get('locale')=="en"){
-            // english
-        return view('frontend.pages-en.about-us');
-                    }elseif(session()->get('locale')=="fr"){
-            // french
-        return view('frontend.pages-fr.about-us');
-                    }else{
+
             // arabic
-        return view('frontend.pages.about-us');
-                   }
+            $posts=$this->getposts();
+
+        return view('frontend.pages.about-us')->with('posts',$posts);
+            
     }
     public function terms(){
-        return view('frontend.pages.terms');
+        $posts=$this->getposts();
+        return view('frontend.pages.terms')->with('posts',$posts);
     
     }
     public function policy(){
-        return view('frontend.pages.policy');
+        $posts=$this->getposts();
+        return view('frontend.pages.policy')->with('posts',$posts);
     
     }
 
     public function contact(){
-        if(session()->get('locale')=="en"){
-            // english
-        return view('frontend.pages-en.contact');
-                    }elseif(session()->get('locale')=="fr"){
-            // french
-        return view('frontend.pages-fr.contact');
-                    }else{
+
             // arabic
-        return view('frontend.pages.contact');
-                   }
+            $posts=$this->getposts();
+        return view('frontend.pages.contact')->with('posts',$posts);
+                   
     }
 
-    public function productDetail($slug){
-        $product_detail= Product::getProductBySlug($slug);
-        // dd($product_detail);
-        if(session()->get('locale')=="en"){
-            // english
-        return view('frontend.pages-en.product_detail')->with('product_detail',$product_detail);
-                    }elseif(session()->get('locale')=="fr"){
-            // french
-        return view('frontend.pages-fr.product_detail')->with('product_detail',$product_detail);
-                    }else{
-            // arabic
-        return view('frontend.pages.product_detail')->with('product_detail',$product_detail);
-                   }
-    }
 
-    public function productGrids(){
-        $products=Product::query();
-        
-        if(!empty($_GET['category'])){
-            $slug=explode(',',$_GET['category']);
-            // dd($slug);
-            $cat_ids=Category::select('id')->whereIn('slug',$slug)->pluck('id')->toArray();
-            // dd($cat_ids);
-            $products->whereIn('cat_id',$cat_ids);
-            // return $products;
-        }
-        if(!empty($_GET['brand'])){
-            $slugs=explode(',',$_GET['brand']);
-            $brand_ids=Brand::select('id')->whereIn('slug',$slugs)->pluck('id')->toArray();
-            return $brand_ids;
-            $products->whereIn('brand_id',$brand_ids);
-        }
-        if(!empty($_GET['sortBy'])){
-            if($_GET['sortBy']=='title'){
-                $products=$products->where('status','active')->orderBy('title','ASC');
-            }
-            if($_GET['sortBy']=='price'){
-                $products=$products->orderBy('price','ASC');
-            }
-        }
-
-        if(!empty($_GET['price'])){
-            $price=explode('-',$_GET['price']);
-            // return $price;
-            // if(isset($price[0]) && is_numeric($price[0])) $price[0]=floor(Helper::base_amount($price[0]));
-            // if(isset($price[1]) && is_numeric($price[1])) $price[1]=ceil(Helper::base_amount($price[1]));
-            
-            $products->whereBetween('price',$price);
-        }
-
-        $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(3)->get();
-        // Sort by number
-        if(!empty($_GET['show'])){
-            $products=$products->where('status','active')->paginate($_GET['show']);
-        }
-        else{
-            $products=$products->where('status','active')->paginate(9);
-        }
-        // Sort by name , price, category
-
-      
-        if(session()->get('locale')=="en"){
-            // english
-        return view('frontend.pages-en.product-grids')->with('products',$products)->with('recent_products',$recent_products);
-                    }elseif(session()->get('locale')=="fr"){
-            // french
-        return view('frontend.pages-fr.product-grids')->with('products',$products)->with('recent_products',$recent_products);
-                    }else{
-            // arabic
-        return view('frontend.pages.product-grids')->with('products',$products)->with('recent_products',$recent_products);
-                   }
-    }
-    public function productLists(){
-        $products=Product::query();
-        
-        if(!empty($_GET['category'])){
-            $slug=explode(',',$_GET['category']);
-            // dd($slug);
-            $cat_ids=Category::select('id')->whereIn('slug',$slug)->pluck('id')->toArray();
-            // dd($cat_ids);
-            $products->whereIn('cat_id',$cat_ids)->paginate;
-            // return $products;
-        }
-        if(!empty($_GET['brand'])){
-            $slugs=explode(',',$_GET['brand']);
-            $brand_ids=Brand::select('id')->whereIn('slug',$slugs)->pluck('id')->toArray();
-            return $brand_ids;
-            $products->whereIn('brand_id',$brand_ids);
-        }
-        if(!empty($_GET['sortBy'])){
-            if($_GET['sortBy']=='title'){
-                $products=$products->where('status','active')->orderBy('title','ASC');
-            }
-            if($_GET['sortBy']=='price'){
-                $products=$products->orderBy('price','ASC');
-            }
-        }
-
-        if(!empty($_GET['price'])){
-            $price=explode('-',$_GET['price']);
-            // return $price;
-            // if(isset($price[0]) && is_numeric($price[0])) $price[0]=floor(Helper::base_amount($price[0]));
-            // if(isset($price[1]) && is_numeric($price[1])) $price[1]=ceil(Helper::base_amount($price[1]));
-            
-            $products->whereBetween('price',$price);
-        }
-
-        $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(3)->get();
-        // Sort by number
-        if(!empty($_GET['show'])){
-            $products=$products->where('status','active')->paginate($_GET['show']);
-        }
-        else{
-            $products=$products->where('status','active')->paginate(6);
-        }
-        // Sort by name , price, category
-
-      
-        if(session()->get('locale')=="en"){
-            // english
-        return view('frontend.pages-en.product-lists')->with('products',$products)->with('recent_products',$recent_products);
-                    }elseif(session()->get('locale')=="fr"){
-            // french
-        return view('frontend.pages-fr.product-lists')->with('products',$products)->with('recent_products',$recent_products);
-                    }else{
-            // arabic
-        return view('frontend.pages.product-lists')->with('products',$products)->with('recent_products',$recent_products);
-                   }
-    }
-    public function productFilter(Request $request){
-            $data= $request->all();
-            // return $data;
-            $showURL="";
-            if(!empty($data['show'])){
-                $showURL .='&show='.$data['show'];
-            }
-
-            $sortByURL='';
-            if(!empty($data['sortBy'])){
-                $sortByURL .='&sortBy='.$data['sortBy'];
-            }
-
-            $catURL="";
-            if(!empty($data['category'])){
-                foreach($data['category'] as $category){
-                    if(empty($catURL)){
-                        $catURL .='&category='.$category;
-                    }
-                    else{
-                        $catURL .=','.$category;
-                    }
-                }
-            }
-
-            $brandURL="";
-            if(!empty($data['brand'])){
-                foreach($data['brand'] as $brand){
-                    if(empty($brandURL)){
-                        $brandURL .='&brand='.$brand;
-                    }
-                    else{
-                        $brandURL .=','.$brand;
-                    }
-                }
-            }
-            // return $brandURL;
-
-            $priceRangeURL="";
-            if(!empty($data['price_range'])){
-                $priceRangeURL .='&price='.$data['price_range'];
-            }
-            if(request()->is('النماء.loc/product-grids')){
-                return redirect()->route('product-grids',$catURL.$brandURL.$priceRangeURL.$showURL.$sortByURL);
-            }
-            else{
-                return redirect()->route('product-lists',$catURL.$brandURL.$priceRangeURL.$showURL.$sortByURL);
-            }
-    }
-    public function productSearch(Request $request){
-        $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(3)->get();
-        $products=Product::orwhere('title','like','%'.$request->search.'%')
-                    ->orwhere('slug','like','%'.$request->search.'%')
-                    ->orwhere('description','like','%'.$request->search.'%')
-                    ->orwhere('summary','like','%'.$request->search.'%')
-                    ->orwhere('price','like','%'.$request->search.'%')
-                    ->orderBy('id','DESC')
-                    ->paginate('9');
-        if(session()->get('locale')=="en"){
-            // english
-        return view('frontend.pages-en.product-grids')->with('products',$products)->with('recent_products',$recent_products);
-                    }elseif(session()->get('locale')=="fr"){
-            // french
-        return view('frontend.pages-fr.product-grids')->with('products',$products)->with('recent_products',$recent_products);
-                    }else{
-            // arabic
-        return view('frontend.pages.product-grids')->with('products',$products)->with('recent_products',$recent_products);
-                   }
-    }
-
-    public function productBrand(Request $request){
-        $products=Brand::getProductByBrand($request->slug);
-        $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(3)->get();
-        if(request()->is('النماء.loc/product-grids')){
-            if(session()->get('locale')=="en"){
-                // english
-            return view('frontend.pages-en.product-grids')->with('products',$products->products)->with('recent_products',$recent_products);
-                        }elseif(session()->get('locale')=="fr"){
-                // french
-            return view('frontend.pages-fr.product-grids')->with('products',$products->products)->with('recent_products',$recent_products);
-                        }else{
-                // arabic
-            return view('frontend.pages.product-grids')->with('products',$products->products)->with('recent_products',$recent_products);
-                       }
-        }
-        else{
-            if(session()->get('locale')=="en"){
-                // english
-            return view('frontend.pages-en.product-lists')->with('products',$products->products)->with('recent_products',$recent_products);
-                        }elseif(session()->get('locale')=="fr"){
-                // french
-            return view('frontend.pages-en.product-lists')->with('products',$products->products)->with('recent_products',$recent_products);
-                        }else{
-                // arabic
-            return view('frontend.pages.product-lists')->with('products',$products->products)->with('recent_products',$recent_products);
-                       }
-        }
-
-    }
-    public function productCat(Request $request){
-        $products=Category::getProductByCat($request->slug);
-        // return $request->slug;
-        $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(3)->get();
-
-        if(request()->is('النماء.loc/product-grids')){
-            if(session()->get('locale')=="en"){
-                // english
-            return view('frontend.pages-en.product-grids')->with('products',$products->products)->with('recent_products',$recent_products);
-                        }elseif(session()->get('locale')=="fr"){
-                // french
-            return view('frontend.pages-fr.product-grids')->with('products',$products->products)->with('recent_products',$recent_products);
-                        }else{
-                // arabic
-            return view('frontend.pages.product-grids')->with('products',$products->products)->with('recent_products',$recent_products);
-                       }
-        }
-        else{
-            if(session()->get('locale')=="en"){
-                // english
-            return view('frontend.pages-en.product-lists')->with('products',$products->products)->with('recent_products',$recent_products);
-                        }elseif(session()->get('locale')=="fr"){
-                // french
-            return view('frontend.pages-fr.product-lists')->with('products',$products->products)->with('recent_products',$recent_products);
-                        }else{
-                // arabic
-            return view('frontend.pages.product-lists')->with('products',$products->products)->with('recent_products',$recent_products);
-                       }
-        }
-
-    }
-    public function productSubCat(Request $request){
-        $products=Category::getProductBySubCat($request->sub_slug);
-        // return $products;
-        $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(3)->get();
-
-        if(request()->is('النماء.loc/product-grids')){
-            if(session()->get('locale')=="en"){
-                // english
-            return view('frontend.pages-en.product-grids')->with('products',$products->sub_products)->with('recent_products',$recent_products);
-                        }elseif(session()->get('locale')=="fr"){
-                // french
-            return view('frontend.pages-fr.product-grids')->with('products',$products->sub_products)->with('recent_products',$recent_products);
-                        }else{
-                // arabic
-            return view('frontend.pages.product-grids')->with('products',$products->sub_products)->with('recent_products',$recent_products);
-                       }
-        }
-        else{
-            if(session()->get('locale')=="en"){
-                // english
-            return view('frontend.pages-en.product-lists')->with('products',$products->sub_products)->with('recent_products',$recent_products);
-                        }elseif(session()->get('locale')=="fr"){
-                // french
-            return view('frontend.pages-fr.product-lists')->with('products',$products->sub_products)->with('recent_products',$recent_products);
-                        }else{
-                // arabic
-            return view('frontend.pages.product-lists')->with('products',$products->sub_products)->with('recent_products',$recent_products);
-                       }
-        }
-
-    }
+    
 
     public function blog(){
         $post=Post::query();
@@ -441,9 +150,9 @@ class FrontendController extends Controller
         // $post=Post::where('status','active')->paginate(8);
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
 
-
+$posts=$this->getposts();
         // arabic
-        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post);   
+        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post)->with('posts',$posts);   
 
     }
 
@@ -532,7 +241,8 @@ if(isset($currentUserInfo->countryName)){
 
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
             // arabic
-        return view('frontend.pages.blog-detail')->with('post',$post)->with('recent_posts',$rcnt_post);
+            $posts=$this->getposts();
+        return view('frontend.pages.blog-detail')->with('post',$post)->with('recent_posts',$rcnt_post)->with('posts',$posts);
                 
         }
       
@@ -551,17 +261,9 @@ if(isset($currentUserInfo->countryName)){
             ->orderBy('id','DESC')
            
             ->paginate(8);
-        
-        if(session()->get('locale')=="en"){
-            // english
-        return view('frontend.pages-en.blog')->with('posts',$posts)->with('recent_posts',$rcnt_post);
-                    }elseif(session()->get('locale')=="fr"){
-            // french
-        return view('frontend.pagesfr.blog')->with('posts',$posts)->with('recent_posts',$rcnt_post);
-                    }else{
-            // arabic
-        return view('frontend.pages.blog') ->with('tags',$tags)->with('posts',$posts)->with('recent_posts',$rcnt_post);
-                   }
+        $posts=$this->getposts();
+        return view('frontend.pages.blog') ->with('tags',$tags)->with('posts',$posts)->with('recent_posts',$rcnt_post)->with('posts',$posts);
+                   
 
     }
 
@@ -594,7 +296,8 @@ if(isset($currentUserInfo->countryName)){
         }
         // return $tagURL;
             // return $catURL;
-        return redirect()->route('blog',$catURL.$tagURL);
+            $posts=$this->getposts();
+        return redirect()->route('blog',$catURL.$tagURL)->with('posts',$posts);
     }
 
     public function blogByCategory(Request $request){
@@ -602,17 +305,9 @@ if(isset($currentUserInfo->countryName)){
         $tags=PostTag::get();
 
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
-        
-        if(session()->get('locale')=="en"){
-            // english
-        return view('frontend.pages-en.blog')->with('tags',$tags)->with('posts',$post->post)->with('recent_posts',$rcnt_post);
-                    }elseif(session()->get('locale')=="fr"){
-            // french
-        return view('frontend.pages-fr.blog')->with('tags',$tags)->with('posts',$post->post)->with('recent_posts',$rcnt_post);
-                    }else{
-            // arabic
-        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post->post)->with('recent_posts',$rcnt_post);
-                   }
+        $posts=$this->getposts();
+        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post->post)->with('recent_posts',$rcnt_post)->with('posts',$posts);
+                   
     }
 
     public function blogByTag(Request $request){
@@ -621,17 +316,9 @@ if(isset($currentUserInfo->countryName)){
         // return $post;
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
         $tags=PostTag::get();
-        
-        if(session()->get('locale')=="en"){
-            // english
-        return view('frontend.pages-en.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post);
-                    }elseif(session()->get('locale')=="fr"){
-            // french
-        return view('frontend.pages-fr.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post);
-                    }else{
-            // arabic
-        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post);
-                   }
+$posts=$this->getposts();
+        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post)->with('posts',$posts);
+                   
     }
 
 
@@ -645,25 +332,29 @@ public function writers(){
 
     $writers=User::GetWritersposts(); 
         // arabic
-    return view('frontend.pages.writers')->with('writers',$writers);
+        $posts=$this->getposts();
+    return view('frontend.pages.writers')->with('writers',$writers)->with('posts',$posts);
 }
 
 public function writer(Request $request){
      $writer=User::GetWriterposts($request->slug); 
         // arabic
-    return view('frontend.pages.writer')->with('writer',$writer);
+        $posts=$this->getposts();
+    return view('frontend.pages.writer')->with('writer',$writer)->with('posts',$posts);
 }
 
 public function eid(){
 
     $writers=User::GetWritersposts(); 
         // arabic
-    return view('frontend.pages.eid');
+        $posts=$this->getposts();
+    return view('frontend.pages.eid')->with('posts',$posts);
 }
 
 public function eid_name(Request $request){
         // arabic
-    return view('frontend.pages.eid_name')->with('name',$request->name);
+        $posts=$this->getposts();
+    return view('frontend.pages.eid_name')->with('name',$request->name)->with('posts',$posts);
 }
 
 
@@ -702,49 +393,6 @@ public function eid_name(Request $request){
 
 
 
-    // Login
-    public function login(){
-        return view('frontend.pages.login'); 
-    }
-
-    
-    public function loginSubmit(Request $request){
-        $data= $request->all();
-        if(Auth::attempt(['email' => $data['email'], 'password' => $data['password'],'status'=>'active'])){
-            Session::put('user',$data['email']); 
-            request()->session()->flash('success','Successfully login');
-            return redirect()->route('home');
-        } 
-        else{
-            request()->session()->flash('error','Invalid email and password pleas try again!');
-            return redirect()->back();
-        }
-    }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public function register(){
-        return view('frontend.pages.register');
-    }
-
-    public function registerSubmit(Request $request){
-        // return $request->all();
-        $this->validate($request,[
-            'name'=>'string|required|min:2',
-            'email'=>'string|required|unique:users,email',
-            'password'=>'required|min:6|confirmed',
-        ]);
-        $data=$request->all();
-        // dd($data);
-        $check=$this->create($data);
-       if($check){
-        $this->loginSubmit($request);
-        return redirect()->route('home');
-        }
-        else{
-            request()->session()->flash('error','Please try again!');
-            return back();
-        }
-    }
 
 
 
@@ -753,28 +401,6 @@ public function eid_name(Request $request){
 
 
 
-
-
-    public function logout(){
-        Session::forget('user');
-        Auth::logout();
-        request()->session()->flash('success','Logout successfully');
-        return back();
-    }
-
-
-    public function create(array $data){
-        return User::create([
-            'name'=>$data['name'],
-            'email'=>$data['email'],
-            'password'=>Hash::make($data['password']),
-            'status'=>'active'
-            ]);
-    }
-    // Reset password
-    public function showResetForm(){
-        return view('auth.passwords.old-reset');
-    }
 
     public function subscribe(Request $request){
         if(! Newsletter::isSubscribed($request->email)){
