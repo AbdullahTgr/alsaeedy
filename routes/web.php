@@ -99,6 +99,7 @@ Route::get('order/pdf/{id}','OrderController@pdf')->name('order.pdf');
 // Route::post('product/track/order','OrderController@productTrackOrder')->name('product.track.order');
 // Blog 
 Route::get('/blog','FrontendController@blog')->name('blog');
+Route::get('/عبدالله_مصطفي','FrontendController@gm')->name('gm');
 Route::get('/blog-detail/{slug}','FrontendController@blogDetail')->name('blog.detail'); 
 Route::get('/blog/search','FrontendController@blogSearch')->name('blog.search');
 Route::post('/blog/filter','FrontendController@blogFilter')->name('blog.filter');

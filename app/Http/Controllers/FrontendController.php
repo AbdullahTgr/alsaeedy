@@ -156,6 +156,14 @@ $posts=$this->getposts();
 
     }
 
+    public function gm(){
+        $posts=$this->getposts();
+        return view('frontend.pages.gm')->with('posts',$posts);
+    }
+
+
+
+
     public function blogDetail($slug){
         $post=Post::getPostBySlug($slug);
 
