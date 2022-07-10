@@ -20,8 +20,8 @@ $path="";
  
     
 	<meta property="og:url" content="https://www.facebook.com/alsaeedyblog"> 
-    <meta property="og:image"  itemprop="image"  content="{{ url('images/gm.jpg') }}" />
-    <meta name="twitter:image" content="{{ url('images/gm.jpg') }}">
+    <meta property="og:image"  itemprop="image"  content="{{ url('images/abdullah.png') }}" />
+    <meta name="twitter:image" content="{{ url('images/abdullah.png') }}">
 
     
 
@@ -158,7 +158,7 @@ body{
                   <div class="card">
                     <div class="card-body">
                       <div class="d-flex flex-column align-items-center text-center">
-                        <img src="{{ url('images/gm.jpg') }}" alt="Admin" class="rounded-circle" width="150">
+                        <img src="{{ url('images/abdullah.png') }}" alt="Admin" class="rounded-circle" width="150">
                         <div class="mt-3">
                           <h4>عبدالله</h4>
                           <p class="text-secondary mb-1">عبدالله مصطفي | مطور ويب</p>
