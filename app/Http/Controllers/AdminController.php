@@ -99,10 +99,12 @@ class AdminController extends Controller
 
         $q=explode(',',$name);
 if(count($q)>1){
-   // return $name;
-    $id=$q[1];
+    
+   $q=explode(',',$name);
+   
     $country=$q[0];
-    $clicks=Clicks::where('prop5',$name)->where('prop5',$country)->get();
+    $id=$q[1];
+    $clicks=Clicks::where('prop5',$country)->where('ref_id',$id)->get();
 }else{
    // return $name;
         $clicks=Clicks::where('prop5',$name)->get();
