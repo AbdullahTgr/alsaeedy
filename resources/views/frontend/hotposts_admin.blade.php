@@ -28,7 +28,7 @@
                             font-weight: bold;">
                         <img class="img-responsive pull-right" width="100%;" src="{{$post->photo}}" alt="">
             </a>
-                        <li><a href="{{route('blog.detail',$post->slug)}}"><i class="fa fa-fire"></i>{!! $post->{'summary-ar'} !!}</a></li>
+                        <li><a href="{{ route('post.visitors',$post->id) }}"><i class="fa fa-fire"></i>عرض المشاهدات</a></li>
                      
                     </ul>
                 </div>

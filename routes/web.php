@@ -225,9 +225,16 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
 
    
    Route::get('/visito','AdminController@visito')->name('visito'); 
+   Route::get('/visito_s/{country}','AdminController@visito_s')->name('visito_s'); 
 
 
 
+   Route::get('/vid_visitors/{id}','AdminController@vid_visitors')->name('vid.visitors'); 
+
+   Route::get('/post_visitors/{id}','AdminController@post_visitors')->name('post.visitors'); 
+
+
+   
 
    // Message
    Route::resource('/message','MessageController');

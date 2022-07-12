@@ -9,6 +9,8 @@ use App\Rules\MatchOldPassword;
 use Hash;
 use Carbon\Carbon;
 use App\Models\Clicks;
+use App\Models\Post;
+use App\Models\Video;
 
 use Spatie\Activitylog\Models\Activity;
 class AdminController extends Controller
@@ -62,12 +64,44 @@ class AdminController extends Controller
     }
 
     public function visito(){
-        $clicks=Clicks::get();
-        return view('backend.visito')->with('clicks',$clicks);
+
+        $hotposts=Post::getBlogByCategory('status','active')->orderBy('description-fr','DESC')->limit(10)->get();
+        $videos = Video::orderBy('description-fr','DESC')->limit(4)->get();
+
+        $clicks=Clicks::select('prop5',Clicks::raw('count(*) as total') )->groupBy('prop5')->get();
+        
+
+        return view('backend.visito')->with('clicks',$clicks)->with('hotposts',$hotposts)->with('videos',$videos);
     }
+    public function visito_s($name){
+
+        $hotposts=Post::getBlogByCategory('status','active')->orderBy('description-fr','DESC')->limit(10)->get();
+        $videos = Video::orderBy('description-fr','DESC')->limit(4)->get();
+
+
+        $clicks=Clicks::where('prop5',$name)->get();
+       
+        
+        
+        return view('backend.visito')->with('clicks',$clicks)->with('sp','1')->with('hotposts',$hotposts)->with('videos',$videos);
+    }
+    public function post_visitors($id){
+        $clicks=Clicks::where('ref_id',$id)->get();
+        $hotposts=Post::getBlogByCategory('status','active')->orderBy('description-fr','DESC')->limit(10)->get();
+        $videos = Video::orderBy('description-fr','DESC')->limit(4)->get();
+
+
+        return view('backend.visito')->with('clicks',$clicks)->with('sp','1')->with('hotposts',$hotposts)->with('videos',$videos);
+    }
+    
 
 
     
+
+
+
+    
+
 
     public function settingsUpdate(Request $request){
         // return $request->all();
