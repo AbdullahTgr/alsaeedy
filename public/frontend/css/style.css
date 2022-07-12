@@ -5344,8 +5344,9 @@ h1 {
 }
 
 .blog-single .content p {
-    margin-bottom: 25px;
-    line-height: 26px;
+    margin-bottom: 40px;
+    font-size: 25px;
+    line-height: 49px;
 }
 
 .blog-single .content p:last-child {
