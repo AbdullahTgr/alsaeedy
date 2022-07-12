@@ -73,6 +73,16 @@ class AdminController extends Controller
 
         return view('backend.visito')->with('clicks',$clicks)->with('hotposts',$hotposts)->with('videos',$videos);
     }
+    public function postvisito($id){
+
+        $hotposts=Post::getBlogByCategory('status','active')->orderBy('description-fr','DESC')->limit(10)->get();
+        $videos = Video::orderBy('description-fr','DESC')->limit(4)->get();
+
+        $clicks=Clicks::select('prop5',Clicks::raw('count(*) as total') )->groupBy('prop5')->where('ref_id',$id)->get();
+        
+
+        return view('backend.visito')->with('clicks',$clicks)->with('hotposts',$hotposts)->with('videos',$videos);
+    }
     public function visito_s($name){
 
         $hotposts=Post::getBlogByCategory('status','active')->orderBy('description-fr','DESC')->limit(10)->get();
@@ -85,14 +95,16 @@ class AdminController extends Controller
         
         return view('backend.visito')->with('clicks',$clicks)->with('sp','1')->with('hotposts',$hotposts)->with('videos',$videos);
     }
-    public function post_visitors($id){
-        $clicks=Clicks::where('ref_id',$id)->get();
-        $hotposts=Post::getBlogByCategory('status','active')->orderBy('description-fr','DESC')->limit(10)->get();
-        $videos = Video::orderBy('description-fr','DESC')->limit(4)->get();
 
 
-        return view('backend.visito')->with('clicks',$clicks)->with('sp','1')->with('hotposts',$hotposts)->with('videos',$videos);
-    }
+    // public function post_visitors($id){
+    //     $clicks=Clicks::where('ref_id',$id)->get();
+    //     $hotposts=Post::getBlogByCategory('status','active')->orderBy('description-fr','DESC')->limit(10)->get();
+    //     $videos = Video::orderBy('description-fr','DESC')->limit(4)->get();
+
+
+    //     return view('backend.visito')->with('clicks',$clicks)->with('sp','1')->with('hotposts',$hotposts)->with('videos',$videos);
+    // }
     
 
 

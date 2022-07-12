@@ -229,9 +229,8 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
 
 
 
-   Route::get('/vid_visitors/{id}','AdminController@vid_visitors')->name('vid.visitors'); 
-
-   Route::get('/post_visitors/{id}','AdminController@post_visitors')->name('post.visitors'); 
+   
+   Route::get('/post_visitors/{id}','AdminController@postvisito')->name('post.visitors'); 
 
 
    
