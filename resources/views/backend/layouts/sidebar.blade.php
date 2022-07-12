@@ -240,20 +240,55 @@
       </div>
     </div>
   </li>
+  <!-- Category -->
+  <li class="nav-item">
+     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#videoCategoryCollapse" aria-expanded="true" aria-controls="videoCategoryCollapse">
+       <i class="fas fa-sitemap fa-folder"></i>
+       <span>القنوات</span>
+     </a>
+     <div id="videoCategoryCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+       <div class="bg-white py-2 collapse-inner rounded">
+         <h6 class="collapse-header">القنوات</h6>
+         <a class="collapse-item" href="{{route('video-category.index')}}">القنوات</a>
+         <a class="collapse-item" href="{{route('video-category.create')}}">اضف قناة</a>
+       </div>
+     </div>
+   </li>
+ 
+
+
+
+ 
+
+
+
+ 
+
     <!-- Category -->
     <li class="nav-item">
-       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#videoCategoryCollapse" aria-expanded="true" aria-controls="videoCategoryCollapse">
-         <i class="fas fa-sitemap fa-folder"></i>
-         <span>القنوات</span>
-       </a>
-       <div id="videoCategoryCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-         <div class="bg-white py-2 collapse-inner rounded">
-           <h6 class="collapse-header">القنوات</h6>
-           <a class="collapse-item" href="{{route('video-category.index')}}">القنوات</a>
-           <a class="collapse-item" href="{{route('video-category.create')}}">اضف قناة</a>
-         </div>
-       </div>
-     </li>
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#visito" aria-expanded="true" aria-controls="visito">
+        <i class="fas fa-sitemap fa-folder"></i>
+        <span>الزائرين</span>
+      </a>
+      <div id="visito" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">الزائرين</h6>
+          <a class="collapse-item" href="{{route('visito')}}">الزائرين</a>
+        </div>
+      </div>
+    </li>
+
+
+
+
+
+
+
+
+
+
+
+
 
       <!-- Tags -->
     <li class="nav-item">

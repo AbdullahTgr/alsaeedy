@@ -8,6 +8,8 @@ use App\User;
 use App\Rules\MatchOldPassword;
 use Hash;
 use Carbon\Carbon;
+use App\Models\Clicks;
+
 use Spatie\Activitylog\Models\Activity;
 class AdminController extends Controller
 {
@@ -58,6 +60,14 @@ class AdminController extends Controller
         $data=Settings::first();
         return view('backend.setting')->with('data',$data);
     }
+
+    public function visito(){
+        $clicks=Clicks::get();
+        return view('backend.visito')->with('clicks',$clicks);
+    }
+
+
+    
 
     public function settingsUpdate(Request $request){
         // return $request->all();

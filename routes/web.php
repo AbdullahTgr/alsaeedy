@@ -223,6 +223,12 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
  
 
 
+   
+   Route::get('/visito','AdminController@visito')->name('visito'); 
+
+
+
+
    // Message
    Route::resource('/message','MessageController');
    Route::get('/message/five','MessageController@messageFive')->name('messages.five');
