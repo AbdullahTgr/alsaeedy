@@ -14,7 +14,7 @@
               </tr>
           </tfoot>
           <tbody>
-
+ 
            
             @foreach($clicks as $click)   
                 <tr>
@@ -25,7 +25,13 @@
                        $country=$click->prop5;
                      }
                  @endphp
-                   <td><a href="{{ route('visito_s',$country) }}">{{$country}}</a></td>
+
+                 @if (isset($post_id))
+                 <td><a href="{{ route('visito_s',$country.",".$post_id) }}">{{$country}}</a></td>
+                 @else
+                     <td><a href="{{ route('visito_s',$country) }}">{{$country}}</a></td>
+                 @endif
+                   
                  
                    <td>{{$click->total}}</td>
                  

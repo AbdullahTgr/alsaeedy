@@ -20,7 +20,7 @@
              <th>البلد</th>
              <th>عدد الزيارات</th>
               </tr>
-          </tfoot>
+          </tfoot> 
           <tbody>
 
            

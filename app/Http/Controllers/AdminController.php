@@ -73,27 +73,48 @@ class AdminController extends Controller
 
         return view('backend.visito')->with('clicks',$clicks)->with('hotposts',$hotposts)->with('videos',$videos);
     }
+
+
+
     public function postvisito($id){
 
         $hotposts=Post::getBlogByCategory('status','active')->orderBy('description-fr','DESC')->limit(10)->get();
         $videos = Video::orderBy('description-fr','DESC')->limit(4)->get();
 
+
+
         $clicks=Clicks::select('prop5',Clicks::raw('count(*) as total') )->groupBy('prop5')->where('ref_id',$id)->get();
         
 
-        return view('backend.visito')->with('clicks',$clicks)->with('hotposts',$hotposts)->with('videos',$videos);
+
+        return view('backend.visito')->with('clicks',$clicks)->with('hotposts',$hotposts)->with('videos',$videos)->with('post_id',$id);
     }
+
+
     public function visito_s($name){
 
         $hotposts=Post::getBlogByCategory('status','active')->orderBy('description-fr','DESC')->limit(10)->get();
         $videos = Video::orderBy('description-fr','DESC')->limit(4)->get();
 
 
+        $q=explode(',',$name);
+if(count($q)>1){
+   // return $name;
+    $id=$q[1];
+    $country=$q[0];
+    $clicks=Clicks::where('prop5',$name)->where('prop5',$country)->get();
+}else{
+   // return $name;
         $clicks=Clicks::where('prop5',$name)->get();
+        
+}
+
+
+
        
         
         
-        return view('backend.visito')->with('clicks',$clicks)->with('sp','1')->with('hotposts',$hotposts)->with('videos',$videos);
+        return view('backend.visito')->with('clicks',$clicks)->with('sp','1')->with('hotposts',$hotposts)->with('videos',$videos)->with('art','1');
     }
 
 
