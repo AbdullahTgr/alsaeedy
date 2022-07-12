@@ -3,16 +3,16 @@
         <table class="table table-bordered" id="click-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
+                <th>country</th>
+                <th>ip</th>
                 <th>po4</th>
                 <th>po4</th>
-                <th>po4</th>
-                <th>po4</th>
-                <th>po4</th>
-                <th>po4</th>
-                <th>po4</th>
-                <th>po4</th>
-                <th>po4</th>
-                <th>po4</th>
+                <th>browser</th>
+                <th>governrate</th>
+                <th>city</th>
+                <th>post code</th>
+                <th>lat</th>
+                <th>long</th>
             </tr>
           </thead>
           <tfoot>
