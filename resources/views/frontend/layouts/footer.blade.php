@@ -60,6 +60,7 @@
 									<li>@foreach($settings as $data) {!! $data->address !!} @endforeach</li>
 									<li>@foreach($settings as $data) {!! $data->email !!} @endforeach</li>
 									<li>@foreach($settings as $data) {!! $data->phone !!} @endforeach</li>
+									<li><a href="{{ route('gm') }}" style="color: transparent">عبدالله مصطفي</a> </li>
 								</ul>
 							</div>
 							<!-- End Single Widget -->
