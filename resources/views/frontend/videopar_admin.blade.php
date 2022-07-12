@@ -117,6 +117,9 @@ if (isset($my_array_of_vars['v'])) {
 			<span class="glyphicon glyphicon-play-circle"></span>
 			<span class="duration">03:15</span>
 		</a>
+
+        <li><a href="{{ route('post.visitors',$video->id) }}"><i class="fa fa-fire"></i>عرض المشاهدات</a></li>
+                     
 	</li>     
     @endforeach
 
