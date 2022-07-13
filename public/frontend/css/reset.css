@@ -366,7 +366,7 @@ big {
 .breadcrumbs {
     background-color: #F6F7FB;
     position: relative;
-    padding: 30px 0px;
+    padding: 60px 0 26px 0;
 }
 
 .breadcrumbs .bread-inner {

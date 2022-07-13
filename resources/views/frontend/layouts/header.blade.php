@@ -12,7 +12,8 @@
 
 .abdullahmostafa{
     background: #dddddd;
-    padding: 0px 0px 15px 0;
+    padding: 2px 10px 15px 10px;
+    transition: all 1s ease-out;
 }
 
 .abdullahmostafa nav label{
@@ -36,7 +37,9 @@
     margin-left: 3px;
     top: -3px;
 }
-
+label{
+    transition: all 1s ease-out;
+}
 
 
 
