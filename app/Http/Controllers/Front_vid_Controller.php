@@ -34,8 +34,8 @@ class Front_vid_Controller extends Controller
     }
    
     public function index(Request $request){
-        $posts=$this->getposts();
-        return redirect()->route($request->user()->role)->with('posts',$posts); 
+        $news=$this->getposts();
+        return redirect()->route($request->user()->role)->with('news',$news); 
     }
     public function getposts()
     {
@@ -74,8 +74,8 @@ class Front_vid_Controller extends Controller
         // $video=Video::where('status','active')->paginate(8);
         $rcnt_video=Video::where('status','active')->orderBy('id','DESC')->limit(3)->get();
 
- $posts=$this->getposts();
-        return view('frontend.pages.video')->with('tags',$tags)->with('videos',$video)->with('recent_videos',$rcnt_video)->with('posts',$posts);   
+ $news=$this->getposts();
+        return view('frontend.pages.video')->with('tags',$tags)->with('videos',$video)->with('recent_videos',$rcnt_video)->with('news',$news);   
 
         
     }
@@ -168,8 +168,8 @@ return view('errors.404');
 
 
             // arabic
-            $posts=$this->getposts();
-        return view('frontend.pages.video-detail')->with('video',$video)->with('recent_videos',$rcnt_video)->with('posts',$posts);
+            $news=$this->getposts();
+        return view('frontend.pages.video-detail')->with('video',$video)->with('recent_videos',$rcnt_video)->with('news',$news);
                 
         }
       
@@ -188,8 +188,8 @@ return view('errors.404');
             ->orderBy('id','DESC')
            
             ->paginate(8);
-        $posts=$this->getposts();
-        return view('frontend.pages.video') ->with('tags',$tags)->with('videos',$videos)->with('recent_videos',$rcnt_video)->with('posts',$posts);
+        $news=$this->getposts();
+        return view('frontend.pages.video') ->with('tags',$tags)->with('videos',$videos)->with('recent_videos',$rcnt_video)->with('news',$news);
 
     }
 
@@ -222,8 +222,8 @@ return view('errors.404');
         } 
         // return $tagURL;
             // return $catURL;
-            $posts=$this->getposts();
-        return redirect()->route('video',$catURL.$tagURL)->with('posts',$posts);
+            $news=$this->getposts();
+        return redirect()->route('video',$catURL.$tagURL)->with('news',$news);
     }
 
     public function videoByCategory(Request $request){
@@ -234,8 +234,8 @@ return view('errors.404');
         
 
             // arabic
-            $posts=$this->getposts();
-        return view('frontend.pages.video')->with('tags',$tags)->with('videos',$video)->with('channel',"1")->with('recent_videos',$rcnt_video)->with('posts',$posts);
+            $news=$this->getposts();
+        return view('frontend.pages.video')->with('tags',$tags)->with('videos',$video)->with('channel',"1")->with('recent_videos',$rcnt_video)->with('news',$news);
 
     }
 
@@ -252,8 +252,8 @@ return view('errors.404');
       $maincategoryroot=VideoMaincategoryroot::where('id',$maincategories->video_maincatroot_id)->first();
 // return $maincategoryroot->{'title-ar'};
             // arabic
-            $posts=$this->getposts();
-        return view('frontend.pages.maincats')->with('maincategories',$maincategories)->with('maincategoryroot',$maincategoryroot)->with('posts',$posts);
+            $news=$this->getposts();
+        return view('frontend.pages.maincats')->with('maincategories',$maincategories)->with('maincategoryroot',$maincategoryroot)->with('news',$news);
      
         
         

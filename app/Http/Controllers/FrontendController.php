@@ -249,8 +249,8 @@ if(isset($currentUserInfo->countryName)){
 
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
             // arabic
-            $posts=$this->getposts();
-        return view('frontend.pages.blog-detail')->with('post',$post)->with('recent_posts',$rcnt_post)->with('posts',$posts);
+            $news=$this->getposts();
+        return view('frontend.pages.blog-detail')->with('post',$post)->with('recent_posts',$rcnt_post)->with('news',$news);
                 
         }
       
