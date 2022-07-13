@@ -6,7 +6,41 @@
 @if(session()->get('locale')=="ar" || session()->get('locale')=="" )
 <link rel="stylesheet" href="{{asset('frontend/css/arabic.css')}}">
 @endif
-            
+            <style>
+
+
+
+.abdullahmostafa{
+    background: #000000;
+    padding: 0px 0px 15px 0;
+}
+
+.abdullahmostafa nav label{
+    background: linear-gradient(45deg, var(--red), var(--indigo));
+    color: white;
+    padding: 3px 15px;
+    border-radius: 5px;
+    margin: 0;
+    margin-left: 3px;
+    margin-top: 13px;
+    transition: all 1s ease-out;
+}
+
+.abdullahmostafa nav label:hover{
+    background: linear-gradient(45deg, #ed0017, #340583);
+    color: white;
+    position: relative;
+    border-radius: 5px;
+    margin: 0;
+    font-weight: bold;
+    margin-left: 3px;
+    top: -7px;
+}
+
+
+
+
+            </style>
         
 
         <div class="container">
@@ -43,36 +77,51 @@
                                 <div class="navbar-collapse">	
                                     <div class="nav-inner" 
                                     @if(session()->get('locale')=="ar") style="direction: rtl" @endif>	
-                                        <ul class="nav main-menu menu navbar-nav">
-                                            <li class="{{Request::path()=='home' ? 'active' : ''}}"><a href="{{route('home')}}">{{ Lang::get('msg.home') }}</a></li>
-                                            <li class="{{Request::path()=='about-us' ? 'active' : ''}}"><a href="{{route('about-us')}}">{{ Lang::get('msg.aboutus') }}</a></li>
-                                            {{-- <li class="@if(Request::path()=='product-grids'||Request::path()=='product-lists')  active  @endif"><a href="{{route('product-grids')}}">{{ Lang::get('msg.products') }}</a><span class="new">{{ Lang::get('msg.new') }}</span></li>												
-                                                {{Helper::getHeaderCategory(Lang::get('msg.categories') )}}   --}}
-                                                <li class="{{Request::path()=='blog' ? 'active' : ''}}"><a href="{{route('blog')}}">{{ Lang::get('msg.blog') }}</a></li>	
+                                    <ul class="nav main-menu menu navbar-nav">
+                                        <li class="{{Request::path()=='home' ? 'active' : ''}}"><a href="{{route('home')}}">{{ Lang::get('msg.home') }}</a></li>
+                                        <li class="{{Request::path()=='about-us' ? 'active' : ''}}"><a href="{{route('about-us')}}">{{ Lang::get('msg.aboutus') }}</a></li>
+                                        {{-- <li class="@if(Request::path()=='product-grids'||Request::path()=='product-lists')  active  @endif"><a href="{{route('product-grids')}}">{{ Lang::get('msg.products') }}</a><span class="new">{{ Lang::get('msg.new') }}</span></li>												
+                                            {{Helper::getHeaderCategory(Lang::get('msg.categories') )}}   --}}
+                                            <li class="{{Request::path()=='blog' ? 'active' : ''}}"><a href="{{route('blog')}}">{{ Lang::get('msg.blog') }}</a></li>	
 
-                                                <li class="{{Request::path()=='video' ? 'active' : ''}}"><a href="{{route('video')}}">{{ Lang::get('msg.video') }}</a></li>	
-                                                <li class="{{Request::path()=='writers' ? 'active' : ''}}"><a href="{{route('writers')}}">{{ Lang::get('msg.writers') }}</a></li>
-                                              
-                                                
-                                                {{-- <li class="{{Request::path()=='videos' ? 'active' : ''}}"><a href="{{route('videos')}}">{{ Lang::get('msg.videos') }}</a></li>									
-                                                --}}
-                                            <li class="{{Request::path()=='contact' ? 'active' : ''}}"><a href="{{route('contact')}}">{{ Lang::get('msg.contactus') }}</a></li>
-                                        
-                                            @php
-                            $settings=DB::table('settings')->get();
-                            
-                        @endphp           
+                                            <li class="{{Request::path()=='video' ? 'active' : ''}}"><a href="{{route('video')}}">{{ Lang::get('msg.video') }}</a></li>	
+                                            <li class="{{Request::path()=='writers' ? 'active' : ''}}"><a href="{{route('writers')}}">{{ Lang::get('msg.writers') }}</a></li>
+                                          
+                                            
+                                            {{-- <li class="{{Request::path()=='videos' ? 'active' : ''}}"><a href="{{route('videos')}}">{{ Lang::get('msg.videos') }}</a></li>									
+                                            --}}
+                                        <li class="{{Request::path()=='contact' ? 'active' : ''}}"><a href="{{route('contact')}}">{{ Lang::get('msg.contactus') }}</a></li>
+                                    
+                                        @php
+                        $settings=DB::table('settings')->get();
                         
-                        <li class="pull-left" style="
-                            position: absolute;
-    left: 0;
-                        "><a href="{{route('home')}}" style="padding:0;"><img width="50px" src="@foreach($settings as $data) {{$data->logo}} @endforeach" alt="السعدي"></a> </li>         
-                        
-                                        </ul>
+                    @endphp           
+                    
+                    <li class="pull-left" style="
+                        position: absolute;
+left: 0;
+                    "><a href="{{route('home')}}" style="padding:0;"><img width="50px" src="@foreach($settings as $data) {{$data->logo}} @endforeach" alt="السعدي"></a> </li>         
+                    
+                                    </ul>
+
+
+                                   
+
+
+
+
+
+
+
+
+                                    
                                     </div>
                                 </div>
                             </nav>
                             <!--/ End Main Menu -->	
+                             
+                                     
+
                         </div>
                     </div>
                 </div>
@@ -81,4 +130,5 @@
     </div>
     <!--/ End Header Inner -->
 </header>
-
+       {{ Helper::getHeaderCategory('فئات' ) }}   
+                        

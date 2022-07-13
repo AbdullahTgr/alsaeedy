@@ -52,12 +52,11 @@
 	<div class="row" style="padding: 0">
 		<div class="col-md-12"
 		style="
-		padding: 0;
-	position: fixed;
-	width: 100%;
-	z-index: 1;
-	right: 0;
-	top: 50px;
+padding: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    right: 0;
 		">
 			<div class="d-flex justify-content-between align-items-center breaking-news bg-white">
 				<div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-2 text-white px-1 news" style="

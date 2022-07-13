@@ -1,6 +1,29 @@
 @extends('frontend.layouts.master')
 
-@section('title',Lang::get('msg.Alsaidi'))
+
+                                                
+@section('meta')
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name='copyright' content=''>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+	<meta property="og:url" content="{!! url('/about-us') !!}"> 
+
+	<meta name="keywords" content=" مدونة,السعدي,مدونة السعدي ,مقالات ,عنا">
+	<meta name="description" content="مدونة السعدي - عنا">
+	
+    
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="مدونة السعدي - عنا">
+	<meta property="og:image"  itemprop="image"  content="{{ url('images/blog.jpg') }}">
+    <meta name="twitter:image" content="{{ url('images/blog.jpg') }}">
+	<meta property="og:description" content="مدونة السعدي - عنا">
+@endsection
+
+@section('title',"عنا - السعدي")
 
 @section('main-content')
 
@@ -9,10 +32,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
+					<h2>عنا</h2>
 					<div class="bread-inner">
 						<ul class="bread-list">
 							<li><a href="index1.html">{!! Lang::get('msg.home') !!}<i class="ti-arrow-right"></i></a></li>
-							<li class="active"><a href="blog-single.html">{!! Lang::get('msg.aboutus') !!}</a></li>
+							<li class="active"><a href="/">عنا</a></li>
 						</ul>
 					</div>
 				</div>
@@ -30,7 +54,7 @@
 							@php
 								$settings=DB::table('settings')->get();
 							@endphp
-							<h3>{{ Lang::get('msg.subscribeto') }}{!! Lang::get('msg.welcometo') !!}  <span> </span></h3>
+							<h3>مدونة السعدي  <span> عنا</span></h3>
 							<p>@foreach($settings as $data) {!! $data->description !!} @endforeach</p>
 							<div class="button">
 								<a href="{{route('blog')}}" class="btn">{!! Lang::get('msg.ourblog') !!}</a>
@@ -181,53 +205,8 @@
 	</section> --}}
 	<!--/ End Team Area -->
 	
-	<!-- Start Shop Services Area -->
-	<section class="shop-services section">
-		<div class="container">
-			
-			<?php
 
-			?>
-			<div class="row">
-				<div class="col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-rocket"></i>
-						<h4>{{ Lang::get('msg.freeshipping') }}</h4>
-						<p>{{ Lang::get('msg.ordersover100') }}</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-				<div class="col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-reload"></i>
-						<h4>{{ Lang::get('msg.freereturn') }}</h4>
-						<p>{{ Lang::get('msg.wthin30daysreturn') }}</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-				<div class="col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-lock"></i>
-						<p>{{ Lang::get('msg.100securepayment') }}</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-				<div class="col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-tag"></i>
-						<h4>{{ Lang::get('msg.bestprice') }}</h4>
-						<p>{{ Lang::get('msg.guarantedprice') }}</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Shop Services Area -->
+	
 	
 	@include('frontend.layouts.newsletter')
 @endsection

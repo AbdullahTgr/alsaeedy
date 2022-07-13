@@ -20,106 +20,44 @@ class Helper{
     {
         return Message::whereNull('read_at')->orderBy('created_at', 'desc')->get();
     } 
-    public static function getAllCategory(){
-        $category=new Category();
-        $menu=$category->getAllParentWithChild();
-        return $menu;
-    }  
+
     
-    public static function getHeaderCategory($nme){
-        $category = new Category();
+    public static function getHeaderCategory($nme){ 
+        
+        $categories=PostCategory::get();
         // dd($category);
-        $menu=$category->getAllParentWithChild();
+        
+?>
 
-        if($menu){
-            ?>
-            
-            <li>
-            <a href="javascript:void(0);"><?php echo $nme; ?><i class="ti-angle-down"></i></a>
-                <ul class="dropdown border-0 shadow">
-                <?php
-                   
-
-                    if(session()->get('locale')=="en"){
-                    // {{-- english --}}
-                    foreach($menu as $cat_info){
-                        if($cat_info->child_cat->count()>0){
-                            ?>
-                            <li><a href="<?php echo route('product-cat',$cat_info->slug); ?>"><?php echo $cat_info->title; ?></a>
-                                <ul class="dropdown sub-dropdown border-0 shadow">
-                                    <?php
-                                    foreach($cat_info->child_cat as $sub_menu){
-                                        ?>
-                                        <li><a href="<?php echo route('product-sub-cat',[$cat_info->slug,$sub_menu->slug]); ?>"><?php echo $sub_menu->{'title'}; ?></a></li>
-                                        <?php
-                                    }
-                                    ?>
-                                </ul>
-                            </li>
-                            <?php
-                        }
-                        else{
-                            ?>
-                                <li><a href="<?php echo route('product-cat',$cat_info->slug);?>"><?php echo $cat_info->{'title'}; ?></a></li>
-                            <?php
-                        }
-                    }
-                    }elseif(session()->get('locale')=="fr"){
-                    // {{-- french --}}
-                    foreach($menu as $cat_info){
-                        if($cat_info->child_cat->count()>0){
-                            ?>
-                            <li><a href="<?php echo route('product-cat',$cat_info->slug); ?>"><?php echo $cat_info->{'title-fr'}; ?></a>
-                                <ul class="dropdown sub-dropdown border-0 shadow">
-                                    <?php
-                                    foreach($cat_info->child_cat as $sub_menu){
-                                        ?>
-                                        <li><a href="<?php echo route('product-sub-cat',[$cat_info->slug,$sub_menu->slug]); ?>"><?php echo $sub_menu->{'title-fr'}; ?></a></li>
-                                        <?php
-                                    }
-                                    ?>
-                                </ul>
-                            </li>
-                            <?php
-                        }
-                        else{
-                            ?>
-                                <li><a href="<?php echo route('product-cat',$cat_info->slug);?>"><?php echo $cat_info->{'title-fr'}; ?></a></li>
-                            <?php
-                        }
-                    }
-                    }else{
-                    // {{-- Arabic --}}
-                    foreach($menu as $cat_info){
-                        if($cat_info->child_cat->count()>0){
-                            ?>
-                            <li><a href="<?php echo route('product-cat',$cat_info->slug); ?>"><?php echo $cat_info->{'title-ar'}; ?></a>
-                                <ul class="dropdown sub-dropdown border-0 shadow">
-                                    <?php
-                                    foreach($cat_info->child_cat as $sub_menu){
-                                        ?>
-                                        <li><a href="<?php echo route('product-sub-cat',[$cat_info->slug,$sub_menu->slug]); ?>"><?php echo $sub_menu->{'title-ar'}; ?></a></li>
-                                        <?php
-                                    }
-                                    ?>
-                                </ul>
-                            </li>
-                            <?php
-                        }
-                        else{
-                            ?>
-                                <li><a href="<?php echo route('product-cat',$cat_info->slug);?>"><?php echo $cat_info->{'title-ar'}; ?></a></li>
-                            <?php
-                        }
-                    }
-                    }
-
-
-                    ?>
-                </ul>
-            </li>
+<div class="abdullahmostafa">
+    <nav>
         <?php
+
+foreach($categories as $category){
+         ?>
+    <label for="<?php echo $category->{'title-ar'} ?> " class="home">
+    
+            <a href="<?php echo route('blog.category',$category->{'slug'}) ?>">
+
+            <?php echo $category->{'title-ar'} ?>
+            </a>
+
+    </label>
+
+<?php
         }
+        ?>
+
+    </nav>
+</div>
+
+
+
+
+
+
+<?php
+  
     }
 
     public static function productCategoryList($option='all'){

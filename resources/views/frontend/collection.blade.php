@@ -79,7 +79,7 @@
 				
 			</div>
           </div>
-
+ 
 				@endforeach
 		  
           <h2><a href="{{route('blog.detail',$post->slug)}}">{!! $post->{'title-ar'} !!} </a></h2>
@@ -101,7 +101,7 @@
 			
           </ul> 
       </div>
-      <!-- BLOG POST 1 - END -->
+      <!-- BLOG POST 1 - END --> 
 								 
 									 
 								 @endif
@@ -136,7 +136,7 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-					<div class="sidebar">
+					<div class="sidebar"> 
 						  <h3>فئات</h3>
 						  <div class="box categories">
 							  <ul class="list-unstyled">

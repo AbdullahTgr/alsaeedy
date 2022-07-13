@@ -28,7 +28,7 @@ $path="";
 
     <meta name="twitter:description" content="مدونة السعدي - أكبر موقع عربي بالعالم ">
 
-	<meta name="keywords" content="موسوعة,عربية,شاملة,السعدي">
+	<meta name="keywords" content="موسوعة,عربية,شاملة,السعدي,مدونة">
 	<meta name="description" content="مدونة السعدي  - أكبر موقع عربي بالعالم">
 	
     <meta property="og:type" content="article" />
@@ -36,7 +36,7 @@ $path="";
 	<meta property="og:description" content="مدونة السعدي  - أكبر موقع عربي بالعالم">
 @endsection
 
-@section('title',"مدونة السعدي  - أكبر موقع عربي بالعالم")
+@section('title'," مدونة السعدي  - أكبر موقع عربي بالعالم - مدونة")
 
 @section('main-content')
     <!-- Breadcrumbs -->
