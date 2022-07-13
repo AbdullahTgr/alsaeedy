@@ -24,7 +24,7 @@ $path="";
     <meta name="twitter:image" content="{{ url('images/blog.jpg') }}">
 
     
-
+ 
 
     <meta name="twitter:description" content="مدونة السعدي - أكبر موقع عربي بالعالم ">
 

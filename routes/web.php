@@ -104,7 +104,7 @@ Route::get('/blog-detail/{slug}','FrontendController@blogDetail')->name('blog.de
 Route::get('/blog/search','FrontendController@blogSearch')->name('blog.search');
 Route::post('/blog/filter','FrontendController@blogFilter')->name('blog.filter');
 
-Route::get('blog-cat/{slug}','FrontendController@blogByCategory')->name('blog.category');
+Route::get('blog-cat/{slug}','FrontendController@blogByCategory')->name('blog.category'); 
 Route::get('blog-tag/{slug}','FrontendController@blogByTag')->name('blog.tag');
 
 

@@ -37,8 +37,8 @@
                 <div class="col-sm-10">
                   <h2>مقالات</h2>
                     <div class="timeline">
-                        @if($posts)
-                        @foreach($posts as $post)
+                        @if($news)
+                        @foreach($news as $post)
                                  @if ($post->postcat[0]->{'title-ar'}!="اخبار")
 									 
                         {{ $post->postcat[0]->{'title-ar'} }}

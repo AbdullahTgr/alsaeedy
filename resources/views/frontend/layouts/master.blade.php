@@ -66,7 +66,7 @@ padding: 0;
 				"><span class="d-flex align-items-center" style="width: 120px; text-align:center">&nbsp;اخبار السعدي</span></div>
 				<marquee class="news-scroll" behavior="scroll" direction="right" onmouseover="this.stop();" onmouseout="this.start();"> 
 			  
-				@foreach($posts as $post)
+				@foreach($news as $post)
 					@if ($post->postcat[0]->{'title-ar'}=="اخبار")
 					<span class="dot"></span>
 					<span class="dot"></span>

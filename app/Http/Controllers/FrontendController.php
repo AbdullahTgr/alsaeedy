@@ -38,7 +38,7 @@ class FrontendController extends Controller
             App::setLocale("ar"); 
         session()->put('locale', "ar");
         }
-        
+         
     }
    
     public function index(Request $request){
@@ -59,7 +59,7 @@ class FrontendController extends Controller
         $tags=PostTag::get();
 
         
-        $posts=$this->getposts();
+        $news=$this->getposts();
         
         $hotposts=Post::getBlogByCategory('status','active')->orderBy('description-fr','DESC')->limit(4)->get();
         
@@ -76,7 +76,7 @@ class FrontendController extends Controller
 
         // return $category;
         return view('frontend.index')
-        ->with('posts',$posts)
+        ->with('news',$news)
         // ->with('posts_o',$posts_o)
                 ->with('banners',$banners)
                 ->with('categories',$categories)
@@ -92,27 +92,27 @@ class FrontendController extends Controller
     public function aboutUs(){
 
             // arabic
-            $posts=$this->getposts();
+            $news=$this->getposts();
 
-        return view('frontend.pages.about-us')->with('posts',$posts);
+        return view('frontend.pages.about-us')->with('news',$news);
             
     }
     public function terms(){
-        $posts=$this->getposts();
-        return view('frontend.pages.terms')->with('posts',$posts);
+        $news=$this->getposts();
+        return view('frontend.pages.terms')->with('news',$news);
     
     }
     public function policy(){
-        $posts=$this->getposts();
-        return view('frontend.pages.policy')->with('posts',$posts);
+        $news=$this->getposts();
+        return view('frontend.pages.policy')->with('news',$news);
     
     }
 
     public function contact(){
 
             // arabic
-            $posts=$this->getposts();
-        return view('frontend.pages.contact')->with('posts',$posts);
+            $news=$this->getposts();
+        return view('frontend.pages.contact')->with('news',$news);
                    
     }
 
@@ -150,15 +150,15 @@ class FrontendController extends Controller
         // $post=Post::where('status','active')->paginate(8);
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
 
-$posts=$this->getposts();
+$news=$this->getposts();
         // arabic
-        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post)->with('posts',$posts);   
+        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post)->with('news',$news);   
 
     }
 
     public function gm(){
-        $posts=$this->getposts();
-        return view('frontend.pages.gm')->with('posts',$posts);
+        $news=$this->getposts();
+        return view('frontend.pages.gm')->with('news',$news);
     }
 
 
@@ -269,8 +269,8 @@ if(isset($currentUserInfo->countryName)){
             ->orderBy('id','DESC')
            
             ->paginate(8);
-        $posts=$this->getposts();
-        return view('frontend.pages.blog') ->with('tags',$tags)->with('posts',$posts)->with('recent_posts',$rcnt_post)->with('posts',$posts);
+        $news=$this->getposts();
+        return view('frontend.pages.blog') ->with('tags',$tags)->with('news',$news)->with('recent_posts',$rcnt_post)->with('posts',$posts);
                    
 
     }
@@ -304,8 +304,8 @@ if(isset($currentUserInfo->countryName)){
         }
         // return $tagURL;
             // return $catURL;
-            $posts=$this->getposts();
-        return redirect()->route('blog',$catURL.$tagURL)->with('posts',$posts);
+            $news=$this->getposts();
+        return redirect()->route('blog',$catURL.$tagURL)->with('news',$news);
     }
 
     public function blogByCategory(Request $request){
@@ -313,8 +313,8 @@ if(isset($currentUserInfo->countryName)){
         $tags=PostTag::get();
 
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
-        $posts=$this->getposts();
-        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post->post)->with('recent_posts',$rcnt_post)->with('posts',$posts);
+        $news=$this->getposts();
+        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post->post)->with('recent_posts',$rcnt_post)->with('news',$news);
                    
     }
 
@@ -324,8 +324,8 @@ if(isset($currentUserInfo->countryName)){
         // return $post;
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
         $tags=PostTag::get();
-$posts=$this->getposts();
-        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post)->with('posts',$posts);
+$news=$this->getposts();
+        return view('frontend.pages.blog')->with('tags',$tags)->with('posts',$post)->with('recent_posts',$rcnt_post)->with('news',$news);
                    
     }
 
@@ -340,29 +340,29 @@ public function writers(){
 
     $writers=User::GetWritersposts(); 
         // arabic
-        $posts=$this->getposts();
-    return view('frontend.pages.writers')->with('writers',$writers)->with('posts',$posts);
+        $news=$this->getposts();
+    return view('frontend.pages.writers')->with('writers',$writers)->with('news',$news);
 }
 
 public function writer(Request $request){
      $writer=User::GetWriterposts($request->slug); 
         // arabic
-        $posts=$this->getposts();
-    return view('frontend.pages.writer')->with('writer',$writer)->with('posts',$posts);
+        $news=$this->getposts();
+    return view('frontend.pages.writer')->with('writer',$writer)->with('news',$news);
 }
 
 public function eid(){
 
     $writers=User::GetWritersposts(); 
         // arabic
-        $posts=$this->getposts();
-    return view('frontend.pages.eid')->with('posts',$posts);
+        $news=$this->getposts();
+    return view('frontend.pages.eid')->with('news',$news);
 }
 
 public function eid_name(Request $request){
         // arabic
-        $posts=$this->getposts();
-    return view('frontend.pages.eid_name')->with('name',$request->name)->with('posts',$posts);
+        $news=$this->getposts();
+    return view('frontend.pages.eid_name')->with('name',$request->name)->with('news',$news);
 }
 
 

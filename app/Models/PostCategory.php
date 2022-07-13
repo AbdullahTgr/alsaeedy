@@ -13,6 +13,6 @@ class PostCategory extends Model
     }
 
     public static function getBlogByCategory($slug){
-        return PostCategory::with('post')->where('slug',$slug)->first();
+        return PostCategory::with('post')->where('post_categories.slug',$slug)->first(); 
     }
 }

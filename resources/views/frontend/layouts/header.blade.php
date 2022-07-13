@@ -11,12 +11,12 @@
 
 
 .abdullahmostafa{
-    background: #000000;
+    background: #dddddd;
     padding: 0px 0px 15px 0;
 }
 
 .abdullahmostafa nav label{
-    background: linear-gradient(45deg, var(--red), var(--indigo));
+    background: linear-gradient(45deg, #a7a7a7, #000000);
     color: white;
     padding: 3px 15px;
     border-radius: 5px;
@@ -27,14 +27,14 @@
 }
 
 .abdullahmostafa nav label:hover{
-    background: linear-gradient(45deg, #ed0017, #340583);
+    background: linear-gradient(45deg, #f38792, #0f93ff);
     color: white;
     position: relative;
     border-radius: 5px;
     margin: 0;
     font-weight: bold;
     margin-left: 3px;
-    top: -7px;
+    top: -3px;
 }
 
 
