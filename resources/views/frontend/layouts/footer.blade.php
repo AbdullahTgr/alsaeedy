@@ -16,7 +16,7 @@
 						<!-- Single Widget -->
 						<div class="single-footer about">
 							<div class="logo">
-								<a href="/"><img src="@foreach($settings as $data) {{ $data->logo }} @endforeach" alt="logo"></a>
+								<a href="/"><img src="@foreach($settings as $data) {{ $data->logo }} @endforeach" alt="السعدي"></a>
 							</div>
 							@php
 								$settings=DB::table('settings')->get();
@@ -84,7 +84,7 @@
 						</div>
 						<div class="col-lg-6 col-12">
 							<div class="right">
-								<img src="{{asset('backend/img/payments.png')}}" alt="#">
+								<img src="{{asset('backend/img/payments.png')}}" alt="السعدي">
 							</div>
 						</div>
 					</div>

@@ -66,7 +66,7 @@
                         <li class="pull-left" style="
                             position: absolute;
     left: 0;
-                        "><a href="{{route('home')}}" style="padding:0;"><img width="50px" src="@foreach($settings as $data) {{$data->logo}} @endforeach" alt="logo"></a> </li>         
+                        "><a href="{{route('home')}}" style="padding:0;"><img width="50px" src="@foreach($settings as $data) {{$data->logo}} @endforeach" alt="السعدي"></a> </li>         
                         
                                         </ul>
                                     </div>

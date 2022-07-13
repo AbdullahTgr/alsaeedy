@@ -31,7 +31,7 @@ $path="";
 
     <meta name="twitter:description" content="السعدي - أكبر موقع عربي بالعالم ">
 
-	<meta name="keywords" content="موسوعة,عربية,شاملة,السعدي">
+	<meta name="keywords" content="موسوعة,عربية,شاملة,السعدي,مقالات">
 	<meta name="description" content="السعدي - أكبر موقع عربي بالعالم">
 	
     <meta property="og:type" content="article" />
@@ -40,7 +40,7 @@ $path="";
 
 @endsection
 
-@section('title',"السعدي - أكبر موقع عربي بالعالم")
+@section('title',"مقالات - السعدي - أكبر موقع عربي بالعالم")
 @section('main-content')
 
 
@@ -64,7 +64,7 @@ $path="";
         <div class="carousel-inner" role="listbox">
                 @foreach($banners as $key=>$banner)
                 <div class="carousel-item {{(($key==0)? 'active' : '')}}">
-                    <img class="first-slide" src="{{$banner->photo}}" alt="First slide">
+                    <img class="first-slide" src="{{$banner->photo}}" alt="مقالات">
    
                     
                 </div>  
