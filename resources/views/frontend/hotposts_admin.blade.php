@@ -26,7 +26,7 @@
                         <a href="{{route('blog.detail',$post->slug)}}" style="padding: 14px;
                             font-size: 13px;
                             font-weight: bold;">
-                        <img class="img-responsive pull-right" width="100%;" src="{{$post->photo}}" alt="">
+                        <img class="img-responsive pull-right" width="100%;" src="{{$post->photo}}"  alt="{{$post->{'title-ar'} }}">
             </a>
                         <li><a href="{{ route('post.visitors',$post->id) }}"><i class="fa fa-fire"></i>عرض المشاهدات</a></li>
                      

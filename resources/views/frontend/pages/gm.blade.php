@@ -158,9 +158,9 @@ body{
                   <div class="card">
                     <div class="card-body">
                       <div class="d-flex flex-column align-items-center text-center">
-                        <img src="{{ url('images/abdullah.png') }}" alt="Admin" class="rounded-circle" width="150">
+                        <img src="{{ url('images/abdullah.png') }}" alt="عبدالله مصطفي" class="rounded-circle" width="150">
                         <div class="mt-3">
-                          <h4>عبدالله</h4>
+                          <h3>عبدالله</h3>
                           <p class="text-secondary mb-1">عبدالله مصطفي | مطور ويب</p>
                           <p class="text-muted font-size-sm">الجيزة | 6اكتوبر</p>
                           <button class="btn btn-primary">تابع</button>

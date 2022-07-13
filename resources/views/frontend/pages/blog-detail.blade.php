@@ -270,7 +270,7 @@
                                 <!-- Single Post -->
                                 <div class="single-post col-12">
                                     <div class="image ">
-                                        <img src="{{$post->photo}}" alt="{{$post->photo}}">
+                                        <img src="{{$post->photo}}" alt="{{$post->{'title-ar'} }}">
                                     </div>
                                     <div class="content ">
                                         <h5><a href="{!! route('blog.detail',strip_tags($post->slug)) !!}">{{$post->{'title-ar'} }}</a></h5>

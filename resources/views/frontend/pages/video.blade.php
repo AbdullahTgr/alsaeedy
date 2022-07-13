@@ -33,7 +33,7 @@ $path="";
             <meta name="twitter:image" content=" {{ url($videos->{'title-fr'}) }}  - السعدي">
 
             <meta name="twitter:description" content=" {{ $videos->title }}  - السعدي">
-            <meta name="keywords" content="{{ str_replace('-',',',strip_tags($videos->slug)) }} ,السعدي, مقاطع فيديو,موسوعة,عربية,شاملة">
+            <meta name="keywords" content="{{ str_replace('-',',',strip_tags($videos->slug)) }} ,السعدي, مقاطع فيديو,موسوعة,عربية,شاملة,فيديو">
 
             
             <meta property="og:description" content=" {{ $videos->title }}  - السعدي">
@@ -103,6 +103,7 @@ $path="";
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+                        <h3>فيديو</h3>
                     <div class="row">
                         @if (isset($channel))
                         <div class="col-12" style="font-size: 20px;">
@@ -141,7 +142,7 @@ $path="";
                             <div class="col-lg-6 col-md-6 col-12">
                                 <!-- Start Single Blog  -->
                                 <div class="shop-single-blog col-12">
-                                <img src="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp" alt="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp">
+                                <img src="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp" alt="{{$video->{'title-ar'} }}">
                                     <div class="content col-12">
                                         @php 
                                             $author_info=DB::table('users')->select('name')->where('id',$video->added_by)->get();
@@ -264,7 +265,7 @@ $path="";
     background: #f1f1f1;
                                 
                                 " >
-                                        <img src="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp" alt="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp">
+                                        <img src="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp"  alt="{{$video->{'title-ar'} }}">
                                     
                                     <div class="content col-12" style="    padding: 10px 0;">
                                         

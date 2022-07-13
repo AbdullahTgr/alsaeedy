@@ -66,7 +66,7 @@
 
         <div class="blog-info">
 
-            <img src="{{ $data->photo }}" class="img-responsive" alt="{{$post->photo}}">
+            <img src="{{ $data->photo }}" class="img-responsive"  alt="{{$data->{'name'} }}">
 		
 	
 			<div class="date">
@@ -89,7 +89,7 @@
 			<a href="{{route('blog.detail',$post->slug)}}" style="padding: 14px;
 				font-size: 13px;
 				font-weight: bold;">
-			<img class="img-responsive pull-right" src="{{$post->photo}}" alt="">{!! $post->{'summary-ar'} !!}
+			<img class="img-responsive pull-right" src="{{$post->photo}}"  alt="{{$post->{'title-ar'} }}">{!! $post->{'summary-ar'} !!}
 </a>
 		 </p>
 

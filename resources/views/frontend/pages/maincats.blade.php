@@ -87,7 +87,7 @@
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
                   <a href="#">
-                    <img src="{{$maincategories->{'title-fr'} }}" class="rounded-circle">
+                    <img src="{{$maincategories->{'title-fr'} }}" alt="{{$maincategories->{'title-ar'} }}" class="rounded-circle">
                   </a>
                 </div>
               </div>
@@ -195,7 +195,7 @@
                     
       <div class="card-profile-image">
         <a href="#">
-          <img src="{{$cat->{'title-fr'} }}" class="rounded-circle " style="
+          <img src="{{$cat->{'title-fr'} }}"  alt="{{$cat->{'title-ar'} }}" class="rounded-circle " style="
           position: absolute;
     width: 55px;
     left: 12px;

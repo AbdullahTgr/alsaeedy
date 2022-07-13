@@ -82,7 +82,7 @@ $path="";
 
                                 <div class="shop-single-blog col-12">
                                 <div> مشاهدات <i class="fa fa-eye"></i> {{ $post->{'description-fr'} }} </div>
-                                <img src="{{$post->photo}}" alt="{{$post->photo}}">
+                                <img src="{{$post->photo}}"  alt="{{$post->{'title-ar'} }}">
                                     <div class="content col-12">
                                         @php 
                                             $author_info=DB::table('users')->select('name')->where('id',$post->added_by)->get();
@@ -166,7 +166,7 @@ $path="";
                                 <div class="single-post " style="width: 100%" >
                                     <div class="image pull-left">
                                         <div> مشاهدات <i class="fa fa-eye"></i> {{ $post->{'description-fr'} }} </div>
-                                        <img src="{{$post->photo}}" alt="{{$post->photo}}">
+                                        <img src="{{$post->photo}}"  alt="{{$post->{'title-ar'} }}">
                                     </div>
                                     <div class="content">
                                         <h5><a href="{!! route('blog.detail',strip_tags($post->slug)) !!}">{{$post->{'title-ar'} }}</a></h5>

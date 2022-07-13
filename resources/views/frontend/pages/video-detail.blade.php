@@ -244,7 +244,7 @@ if (isset($my_array_of_vars['v'])) {
         background: #f1f1f1;
                                     
                                     " >
-                                            <img src="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp" alt="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp">
+                                            <img src="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp"  alt="{{$video->{'title-ar'} }}">
                                         
                                         <div class="content col-12" style="    padding: 10px 0;">
                                             

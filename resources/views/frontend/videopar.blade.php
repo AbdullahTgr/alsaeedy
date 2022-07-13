@@ -111,7 +111,7 @@ if (isset($my_array_of_vars['v'])) {
 		<a href="{{route('video.detail',$video->slug)}}" title="Claudio Bravo, antes su debut con el Barça en la Liga">
             
             
-			<img src="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp" alt="Barca" class="img-responsive" height="130px" />
+			<img src="https://i.ytimg.com/vi_webp/{{ $ur   }}/sddefault.webp"  alt="{{$video->{'title-ar'} }}" class="img-responsive" height="130px" />
 			<h2> {{$video->{'title-ar'} }}</h2><div><i class="fa fa-eye"></i> {{ intval($video->{'description-fr'}) }} </div>
 
 			<span class="glyphicon glyphicon-play-circle"></span>

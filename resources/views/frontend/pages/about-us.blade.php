@@ -43,7 +43,7 @@
 							<div class="button">
 								<a href="https://www.youtube.com/watch?v=x2faZxiUaeI&list=PL5YQQjbl8yGqf6P5dWH8ltDzvnkRi9UEu" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a>
 							</div>
-							<img src="@foreach($settings as $data) {{$data->photo}} @endforeach" alt="@foreach($settings as $data) {{$data->photo}} @endforeach">
+							<img src="@foreach($settings as $data) {{$data->photo}} @endforeach" alt="السعدي">
 						</div>
 					</div>
 				</div>
