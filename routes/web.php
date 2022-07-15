@@ -116,11 +116,11 @@ Route::get('/تهنئة_عيد_الاضحي','FrontendController@eid')->name('ei
 Route::get('/تهنئة_عيد_الاضحي','FrontendController@eid_name')->name('eid_name');
 
 // video 
-Route::get('/فيديو','Front_vid_Controller@video')->name('video');
-Route::get('/عرض_فيديو/{slug}','Front_vid_Controller@videoDetail')->name('video.detail');
-Route::get('/فيديو/بحث','Front_vid_Controller@videoSearch')->name('video.search');
-Route::post('/فيديو/فلتر','Front_vid_Controller@videoFilter')->name('video.filter');
-Route::get('قناة/{slug}','Front_vid_Controller@videoByCategory')->name('video.category');
+// Route::get('/فيديو','Front_vid_Controller@video')->name('video');
+// Route::get('/عرض_فيديو/{slug}','Front_vid_Controller@videoDetail')->name('video.detail');
+// Route::get('/فيديو/بحث','Front_vid_Controller@videoSearch')->name('video.search');
+// Route::post('/فيديو/فلتر','Front_vid_Controller@videoFilter')->name('video.filter');
+// Route::get('قناة/{slug}','Front_vid_Controller@videoByCategory')->name('video.category');
 
 Route::get('اشخاص/{slug}','Front_vid_Controller@videoByMaincategory')->name('video.maincategory');  
 Route::get('فئات_فيديو/{slug}','Front_vid_Controller@videoByMaincategoryroot')->name('video.maincategoryroot');
