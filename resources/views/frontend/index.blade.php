@@ -84,8 +84,8 @@ $path="";
 <!--/ End Slider Area -->
 
  
-@include('frontend.videopar') 
-@include('frontend.videocategories')
+{{-- @include('frontend.videopar') 
+@include('frontend.videocategories') --}}
  <!-- ShareThis BEGIN --><div class="sharethis-inline-follow-buttons"></div><!-- ShareThis END -->
  @include('frontend.hotposts')
  @include('frontend.collection')
