@@ -149,17 +149,8 @@ if (isset($my_array_of_vars['v'])) {
                                     <div class="row">
                                         <div class="col-12">
                                             <!-- ShareThis BEGIN --><div class="sharethis-inline-follow-buttons"></div><!-- ShareThis END -->
-                                            <div class="content-tags">
-                                                <h4>{{ Lang::get('msg.tag') }}:</h4>
-                                                <ul class="tag-inner">
-                                                    @php 
-                                                        $tags=explode(',',$video->tags);
-                                                    @endphp
-                                                    @foreach($tags as $tag)
-                                                    <li><a href="javascript:void(0);">{{$tag}}</a></li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
+                                          
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -272,14 +263,8 @@ if (isset($my_array_of_vars['v'])) {
                         <!-- Single Widget -->
                         <!--/ End Single Widget -->
                         <!-- Single Widget -->
-                        <div class="single-widget side-tags">
-                            <h3 class="title">{{ Lang::get('msg.tags') }}</h3>
-                            <ul class="tag">
-                                @foreach(Helper::videoTagList('videos') as $tag)
-                                    <li><a href="">{{$tag->{'title'} }}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
+             
+                        
                         <!--/ End Single Widget -->
                         <!-- Single Widget -->
                         <div class="single-widget newsletter">

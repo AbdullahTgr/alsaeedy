@@ -93,13 +93,7 @@
 </a>
 		 </p>
 
-        <ul class="blog-tags list-unstyled list-inline">
-			@foreach (explode(",",$post->{'tags'}) as $item)
-				
-              <li><a href="{{route('blog.tag',$item)}}"><i class="fa fa-tag"></i>{{$item}}</a></li>
-			@endforeach
-			
-          </ul> 
+		  
       </div>
       <!-- BLOG POST 1 - END --> 
 								 

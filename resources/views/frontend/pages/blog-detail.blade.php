@@ -102,23 +102,8 @@
                                         <p>{!! ($post->{'description-ar'}) !!}</p>
                                     </div>
                                 </div>
-                                <div class="share-social">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="content-tags">
-                                                <h4>{{ Lang::get('msg.tag') }}:</h4>
-                                                <ul class="tag-inner">
-                                                    @php 
-                                                        $tags=explode(',',$post->tags);
-                                                    @endphp
-                                                    @foreach($tags as $tag)
-                                                    <li><a href="javascript:void(0);">{{$tag}}</a></li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                          
+                                
                             </div>
                             @auth
                             <div class="col-12 mt-4">			 
@@ -298,14 +283,7 @@
                         <!-- Single Widget -->
                         <!--/ End Single Widget -->
                         <!-- Single Widget -->
-                        <div class="single-widget side-tags">
-                            <h3 class="title">{{ Lang::get('msg.tags') }}</h3>
-                            <ul class="tag">
-                                @foreach(Helper::postTagList('posts') as $tag)
-                                    <li><a href="">{{$tag->{'title'} }}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
+                        
                         <!--/ End Single Widget -->
                         <!-- Single Widget -->
                         <div class="single-widget newsletter">

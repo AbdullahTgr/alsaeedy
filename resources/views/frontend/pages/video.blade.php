@@ -294,26 +294,8 @@ $path="";
                         <!-- Single Widget -->
                         <!--/ End Single Widget -->
                         <!-- Single Widget -->
-                        <div class="single-widget side-tags">
-                            <h3 class="title">{{ Lang::get('msg.tags') }}</h3>
-                            <ul class="tag">
-                                @if(!empty($_GET['tag']))
-                                    @php 
-                                        $filter_tags=explode(',',$_GET['tag']);
-                                    @endphp
-                                @endif
-                                <form action="{{route('video.filter')}}" method="POST">
-                                    @csrf
-                                    @foreach(Helper::videoTagList('videos') as $tag)
-                                        <li>
-                                            <li>
-                                                <a href="{{route('video.tag',$tag->title)}}">{{$tag->title}} </a>
-                                            </li>
-                                        </li>
-                                    @endforeach
-                                </form>
-                            </ul>
-                        </div>
+          
+                        
                         <!--/ End Single Widget -->
                         <!-- Single Widget -->
                         <div class="single-widget newsletter">
