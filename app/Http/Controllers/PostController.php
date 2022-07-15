@@ -62,6 +62,76 @@ class PostController extends Controller
             'status'=>'required|in:active,inactive'
         ]);
 
+
+
+        $old_sitemap= \Illuminate\Support\Facades\File::get('sitemap.xml');
+
+       // $old_sitemap.='https//:adasdafeaf.com';
+        $xmlObject = simplexml_load_string($old_sitemap);
+                   
+         $json = json_encode($xmlObject);
+
+        $phpArray = json_decode($json, true); 
+
+        // '{"label":["rent","heating","utilities","internet_tv" ...],"value":[435,30,0,0 ...]}';
+
+
+        
+ 
+$slug_o=Str::slug($request->{'title-ar'});
+$arr=[];
+
+$arr['loc']='https://alsaeedy.com/blog-detail/'.$slug_o;
+$arr["lastmod"]="2022-07-15T17:52:41+00:00";
+$arr["changefreq"]="hourly";
+$arr["priority"]="1.00";
+
+
+// $v=json_encode($arr);
+
+
+array_push($phpArray["url"],$arr);
+
+
+
+
+$top='<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+';
+$middel="";
+$bottom='</urlset>';
+
+
+// return gettype($phpArray['url']);
+
+// return $json;
+
+foreach($phpArray['url'] as $jso){
+  //  $jso['loc'].$jso['lastmod'].'';
+  if(isset($jso['loc'])){
+  $middel.='
+<url>
+    <loc>'.$jso['loc'].'</loc>
+    <lastmod>'.$jso['lastmod'].'</lastmod>
+    <changefreq>'.$jso['changefreq'].'</changefreq>
+    <priority>'.$jso['priority'].'</priority>
+</url>';  
+  }
+
+}
+
+
+
+ \Illuminate\Support\Facades\File::put('sitemap.xml', $top.$middel.$bottom);
+
+        
+ 
         $data=$request->all();
 
         if(!isset($request->added_by)){
