@@ -87,9 +87,31 @@
 
           <p>
 			<a href="{{route('blog.detail',$post->slug)}}" style="padding: 14px;
-				font-size: 13px;
+				font-size: 13px; 
 				font-weight: bold;">
-			<img class="img-responsive pull-right" src="{{$post->photo}}"  alt="{{$post->{'title-ar'} }}">{!! $post->{'summary-ar'} !!}
+@php
+$arr=explode("/",$post->photo);
+$arrcount=count($arr);
+$newpath="/";
+
+@endphp
+
+@for ($i = 1; $i < $arrcount; $i++)
+
+	@php
+	if($i==$arrcount-1){
+		$newpath.='thumbs/'.$arr[$i];
+	}else{
+		$newpath.=$arr[$i]."/";
+	}
+		
+	@endphp
+	
+@endfor
+
+
+
+			<img class="img-responsive pull-right" src="{{$newpath}}"  alt="{{$post->{'title-ar'} }}">{!! $post->{'summary-ar'} !!}
 </a>
 		 </p>
 
