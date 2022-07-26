@@ -1,0 +1,6 @@
+[16-Jul-2022 22:46:45 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 20480 bytes) in /home2/ieisco23/alsaeedy.com/vendor/intervention/image/src/Intervention/Image/Gd/Decoder.php on line 138
+[16-Jul-2022 22:46:45 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 32768 bytes) in /home2/ieisco23/alsaeedy.com/vendor/symfony/error-handler/Error/FatalError.php on line 1
+[16-Jul-2022 22:47:04 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 20480 bytes) in /home2/ieisco23/alsaeedy.com/vendor/intervention/image/src/Intervention/Image/Gd/Decoder.php on line 138
+[16-Jul-2022 22:47:04 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 32768 bytes) in /home2/ieisco23/alsaeedy.com/vendor/symfony/error-handler/Error/FatalError.php on line 1
+[16-Jul-2022 22:48:24 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 20480 bytes) in /home2/ieisco23/alsaeedy.com/vendor/intervention/image/src/Intervention/Image/Gd/Decoder.php on line 138
+[16-Jul-2022 22:48:24 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 32768 bytes) in /home2/ieisco23/alsaeedy.com/vendor/symfony/error-handler/Error/FatalError.php on line 1
