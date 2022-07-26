@@ -24,10 +24,6 @@
 
 
 
-<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=62246bde2e0ffb001379988e&product=sticky-share-buttons' async='async'></script>
-
-
-
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5062667702348863"
 	crossorigin="anonymous"></script>
 </head>
