@@ -37,8 +37,8 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'mail.alsaeedy.com'),
-            'port' => env('MAIL_PORT', 465),
+            'host' => env('MAIL_HOST', 'mail.alsaeedy.com:2080'),
+            'port' => env('MAIL_PORT', 2080),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
