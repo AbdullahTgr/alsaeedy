@@ -12,7 +12,7 @@
   <div class="container">
 
     <!-- Outer Row -->
-    <div class="row justify-content-center"> 
+    <div class="row justify-content-center">
 
       <div class="col-xl-10 col-lg-12 col-md-9 mt-5">
 
@@ -26,12 +26,12 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4"> {{  Lang::get('msg.Alsaidi')  }}</h1>
                   </div>
-                  <form class="user"  method="POST" action="{{ route('login') }}"> 
+                  <form class="user"  method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..."  required autocomplete="email" autofocus>
                         @error('email')
-                            <span class="invalid-feedback" role="alert"> 
+                            <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
@@ -43,7 +43,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                    
+
                     </div>
                     <div class="form-group">
                         <div class="form-check">
@@ -59,7 +59,7 @@
                     </button>
                   </form>
                   <hr>
-                   
+
                   <div class="text-center">
                     @if (Route::has('password.request'))
                         <a class="btn btn-link small" href="{{ route('password.request') }}">
