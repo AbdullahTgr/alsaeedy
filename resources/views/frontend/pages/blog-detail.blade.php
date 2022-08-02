@@ -112,7 +112,6 @@
                                         <h2 class="reply-title">{{ Lang::get('msg.leaveacomment') }}</h2>
                                         <!-- Comment Form -->
                                         <form class="form comment_form" id="commentForm" action="{{route('post-comment.store',$post->slug)}}" method="POST">
-                                            @csrf
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="form-group">
