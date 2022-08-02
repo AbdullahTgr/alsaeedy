@@ -58,7 +58,7 @@ class OrderController extends Controller
         ]);
         // return $request->all();
 
-        if(empty(Cart::where('user_id',\Session::get('virtual_user'))->where('order_id',null)->first())){
+        if(empty(Cart::where('user_id',session()->get('virtual_user'))->where('order_id',null)->first())){
             request()->session()->flash('error','Cart is Empty !');
             return back();
         }
@@ -93,7 +93,7 @@ class OrderController extends Controller
         $order=new Order();
         $order_data=$request->all();
         $order_data['order_number']='ORD-'.strtoupper(Str::random(10));
-        $order_data['user_id']=\Session::get('virtual_user');
+        $order_data['user_id']=session()->get('virtual_user');
         $order_data['shipping_id']=$request->shipping;
         $shipping=Shipping::where('id',$order_data['shipping_id'])->pluck('price');
         // return session('coupon')['value'];
@@ -146,7 +146,7 @@ class OrderController extends Controller
             session()->forget('cart');
             session()->forget('coupon');
         }
-        Cart::where('user_id', \Session::get('virtual_user'))->where('order_id', null)->update(['order_id' => $order->id]);
+        Cart::where('user_id',session()->get('virtual_user'))->where('order_id', null)->update(['order_id' => $order->id]);
 
         // dd($users);
         request()->session()->flash('success','Your product successfully placed in order');
@@ -246,7 +246,7 @@ class OrderController extends Controller
     }
     public function productTrackOrder(Request $request){
         // return $request->all();
-        $order=Order::where('user_id',\Session::get('virtual_user'))->where('order_number',$request->order_number)->first();
+        $order=Order::where('user_id',session()->get('virtual_user'))->where('order_number',$request->order_number)->first();
         if($order){
             if($order->status=="new"){
             request()->session()->flash('success','Your order has been placed. please wait.');

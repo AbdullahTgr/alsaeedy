@@ -56,7 +56,7 @@ class CartController extends Controller
             return back();
         }
 
-        $already_cart = Cart::where('user_id', Session::get('virtual_user'))->where('order_id',null)->where('product_id', $product->id)->first();
+        $already_cart = Cart::where('user_id', session()->get('virtual_user'))->where('order_id',null)->where('product_id', $product->id)->first();
         // return $already_cart;
         if($already_cart) {
             // dd($already_cart);
@@ -69,14 +69,14 @@ class CartController extends Controller
         }else{
 
             $cart = new Cart;
-            $cart->user_id = Session::get('virtual_user');
+            $cart->user_id = session()->get('virtual_user');
             $cart->product_id = $product->id;
             $cart->price = ($product->price-($product->price*$product->discount)/100);
             $cart->quantity = 1;
             $cart->amount=$cart->price*$cart->quantity;
             if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return back()->with('error','Stock not sufficient!.');
             $cart->save();
-            $wishlist=Wishlist::where('user_id',Session::get('virtual_user'))->where('cart_id',null)->update(['cart_id'=>$cart->id]);
+            $wishlist=Wishlist::where('user_id',session()->get('virtual_user'))->where('cart_id',null)->update(['cart_id'=>$cart->id]);
         }
         request()->session()->flash('success','Product successfully added to cart');
         return back();
@@ -99,7 +99,7 @@ class CartController extends Controller
             return back();
         }
 
-        $already_cart = Cart::where('user_id', Session::get('virtual_user') )->where('order_id',null)->where('product_id', $product->id)->first();
+        $already_cart = Cart::where('user_id',session()->get('virtual_user') )->where('order_id',null)->where('product_id', $product->id)->first();
 
         // return $already_cart;
 
@@ -115,7 +115,7 @@ class CartController extends Controller
         }else{
 
             $cart = new Cart;
-            $cart->user_id = Session::get('virtual_user');
+            $cart->user_id = session()->get('virtual_user');
             $cart->product_id = $product->id;
             $cart->price = ($product->price-($product->price*$product->discount)/100);
             $cart->quantity = $request->quant[1];

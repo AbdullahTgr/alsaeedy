@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes(['register'=>false]);
 
-Route::get('user/login','FrontendController@login')->name('login.form');
-Route::post('user/login','FrontendController@loginSubmit')->name('login.submit');
-Route::get('user/logout','FrontendController@logout')->name('user.logout');
+// Route::get('user/login','FrontendController@login')->name('login.form');
+// Route::post('user/login','FrontendController@loginSubmit')->name('login.submit');
+// Route::get('user/logout','FrontendController@logout')->name('user.logout');
 
 Route::get('اتفاقية_الاستخدام','FrontendController@policy')->name('policy');
 Route::get('سياسة_الخصوصية','FrontendController@terms')->name('terms');
@@ -32,10 +32,10 @@ Route::post('login','Auth\LoginController@login');
 
 
 
-Route::get('user/register','FrontendController@register')->name('register.form');
-Route::post('user/register','FrontendController@registerSubmit')->name('register.submit');
-// Reset password
-Route::get('password-reset', 'FrontendController@showResetForm')->name('password.Reset');
+// Route::get('user/register','FrontendController@register')->name('register.form');
+// Route::post('user/register','FrontendController@registerSubmit')->name('register.submit');
+// // Reset password
+// Route::get('password-reset', 'FrontendController@showResetForm')->name('password.Reset');
 
 
 Route::get('/','FrontendController@home')->name('home');

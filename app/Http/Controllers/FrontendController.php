@@ -106,12 +106,11 @@ if(isset($currentUserInfo->countryName)){
 
 
         if(count($check)==0){
-            Session::put('virtual_user',Clicks::create($data)->id);
-
+            session()->put('virtual_user',Clicks::create($data)->id);
 
         }else{
-            Session::put('virtual_user',$check[0]->id);
-             Session::get('virtual_user');
+            session()->put('virtual_user', $check[0]->id);
+            session()->get('virtual_user');
         }
 
     }
