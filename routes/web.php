@@ -270,16 +270,6 @@ Route::group(['prefix'=>'/moderator','middleware'=>['auth','moderator']],functio
 
 
 
-
-
-
-
-
-
-
-
-
-
 // User section start
 Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
     Route::get('/','HomeController@index')->name('user');
