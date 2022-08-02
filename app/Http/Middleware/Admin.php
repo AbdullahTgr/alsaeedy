@@ -13,7 +13,7 @@ class Admin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next) 
+    public function handle($request, Closure $next)
     {
         if($request->user()->role=='admin'){
             return $next($request);
@@ -21,7 +21,6 @@ class Admin
         else{
             request()->session()->flash('error','You do not have any permission to access this page');
             return redirect()->route($request->user()->role);
-        } 
+        }
     }
 }
- 

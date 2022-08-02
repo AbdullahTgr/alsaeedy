@@ -51,25 +51,24 @@ class LoginController extends Controller
         // dd($provider);
      return Socialite::driver($provider)->redirect();
     }
- 
+
     public function Callback($provider)
-    { 
-        
-        $userSocial =   Socialite::driver($provider)->stateless()->user(); 
-        $users      =   User::where(['email' => $userSocial->getEmail()])->first();  
+    {
+        $userSocial =   Socialite::driver($provider)->stateless()->user();
+        $users      =   User::where(['email' => $userSocial->getEmail()])->first();
         // dd($users);
         if($users){
             Auth::login($users);
             return redirect('/')->with('success','You are login from '.$provider);
         }else{
             $user = User::create([
-                'name'          => $userSocial->getName(),
-                'email'         => $userSocial->getEmail(),
-                'image'         => $userSocial->getAvatar(),
-                'provider_id'   => $userSocial->getId(),
-                'provider'      => $provider,
+                'name'          =>  $userSocial->getName(),
+                'email'         =>  $userSocial->getEmail(),
+                'image'         =>  $userSocial->getAvatar(),
+                'provider_id'   =>  $userSocial->getId(),
+                'provider'      =>  $provider,
             ]);
-         return redirect()->route('home'); 
+         return redirect()->route('home');
         }
     }
 }
