@@ -27,7 +27,7 @@
                     <h1 class="h4 text-gray-900 mb-4"> {{  Lang::get('msg.Alsaidi')  }}</h1>
                   </div>
                   <form class="user"  method="POST" action="{{ route('login') }}">
-                    @csrf
+                    {{ csrf_field() }}
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..."  required autocomplete="email" autofocus>
                         @error('email')

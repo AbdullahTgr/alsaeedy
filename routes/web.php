@@ -24,8 +24,8 @@ Route::get('اتفاقية_الاستخدام','FrontendController@policy')->nam
 Route::get('سياسة_الخصوصية','FrontendController@terms')->name('terms');
 
 // Socialite
-// Route::get('login/{provider}/', 'Auth\LoginController@redirect')->name('login.redirect');
-// Route::get('login/{provider}/callback/', 'Auth\LoginController@Callback')->name('login.callback');
+Route::get('login/{provider}/', 'Auth\LoginController@redirect')->name('login.redirect');
+Route::get('login/{provider}/callback/', 'Auth\LoginController@Callback')->name('login.callback');
 
 Route::get('login','Auth\LoginController@showLoginForm')->name('login');
 Route::post('login','Auth\LoginController@login');
@@ -162,6 +162,7 @@ Route::get('payment/success', 'PayPalController@success')->name('payment.success
 
 Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Auth::user();
+
     Route::get('/','AdminController@index')->name('admin');
     Route::get('/file-manager','AdminController@filemanager')->name('file-manager');
 

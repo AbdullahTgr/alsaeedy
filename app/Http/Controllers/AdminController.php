@@ -21,11 +21,11 @@ class AdminController extends Controller
     }
 
     public function index(){
-        
+
         $data = User::select(\DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"), \DB::raw("DAY(created_at) as day"))
         ->where('created_at', '>', Carbon::today()->subDay(6))
         ->groupBy('day_name','day')
-        ->orderBy('day') 
+        ->orderBy('day')
         ->get();
      $array[] = ['Name', 'Number'];
      foreach($data as $key => $value)
@@ -38,11 +38,11 @@ class AdminController extends Controller
 
     public function profile(){
         $profile=Auth()->user();
-        // return $profile; 
+        // return $profile;
         return view('backend.users.profile')->with('profile',$profile);
     }
     public function filemanager(){
-        return view('backend.layouts.file-manager'); 
+        return view('backend.layouts.file-manager');
     }
     public function profileUpdate(Request $request,$id){
         // return $request->all();
@@ -69,7 +69,7 @@ class AdminController extends Controller
         $videos = Video::orderBy('description-fr','DESC')->limit(4)->get();
 
         $clicks=Clicks::select('prop5',Clicks::raw('count(*) as total') )->groupBy('prop5')->get();
-        
+
 
         return view('backend.visito')->with('clicks',$clicks)->with('hotposts',$hotposts)->with('videos',$videos);
     }
@@ -84,7 +84,7 @@ class AdminController extends Controller
 
 
         $clicks=Clicks::select('prop5',Clicks::raw('count(*) as total') )->groupBy('prop5')->where('ref_id',$id)->get();
-        
+
 
 
         return view('backend.visito')->with('clicks',$clicks)->with('hotposts',$hotposts)->with('videos',$videos)->with('post_id',$id);
@@ -99,23 +99,23 @@ class AdminController extends Controller
 
         $q=explode(',',$name);
 if(count($q)>1){
-    
+
    $q=explode(',',$name);
-   
+
     $country=$q[0];
     $id=$q[1];
     $clicks=Clicks::where('prop5',$country)->where('ref_id',$id)->get();
 }else{
    // return $name;
         $clicks=Clicks::where('prop5',$name)->get();
-        
+
 }
 
 
 
-       
-        
-        
+
+
+
         return view('backend.visito')->with('clicks',$clicks)->with('sp','1')->with('hotposts',$hotposts)->with('videos',$videos)->with('art','1');
     }
 
@@ -128,14 +128,14 @@ if(count($q)>1){
 
     //     return view('backend.visito')->with('clicks',$clicks)->with('sp','1')->with('hotposts',$hotposts)->with('videos',$videos);
     // }
-    
-
-
-    
 
 
 
-    
+
+
+
+
+
 
 
     public function settingsUpdate(Request $request){
@@ -173,9 +173,9 @@ if(count($q)>1){
             'new_password' => ['required'],
             'new_confirm_password' => ['same:new_password'],
         ]);
-   
+
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
-   
+
         return redirect()->route('admin')->with('success','Password successfully changed');
     }
 

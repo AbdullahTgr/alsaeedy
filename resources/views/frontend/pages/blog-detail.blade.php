@@ -1,9 +1,9 @@
 @extends('frontend.layouts.master')
 
-@php 
+@php
                                                         $tags=explode(',',$post->tags);
                                                     @endphp
-                                                    
+
 @section('meta')
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,13 +11,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    
-	<meta property="og:url" content="{!! route('blog.detail',strip_tags($post->slug)) !!}"> 
+
+	<meta property="og:url" content="{!! route('blog.detail',strip_tags($post->slug)) !!}">
 
 	<meta name="keywords" content="{{ str_replace('-',',',strip_tags($post->slug)) }}@foreach($tags as $tag),{{ $tag}}@endforeach ,السعدي">
 	<meta name="description" content="{!!  strip_tags($post->{'summary-ar'} ) !!} - السعدي">
-	
-    
+
+
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="{!! strip_tags($post->{'title-ar'}) !!} - السعدي">
 	<meta property="og:image"  itemprop="image"  content="{{ url($post->photo) }} ">
@@ -44,7 +44,7 @@
         </div>
     </div>
     <!-- End Breadcrumbs -->
-        
+
     <!-- Start Blog Single -->
     <section class="blog-single section">
         <div class="container">
@@ -82,10 +82,10 @@
 
 
                                 <div class="image">
-                                    
+
                                     <img src="{{$post->photo}}" alt="{{$post->photo}}">
                                 </div>
-                                <div class="blog-detail">  
+                                <div class="blog-detail">
                                     <h2 class="blog-title">{{$post->{'title-ar'} }}</h2>
                                     <div class="blog-meta">
                                         <span class="author"><a href="javascript:void(0);"><i class="fa fa-user"></i>{{ Lang::get('msg.by') }} {{$post->author_info['name']}}</a><a href="javascript:void(0);"><i class="fa fa-calendar"></i>{{$post->created_at->format('M d, Y')}}</a><a href="javascript:void(0);"><i class="fa fa-comments"></i>{{ Lang::get('msg.comment') }} ({{$post->allComments->count()}})</a></span>
@@ -96,17 +96,17 @@
                                     <div class="content">
                                         @if($post->{'quote-ar'})
                                         <blockquote> <i class="fa fa-quote-left"></i> {!! ($post->{'quote-ar'}) !!} </blockquote>
-                                        @endif 
+                                        @endif
                                         <p>{!! ($post->{'summary-ar'}) !!}</p>
                                         <!-- ShareThis BEGIN --><div class="sharethis-inline-follow-buttons"></div><!-- ShareThis END -->
                                         <p>{!! ($post->{'description-ar'}) !!}</p>
                                     </div>
                                 </div>
-                          
-                                
+
+
                             </div>
                             @auth
-                            <div class="col-12 mt-4">			 
+                            <div class="col-12 mt-4">
                                 <div class="reply">
                                     <div class="reply-head comment-form" id="commentFormContainer">
                                         <h2 class="reply-title">{{ Lang::get('msg.leaveacomment') }}</h2>
@@ -143,12 +143,12 @@
                                         </form>
                                         <!-- End Comment Form -->
                                     </div>
-                                </div>			
+                                </div>
                             </div>
-                            	
-                            @else 
+
+                            @else
                             <p class="text-center p-5">
-                                <div class="col-12 mt-4">			
+                                <div class="col-12 mt-4">
                                     <div class="reply">
                                         <div class="reply-head comment-form" id="commentFormContainer">
                                             <h2 class="reply-title">{{ Lang::get('msg.leaveacomment') }}</h2>
@@ -185,24 +185,24 @@
                                             </form>
                                             <!-- End Comment Form -->
                                         </div>
-                                    </div>			
+                                    </div>
                                 </div>
                             </p>
 
-                           
+
                             <!--/ End Form -->
-                            @endauth										
+                            @endauth
                             <div class="col-12">
                                 <div class="comments">
                                     <h3 class="comment-title"> {{ Lang::get('msg.comments') }} ({{$post->allComments->count()}})</h3>
                                     <!-- Single Comment -->
                                     @include('frontend.pages.comment', ['comments' => $post->comments,'commentsno' => $post->commentsno, 'post_id' => $post->id, 'depth' => 3])
                                     <!-- End Single Comment -->
-                                    
-  
-                                    
-                                </div>									
-                            </div>	
+
+
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -229,20 +229,20 @@
                         </div>
                         <!--/ End Single Widget -->
                         <!-- Single Widget -->
-                        
+
 
                         @if(session()->get('locale')=="en")
 {{-- ////                             english                 /// --}}
-                        
+
 
                         @elseif (session()->get('locale')=="fr")
 {{-- ////                             french                 /// --}}
-                            
-                        
+
+
                         @else
-                      
+
 {{-- ////                             arabic                 /// --}}
-                        
+
 
                         @endif
 
@@ -260,16 +260,16 @@
                                     <div class="content ">
                                         <h5><a href="{!! route('blog.detail',strip_tags($post->slug)) !!}">{{$post->{'title-ar'} }}</a></h5>
                                         <ul class="comment">
-                                        @php 
+                                        @php
                                             $author_info=DB::table('users')->select('name')->where('id',$post->added_by)->get();
                                         @endphp
                                             <li><i class="fa fa-calendar" aria-hidden="true"></i>{{$post->created_at->format('d M, y')}}</li>
-                                            <li><i class="fa fa-user" aria-hidden="true"></i> 
+                                            <li><i class="fa fa-user" aria-hidden="true"></i>
                                                 @foreach($author_info as $data)
                                                     @if($data->name)
                                                         {{$data->name}}
                                                     @else
-                                                    {{ Lang::get('msg.anonymous') }} 
+                                                    {{ Lang::get('msg.anonymous') }}
                                                     @endif
                                                 @endforeach
                                             </li>
@@ -283,7 +283,7 @@
                         <!-- Single Widget -->
                         <!--/ End Single Widget -->
                         <!-- Single Widget -->
-                        
+
                         <!--/ End Single Widget -->
                         <!-- Single Widget -->
                         <div class="single-widget newsletter">
@@ -313,7 +313,7 @@
 @push('scripts')
 <script>
 $(document).ready(function(){
-    
+
     (function($) {
         "use strict";
 
@@ -333,7 +333,7 @@ $(document).ready(function(){
             $( html).find('#parent_id').val(parent_id);
             $('#commentFormContainer').hide();
             $(this).parents('.comment-list').append(html).fadeIn('slow').addClass('appended');
-          });  
+          });
 
         $('.comment-list').on('click','.btn-reply.cancel',function(e){
             e.preventDefault();
@@ -349,7 +349,7 @@ $(document).ready(function(){
 
             $('#commentFormContainer').append(html);
         });
-        
+
  })(jQuery)
 })
 </script>
