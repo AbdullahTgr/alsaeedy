@@ -10,7 +10,6 @@ use App\Models\Post;
 use Illuminate\Support\Str;
 use Helper;
 
-use Session;
 class CartController extends Controller
 {
     protected $product=null;

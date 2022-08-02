@@ -16,7 +16,6 @@ use App\User;
 
 use App\Channel;
 
-use Session;
 use Newsletter;
 use DB;
 use Hash;
