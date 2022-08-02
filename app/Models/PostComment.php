@@ -15,21 +15,21 @@ class PostComment extends Model
         $user=Auth::user()->id;
         return $this->hasOne('App\Models\Post','id','post_id')->where("added_by",$user);
     }
-    public static function getAllComments(){ 
-        
+    public static function getAllComments(){
+
         $role=Auth::user()->role;
-        
+
         if($role=='admin'){
             return PostComment::with('user_info')->paginate(10);
-        }else{  
+        }else{
                   $user=Auth::user()->id;
                   return PostComment::with('user_info')->with('posts')->paginate(10);
        }
-        
+
     }
 
     public static function getAllUserComments(){
-        return PostComment::where('user_id',auth()->user()->id)->with('user_info')->paginate(10);
+        return PostComment::where('user_id',"1")->with('user_info')->paginate(10);
     }
 
     public function post(){

@@ -6,30 +6,31 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Wishlist;
 use App\Models\Cart;
+use App\Models\Post;
 use Illuminate\Support\Str;
 use Helper;
+
+use Session;
 class CartController extends Controller
 {
     protected $product=null;
     public function __construct(Product $product){
         $this->product=$product;
     }
-  
+
     public function cart(){
-        
-        if(session()->get('locale')=="en"){
-            // english
-        return view('frontend.pages-en.cart');
-                    }elseif(session()->get('locale')=="fr"){
-            // french
-        return view('frontend.pages-fr.cart');
-                    }else{
-            // arabic
-        return view('frontend.pages.cart');
-                   }
+        $news=$this->getposts();
+        return view('frontend.pages.cart')->with('news',$news);
+
     }
+
+    public function getposts()
+    {
+        return Post::getBlogByCategory('status','active')->orderBy('id','DESC')->limit(20)->get();
+    }
+
     public function wishlist(){
-        
+
         if(session()->get('locale')=="en"){
             // english
         return view('frontend.pages-en.wishlist');
@@ -42,19 +43,20 @@ class CartController extends Controller
                    }
     }
     public function addToCart(Request $request){
+
         // dd($request->all());
         if (empty($request->slug)) {
             request()->session()->flash('error','Invalid Products');
             return back();
-        }        
-        $product = Product::where('slug', $request->slug)->first(); 
+        }
+        $product = Product::where('slug', $request->slug)->first();
         // return $product;
         if (empty($product)) {
             request()->session()->flash('error','Invalid Products');
             return back();
         }
- 
-        $already_cart = Cart::where('user_id', auth()->user()->id)->where('order_id',null)->where('product_id', $product->id)->first();
+
+        $already_cart = Cart::where('user_id', Session::get('virtual_user'))->where('order_id',null)->where('product_id', $product->id)->first();
         // return $already_cart;
         if($already_cart) {
             // dd($already_cart);
@@ -63,23 +65,23 @@ class CartController extends Controller
             // return $already_cart->quantity;
             if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error','Stock not sufficient!.');
             $already_cart->save();
-            
+
         }else{
-            
+
             $cart = new Cart;
-            $cart->user_id = auth()->user()->id;
+            $cart->user_id = Session::get('virtual_user');
             $cart->product_id = $product->id;
             $cart->price = ($product->price-($product->price*$product->discount)/100);
             $cart->quantity = 1;
             $cart->amount=$cart->price*$cart->quantity;
             if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return back()->with('error','Stock not sufficient!.');
             $cart->save();
-            $wishlist=Wishlist::where('user_id',auth()->user()->id)->where('cart_id',null)->update(['cart_id'=>$cart->id]);
+            $wishlist=Wishlist::where('user_id',Session::get('virtual_user'))->where('cart_id',null)->update(['cart_id'=>$cart->id]);
         }
         request()->session()->flash('success','Product successfully added to cart');
-        return back();       
-    }   
- 
+        return back();
+    }
+
     public function singleAddToCart(Request $request){
         $request->validate([
             'slug'      =>  'required',
@@ -95,9 +97,9 @@ class CartController extends Controller
         if ( ($request->quant[1] < 1) || empty($product) ) {
             request()->session()->flash('error','Invalid Products');
             return back();
-        }    
+        }
 
-        $already_cart = Cart::where('user_id', auth()->user()->id)->where('order_id',null)->where('product_id', $product->id)->first();
+        $already_cart = Cart::where('user_id', Session::get('virtual_user') )->where('order_id',null)->where('product_id', $product->id)->first();
 
         // return $already_cart;
 
@@ -109,11 +111,11 @@ class CartController extends Controller
             if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error','Stock not sufficient!.');
 
             $already_cart->save();
-            
+
         }else{
-            
+
             $cart = new Cart;
-            $cart->user_id = auth()->user()->id;
+            $cart->user_id = Session::get('virtual_user');
             $cart->product_id = $product->id;
             $cart->price = ($product->price-($product->price*$product->discount)/100);
             $cart->quantity = $request->quant[1];
@@ -123,19 +125,19 @@ class CartController extends Controller
             $cart->save();
         }
         request()->session()->flash('success','Product successfully added to cart.');
-        return back();       
-    } 
-    
+        return back();
+    }
+
     public function cartDelete(Request $request){
         $cart = Cart::find($request->id);
         if ($cart) {
             $cart->delete();
             request()->session()->flash('success','Cart successfully removed');
-            return back();  
+            return back();
         }
         request()->session()->flash('error','Error please try again');
-        return back();       
-    }     
+        return back();
+    }
 
     public function cartUpdate(Request $request){
         // dd($request->all());
@@ -158,7 +160,7 @@ class CartController extends Controller
                     }
                     $cart->quantity = ($cart->product->stock > $quant) ? $quant  : $cart->product->stock;
                     // return $cart;
-                    
+
                     if ($cart->product->stock <=0) continue;
                     $after_price=($cart->product->price-($cart->product->price*$cart->product->discount)/100);
                     $cart->amount = $after_price * $quant;
@@ -172,7 +174,7 @@ class CartController extends Controller
             return back()->with($error)->with('success', $success);
         }else{
             return back()->with('Cart Invalid!');
-        }    
+        }
     }
 
     // public function addToCart(Request $request){
@@ -202,7 +204,7 @@ class CartController extends Controller
     //             'price'=>$this->product->price,
     //             'photo'=>$this->product->photo,
     //         );
-            
+
     //         $price=$this->product->price;
     //         if($this->product->discount){
     //             $price=($price-($price*$this->product->discount)/100);
@@ -276,15 +278,8 @@ class CartController extends Controller
         //     $cart->fill($data);
         //     $cart->save();
         // }
-        if(session()->get('locale')=="en"){
-            // english
-        return view('frontend.pages-en.checkout');
-                    }elseif(session()->get('locale')=="fr"){
-            // french
-        return view('frontend.pages-fr.checkout');
-                    }else{
-            // arabic
-        return view('frontend.pages.checkout');
-                   }
+         $news=$this->getposts();
+        return view('frontend.pages.checkout')->with('news',$news);
+
     }
 }

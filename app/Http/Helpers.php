@@ -11,7 +11,7 @@ use App\Models\Wishlist;
 use App\Models\Shipping;
 use App\Models\Cart;
 
-
+use Illuminate\Contracts\Session\Session;
 
 
 // use Auth;
@@ -19,14 +19,14 @@ class Helper{
     public static function messageList()
     {
         return Message::whereNull('read_at')->orderBy('created_at', 'desc')->get();
-    } 
+    }
 
-    
-    public static function getHeaderCategory($nme){ 
-        
+
+    public static function getHeaderCategory($nme){
+
         $categories=PostCategory::get();
         // dd($category);
-        
+
 ?>
 
 <div class="abdullahmostafa">
@@ -36,7 +36,7 @@ class Helper{
 foreach($categories as $category){
          ?>
     <label for="<?php echo $category->{'title-ar'} ?> " class="home">
-    
+
             <a href="<?php echo route('blog.category',$category->{'slug'}) ?>">
 
             <?php echo $category->{'title-ar'} ?>
@@ -57,7 +57,7 @@ foreach($categories as $category){
 
 
 <?php
-  
+
     }
 
     public static function productCategoryList($option='all'){
@@ -87,22 +87,18 @@ foreach($categories as $category){
         return PostCategory::has('posts')->orderBy('id','DESC')->get();
     }
     public static function videoCategoryList($option="all",$lang='en'){
-        if($option='all'){ 
+        if($option='all'){
             return VideoCategory::orderBy('id','DESC')->get();
         }
         return VideoCategory::has('videos')->orderBy('id','DESC')->get();
     }
-    
+
     // Cart Count
     public static function cartCount($user_id=''){
-       
-        if(Auth::check()){
-            if($user_id=="") $user_id=auth()->user()->id;
+
+            $user_id=\Session::get('virtual_user');
             return Cart::where('user_id',$user_id)->where('order_id',null)->sum('quantity');
-        }
-        else{
-            return 0;
-        }
+
     }
     // relationship cart with product
     public function product(){
@@ -110,57 +106,41 @@ foreach($categories as $category){
     }
 
     public static function getAllProductFromCart($user_id=''){
-        if(Auth::check()){
-            if($user_id=="") $user_id=auth()->user()->id;
+
+            $user_id=\Session::get('virtual_user');
             return Cart::with('product')->where('user_id',$user_id)->where('order_id',null)->get();
-        }
-        else{
-            return 0;
-        }
+
     }
     // Total amount cart
     public static function totalCartPrice($user_id=''){
-        if(Auth::check()){
-            if($user_id=="") $user_id=auth()->user()->id;
+
+            $user_id=\Session::get('virtual_user');
             return Cart::where('user_id',$user_id)->where('order_id',null)->sum('amount');
-        }
-        else{
-            return 0;
-        }
+
     }
     // Wishlist Count
     public static function wishlistCount($user_id=''){
-       
-        if(Auth::check()){
-            if($user_id=="") $user_id=auth()->user()->id;
+        $user_id=\Session::get('virtual_user');
+
             return Wishlist::where('user_id',$user_id)->where('cart_id',null)->sum('quantity');
-        }
-        else{
-            return 0;
-        }
+
     }
     public static function getAllProductFromWishlist($user_id=''){
-        if(Auth::check()){
-            if($user_id=="") $user_id=auth()->user()->id;
+        $user_id=\Session::get('virtual_user');
             return Wishlist::with('product')->where('user_id',$user_id)->where('cart_id',null)->get();
-        }
-        else{
-            return 0;
-        }
+
     }
     public static function totalWishlistPrice($user_id=''){
-        if(Auth::check()){
-            if($user_id=="") $user_id=auth()->user()->id;
+        $user_id=\Session::get('virtual_user');
             return Wishlist::where('user_id',$user_id)->where('cart_id',null)->sum('amount');
-        }
-        else{
-            return 0;
-        }
+
+
     }
 
     // Total price with shipping and coupon
     public static function grandPrice($id,$user_id){
         $order=Order::find($id);
+        $user_id=\Session::get('virtual_user');
         dd($id);
         if($order){
             $shipping_price=(float)$order->shipping->price;
@@ -189,3 +169,4 @@ foreach($categories as $category){
 }
 
 ?>
+

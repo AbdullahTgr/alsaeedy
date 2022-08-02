@@ -20,13 +20,13 @@
         </div>
     </div>
     <!-- End Breadcrumbs -->
-            
+
     <!-- Start Checkout -->
     <section class="shop checkout section">
         <div class="container">
                 <form class="form" method="POST" action="{{route('cart.order')}}">
                     @csrf
-                    <div class="row"> 
+                    <div class="row">
 
                         <div class="col-lg-8 col-12">
                             <div class="checkout-form">
@@ -37,7 +37,7 @@
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="form-group">
                                             <label>{{ Lang::get('msg.firstname') }}<span>*</span></label>
-                                            <input type="text" name="first_name" placeholder="" value="{{ auth()->user()->name }}">
+                                            <input type="text" name="first_name" placeholder="" value="عميل">
                                             @error('first_name')
                                                 <span class='text-danger'>{{$message}}</span>
                                             @enderror
@@ -55,7 +55,7 @@
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="form-group">
                                             <label>{{ Lang::get('msg.email') }}<span>*</span></label>
-                                            <input type="email" name="email" placeholder="" value="{{ auth()->user()->email }}">
+                                            <input type="email" name="email" placeholder="" value="test@gmail.com">
                                             @error('email')
                                                 <span class='text-danger'>{{$message}}</span>
                                             @enderror
@@ -349,7 +349,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <!--/ End Form -->
                             </div>
@@ -371,11 +371,11 @@
                                                         <option value="{{$shipping->id}}" class="shippingOption" data-price="{{$shipping->price}}">{{$shipping->type}}: ${{$shipping->price}}</option>
                                                         @endforeach
                                                     </select>
-                                                @else 
+                                                @else
                                                     <span>{{ Lang::get('msg.free') }}</span>
                                                 @endif
                                             </li>
-                                            
+
                                             @if(session('coupon'))
                                             <li class="coupon_price" data-price="{{session('coupon')['value']}}">You Save<span>${{number_format(session('coupon')['value'],2)}}</span></li>
                                             @endif
@@ -402,9 +402,9 @@
                                             {{-- <label class="checkbox-inline" for="1"><input name="updates" id="1" type="checkbox"> Check Payments</label> --}}
                                             <form-group>
                                                 <input name="payment_method"  type="radio" value="cod"> <label>{{ Lang::get('msg.cashondelivery') }}</label><br>
-                                                <input name="payment_method"  type="radio" value="paypal"> <label>{{ Lang::get('msg.paypal') }}</label> 
+                                                <input name="payment_method"  type="radio" value="paypal"> <label>{{ Lang::get('msg.paypal') }}</label>
                                             </form-group>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -432,7 +432,7 @@
         </div>
     </section>
     <!--/ End Checkout -->
-    
+
     <!-- Start Shop Services Area  -->
     <section class="shop-services section home">
         <div class="container">
@@ -459,7 +459,7 @@
                     <!-- Start Single Service -->
                     <div class="single-service">
                         <i class="ti-lock"></i>
-                        
+
                         <p>{{ Lang::get('msg.100securepayment') }}</p>
                     </div>
                     <!-- End Single Service -->
@@ -477,7 +477,7 @@
         </div>
     </section>
     <!-- End Shop Services -->
-    
+
     {{-- <!-- Start Shop Newsletter  -->
     <section class="shop-newsletter section">
         <div class="container">
@@ -569,8 +569,8 @@
 		$(document).ready(function(){
 			$('.shipping select[name=shipping]').change(function(){
 				let cost = parseFloat( $(this).find('option:selected').data('price') ) || 0;
-				let subtotal = parseFloat( $('.order_subtotal').data('price') ); 
-				let coupon = parseFloat( $('.coupon_price').data('price') ) || 0; 
+				let subtotal = parseFloat( $('.order_subtotal').data('price') );
+				let coupon = parseFloat( $('.coupon_price').data('price') ) || 0;
 				// alert(coupon);
 				$('#order_total_price span').text('$'+(subtotal + cost-coupon).toFixed(2));
 			});

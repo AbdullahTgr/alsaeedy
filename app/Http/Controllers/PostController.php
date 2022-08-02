@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Post;
 use App\Models\PostCategory;
@@ -19,11 +18,13 @@ class PostController extends Controller
      */
     public function index()
     {
-        
-        $posts=Post::getAllPost(); 
+
+        FrontendController::setvirtualuser();
+
+        $posts=Post::getAllPost();
         $tags=PostTag::get();
- 
-        
+
+
         // return $posts;
         return view('backend.post.index')->with('tags',$tags)->with('posts',$posts);
     }
@@ -37,7 +38,7 @@ class PostController extends Controller
     {
         $categories=PostCategory::get();
         $tags=PostTag::get();
-        $users=User::get(); 
+        $users=User::get();
         return view('backend.post.create')->with('users',$users)->with('categories',$categories)->with('tags',$tags);
     }
 
@@ -68,16 +69,16 @@ class PostController extends Controller
 
        // $old_sitemap.='https//:adasdafeaf.com';
         $xmlObject = simplexml_load_string($old_sitemap);
-                   
+
          $json = json_encode($xmlObject);
 
-        $phpArray = json_decode($json, true); 
+        $phpArray = json_decode($json, true);
 
         // '{"label":["rent","heating","utilities","internet_tv" ...],"value":[435,30,0,0 ...]}';
 
 
-        
- 
+
+
 $slug_o=Str::slug($request->{'title-ar'});
 $arr=[];
 
@@ -96,7 +97,7 @@ array_push($phpArray["url"],$arr);
 
 
 $top='<?xml version="1.0" encoding="UTF-8"?>
-<urlset 
+<urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
@@ -121,7 +122,7 @@ foreach($phpArray['url'] as $jso){
     <lastmod>'.$jso['lastmod'].'</lastmod>
     <changefreq>'.$jso['changefreq'].'</changefreq>
     <priority>'.$jso['priority'].'</priority>
-</url>';  
+</url>';
   }
 
 }
@@ -130,15 +131,15 @@ foreach($phpArray['url'] as $jso){
 
  \Illuminate\Support\Facades\File::put('sitemap.xml', $top.$middel.$bottom);
 
-        
- 
+
+
         $data=$request->all();
 
         if(!isset($request->added_by)){
             $data['added_by']=Auth::user()->id;
-        } 
+        }
         //$slug=Str::slug($request->title.'-'.$request->{'title-ar'}.'-');
-        $slug=Str::slug($request->{'title-ar'});  
+        $slug=Str::slug($request->{'title-ar'});
         $count=Post::where('slug',$slug)->count();
         if($count>0){
             $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
@@ -150,7 +151,7 @@ foreach($phpArray['url'] as $jso){
             $data['tags']=implode(',',$tags);
         }
         else{
-            $data['tags']=''; 
+            $data['tags']='';
         }
         // return $data;
 
@@ -166,7 +167,7 @@ foreach($phpArray['url'] as $jso){
         }else{
             return redirect()->route('post_m.index');
         }
-        
+
     }
 
     /**
@@ -193,9 +194,9 @@ foreach($phpArray['url'] as $jso){
         $tags=PostTag::get();
         $users=User::get();
         return view('backend.post.edit')->with('categories',$categories)->with('users',$users)->with('tags',$tags)->with('post',$post);
-     
+
     }
- 
+
     /**
      * Update the specified resource in storage.
      *
@@ -220,7 +221,7 @@ foreach($phpArray['url'] as $jso){
         ]);
         if(!isset($request->added_by)){
             $data['added_by']=Auth::user()->id;
-        } 
+        }
         $data=$request->all();
         $tags=$request->input('tags');
         // return $tags;
@@ -244,7 +245,7 @@ foreach($phpArray['url'] as $jso){
         }else{
             return redirect()->route('post_m.index');
        }
-        
+
     }
 
     /**
@@ -256,9 +257,9 @@ foreach($phpArray['url'] as $jso){
     public function destroy($id)
     {
         $post=Post::findOrFail($id);
-       
+
         $status=$post->delete();
-        
+
         if($status){
             request()->session()->flash('success','Post successfully deleted');
         }

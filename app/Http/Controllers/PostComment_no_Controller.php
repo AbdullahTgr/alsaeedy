@@ -18,18 +18,18 @@ class PostComment_no_Controller extends Controller
      */
     public function index()
     {
-        if(Auth::user()->role=='admin'){ 
-        $comments=Postnocomments::getAllComments(); 
+        if(Auth::user()->role=='admin'){
+         $comments=Postnocomments::getAllComments();
 
         }else{
-            $comments='0';
-            
+          return  $comments='0';
+
         }
         return view('backend.comment.index')->with('comments',$comments);
-    } 
+    }
 
     /**
-     * Show the form for creating a new resource. 
+     * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -50,7 +50,7 @@ class PostComment_no_Controller extends Controller
         $post_info=Post::getPostBySlug($request->slug);
         // return $post_info;
         $data=$request->all();
-        $data['user_id']=1; 
+        $data['user_id']=1;
         // $data['post_id']=$post_info->id;
         $data['status']='inactive';
         // return $data;

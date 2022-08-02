@@ -11,7 +11,7 @@
     <table class="table table-striped table-hover">
       @php
           $shipping_charge=DB::table('shippings')->where('id',$order->shipping_id)->pluck('price');
-      @endphp 
+      @endphp
       <thead>
         <tr>
             <th>S.N.</th>
@@ -48,12 +48,12 @@
             <td>
                 <a href="{{route('order.edit',$order->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
                 <form method="POST" action="{{route('order.destroy',[$order->id])}}">
-                  @csrf 
+                  @csrf
                   @method('delete')
                       <button class="btn btn-danger btn-sm dltBtn" data-id={{$order->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
                 </form>
             </td>
-          
+
         </tr>
       </tbody>
     </table>
@@ -74,8 +74,21 @@
                         <td> : {{$order->created_at->format('D d M, Y')}} at {{$order->created_at->format('g : i a')}} </td>
                     </tr>
                     <tr>
-                        <td>Quantity</td>
-                        <td> : {{$order->quantity}}</td>
+                        <td>الاصناف</td>
+                        <td>
+@foreach ($order->cart_info as $cart_info)
+@php
+$prdname=DB::table('products')->where('id',$cart_info->product_id)->get();
+@endphp
+
+عدد {{ $cart_info->{'quantity'} }} من {{ $prdname->first()->{'title-ar'} }} بسعر {{ intval($prdname->first()->{'price'})-(intval($prdname->first()->{'price'})*intval($prdname->first()->{'discount'})/100) }}  جنية بدلا من {{ $prdname->first()->{'price'} }}
+@endforeach
+
+
+
+
+
+                        </td>
                     </tr>
                     <tr>
                         <td>Order Status</td>

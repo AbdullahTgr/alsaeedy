@@ -18,18 +18,19 @@ class PostCommentController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->role=='admin'){ 
+        if(Auth::user()->role=='admin'){
+
         $comments=PostComment::getAllComments();
 
         }else{
             $comments='0';
-            
+
         }
         return view('backend.comment.index')->with('comments',$comments);
-    } 
+    }
 
     /**
-     * Show the form for creating a new resource. 
+     * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */

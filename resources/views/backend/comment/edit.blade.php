@@ -6,12 +6,28 @@
 <div class="card">
   <h5 class="card-header">Comment Edit</h5>
   <div class="card-body">
-    <form action="{{route('comment.update',$comment->id)}}" method="POST">
+
+    @if (isset($comment->user_info['name']))
+
+    @php
+        $comroute="comment";
+    @endphp
+        <td>{{$comment->user_info['name']}}</td>
+    @else
+    @php
+    $comroute="comment_no";
+@endphp
+        <td>مستخدم</td>
+    @endif
+
+    <form action="{{route($comroute.'.update',$comment->id)}}" method="POST">
+
+
+
       @csrf
       @method('PATCH')
       <div class="form-group">
         <label for="name">By:</label>
-        <input type="text" disabled class="form-control" value="{{$comment->user_info->name}}">
       </div>
       <div class="form-group">
         <label for="comment">comment</label>

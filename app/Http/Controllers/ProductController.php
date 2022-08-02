@@ -18,6 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+        FrontendController::setvirtualuser();
         $products=Product::getAllProduct();
         // return $products;
         return view('backend.product.index')->with('products',$products);
@@ -176,7 +177,7 @@ class ProductController extends Controller
     {
         $product=Product::findOrFail($id);
         $status=$product->delete();
-        
+
         if($status){
             request()->session()->flash('success','Product successfully deleted');
         }

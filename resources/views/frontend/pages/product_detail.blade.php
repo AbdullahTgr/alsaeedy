@@ -7,15 +7,15 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="keywords" content="online shop, purchase, cart, ecommerce site, best online shopping">
-	<meta name="description" content="{!! strip_tags($product_detail->{'summary-ar'}) !!}">
-	<meta property="og:url" content="{!! route('product-detail',strip_tags($product_detail->slug)) !!}"> 
+	 <meta name="description" content="{!! strip_tags($product_detail->{'summary-ar'}) !!}">
+	<meta property="og:url" content="{!! route('product-detail',strip_tags($product_detail->slug)) !!}">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="{!! strip_tags($product_detail->{'title-ar'}) !!}">
 	<meta property="og:image" content="{{ url(explode(',',$product_detail->{'photo'})[0]) }} ">
 	<meta property="og:description" content="{!!  strip_tags($product_detail->{'description-ar'}) !!}">
 @endsection
 
-@section('title',strip_tags($product_detail->{'title-ar'}) ) 
+@section('title',strip_tags($product_detail->{'title-ar'}) )
 @section('main-content')
 
 		<!-- Breadcrumbs -->
@@ -34,11 +34,11 @@
 			</div>
 		</div>
 		<!-- End Breadcrumbs -->
-				
+
 		<!-- Shop Single -->
 		<section class="shop single section">
 					<div class="container">
-						<div class="row"> 
+						<div class="row">
 							<div class="col-12">
 								<div class="row">
 									<div class="col-lg-6 col-12">
@@ -47,7 +47,7 @@
 											<!-- Images slider -->
 											<div class="flexslider-thumbnails">
 												<ul class="slides">
-													@php 
+													@php
 														$photo=explode(',',$product_detail->photo);
 													// dd($photo);
 													@endphp
@@ -75,14 +75,14 @@
 															@for($i=1; $i<=5; $i++)
 																@if($rate>=$i)
 																	<li><i class="fa fa-star"></i></li>
-																@else 
+																@else
 																	<li><i class="fa fa-star-o"></i></li>
 																@endif
 															@endfor
 													</ul>
 													<a href="#" class="total-review">({{$product_detail['getReview']->count()}}) {{ Lang::get('msg.review') }}</a>
                                                 </div>
-                                                @php 
+                                                @php
                                                     $after_discount=($product_detail->price-(($product_detail->price*$product_detail->discount)/100));
                                                 @endphp
 												<p class="price"><span class="discount">${{number_format($after_discount,2)}}</span><s>${{number_format($product_detail->price,2)}}</s> </p>
@@ -105,7 +105,7 @@
 												<div class="size mt-4">
 													<h4>Size</h4>
 													<ul>
-														@php 
+														@php
 															$sizes=explode(',',$product_detail->size);
 															// dd($sizes);
 														@endphp
@@ -119,7 +119,7 @@
 											<!-- Product Buy -->
 											<div class="product-buy">
 												<form action="{{route('single-add-to-cart')}}" method="POST">
-													@csrf 
+													@csrf
 													<div class="quantity">
 														<h6> {{ Lang::get('msg.quantity') }}</h6>
 														<!-- Input Order -->
@@ -185,7 +185,7 @@
 													<div class="tab-single review-panel">
 														<div class="row">
 															<div class="col-12">
-																
+
 																<!-- Review -->
 																<div class="comment-review">
 																	<div class="add-review">
@@ -227,13 +227,13 @@
 																			</div>
 																		</div>
 																		<div class="col-lg-12 col-12">
-																			<div class="form-group button5">	
+																			<div class="form-group button5">
 																				<button type="submit" class="btn">{{ Lang::get('msg.submit') }}</button>
 																			</div>
 																		</div>
 																	</div>
 																</form>
-																@else 
+																@else
 																<p class="text-center p-5">
 																	{{ Lang::get('msg.youneedto') }} <a href="{{route('login.form')}}" style="color:rgb(54, 54, 204)">{{ Lang::get('msg.login') }}</a> {{ Lang::get('msg.or') }} <a style="color:blue" href="{{route('register.form')}}">{{ Lang::get('msg.register') }}</a>
 
@@ -242,10 +242,10 @@
 																@endauth
 																	</div>
 																</div>
-															
+
 																<div class="ratting-main">
 																	<div class="avg-ratting">
-																		{{-- @php 
+																		{{-- @php
 																			$rate=0;
 																			foreach($product_detail->rate as $key=>$rate){
 																				$rate +=$rate
@@ -260,7 +260,7 @@
 																		<div class="rating-author">
 																			@if($data->user_info['photo'])
 																			<img src="{{$data->user_info['photo']}}" alt="{{$data->user_info['photo']}}">
-																			@else 
+																			@else
 																			<img src="{{asset('backend/img/avatar.png')}}" alt="Profile.jpg">
 																			@endif
 																		</div>
@@ -272,7 +272,7 @@
 																					@for($i=1; $i<=5; $i++)
 																						@if($data->rate>=$i)
 																							<li><i class="fa fa-star"></i></li>
-																						@else 
+																						@else
 																							<li><i class="fa fa-star-o"></i></li>
 																						@endif
 																					@endfor
@@ -285,9 +285,9 @@
 																	<!--/ End Single Rating -->
 																	@endforeach
 																</div>
-																
+
 																<!--/ End Review -->
-																
+
 															</div>
 														</div>
 													</div>
@@ -302,7 +302,7 @@
 					</div>
 		</section>
 		<!--/ End Shop Single -->
-		
+
 		<!-- Start Most Popular -->
 	<div class="product-area most-popular related-product section">
         <div class="container">
@@ -323,7 +323,7 @@
                                 <div class="single-product">
                                     <div class="product-img">
 										<a href="{{route('product-detail',$data->slug)}}">
-											@php 
+											@php
 												$photo=explode(',',$data->photo);
 											@endphp
                                             <img class="default-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
@@ -345,17 +345,17 @@
                                     <div class="product-content">
                                         <h3><a href="{{route('product-detail',$data->slug)}}">{{$data->title}}</a></h3>
                                         <div class="product-price">
-                                            @php 
+                                            @php
                                                 $after_discount=($data->price-(($data->discount*$data->price)/100));
                                             @endphp
                                             <span class="old">${{number_format($data->price,2)}}</span>
                                             <span>${{number_format($after_discount,2)}}</span>
                                         </div>
-                                      
+
                                     </div>
                                 </div>
                                 <!-- End Single Product -->
-                                	
+
                             @endif
                         @endforeach
                     </div>
@@ -364,7 +364,7 @@
         </div>
     </div>
 	<!-- End Most Popular Area -->
-	
+
 
   <!-- Modal -->
   <div class="modal fade" id="modelExample" tabindex="-1" role="dialog">

@@ -14,7 +14,7 @@
     @if ($comments=='0')
             Nice Try.
     @else
-      
+{{$comments}}
     <div class="card-body">
       <div class="table-responsive">
         @if(count($comments)>0)
@@ -42,16 +42,33 @@
             </tr>
           </tfoot>
           <tbody>
-          
+
             @foreach($comments as $comment)
             {{-- {{$comment}}   --}}
-              @php 
-              $title=DB::table('posts')->select('title')->where('id',$comment->post_id)->get();
+              @php
+              $title=DB::table('posts')->where('id',$comment->post_id)->get();
               @endphp
+
                 <tr>
                     <td>{{$comment->id}}</td>
-                    <td>{{$comment->user_info['name']}}</td>
-                    <td>@foreach($title as $data){{ $data->title}} @endforeach</td>
+
+                        @if (isset($comment->user_info['name']))
+
+                        @php
+                            $comroute="comment";
+                        @endphp
+                            <td>{{$comment->user_info['name']}}</td>
+                        @else
+                        @php
+                        $comroute="comment_no";
+                    @endphp
+                            <td>مستخدم</td>
+                        @endif
+
+
+
+
+                    <td>@foreach($title as $data)<a href="{{route('blog.detail', $data->{'slug'})}}" target="_blank">{{ $data->{'title-ar'} }}</a> @endforeach</td>
                     <td>{{$comment->comment}}</td>
                     <td>{{$comment->created_at->format('M d D, Y g: i a')}}</td>
                     <td>
@@ -62,14 +79,14 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('comment.edit',$comment->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
-                        <form method="POST" action="{{route('comment.destroy',[$comment->id])}}">
-                          @csrf 
+                        <a href="{{route($comroute.'.edit',$comment->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                        <form method="POST" action="{{route($comroute.'.destroy',[$comment->id])}}">
+                          @csrf
                           @method('delete')
                               <button class="btn btn-danger btn-sm dltBtn" data-id={{$comment->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
-                </tr>  
+                </tr>
             @endforeach
           </tbody>
         </table>
@@ -78,7 +95,7 @@
           <h6 class="text-center">No post comments found!!!</h6>
         @endif
       </div>
-    </div>  
+    </div>
 @endif
 </div>
 @endsection
@@ -103,7 +120,7 @@
   <!-- Page level custom scripts -->
   <script src="{{asset('backend/js/demo/datatables-demo.js')}}"></script>
   <script>
-      
+
       $('#order-dataTable').DataTable( {
             "columnDefs":[
                 {
@@ -116,7 +133,7 @@
         // Sweet alert
 
         function deleteData(id){
-            
+
         }
   </script>
   <script>
